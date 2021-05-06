@@ -1,0 +1,54 @@
+<div class="col-12 d-flex align-items-center justify-content-center">
+    <h1 class="new_case">Nuevo Caso</h1>
+</div>
+
+<div class="col-12 d-flex align-items-center justify-content-center">
+
+    <div class=" d-flex  flex-row float-start align-items-center justify-content-center">
+        <li class=" " style=" width:400px;">
+            <a class="nav-link active" id="sube_archivo" aria-current="page"
+                style="color:#0E3141;border-bottom:  1px solid #7D7D7D;" href="#">Sube
+                tus archivos</a>
+        </li>
+        <li class=" " style=" width:400px;">
+            <a class="nav-link" href="#" id="sube_manual" style="color:#0E3141; ">Crear de forma manual</a>
+        </li>
+    </div>
+
+</div>
+
+<!---FROM 1 --->
+<div id="drop">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <form>
+            <p class="limit_size">Tamaño máximo: 50mb</p>
+
+            <div id="drop-area">
+                <img src="./img/nube.png" class="rounded-circle" height="56.2px" ; width="60px" ; alt="" />
+                <p style="font-family: Montserrat;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 17px;
+                /* identical to box height */
+                
+                text-align: center;
+                
+                color: #7B89B2;margin-bottom: 30px;">Arrastra tus archivos aquí</p>
+                <p>o</p>
+
+                <input type="file" id="myfile" name="myfile" value="Cargar desde computadora" class="myfile"
+                    multiple="multiple"><br><br>
+
+                <p id="gallery"></p>
+                <progress id="progress-bar" max=100 value=0></progress>
+
+                <p>Puedes subir JPG, PNG, Word, Excel y PDF</p>
+            </div>
+            <div id="message_error">
+                <p></p>
+            </div>
+            <button>Continuar</button>
+        </form>
+    </div>
+</div>
