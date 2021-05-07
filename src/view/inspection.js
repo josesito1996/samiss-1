@@ -1,7 +1,29 @@
 // var admin = require('firebase-admin');
+// import { user } from "../firebase/firebase-Auth";
+// import { getProfileInfo } from "../firebase/firestore-controller";
+
 export default () => {
-    const viewInspection = document.createElement('div');
-    viewInspection.innerHTML = `
+  localStorage.removeItem("date");
+  localStorage.removeItem("order");
+  // const currentUser = user();
+  // getProfileInfo(currentUser.uid).then((doc) => {
+  //     localStorage.setItem('orden', doc.data().orden);
+  // });
+
+  // // user
+  // const currentUser = firebase.auth();
+  // currentUser.currentUser;
+
+  // // getProfileInfo
+  // const getProfileInfo = (userId) =>
+  //   firebase.firestore().collection("users").doc(userId).get();
+
+  // getProfileInfo(currentUser.uid).then((doc) => {
+  //   localStorage.setItem("orden", doc.data().orden);
+  // });
+
+  const viewInspection = document.createElement("div");
+  viewInspection.innerHTML = `
     <!---Primera fila-->
     <div class="row " style="">
         <!-- Navbar-->
@@ -223,7 +245,7 @@ export default () => {
                         <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
                             inicio</label>
                         <input type="date"  class="form-control" style="width:161.54px; height:39px;"
-                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31">
+                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31"> 
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
@@ -268,16 +290,16 @@ export default () => {
                             <div class="check1" style="margin-left:242.93px;margin-rigth:30px;">
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" <input type="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales"
+                                    <input type="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
                                         style="width:auto;" />
-                                    <label class="form-check-label"   style="margin-left:0px;width:auto;"
+                                    <label class="form-check-label"  style="margin-left:0px;width:auto;"
                                         for="Relaciones laborales">
                                         Relaciones laborales
                                     </label>
                                 </div>
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" id="check2" value="Seguridad y salud en el trabajo" style="width:auto;" />
+                                    <input type="checkbox" id="check2" value="Seguridad y salud en el trabajo" value="Seguridad y salud en el trabajo" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Seguridad y salud en el trabajo">
                                         Seguridad y salud en el trabajo
@@ -312,30 +334,36 @@ export default () => {
                                     </label>
                                 </div>
     
-                                <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check6" id="check6" value="Seguridad social" style="width:auto;" />
-                                    <label class="form-check-label col-12 col-lg-7 " style="margin-left:0px;width:auto;"
-                                        for="Seguridad social">
-                                        Seguridad social
+
+    
+    
+
+    
+                                <div class="row">
+                                    <input type="checkbox" name="check6" id="check6" value =" Intermediación laboral" style="width:auto;" />
+                                    <label class="form-check-label" style="margin-left:0px;width:auto;"
+                                        for="Intermediación laboral">
+                                        Extranjeros
                                     </label>
                                 </div>
-    
-    
+
+                               <div class="row " style=" margin-button:31px;">
+                                  <input type="checkbox" name="check7" id="check7" value="Seguridad social" style="width:auto;" />
+                                  <label class="form-check-label col-12 col-lg-7 " style="margin-left:0px;width:auto;"
+                                      for="Seguridad social">
+                                      Seguridad social
+                                  </label>
+                              </div>
+
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check7" id="check7" value ="Labor inspectiva" style="width:auto;" />
+                                    <input type="checkbox" name="check8" id="check8" value ="Labor inspectiva" style="width:auto;" />
                                     <label class="form-check-label " style="margin-left:0px;width:auto;"
                                         for="Labor inspectiva">
                                         Labor inspectiva
                                     </label>
                                 </div>
-    
-                                <div class="row">
-                                    <input type="checkbox" name="check8" id="check8" value =" Intermediación laboral" style="width:auto;" />
-                                    <label class="form-check-label" style="margin-left:0px;width:auto;"
-                                        for="Intermediación laboral">
-                                        Intermediación laboral
-                                    </label>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -371,7 +399,125 @@ export default () => {
     </div>
         `;
 
-     
+  //Validar Size
+
+  var inputElement = viewInspection.querySelector("#myfile");
+
+  //******* Form Caso *******//
+  const inspectionDate = viewInspection.querySelector("#fecha_inspection");
+  // const inspectionOrder = viewInspection.querySelector("#orden_inspection");
+  const checkboxes = viewInspection.querySelector(
+    'input[type="checkbox"]:checked'
+  );
+
+  function handlerDate() {
+    localStorage.setItem("date", inspectionDate.value);
+  }
+
+  inspectionDate.addEventListener("change", handlerDate);
+  // inspectionOrder.addEventListener("change", handlerOrder);
+
+  //******* Form Caso - Materias *******//
+  const checkUno = viewInspection.querySelector("#check1");
+  const checkDos = viewInspection.querySelector("#check2");
+  const checkTres = viewInspection.querySelector("#check3");
+  const checkCuatro = viewInspection.querySelector("#check4");
+  const checkCinco = viewInspection.querySelector("#check5");
+  const checkSeis = viewInspection.querySelector("#check6");
+  const checkSiete = viewInspection.querySelector("#check7");
+  const checkOcho = viewInspection.querySelector("#check8");
+  localStorage.removeItem("materia1");
+  localStorage.removeItem("materia2");
+  localStorage.removeItem("materia3");
+  localStorage.removeItem("materia4");
+  localStorage.removeItem("materia5");
+  localStorage.removeItem("materia6");
+  localStorage.removeItem("materia7");
+  localStorage.removeItem("materia8");
+
+  function handlerCheck1() {
+    let checked = checkUno.checked;
+    if (checked) {
+      localStorage.setItem("materia1", checkUno.value);
+    } else {
+      localStorage.removeItem("materia1");
+    }
+  }
+
+  function handlerCheck2() {
+    let checked = checkDos.checked;
+    if (checked) {
+      localStorage.setItem("materia2", checkDos.value);
+    } else {
+      localStorage.removeItem("materia2");
+    }
+  }
+
+  function handlerCheck3() {
+    let checked = checkTres.checked;
+    if (checked) {
+      localStorage.setItem("materia3", checkTres.value);
+    } else {
+      localStorage.removeItem("materia3");
+    }
+  }
+
+  function handlerCheck4() {
+    let checked = checkCuatro.checked;
+    if (checked) {
+      localStorage.setItem("materia4", checkCuatro.value);
+    } else {
+      localStorage.removeItem("materia4");
+    }
+  }
+
+  function handlerCheck5() {
+    let checked = checkCinco.checked;
+    if (checked) {
+      localStorage.setItem("materia5", checkCinco.value);
+    } else {
+      localStorage.removeItem("materia5");
+    }
+  }
+
+  function handlerCheck6() {
+    let checked = checkSeis.checked;
+    if (checked) {
+      localStorage.setItem("materia6", checkSeis.value);
+    } else {
+      localStorage.removeItem("materia6");
+    }
+  }
+
+  function handlerCheck7() {
+    let checked = checkSiete.checked;
+    if (checked) {
+      localStorage.setItem("materia7", checkSiete.value);
+    } else {
+      localStorage.removeItem("materia7");
+    }
+  }
+
+  function handlerCheck8() {
+    let checked = checkOcho.checked;
+    if (checked) {
+      localStorage.setItem("materia8", checkOcho.value);
+    } else {
+      localStorage.removeItem("materia8");
+    }
+  }
+
+  checkUno.addEventListener("change", handlerCheck1);
+  checkDos.addEventListener("change", handlerCheck2);
+  checkTres.addEventListener("change", handlerCheck3);
+  checkCuatro.addEventListener("change", handlerCheck4);
+  checkCinco.addEventListener("change", handlerCheck5);
+  checkSeis.addEventListener("change", handlerCheck6);
+  checkSiete.addEventListener("change", handlerCheck7);
+  checkOcho.addEventListener("change", handlerCheck8);
+  //******* Form Caso - Materias *******//
+
+
  //Validar Size
 //subir archivos 
 const  fileInput  = viewInspection.querySelector( "#myfiles" ); 
@@ -402,35 +548,35 @@ const fileLimit = 5000000;
 function dragenter(event) {
     event.stopPropagation();
     event.preventDefault();
-}
+  }
 
-function dragover(event) {
+  function dragover(event) {
     event.stopPropagation();
     event.preventDefault();
-}
+  }
 
 const file2 = viewInspection.querySelector("#file2")
 function drop(event) {
-
-    console.log('drop', event);
+  
+    console.log("drop", event);
     event.stopPropagation();
     event.preventDefault();
 
     var data = event.dataTransfer;
     var files = data.files;
-    console.log(files)
+    console.log(files);
     var file;
     console.log(file);
     var reader;
     console.log(reader);
 
     for (var i = 0; i < files.length; i++) {
-        file = files[i];
-        reader = new FileReader();
-        // reader.onloadend = onFileLoaded;
-        reader.readAsBinaryString(file);
+      file = files[i];
+      reader = new FileReader();
+      // reader.onloadend = onFileLoaded;
+      reader.readAsBinaryString(file);
     }
-
+  
     file2.classList.remove("ocultar");
     let gallery = viewInspection.querySelector('.gallery');
     console.log(gallery);
@@ -439,10 +585,9 @@ function drop(event) {
        if(this.file[0].size > 5000000){
          viewInspection.querySelector("#message_error").innerHTML = "Ups, el archivo excede el máximo de 50mb de peso. "
           this.value = "";
-       };
-    
+       };   
 }
-        var contenedor = viewInspection.querySelector("#drop-area");
+  var contenedor = viewInspection.querySelector("#drop-area");
         contenedor.addEventListener("dragenter", dragenter, false);
         contenedor.addEventListener("dragover", dragover, false);
         contenedor.addEventListener("drop", drop, false);
@@ -542,7 +687,6 @@ function drop(event) {
         })
     
     });
-
       //ir a home con el boton crear caso
       const btn_home = viewInspection.querySelector('#enviar');
       btn_home.addEventListener('click', (e) => {
@@ -550,4 +694,5 @@ function drop(event) {
         });
       return viewInspection
   };
+
   

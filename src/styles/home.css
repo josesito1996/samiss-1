@@ -135,6 +135,16 @@ margin-left: 20px;
     position: relative;
     opacity: 0.25;  
   }
+
+
+  .hide {
+    display: none;
+  }
+
+  .card_materia {
+    border: 1px solid red;
+  }
+
   /*circle progress*/
   .mt-100 {
     margin-top: 200px
@@ -277,3 +287,4 @@ margin-left: 20px;
         transform: rotate(144deg)
     }
 } */
+
