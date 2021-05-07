@@ -1,8 +1,9 @@
-
-
 export default () => {
-    const viewHome = document.createElement('div');
-    viewHome.innerHTML = `
+  const viewHome = document.createElement("div");
+  const inspectionDate = localStorage.getItem("date");
+  const inspectionOrder = localStorage.getItem("order");
+
+  viewHome.innerHTML = `
     <!---Primera fila-->
     <div class="row " style="">
         <!-- Navbar-->
@@ -96,7 +97,11 @@ export default () => {
                                     <input type="text" id="description" disabled=true
                                         style="width:260px; height:77px;margin-bottom:20px;">
                                 </div>
+
+                                <!--
                                 <div class="fecha_orden" id="fecha_orden"></div>
+                                -->
+                                <!--
                                 <div class="materias" id="materia1"></div>
                                 <div class="materias" id="materia2"></div>
                                 <div class="materias" id="materia3"></div>
@@ -105,6 +110,26 @@ export default () => {
                                 <div class="materias" id="materia6"></div>
                                 <div class="materias" id="materia7"></div>
                                 <div class="materias" id="materia8"></div>
+                                -->
+
+                                <h6>Fecha de creación</h6>
+                                  ${inspectionDate}
+                                <br></br>
+
+                                <h6>Orden de inspección</h6>
+                                  ${inspectionOrder}
+                                <br></br>
+                                <div id="materias">
+                                    <h6 id ="materia1" class=""> Relaciones Laborales</h6>
+                                    <h6 id ="materia2" class=""> Seguridad y salud en el trabajo</h6>
+                                    <h6 id ="materia3" class=""> Empleo y colocación</h6>
+                                    <h6 id ="materia4" class=""> Intermediación laboral</h6>
+                                    <h6 id ="materia5" class=""> Promoción y formación</h6>
+                                    <h6 id ="materia6" class=""> Extranjeros</h6>
+                                    <h6 id ="materia7" class=""> Seguridad social</h6>
+                                    <h6 id ="materia8" class=""> Labor inspectiva</h6>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -230,156 +255,239 @@ export default () => {
     </div>
     `;
 
+  // **********  Columna Izquierda (inicio)********** //
+  const materias = viewHome.querySelector("#materias");
+  const nameMateria1 = localStorage.getItem("materia1");
+  const nameMateria2 = localStorage.getItem("materia2");
+  const nameMateria3 = localStorage.getItem("materia3");
+  const nameMateria4 = localStorage.getItem("materia4");
+  const nameMateria5 = localStorage.getItem("materia5");
+  const nameMateria6 = localStorage.getItem("materia6");
+  const nameMateria7 = localStorage.getItem("materia7");
+  const nameMateria8 = localStorage.getItem("materia8");
+  const materia1 = viewHome.querySelector("#materia1");
+  const materia2 = viewHome.querySelector("#materia2");
+  const materia3 = viewHome.querySelector("#materia3");
+  const materia4 = viewHome.querySelector("#materia4");
+  const materia5 = viewHome.querySelector("#materia5");
+  const materia6 = viewHome.querySelector("#materia6");
+  const materia7 = viewHome.querySelector("#materia7");
+  const materia8 = viewHome.querySelector("#materia8");
 
-//evento list para utenticar
-const autenticar = firebase.auth();
-autenticar.onAuthStateChanged(user =>{
-if (user){
- 
-  console.log('signin')
-}else{
-  console.log('signup')
-}
-})
+  if (nameMateria1 == null) {
+    materia1.classList.add("hide");
+  } else {
+    materia1.classList.remove("hide");
+    materia1.classList.add("card_materia");
+  }
 
-const fecha_orden = viewHome.querySelector('#fecha_orden');
-const materias1 = viewHome.querySelector('#materia1');
-const materias2 = viewHome.querySelector('#materia2');
-const materias3 = viewHome.querySelector('#materia3');
-const materias4 = viewHome.querySelector('#materia4');
-const materias5 = viewHome.querySelector('#materia5');
-const materias6 = viewHome.querySelector('#materia6');
-const materias7 = viewHome.querySelector('#materia7');
-const materias8 = viewHome.querySelector('#materia8');
+  if (nameMateria2 == null) {
+    materia2.classList.add("hide");
+  } else {
+    materia2.classList.remove("hide");
+    materia2.classList.add("card_materia");
+  }
+
+  if (nameMateria3 == null) {
+    materia3.classList.add("hide");
+  } else {
+    materia3.classList.remove("hide");
+    materia3.classList.add("card_materia");
+  }
+
+  if (nameMateria4 == null) {
+    materia4.classList.add("hide");
+  } else {
+    materia4.classList.remove("hide");
+    materia4.classList.add("card_materia");
+  }
+
+  if (nameMateria5 == null) {
+    materia5.classList.add("hide");
+  } else {
+    materia5.classList.remove("hide");
+    materia5.classList.add("card_materia");
+  }
+
+  if (nameMateria6 == null) {
+    materia6.classList.add("hide");
+  } else {
+    materia6.classList.remove("hide");
+    materia6.classList.add("card_materia");
+  }
+
+  if (nameMateria7 == null) {
+    materia7.classList.add("hide");
+  } else {
+    materia7.classList.remove("hide");
+    materia7.classList.add("card_materia");
+  }
+
+  if (nameMateria8 == null) {
+    materia8.classList.add("hide");
+  } else {
+    materia8.classList.remove("hide");
+    materia8.classList.add("card_materia");
+  }
+  // **********  Columna Izquierda (termino)  ********** //
 
 
-//leer documentos
-firebase.firestore()
-.collection("users").onSnapshot((querySnapshot) => {
-  fecha_orden.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check1}`);
 
-      fecha_orden.innerHTML += `
-        <h6 class="title_card">Fecha de creación</h6>
-        <p style="font-size: 14px;">${doc.data().fecha}</p>
-        <h6 class="title_card">Orden de inspección</h6>
-        <p style="font-size: 14px;">${doc.data().orden}</p>
-        <h6 class="title_card">Materias</h6>
-      `
-        });
-      });
-      firebase.firestore()
-.collection("check1").get((querySnapshot) => {
-  materias1.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check1}`);
+  //    materias.innerHTML = `
+  //              <h6 class=""> ${nameMateria1}</h6>
+  //              <h6 class=""> ${nameMateria2}</h6>
+  //              <h6 class=""> ${nameMateria3}</h6>
+  //              `;
 
-      materias1.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check1}</p>
-           `
-        });
-      });
+  //   // ******* Lista de Materias ******* //
+  //   const materias = viewHome.querySelector("#materias");
 
-      firebase.firestore()
-.collection("check2").onSnapshot((querySnapshot) => {
-  materias2.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check2}`);
+  //   materias.innerHTML = `
+  //               <h6>Materias</h6>
+  //               `;
 
-      materias2.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check2}</p>
-           `
-        });
-      });
+  //evento list para utenticar
+  const autenticar = firebase.auth();
+  autenticar.onAuthStateChanged((user) => {
+    if (user) {
+      console.log("signin");
+    } else {
+      console.log("signup");
+    }
+  });
 
-      firebase.firestore()
-.collection("check3").onSnapshot((querySnapshot) => {
-  materias3.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check3}`);
+  const fecha_orden = viewHome.querySelector("#fecha_orden");
+  const materias1 = viewHome.querySelector("#materia1");
+  const materias2 = viewHome.querySelector("#materia2");
+  const materias3 = viewHome.querySelector("#materia3");
+  const materias4 = viewHome.querySelector("#materia4");
+  const materias5 = viewHome.querySelector("#materia5");
+  const materias6 = viewHome.querySelector("#materia6");
+  const materias7 = viewHome.querySelector("#materia7");
+  const materias8 = viewHome.querySelector("#materia8");
 
-      materias3.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check3}</p>
-           `
-        });
-      });
+  // //leer documentos
+  // firebase.firestore()
+  // .collection("users").onSnapshot((querySnapshot) => {
+  //   fecha_orden.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check1}`);
 
-      firebase.firestore()
-.collection("check4").onSnapshot((querySnapshot) => {
-  materias4.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check4}`);
+  //       fecha_orden.innerHTML += `
+  //         <h6 class="title_card">Fecha de creación</h6>
+  //         <p style="font-size: 14px;">${doc.data().fecha}</p>
+  //         <h6 class="title_card">Orden de inspección</h6>
+  //         <p style="font-size: 14px;">${doc.data().orden}</p>
+  //         <h6 class="title_card">Materias</h6>
+  //       `
+  //         });
+  //       });
+  //       firebase.firestore()
+  // .collection("check1").get((querySnapshot) => {
+  //   materias1.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check1}`);
 
-      materias4.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check4}</p>
-           `
-        });
-      });
+  //       materias1.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check1}</p>
+  //            `
+  //         });
+  //       });
 
-      firebase.firestore()
-.collection("check5").onSnapshot((querySnapshot) => {
-  materias5.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check5}`);
+  //       firebase.firestore()
+  // .collection("check2").onSnapshot((querySnapshot) => {
+  //   materias2.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check2}`);
 
-      materias5.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check5}</p>
-           `
-        });
-      });
+  //       materias2.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check2}</p>
+  //            `
+  //         });
+  //       });
 
-      firebase.firestore()
-.collection("check6").onSnapshot((querySnapshot) => {
-  materias6.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check6}`);
+  //       firebase.firestore()
+  // .collection("check3").onSnapshot((querySnapshot) => {
+  //   materias3.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check3}`);
 
-      materias6.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check6}</p>
-           `
-        });
-      });
+  //       materias3.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check3}</p>
+  //            `
+  //         });
+  //       });
 
-      firebase.firestore()
-.collection("check7").onSnapshot((querySnapshot) => {
-  materias7.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check7}`);
+  //       firebase.firestore()
+  // .collection("check4").onSnapshot((querySnapshot) => {
+  //   materias4.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check4}`);
 
-      materias7.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check7}</p>
-           `
-        });
-      });
+  //       materias4.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check4}</p>
+  //            `
+  //         });
+  //       });
 
-      firebase.firestore()
-.collection("check8").onSnapshot((querySnapshot) => {
-  materias8.innerHTML='';
-  querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check8}`);
+  //       firebase.firestore()
+  // .collection("check5").onSnapshot((querySnapshot) => {
+  //   materias5.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check5}`);
 
-      materias8.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check8}</p>
-           `
-        });
-      });
+  //       materias5.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check5}</p>
+  //            `
+  //         });
+  //       });
 
-      
+  //       firebase.firestore()
+  // .collection("check6").onSnapshot((querySnapshot) => {
+  //   materias6.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check6}`);
 
-     
-      //habilitar input
+  //       materias6.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check6}</p>
+  //            `
+  //         });
+  //       });
 
-      const editar = viewHome.querySelector("#edit");
-      editar.addEventListener("click", ()=>{
-        const description = viewHome.querySelector("#description");
-        if(description .disabled == true)	{
-		      description.disabled=false;
-	      }
-        else
-        {
-          description.disabled=true;
-        }
-            });
-    return viewHome;
-  };
+  //       firebase.firestore()
+  // .collection("check7").onSnapshot((querySnapshot) => {
+  //   materias7.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check7}`);
+
+  //       materias7.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check7}</p>
+  //            `
+  //         });
+  //       });
+
+  //       firebase.firestore()
+  // .collection("check8").onSnapshot((querySnapshot) => {
+  //   materias8.innerHTML='';
+  //   querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data().check8}`);
+
+  //       materias8.innerHTML = `
+  //            <p style="font-size: 14px;">${doc.data().check8}</p>
+  //            `
+  //         });
+  //       });
+
+  //habilitar input
+
+  const editar = viewHome.querySelector("#edit");
+  editar.addEventListener("click", () => {
+    const description = viewHome.querySelector("#description");
+    if (description.disabled == true) {
+      description.disabled = false;
+    } else {
+      description.disabled = true;
+    }
+  });
+  return viewHome;
+};

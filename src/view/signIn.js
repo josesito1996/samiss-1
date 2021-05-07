@@ -108,7 +108,7 @@ function validarEmail(correo) {
  auth.signInWithEmailAndPassword(email, pass)
 
  .then(userCredencial => {
-  window.location.hash = '#/home';
+  window.location.hash = "#/inspection";
   var user = userCredential.user;
   console.log("exitoso");
   // readAddNotes();

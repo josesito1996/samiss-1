@@ -1,7 +1,29 @@
 // var admin = require('firebase-admin');
+// import { user } from "../firebase/firebase-Auth";
+// import { getProfileInfo } from "../firebase/firestore-controller";
+
 export default () => {
-    const viewInspection = document.createElement('div');
-    viewInspection.innerHTML = `
+  localStorage.removeItem("date");
+  localStorage.removeItem("order");
+  // const currentUser = user();
+  // getProfileInfo(currentUser.uid).then((doc) => {
+  //     localStorage.setItem('orden', doc.data().orden);
+  // });
+
+  // // user
+  // const currentUser = firebase.auth();
+  // currentUser.currentUser;
+
+  // // getProfileInfo
+  // const getProfileInfo = (userId) =>
+  //   firebase.firestore().collection("users").doc(userId).get();
+
+  // getProfileInfo(currentUser.uid).then((doc) => {
+  //   localStorage.setItem("orden", doc.data().orden);
+  // });
+
+  const viewInspection = document.createElement("div");
+  viewInspection.innerHTML = `
     <!---Primera fila-->
     <div class="row " style="">
         <!-- Navbar-->
@@ -191,7 +213,7 @@ export default () => {
                         <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
                             inicio</label>
                         <input type="date"  class="form-control" style="width:161.54px; height:39px;"
-                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31">
+                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31"> 
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
@@ -236,16 +258,16 @@ export default () => {
                             <div class="check1" style="margin-left:242.93px;margin-rigth:30px;">
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" <input type="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales"
+                                    <input type="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
                                         style="width:auto;" />
-                                    <label class="form-check-label"   style="margin-left:0px;width:auto;"
+                                    <label class="form-check-label"  style="margin-left:0px;width:auto;"
                                         for="Relaciones laborales">
                                         Relaciones laborales
                                     </label>
                                 </div>
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" id="check2" value="Seguridad y salud en el trabajo" style="width:auto;" />
+                                    <input type="checkbox" id="check2" value="Seguridad y salud en el trabajo" value="Seguridad y salud en el trabajo" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Seguridad y salud en el trabajo">
                                         Seguridad y salud en el trabajo
@@ -280,30 +302,36 @@ export default () => {
                                     </label>
                                 </div>
     
-                                <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check6" id="check6" value="Seguridad social" style="width:auto;" />
-                                    <label class="form-check-label col-12 col-lg-7 " style="margin-left:0px;width:auto;"
-                                        for="Seguridad social">
-                                        Seguridad social
+
+    
+    
+
+    
+                                <div class="row">
+                                    <input type="checkbox" name="check6" id="check6" value =" Intermediación laboral" style="width:auto;" />
+                                    <label class="form-check-label" style="margin-left:0px;width:auto;"
+                                        for="Intermediación laboral">
+                                        Extranjeros
                                     </label>
                                 </div>
-    
-    
+
+                               <div class="row " style=" margin-button:31px;">
+                                  <input type="checkbox" name="check7" id="check7" value="Seguridad social" style="width:auto;" />
+                                  <label class="form-check-label col-12 col-lg-7 " style="margin-left:0px;width:auto;"
+                                      for="Seguridad social">
+                                      Seguridad social
+                                  </label>
+                              </div>
+
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check7" id="check7" value ="Labor inspectiva" style="width:auto;" />
+                                    <input type="checkbox" name="check8" id="check8" value ="Labor inspectiva" style="width:auto;" />
                                     <label class="form-check-label " style="margin-left:0px;width:auto;"
                                         for="Labor inspectiva">
                                         Labor inspectiva
                                     </label>
                                 </div>
-    
-                                <div class="row">
-                                    <input type="checkbox" name="check8" id="check8" value =" Intermediación laboral" style="width:auto;" />
-                                    <label class="form-check-label" style="margin-left:0px;width:auto;"
-                                        for="Intermediación laboral">
-                                        Intermediación laboral
-                                    </label>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -339,366 +367,474 @@ export default () => {
     </div>
         `;
 
-    //     <label for="myfile" class="myfile">
-    //     <i class="fas fa-cloud-upload-alt"></i> Cargar desde computadora
-    // </label>
-    // <input id="myfile" onchange='cambiar()' type="file" style='display: none;'/>
-    // <div id="info"></div>
+  //     <label for="myfile" class="myfile">
+  //     <i class="fas fa-cloud-upload-alt"></i> Cargar desde computadora
+  // </label>
+  // <input id="myfile" onchange='cambiar()' type="file" style='display: none;'/>
+  // <div id="info"></div>
+
+  //volver CARGAR ARCHIVOS
+
+  //   var cargar = viewInspection.querySelector('#myfiles');
+  //   var cargar = viewInspection.querySelector('#myfiles');
+  //   cargar.onchange = () => {
+  //     const selectedFiles = [...cargar.files];
+
+  //     console.log(selectedFiles);
+
+  //     let gallery = viewInspection.querySelector('#gallery');
+  //     gallery.innerHTML = `<span class="">${selectedFiles.name}</span>`;
+  //   }
+
+  //Validar Size
+
+  var inputElement = viewInspection.querySelector("#myfile");
+
+  //******* Form Caso *******//
+  const inspectionDate = viewInspection.querySelector("#fecha_inspection");
+  // const inspectionOrder = viewInspection.querySelector("#orden_inspection");
+  const checkboxes = viewInspection.querySelector(
+    'input[type="checkbox"]:checked'
+  );
+
+  function handlerDate() {
+    localStorage.setItem("date", inspectionDate.value);
+  }
+
+  inspectionDate.addEventListener("change", handlerDate);
+  // inspectionOrder.addEventListener("change", handlerOrder);
+
+  //******* Form Caso - Materias *******//
+  const checkUno = viewInspection.querySelector("#check1");
+  const checkDos = viewInspection.querySelector("#check2");
+  const checkTres = viewInspection.querySelector("#check3");
+  const checkCuatro = viewInspection.querySelector("#check4");
+  const checkCinco = viewInspection.querySelector("#check5");
+  const checkSeis = viewInspection.querySelector("#check6");
+  const checkSiete = viewInspection.querySelector("#check7");
+  const checkOcho = viewInspection.querySelector("#check8");
+  localStorage.removeItem("materia1");
+  localStorage.removeItem("materia2");
+  localStorage.removeItem("materia3");
+  localStorage.removeItem("materia4");
+  localStorage.removeItem("materia5");
+  localStorage.removeItem("materia6");
+  localStorage.removeItem("materia7");
+  localStorage.removeItem("materia8");
+
+  function handlerCheck1() {
+    let checked = checkUno.checked;
+    if (checked) {
+      localStorage.setItem("materia1", checkUno.value);
+    } else {
+      localStorage.removeItem("materia1");
+    }
+  }
+
+  function handlerCheck2() {
+    let checked = checkDos.checked;
+    if (checked) {
+      localStorage.setItem("materia2", checkDos.value);
+    } else {
+      localStorage.removeItem("materia2");
+    }
+  }
+
+  function handlerCheck3() {
+    let checked = checkTres.checked;
+    if (checked) {
+      localStorage.setItem("materia3", checkTres.value);
+    } else {
+      localStorage.removeItem("materia3");
+    }
+  }
+
+  function handlerCheck4() {
+    let checked = checkCuatro.checked;
+    if (checked) {
+      localStorage.setItem("materia4", checkCuatro.value);
+    } else {
+      localStorage.removeItem("materia4");
+    }
+  }
+
+  function handlerCheck5() {
+    let checked = checkCinco.checked;
+    if (checked) {
+      localStorage.setItem("materia5", checkCinco.value);
+    } else {
+      localStorage.removeItem("materia5");
+    }
+  }
+
+  function handlerCheck6() {
+    let checked = checkSeis.checked;
+    if (checked) {
+      localStorage.setItem("materia6", checkSeis.value);
+    } else {
+      localStorage.removeItem("materia6");
+    }
+  }
+
+  function handlerCheck7() {
+    let checked = checkSiete.checked;
+    if (checked) {
+      localStorage.setItem("materia7", checkSiete.value);
+    } else {
+      localStorage.removeItem("materia7");
+    }
+  }
+
+  function handlerCheck8() {
+    let checked = checkOcho.checked;
+    if (checked) {
+      localStorage.setItem("materia8", checkOcho.value);
+    } else {
+      localStorage.removeItem("materia8");
+    }
+  }
+
+  checkUno.addEventListener("change", handlerCheck1);
+  checkDos.addEventListener("change", handlerCheck2);
+  checkTres.addEventListener("change", handlerCheck3);
+  checkCuatro.addEventListener("change", handlerCheck4);
+  checkCinco.addEventListener("change", handlerCheck5);
+  checkSeis.addEventListener("change", handlerCheck6);
+  checkSiete.addEventListener("change", handlerCheck7);
+  checkOcho.addEventListener("change", handlerCheck8);
+  //******* Form Caso - Materias *******//
 
 
-    //volver CARGAR ARCHIVOS
-       
-        //   var cargar = viewInspection.querySelector('#myfiles');
-        //   var cargar = viewInspection.querySelector('#myfiles');
-        //   cargar.onchange = () => {
-        //     const selectedFiles = [...cargar.files];
-            
-        //     console.log(selectedFiles);   
-            
-        //     let gallery = viewInspection.querySelector('#gallery');
-        //     gallery.innerHTML = `<span class="">${selectedFiles.name}</span>`;
-        //   }
-          
-         
-        
-      
- //Validar Size
 
- var inputElement = viewInspection.querySelector("#myfile");
-
-       
- inputElement.onchange = function limit(e) {
-  e.preventDefault();
-   if(this.files[0].size > 5000000){
-     viewInspection.querySelector("#message_error").innerHTML = "Ups, el archivo excede el máximo de 50mb de peso. "
+  inputElement.onchange = function limit(e) {
+    e.preventDefault();
+    if (this.files[0].size > 5000000) {
+      viewInspection.querySelector("#message_error").innerHTML =
+        "Ups, el archivo excede el máximo de 50mb de peso. ";
       this.value = "";
-   };
-};
+    }
+  };
 
-//droppear
-// var MAX_BYTES = 102400; // 100 KB
-var fileLimit = 5000000;
-function dragenter(event) {
+  //droppear
+  // var MAX_BYTES = 102400; // 100 KB
+  var fileLimit = 5000000;
+  function dragenter(event) {
     event.stopPropagation();
     event.preventDefault();
-}
+  }
 
-function dragover(event) {
+  function dragover(event) {
     event.stopPropagation();
     event.preventDefault();
-}
+  }
 
-function drop(event) {
-
-    console.log('drop', event);
+  function drop(event) {
+    console.log("drop", event);
     event.stopPropagation();
     event.preventDefault();
 
     var data = event.dataTransfer;
     var files = data.files;
-    console.log(files)
+    console.log(files);
     var file;
     console.log(file);
     var reader;
     console.log(reader);
 
     for (var i = 0; i < files.length; i++) {
-        file = files[i];
-        reader = new FileReader();
-        // reader.onloadend = onFileLoaded;
-        reader.readAsBinaryString(file);
+      file = files[i];
+      reader = new FileReader();
+      // reader.onloadend = onFileLoaded;
+      reader.readAsBinaryString(file);
     }
 
-    let gallery = viewInspection.querySelector('#gallery');
+    let gallery = viewInspection.querySelector("#gallery");
     console.log(gallery);
 
     gallery.innerHTML = `<span class="">${file.name}</span>`;
-       if(this.file[0].size > 5000000){
-         viewInspection.querySelector("#message_error").innerHTML = "Ups, el archivo excede el máximo de 50mb de peso. "
-          this.value = "";
-       };
-    
-}
+    if (this.file[0].size > 5000000) {
+      viewInspection.querySelector("#message_error").innerHTML =
+        "Ups, el archivo excede el máximo de 50mb de peso. ";
+      this.value = "";
+    }
+  }
 
-        // function onFileLoaded(event) {
-        // viewInspection.querySelector("#imagen").value = event.currentTarget.result.substr(0, fileLimit);
-        // }
+  // function onFileLoaded(event) {
+  // viewInspection.querySelector("#imagen").value = event.currentTarget.result.substr(0, fileLimit);
+  // }
 
-        var contenedor = viewInspection.querySelector("#drop-area");
+  var contenedor = viewInspection.querySelector("#drop-area");
 
-        contenedor.addEventListener("dragenter", dragenter, false);
-        contenedor.addEventListener("dragover", dragover, false);
-        contenedor.addEventListener("drop", drop, false);
+  contenedor.addEventListener("dragenter", dragenter, false);
+  contenedor.addEventListener("dragover", dragover, false);
+  contenedor.addEventListener("drop", drop, false);
 
-      //Evento click link Sube tus archivos
-        
-    const form1 =  viewInspection.querySelector("#drop");    
-    const sube_archivo = viewInspection.querySelector("#sube_archivo");    
-    sube_archivo.addEventListener('click', (e) => {
-      e.preventDefault();
-      form1.classList.remove("ocultar");
-      form2.classList.add("ocultar")
-     
-    });
+  //Evento click link Sube tus archivos
 
-      //Evento click Crear de formulario manual
+  const form1 = viewInspection.querySelector("#drop");
+  const sube_archivo = viewInspection.querySelector("#sube_archivo");
+  sube_archivo.addEventListener("click", (e) => {
+    e.preventDefault();
+    form1.classList.remove("ocultar");
+    form2.classList.add("ocultar");
+  });
 
-      
+  //Evento click Crear de formulario manual
 
-      const form2 =  viewInspection.querySelector("#handbook");    
-      const sube_manual = viewInspection.querySelector("#sube_manual");    
-      sube_manual.addEventListener('click', (e) => {
-        e.preventDefault();
-        form2.classList.remove("ocultar")
-        form1.classList.add("ocultar")
-      });
+  const form2 = viewInspection.querySelector("#handbook");
+  const sube_manual = viewInspection.querySelector("#sube_manual");
+  sube_manual.addEventListener("click", (e) => {
+    e.preventDefault();
+    form2.classList.remove("ocultar");
+    form1.classList.add("ocultar");
+  });
 
-      //check
-     const check= viewInspection.querySelector('#select-all')
-     const uncheck= viewInspection.querySelector('#select-all1')
-     check.addEventListener ('click',  (e) => {
-        check.classList.add("ocultar");
-        uncheck.classList.remove("ocultar");
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = true;
-         } else  {
-        
-         } ; 
-        }  
-            
-      });
+  //check
+  const check = viewInspection.querySelector("#select-all");
+  const uncheck = viewInspection.querySelector("#select-all1");
+  check.addEventListener("click", (e) => {
+    check.classList.add("ocultar");
+    uncheck.classList.remove("ocultar");
+    var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    console.log(checkboxes);
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].type == "checkbox") {
+        checkboxes[i].checked = true;
+      } else {
+      }
+    }
+  });
 
-    // //   //uncheck
-    uncheck.addEventListener ('click',  (e) => {
-         
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        check.classList.remove("ocultar");
-        uncheck.classList.add("ocultar");
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = false;
-         } else  {
-         
-         } ; 
-        }  
-            
-      });
+  // //   //uncheck
+  uncheck.addEventListener("click", (e) => {
+    var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    console.log(checkboxes);
+    check.classList.remove("ocultar");
+    uncheck.classList.add("ocultar");
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].type == "checkbox") {
+        checkboxes[i].checked = false;
+      } else {
+      }
+    }
+  });
 
-      
+  //código por optimizar
+  const mensaje = viewInspection.querySelector("#mensaje");
+  mensaje.addEventListener("keyup", (e) => {
+    console.log("change");
+    const boton = viewInspection.querySelector("#enviar");
+    console.log(boton);
 
-      //código por optimizar
-      const mensaje = viewInspection.querySelector("#mensaje");
-      mensaje.addEventListener("keyup", (e) => {
-             console.log("change");
-         const boton = viewInspection.querySelector("#enviar");
-        console.log(boton)
-        
-        if (mensaje.value.trim() !== "") {
-          console.log("Se muestra")
-          boton.removeAttribute('disabled')
+    if (mensaje.value.trim() !== "") {
+      console.log("Se muestra");
+      boton.removeAttribute("disabled");
+    } else {
+      boton.setAttribute("disabled", "true");
+    }
+  });
+
+  //guardar en firesbase
+  const guardar = viewInspection.querySelector("#enviar");
+  guardar.addEventListener("click", (e) => {
+    const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection")
+      .value;
+    const orden_inscripcion = viewInspection.querySelector("#orden_inspection")
+      .value;
+    // const check1 = viewInspection.querySelector("#check1").value;
+    // const check2 = viewInspection.querySelector("#check2").value;
+    // const check3 = viewInspection.querySelector("#check3").value;
+    // const check4 = viewInspection.querySelector("#check4").value;
+    // const check5 = viewInspection.querySelector("#check5").value;
+    // const check6 = viewInspection.querySelector("#check6").value;
+    // const check7 = viewInspection.querySelector("#check7").value;
+    // const check8 = viewInspection.querySelector("#check8").value;
+    // console.log(fecha_inscripcion,check1)
+
+    firebase
+      .firestore()
+      .collection("users")
+      .add({
+        fecha: fecha_inscripcion,
+        orden: orden_inscripcion,
+        // check1:check1 ,
+        // check2:check2  ,
+        // check3:check3  ,
+        // check4:check4,
+        // check5:check5,
+        // check6:check6,
+        // check7:check7,
+        // check8:check8,
+      })
+      .then(function (docRef) {
+        console.log("document with id", docRef.id);
+
+        if (viewInspection.querySelector("#check1").checked) {
+          const check1 = viewInspection.querySelector("#check1").value;
+          firebase
+            .firestore()
+            .collection("check1")
+            .add({
+              check1: check1,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
         } else {
-          boton.setAttribute('disabled', "true");
+          console.log("nada");
         }
+
+        if (viewInspection.querySelector("#check2").checked) {
+          const check2 = viewInspection.querySelector("#check2").value;
+          firebase
+            .firestore()
+            .collection("check2")
+            .add({
+              check2: check2,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check3").checked) {
+          const check3 = viewInspection.querySelector("#check3").value;
+          firebase
+            .firestore()
+            .collection("check3")
+            .add({
+              check3: check3,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check4").checked) {
+          const check4 = viewInspection.querySelector("#check4").value;
+          firebase
+            .firestore()
+            .collection("check4")
+            .add({
+              check4: check4,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check5").checked) {
+          const check5 = viewInspection.querySelector("#check5").value;
+          firebase
+            .firestore()
+            .collection("check5")
+            .add({
+              check5: check5,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check6").checked) {
+          const check6 = viewInspection.querySelector("#check6").value;
+          firebase
+            .firestore()
+            .collection("check6")
+            .add({
+              check6: check6,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check7").checked) {
+          const check7 = viewInspection.querySelector("#check7").value;
+          firebase
+            .firestore()
+            .collection("check7")
+            .add({
+              check7: check7,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+
+        if (viewInspection.querySelector("#check8").checked) {
+          const check8 = viewInspection.querySelector("#check8").value;
+          firebase
+            .firestore()
+            .collection("check8")
+            .add({
+              check8: check8,
+            })
+            .then(function () {
+              console.log("document with id");
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+        } else {
+          console.log("nada");
+        }
+        viewInspection.querySelector("#fecha_inspection").value = "";
+        viewInspection.querySelector("#orden_inspection").value = "";
+        // viewInspection.querySelector("#check1").value  = '';
+        // viewInspection.querySelector("#check2").value  = '';
+        // viewInspection.querySelector("#check3").value  = '';
+        // viewInspection.querySelector("#check4").value  = '';
+        // viewInspection.querySelector("#check5").value  = '';
+        // viewInspection.querySelector("#check6").value  = '';
+        // viewInspection.querySelector("#check7").value  = '';
+        // viewInspection.querySelector("#check8").value  = '';
+      })
+      .catch(function (error) {
+        console.log("error add doc", error);
       });
+  });
 
-      //guardar en firesbase
-      const guardar = viewInspection.querySelector("#enviar");
-      guardar.addEventListener('click' , (e) => {  
+  //ir a home con el boton crear caso
+  const btn_home = viewInspection.querySelector("#enviar");
+  btn_home.addEventListener("click", (e) => {
+    // handlerMaterias();
+    window.location.hash = "#/home";
+  });
 
-        const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection").value;
-        const orden_inscripcion = viewInspection.querySelector("#orden_inspection").value;
-        // const check1 = viewInspection.querySelector("#check1").value;
-        // const check2 = viewInspection.querySelector("#check2").value;
-        // const check3 = viewInspection.querySelector("#check3").value;
-        // const check4 = viewInspection.querySelector("#check4").value;
-        // const check5 = viewInspection.querySelector("#check5").value;
-        // const check6 = viewInspection.querySelector("#check6").value;
-        // const check7 = viewInspection.querySelector("#check7").value;
-        // const check8 = viewInspection.querySelector("#check8").value;
-        // console.log(fecha_inscripcion,check1)
-
-       
-
-        firebase.firestore()
-        .collection("users").add({
-            fecha:fecha_inscripcion,
-            orden:orden_inscripcion,
-            // check1:check1 ,
-            // check2:check2  ,
-            // check3:check3  ,
-            // check4:check4,
-            // check5:check5,
-            // check6:check6,
-            // check7:check7,
-            // check8:check8,
-        })
-        .then (function (docRef){
-            console.log("document with id", docRef.id);
-
-            if( viewInspection.querySelector('#check1').checked ){
-                const check1 = viewInspection.querySelector("#check1").value;
-                 firebase.firestore()
-                .collection("check1").add({
-                      check1:check1 ,
-                        })
-              .then(function (){
-                console.log("document with id");
-              })
-              .catch((error) => {
-                  console.error("Error writing document: ", error);
-              });
-             }else{
-                 console.log("nada")
-             }
-         
-      
-            if( viewInspection.querySelector('#check2').checked){
-              const check2 = viewInspection.querySelector("#check2").value;
-               firebase.firestore()
-              .collection("check2").add({
-                    check2:check2 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-          
-      
-          if( viewInspection.querySelector('#check3').checked){
-              const check3 = viewInspection.querySelector("#check3").value;
-               firebase.firestore()
-              .collection("check3").add({
-                    check3:check3 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-       
-      
-          if( viewInspection.querySelector('#check4').checked){
-              const check4 = viewInspection.querySelector("#check4").value;
-               firebase.firestore()
-              .collection("check4").add({
-                    check4:check4 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-         
-      
-          if( viewInspection.querySelector('#check5').checked){
-              const check5 = viewInspection.querySelector("#check5").value;
-               firebase.firestore()
-              .collection("check5").add({
-                    check5:check5 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-          
-      
-          if( viewInspection.querySelector('#check6').checked){
-              const check6 = viewInspection.querySelector("#check6").value;
-               firebase.firestore()
-              .collection("check6").add({
-                    check6:check6 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-         
-      
-          if( viewInspection.querySelector('#check7').checked){
-              const check7 = viewInspection.querySelector("#check7").value;
-               firebase.firestore()
-              .collection("check7").add({
-                    check7:check7 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-        
-      
-          if( viewInspection.querySelector('#check8').checked){
-              const check8 = viewInspection.querySelector("#check8").value;
-               firebase.firestore()
-              .collection("check8").add({
-                    check8:check8 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-            viewInspection.querySelector("#fecha_inspection").value = '';
-            viewInspection.querySelector("#orden_inspection").value  = ''; 
-            // viewInspection.querySelector("#check1").value  = '';
-            // viewInspection.querySelector("#check2").value  = '';
-            // viewInspection.querySelector("#check3").value  = '';
-            // viewInspection.querySelector("#check4").value  = '';
-            // viewInspection.querySelector("#check5").value  = '';
-            // viewInspection.querySelector("#check6").value  = '';
-            // viewInspection.querySelector("#check7").value  = '';
-            // viewInspection.querySelector("#check8").value  = '';
-        })
-        .catch (function (error){
-            console.log("error add doc", error);
-        })
-     
-       
-    });
-
-    
-     
-      //ir a home con el boton crear caso
-      const btn_home = viewInspection.querySelector('#enviar');
-      btn_home.addEventListener('click', (e) => {
-        window.location.hash = '#/home' 
-        });
-
-     
-     
-      return viewInspection
-  };
+  return viewInspection;
+};
   
