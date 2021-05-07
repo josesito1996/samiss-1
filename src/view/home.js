@@ -326,7 +326,6 @@ const materias6 = viewHome.querySelector('#materia6');
 const materias7 = viewHome.querySelector('#materia7');
 const materias8 = viewHome.querySelector('#materia8');
 
-
 //leer documentos
 firebase.firestore()
 .collection("users").onSnapshot((querySnapshot) => {
@@ -343,102 +342,7 @@ firebase.firestore()
       `
         });
       });
-      firebase.firestore()
-.collection("check1").get((querySnapshot) => {
-  materias1.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check1}`);
-
-      materias1.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check1}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check2").onSnapshot((querySnapshot) => {
-  materias2.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check2}`);
-
-      materias2.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check2}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check3").onSnapshot((querySnapshot) => {
-  materias3.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check3}`);
-
-      materias3.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check3}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check4").onSnapshot((querySnapshot) => {
-  materias4.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check4}`);
-
-      materias4.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check4}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check5").onSnapshot((querySnapshot) => {
-  materias5.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check5}`);
-
-      materias5.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check5}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check6").onSnapshot((querySnapshot) => {
-  materias6.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check6}`);
-
-      materias6.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check6}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check7").onSnapshot((querySnapshot) => {
-  materias7.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check7}`);
-
-      materias7.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check7}</p>
-           `
-        });
-      });
-
-      firebase.firestore()
-.collection("check8").onSnapshot((querySnapshot) => {
-  materias8.innerHTML='';
-  querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data().check8}`);
-
-      materias8.innerHTML = `
-           <p style="font-size: 14px;">${doc.data().check8}</p>
-           `
-        });
-      });
-
+   
       //habilitar input
 
       const editar = viewHome.querySelector("#edit");
@@ -460,8 +364,7 @@ firebase.firestore()
             aleatorio = Math.floor(aleatorio);
             return inferior + aleatorio;
         }
-        
-       
+
         const multa_aleatoria = (x) =>  {
             return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
           }
@@ -474,13 +377,11 @@ firebase.firestore()
 
         //agregar archivos subidos al home
           let getFile = localStorage.getItem('file')   
-          
 
             const  container_archivosSubidos = viewHome.querySelector("#container_archivosSubidos");
             container_archivosSubidos.innerHTML = `
             <div><button>${getFile}</button>
             </div>
             `
-
     return viewHome;
   };

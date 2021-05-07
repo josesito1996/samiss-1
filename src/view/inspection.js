@@ -377,18 +377,7 @@ export default () => {
 const  fileInput  = viewInspection.querySelector( "#myfiles" ); 
 const button     = viewInspection.querySelector( ".myfile" );
 const the_return = viewInspection.querySelector(".file-return");
-
-
-    // button.addEventListener( "click", function( event ) {
-    //     fileInput.focus();
-    //     return false;
-    // });  
-
-     
-    //     fileInput.addEventListener( "change", function nameFile( event ) {
-    //         return 
-    //        },
-     
+   
     const file1 = viewInspection.querySelector("#file1");
     viewInspection.querySelector("#myfiles").onchange = function() {cambiar()}
             function cambiar() {
@@ -397,8 +386,6 @@ const the_return = viewInspection.querySelector(".file-return");
                 
             };
 
-           
-    // 
     const buton_prueba = viewInspection.querySelector(".pruebahome");
    
        buton_prueba.addEventListener("click", () => {
@@ -408,17 +395,6 @@ const the_return = viewInspection.querySelector(".file-return");
 
         window.location.hash = '#/home' 
         });
-//         .then (function (docRef){
-//             console.log("document with id", docRef.id);
-//             viewInspection.querySelector(".file-return").value = '';
-
-//         })
-//         .catch (function (error){
-//         })
-
-//         window.location.hash = '#/home'
-// });
- 
 
 //droppear
 // var MAX_BYTES = 102400; // 100 KB
@@ -466,13 +442,7 @@ function drop(event) {
        };
     
 }
-
-        // function onFileLoaded(event) {
-        // viewInspection.querySelector("#imagen").value = event.currentTarget.result.substr(0, fileLimit);
-        // }
-
         var contenedor = viewInspection.querySelector("#drop-area");
-
         contenedor.addEventListener("dragenter", dragenter, false);
         contenedor.addEventListener("dragover", dragover, false);
         contenedor.addEventListener("drop", drop, false);
@@ -489,8 +459,6 @@ function drop(event) {
     });
 
       //Evento click Crear de formulario manual
-
-      
 
       const form2 =  viewInspection.querySelector("#handbook");    
       const sube_manual = viewInspection.querySelector("#sube_manual");    
@@ -517,7 +485,7 @@ function drop(event) {
             
       });
 
-    // //   //uncheck
+     //uncheck
     uncheck.addEventListener ('click',  (e) => {
          
         var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
@@ -532,8 +500,6 @@ function drop(event) {
         }  
             
       });
-
-      
 
       //código por optimizar
       const mensaje = viewInspection.querySelector("#mensaje");
@@ -557,14 +523,11 @@ function drop(event) {
         const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection").value;
         const orden_inscripcion = viewInspection.querySelector("#orden_inspection").value;
        
-       
-
         firebase.firestore()
         .collection("users").add({
             fecha:fecha_inscripcion,
             orden:orden_inscripcion,
-         
-           
+       
         })
         .then (function (docRef){
             console.log("document with id", docRef.id);
@@ -577,21 +540,14 @@ function drop(event) {
         .catch (function (error){
            
         })
-     
-       
+    
     });
 
-    
-     
       //ir a home con el boton crear caso
       const btn_home = viewInspection.querySelector('#enviar');
       btn_home.addEventListener('click', (e) => {
         window.location.hash = '#/home' 
         });
-
-       
-     
-     
       return viewInspection
   };
   
