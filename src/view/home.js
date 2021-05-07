@@ -4,7 +4,7 @@ export default () => {
     const viewHome = document.createElement('div');
     viewHome.innerHTML = `
     <!---Primera fila-->
-    <div class="row " style="">
+    <div class="row " >
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg navbar-light " style="height: 64px;border-bottom: 1px solid  #E1E6F0;">
             <div class="container-fluid justify-content-between">
@@ -26,12 +26,14 @@ export default () => {
                 <div class="col-12 col-lg-6">
                     <div class="float-start align-items-center justify-content-center">
                         <ul class="navbar-nav mb-2 mb-lg-0">
-                            <div class="d-flex align-items-center "style="height: 64px;border-bottom: 1px solid  #D70025;width:106px;">
-                              <li class="nav-item">
-                                  <a class="nav-link active" aria-current="page" style="color:#0E3141;font-weight: bold;font-size:12px;" href="#">Mis casos</a>
-                              </li>
-                            </div>   
-                           
+                            <div class="d-flex align-items-center "
+                                style="height: 64px;border-bottom: 1px solid  #D70025;width:106px;">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page"
+                                        style="color:#0E3141;font-weight: bold;font-size:12px;" href="#">Mis casos</a>
+                                </li>
+                            </div>
+    
                         </ul>
                     </div>
                     <div class="d-flex float-end align-items-center justify-content-center" style="margin-top:15px;">
@@ -110,8 +112,87 @@ export default () => {
                     </div>
     
                     <!--actuacion en proceso-->
-                    <div class="col-12 col-lg-9">
+                    <div class="card col-12 col-lg-9 " style=" width:585px; height:686px; margin-top:19px; margin-left:18px; margin-rigth:42px;background: #FFFFFF;">
+    
+                        <div class="col-12">
+                        </div>
+                        <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div>
+                                    <h6 class="title_card" style="margin-left:36px;">Multa Potencial</h6>
+                                    <div class="d-flex flex-row  align-items-center">
+                                    <img src="./img/trending up.png" alt="" loading="lazy"
+                                    style=" width: 24px;height: 27px; margin-right:5px;margin-left:67px" />
+                                    <p id="multa"></p>
+                                    </div>
+                                </div>
+    
+                                <div>
+                                    <h6 class="title_card" style="margin-left:36px;">Riesgo</h6>
+                                </div>
+    
+                                <div>
+                                    <h7 class="title_card" style="margin-left:36px;font-family: Raleway;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    align-items: center;
+                                    color: #969CBA;">Perfil de funcionario</h7>
+
+                                    <div class="d-flex flex-row align-items-center justify-content-center" style="width:261px; height:68px; background: #F9FBFC;                
+                                    border: 1px solid #466EFE;
+                                    box-sizing: border-box;
+                                    border-radius: 6px;">
+                                        <img src="./img/funcionario.png" alt="" loading="lazy"
+                                            style=" width: 38.3px;height: 38px;" />
+                                        <p style="margin-left:18.7px;">Federico Pajuelo Linares</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+    
+                            <div class="row d-flex align-items-center" >
+                                <div class="col-12 col-lg-3" >
+                                    <div class="row d-flex justify-content-center mt-100">
+                                        <div class="col-md-6">
+                                            <div class="progressCircle blue"> <span class="progressCircle-left"> <span
+                                                        class="progressCircle-bar"></span> </span> <span
+                                                    class="progressCircle-right"> <span class="progressCircle-bar"></span>
+                                                </span>
+                                                <div class="progressCircle-value">0</div>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <h6 class="title_card">Documentos</h6>
+                                    <p style="font-family: Raleway;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 11px;
+                                    line-height: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    color: #969CBA;">aun no tienes documentos solicitados?</p>
+                                </div>                             
+
+                                <div class="col-12 col-lg-3">
+                                    <img src="./img/+.png" alt=""
+                                    style=" width: 20px;height: 20px;" />
+                                </div>           
+                            </div>    
+                                
+                                <div id="container_archivosSubidos">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
+                
                 </div>
             </div>
             <!--COLUMNA DERECHA-->
@@ -121,9 +202,9 @@ export default () => {
                     <div class="estado">
                         <h6 class="title_card" style="margin-top:20px;">Estado del caso</h6>
                         <div style="background: #FFFFFF;    
-                            border: 1px solid #466EFE;
-                            box-sizing: border-box;
-                            border-radius: 5px;">
+                                border: 1px solid #466EFE;
+                                box-sizing: border-box;
+                                border-radius: 5px;">
                             <p id="description_estado"
                                 style="width:195px; height:76px;margin-bottom:20px;margin-left:34px;margin-right:35px;margin-top:28px;font-size: 11px;">
                                 Felicitaciones por crear tu primer caso, no olvides registrar tu primera actuación</p>
@@ -188,25 +269,18 @@ export default () => {
                     <!--actividades-->
                     <div class="status d-flex flex-column">
                         <div class="d-flex">
-                            <h6 class="title_card" ">Actividades</h6>
-                            <a href="" style="font-weight: 500;
-                                    font-size: 11px;
-                                    line-height: 140%;
-                                    text-align: right;
-                                    letter-spacing: -0.3px;
-                                    margin-left:142px;
-                                    text-decoration:none;">Ver todas</a>
+                            <h6 class="title_card" >Actividades</h6>
+                                <a href="" style=" font-weight: 500; font-size: 11px; line-height: 140%; text-align: right;
+                                letter-spacing: -0.3px; margin-left:142px; text-decoration:none;">Ver todas</a>
                         </div>
                         <div class="d-flex flex-row ">
-                            <p style="height: 40px;width: 236px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                              </p>
-                            <img src="../img/vector_actividades.png" alt="" style="height: 12px;width: 6px;margin-top:20px;">
+                            <p style="height: 40px;width: 236px;">Puedes registrar nuevas tareas en la pestaña de
+                                actuaciones
+                            </p>
+                            <img src="../img/vector_actividades.png" alt="" class="ocultar"
+                                style="height: 12px;width: 6px;margin-top:20px;">
                         </div>
-                        <div class="d-flex flex-row ">
-                            <p style="height: 40px;width: 236px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                              </p>
-                            <img src="../img/vector_actividades.png" alt="" style="height: 12px;width: 6px;margin-top:20px;">
-                        </div>
+    
                         <div>
     
                         </div>
@@ -217,8 +291,8 @@ export default () => {
     </main>
     <!---FILA 3-->
     <div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
-        
-        <footer class="d-flex justify-content-around" >
+    
+        <footer class="d-flex justify-content-around">
             <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
                 <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
                 <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
@@ -236,9 +310,9 @@ const autenticar = firebase.auth();
 autenticar.onAuthStateChanged(user =>{
 if (user){
  
-  console.log('signin')
+//   console.log('signin')
 }else{
-  console.log('signup')
+//   console.log('signup')
 }
 })
 
@@ -258,7 +332,7 @@ firebase.firestore()
 .collection("users").onSnapshot((querySnapshot) => {
   fecha_orden.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check1}`);
+    //   console.log(`${doc.id} => ${doc.data().check1}`);
 
       fecha_orden.innerHTML += `
         <h6 class="title_card">Fecha de creación</h6>
@@ -273,7 +347,7 @@ firebase.firestore()
 .collection("check1").get((querySnapshot) => {
   materias1.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check1}`);
+    //   console.log(`${doc.id} => ${doc.data().check1}`);
 
       materias1.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check1}</p>
@@ -285,7 +359,7 @@ firebase.firestore()
 .collection("check2").onSnapshot((querySnapshot) => {
   materias2.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check2}`);
+    //   console.log(`${doc.id} => ${doc.data().check2}`);
 
       materias2.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check2}</p>
@@ -297,7 +371,7 @@ firebase.firestore()
 .collection("check3").onSnapshot((querySnapshot) => {
   materias3.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check3}`);
+    //   console.log(`${doc.id} => ${doc.data().check3}`);
 
       materias3.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check3}</p>
@@ -309,7 +383,7 @@ firebase.firestore()
 .collection("check4").onSnapshot((querySnapshot) => {
   materias4.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check4}`);
+    //   console.log(`${doc.id} => ${doc.data().check4}`);
 
       materias4.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check4}</p>
@@ -321,7 +395,7 @@ firebase.firestore()
 .collection("check5").onSnapshot((querySnapshot) => {
   materias5.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check5}`);
+    //   console.log(`${doc.id} => ${doc.data().check5}`);
 
       materias5.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check5}</p>
@@ -333,7 +407,7 @@ firebase.firestore()
 .collection("check6").onSnapshot((querySnapshot) => {
   materias6.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check6}`);
+    //   console.log(`${doc.id} => ${doc.data().check6}`);
 
       materias6.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check6}</p>
@@ -345,7 +419,7 @@ firebase.firestore()
 .collection("check7").onSnapshot((querySnapshot) => {
   materias7.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check7}`);
+    //   console.log(`${doc.id} => ${doc.data().check7}`);
 
       materias7.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check7}</p>
@@ -357,7 +431,7 @@ firebase.firestore()
 .collection("check8").onSnapshot((querySnapshot) => {
   materias8.innerHTML='';
   querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().check8}`);
+    //   console.log(`${doc.id} => ${doc.data().check8}`);
 
       materias8.innerHTML = `
            <p style="font-size: 14px;">${doc.data().check8}</p>
@@ -365,9 +439,6 @@ firebase.firestore()
         });
       });
 
-      
-
-     
       //habilitar input
 
       const editar = viewHome.querySelector("#edit");
@@ -381,5 +452,35 @@ firebase.firestore()
           description.disabled=true;
         }
             });
+
+        //número aleatorio
+        function aleatorio(inferior, superior) {
+            var numPosibilidades = superior - inferior;
+            var aleatorio = Math.random() * (numPosibilidades + 1);
+            aleatorio = Math.floor(aleatorio);
+            return inferior + aleatorio;
+        }
+        
+       
+        const multa_aleatoria = (x) =>  {
+            return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+          }
+          console.log(multa_aleatoria(aleatorio(5000, 250000))); 
+
+          //Registar multa alearotia en input
+
+          const multa = viewHome.querySelector("#multa");
+          multa.innerHTML='S/' + multa_aleatoria((aleatorio(5000, 250000)))
+
+        //agregar archivos subidos al home
+          let getFile = localStorage.getItem('file')   
+          
+
+            const  container_archivosSubidos = viewHome.querySelector("#container_archivosSubidos");
+            container_archivosSubidos.innerHTML = `
+            <div><button>${getFile}</button>
+            </div>
+            `
+
     return viewHome;
   };

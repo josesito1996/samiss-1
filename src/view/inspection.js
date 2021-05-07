@@ -147,23 +147,55 @@ export default () => {
                
                 color: #7B89B2;">o</p>
 
-                <input type="file" id="myfile" name="myfile" value="Cargar desde computadora" class="myfile"
-                    multiple="multiple">
-                <p style="font-family: Inter;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 12px;
-                line-height: 15px;
-                text-align: center;
-                color: #7B89B2;
-                flex: none;
-                order: 4;
-                flex-grow: 0;
-                margin: 20px 0px;">Puedes subir JPG, PNG, Word, Excel y PDF</p>
+                <label for="myfiles" class="myfile">
+                             Cargar desde computadora
+                        </label>
+                        <input id="myfiles"  type="file" style='display: none;' />
+                  
+
+               
             </div>
-            <p id="gallery" ></p>
+
+            <div id="file1" class="ocultar" > 
+                <div class="d-flex flex-row d-flex align-items-center" >
+                <input type="radio" name="file" value="file"> 
+                <div style ="border: 1px solid #C1C7DA;
+                box-sizing: border-box;
+                border-radius: 7px;
+                
+                /* Inside Auto Layout */
+                
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+                margin: 0px 20px;">
+                <p class="file-return" id="gallery"></p>
+                </div>
+                </div>
+            </div>
+            <div id="file2" class="ocultar "> 
+
+            <div id="file2" class="ocultar d-flex flex-row d-flex align-items-center"> 
+                <div >
+                <input type="radio" name="file" value="file"> 
+                <div style="border: 1px solid #C1C7DA;
+                box-sizing: border-box;
+                border-radius: 7px;
+                
+                /* Inside Auto Layout */
+                
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+                margin: 0px 20px;">
+                <p class ="gallery"id="gallery" ></p>
+                </div>
+                </div>
+                </div>
+            </div>
+
             <div id="message_error">
-                <p></p>
+            </div>
             </div>
             <button style="background: #FF3355;
             opacity: 0.4;
@@ -177,7 +209,7 @@ export default () => {
             flex: none;
             order: 4;
             flex-grow: 0;
-            margin: 30px 671px;">Continuar</button>
+            margin: 30px 671px;" class="pruebahome">Continuar</button>
         </form>
     </div>
 </div>
@@ -339,45 +371,58 @@ export default () => {
     </div>
         `;
 
-    //     <label for="myfile" class="myfile">
-    //     <i class="fas fa-cloud-upload-alt"></i> Cargar desde computadora
-    // </label>
-    // <input id="myfile" onchange='cambiar()' type="file" style='display: none;'/>
-    // <div id="info"></div>
-
-
-    //volver CARGAR ARCHIVOS
-       
-        //   var cargar = viewInspection.querySelector('#myfiles');
-        //   var cargar = viewInspection.querySelector('#myfiles');
-        //   cargar.onchange = () => {
-        //     const selectedFiles = [...cargar.files];
-            
-        //     console.log(selectedFiles);   
-            
-        //     let gallery = viewInspection.querySelector('#gallery');
-        //     gallery.innerHTML = `<span class="">${selectedFiles.name}</span>`;
-        //   }
-          
-         
-        
-      
+     
  //Validar Size
+//subir archivos 
+const  fileInput  = viewInspection.querySelector( "#myfiles" ); 
+const button     = viewInspection.querySelector( ".myfile" );
+const the_return = viewInspection.querySelector(".file-return");
 
- var inputElement = viewInspection.querySelector("#myfile");
 
-       
- inputElement.onchange = function limit(e) {
-  e.preventDefault();
-   if(this.files[0].size > 5000000){
-     viewInspection.querySelector("#message_error").innerHTML = "Ups, el archivo excede el máximo de 50mb de peso. "
-      this.value = "";
-   };
-};
+    // button.addEventListener( "click", function( event ) {
+    //     fileInput.focus();
+    //     return false;
+    // });  
+
+     
+    //     fileInput.addEventListener( "change", function nameFile( event ) {
+    //         return 
+    //        },
+     
+    const file1 = viewInspection.querySelector("#file1");
+    viewInspection.querySelector("#myfiles").onchange = function() {cambiar()}
+            function cambiar() {
+                file1.classList.remove("ocultar");
+                return the_return.innerHTML = fileInput.value;
+                
+            };
+
+           
+    // 
+    const buton_prueba = viewInspection.querySelector(".pruebahome");
+   
+       buton_prueba.addEventListener("click", () => {
+        console.log(cambiar(fileInput.value))
+        const nameFile = cambiar(fileInput.value);
+        localStorage.setItem('file',nameFile )
+
+        window.location.hash = '#/home' 
+        });
+//         .then (function (docRef){
+//             console.log("document with id", docRef.id);
+//             viewInspection.querySelector(".file-return").value = '';
+
+//         })
+//         .catch (function (error){
+//         })
+
+//         window.location.hash = '#/home'
+// });
+ 
 
 //droppear
 // var MAX_BYTES = 102400; // 100 KB
-var fileLimit = 5000000;
+const fileLimit = 5000000;
 function dragenter(event) {
     event.stopPropagation();
     event.preventDefault();
@@ -388,6 +433,7 @@ function dragover(event) {
     event.preventDefault();
 }
 
+const file2 = viewInspection.querySelector("#file2")
 function drop(event) {
 
     console.log('drop', event);
@@ -409,7 +455,8 @@ function drop(event) {
         reader.readAsBinaryString(file);
     }
 
-    let gallery = viewInspection.querySelector('#gallery');
+    file2.classList.remove("ocultar");
+    let gallery = viewInspection.querySelector('.gallery');
     console.log(gallery);
 
     gallery.innerHTML = `<span class="">${file.name}</span>`;
@@ -509,181 +556,26 @@ function drop(event) {
 
         const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection").value;
         const orden_inscripcion = viewInspection.querySelector("#orden_inspection").value;
-        // const check1 = viewInspection.querySelector("#check1").value;
-        // const check2 = viewInspection.querySelector("#check2").value;
-        // const check3 = viewInspection.querySelector("#check3").value;
-        // const check4 = viewInspection.querySelector("#check4").value;
-        // const check5 = viewInspection.querySelector("#check5").value;
-        // const check6 = viewInspection.querySelector("#check6").value;
-        // const check7 = viewInspection.querySelector("#check7").value;
-        // const check8 = viewInspection.querySelector("#check8").value;
-        // console.log(fecha_inscripcion,check1)
-
+       
        
 
         firebase.firestore()
         .collection("users").add({
             fecha:fecha_inscripcion,
             orden:orden_inscripcion,
-            // check1:check1 ,
-            // check2:check2  ,
-            // check3:check3  ,
-            // check4:check4,
-            // check5:check5,
-            // check6:check6,
-            // check7:check7,
-            // check8:check8,
+         
+           
         })
         .then (function (docRef){
             console.log("document with id", docRef.id);
 
-            if( viewInspection.querySelector('#check1').checked ){
-                const check1 = viewInspection.querySelector("#check1").value;
-                 firebase.firestore()
-                .collection("check1").add({
-                      check1:check1 ,
-                        })
-              .then(function (){
-                console.log("document with id");
-              })
-              .catch((error) => {
-                  console.error("Error writing document: ", error);
-              });
-             }else{
-                 console.log("nada")
-             }
-         
-      
-            if( viewInspection.querySelector('#check2').checked){
-              const check2 = viewInspection.querySelector("#check2").value;
-               firebase.firestore()
-              .collection("check2").add({
-                    check2:check2 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-          
-      
-          if( viewInspection.querySelector('#check3').checked){
-              const check3 = viewInspection.querySelector("#check3").value;
-               firebase.firestore()
-              .collection("check3").add({
-                    check3:check3 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-       
-      
-          if( viewInspection.querySelector('#check4').checked){
-              const check4 = viewInspection.querySelector("#check4").value;
-               firebase.firestore()
-              .collection("check4").add({
-                    check4:check4 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-         
-      
-          if( viewInspection.querySelector('#check5').checked){
-              const check5 = viewInspection.querySelector("#check5").value;
-               firebase.firestore()
-              .collection("check5").add({
-                    check5:check5 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-          
-      
-          if( viewInspection.querySelector('#check6').checked){
-              const check6 = viewInspection.querySelector("#check6").value;
-               firebase.firestore()
-              .collection("check6").add({
-                    check6:check6 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-         
-      
-          if( viewInspection.querySelector('#check7').checked){
-              const check7 = viewInspection.querySelector("#check7").value;
-               firebase.firestore()
-              .collection("check7").add({
-                    check7:check7 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
-        
-      
-          if( viewInspection.querySelector('#check8').checked){
-              const check8 = viewInspection.querySelector("#check8").value;
-               firebase.firestore()
-              .collection("check8").add({
-                    check8:check8 ,
-                      })
-            .then(function (){
-              console.log("document with id");
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-           }else{
-               console.log("nada")
-           }
+           
             viewInspection.querySelector("#fecha_inspection").value = '';
             viewInspection.querySelector("#orden_inspection").value  = ''; 
-            // viewInspection.querySelector("#check1").value  = '';
-            // viewInspection.querySelector("#check2").value  = '';
-            // viewInspection.querySelector("#check3").value  = '';
-            // viewInspection.querySelector("#check4").value  = '';
-            // viewInspection.querySelector("#check5").value  = '';
-            // viewInspection.querySelector("#check6").value  = '';
-            // viewInspection.querySelector("#check7").value  = '';
-            // viewInspection.querySelector("#check8").value  = '';
+         
         })
         .catch (function (error){
-            console.log("error add doc", error);
+           
         })
      
        
@@ -697,6 +589,7 @@ function drop(event) {
         window.location.hash = '#/home' 
         });
 
+       
      
      
       return viewInspection
