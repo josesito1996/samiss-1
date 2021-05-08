@@ -121,6 +121,7 @@ export default () => {
                             <h6>Orden de inspección</h6>
                             ${inspectionOrder}
                             <br></br>
+                            
                             <div id="materias">
                                 <h6 id="materia1" class=""> Relaciones Laborales</h6>
                                 <h6 id="materia2" class=""> Seguridad y salud en el trabajo</h6>
