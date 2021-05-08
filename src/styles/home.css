@@ -1,3 +1,15 @@
+:root {
+  --primary-blue : #0F3041;
+  --orange-card : #FFE7B3;
+  --skyblue-card : #C1F0CB;
+  --pink-card : #FFC2CC;
+  --height-card-materia : 37px;
+  --margin-card-materia : 0 0 10px;
+  --padding-card-materia : 10px;
+  --border-radius-card : 10px;
+}
+
+
 /*boton editar*/
 #edit{
     background-image: url(../img/highlight.png);
@@ -137,13 +149,7 @@ margin-left: 20px;
   }
 
 
-  .hide {
-    display: none;
-  }
 
-  .card_materia {
-    border: 1px solid red;
-  }
 
   /*circle progress*/
   .mt-100 {
@@ -288,3 +294,70 @@ margin-left: 20px;
     }
 } */
 
+
+
+/******* Home - columna izquierda *******/
+
+  .text-blue-opacity {
+    color: var(--primary-blue);
+    font-weight: bold;
+    opacity: 0.42;
+  }
+
+  .text-blue {
+    color: var(--primary-blue);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .cardIcon {
+    /* border: 1px solid red; */
+    height: 20px;
+    width: 20px;
+    margin: 0 8px 0 0;
+  }
+
+  .card_materia_uno{
+    /* border: 1px solid green; */
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--orange-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_dos{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--skyblue-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_tres{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--pink-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+
+  /******* Home - Columna derecha *******/
+
+  /* .div-process {
+    display: flex;
+  } */
+
+  /* .borde {
+    border: 1px solid red;
+  } */
+
+  .all-svg {
+    margin: 5px;
+  }

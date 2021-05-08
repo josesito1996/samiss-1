@@ -93,11 +93,12 @@ export default () => {
                             <div class="card-body">
                                 <div class="descripcion">
                                     <div id="description_edit" class="d-flex flex-row  justify-content-between">
-                                        <h6 class="title_card">Descripción</h6>
+                                        <h6 class="title_card text-blue-opacity ">Descripción</h6>
                                         <button id="edit"></button>
                                     </div>
                                     <input type="text" id="description" disabled=true
-                                        style="width:260px; height:77px;margin-bottom:20px;">
+                                        style="width:260px; height:77px;margin-bottom:20px;"
+                                        class="text-area">
                                 </div>
 
                                 <!--
@@ -114,22 +115,44 @@ export default () => {
                                 <div class="materias" id="materia8"></div>
                                 -->
 
-                                <h6>Fecha de creación</h6>
+                                <h6 class="text-blue-opacity">Fecha de creación</h6>
                                   ${inspectionDate}
                                 <br></br>
 
-                                <h6>Orden de inspección</h6>
+                                <h6 class="text-blue-opacity">Orden de inspección</h6>
                                   ${inspectionOrder}
                                 <br></br>
+
+                                <h6 class="text-blue-opacity">Materias</h6>
                                 <div id="materias">
-                                    <h6 id ="materia1" class=""> Relaciones Laborales</h6>
-                                    <h6 id ="materia2" class=""> Seguridad y salud en el trabajo</h6>
-                                    <h6 id ="materia3" class=""> Empleo y colocación</h6>
-                                    <h6 id ="materia4" class=""> Intermediación laboral</h6>
-                                    <h6 id ="materia5" class=""> Promoción y formación</h6>
-                                    <h6 id ="materia6" class=""> Extranjeros</h6>
-                                    <h6 id ="materia7" class=""> Seguridad social</h6>
-                                    <h6 id ="materia8" class=""> Labor inspectiva</h6>
+                                    <div class="card_materia_uno">
+                                        <img src ="../img/svg/redes.svg" class="cardIcon">
+                                        <h6 id ="materia1" class="text-blue"> Relaciones Laborales</h6>
+                                    </div>
+                                    <div class="card_materia_dos">
+                                        <img src ="../img/svg/seguro-vida.svg" class="cardIcon">
+                                        <h6 id ="materia2" class="text-blue"> Seguridad y salud en el trabajo</h6>
+                                    </div>
+                                    <div class="card_materia_tres">
+                                        <img src ="../img/svg/bandera.svg" class="cardIcon">
+                                        <h6 id ="materia3" class="text-blue"> Empleo y colocación</h6>
+                                    </div>                                                                        
+                                    <div class="card_materia_cuatro">
+                                        <h6 id ="materia4" class="text-blue"> Intermediación laboral</h6>
+                                    </div>
+                                    <div class="card_materia_cinco">
+                                        <h6 id ="materia5" class="text-blue"> Promoción y formación</h6>
+                                    </div>
+                                    <div class="card_materia_seis">
+                                        <h6 id ="materia6" class="text-blue"> Extranjeros</h6>
+                                    </div>
+                                    <div class="card_materia_siete">
+                                        <h6 id ="materia7" class="text-blue"> Seguridad social</h6>
+                                    </div>
+                                    <div class="card_materia_ocho">
+                                        <h6 id ="materia8" class="text-blue"> Labor inspectiva</h6>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -225,14 +248,18 @@ export default () => {
                 <div class="card d-flex  align-items-center" style="width: 320px; height: 816px;">
                     <!--estado-->
                     <div class="estado">
-                        <h6 class="title_card" style="margin-top:20px;">Estado del caso</h6>
+                        <h6 class="title_card text-blue" style="margin-top:20px;">Estado del caso</h6>
                         <div style="background: #FFFFFF;    
                                 border: 1px solid #466EFE;
                                 box-sizing: border-box;
-                                border-radius: 5px;">
-                            <p id="description_estado"
-                                style="width:195px; height:76px;margin-bottom:20px;margin-left:34px;margin-right:35px;margin-top:28px;font-size: 11px;">
+                                border-radius: 5px;"
+                                class="div-process">
+                                <img src ="../img/svg/check.svg" class="all-svg borde">
+                                <p id="description_estado"
+                                style="width:195px; height:76px;margin-bottom:20px;margin-left:34px;margin-right:35px;margin-top:28px;font-size: 11px;"
+                                class="borde">
                                 Felicitaciones por crear tu primer caso, no olvides registrar tu primera actuación</p>
+                                <img src ="../img/svg/copy.svg" class="all-svg borde">
                         </div>
                     </div>
                     <hr class="raya">
@@ -352,56 +379,48 @@ export default () => {
     materia1.classList.add("hide");
   } else {
     materia1.classList.remove("hide");
-    materia1.classList.add("card_materia");
   }
 
   if (nameMateria2 == null) {
     materia2.classList.add("hide");
   } else {
     materia2.classList.remove("hide");
-    materia2.classList.add("card_materia");
   }
 
   if (nameMateria3 == null) {
     materia3.classList.add("hide");
   } else {
     materia3.classList.remove("hide");
-    materia3.classList.add("card_materia");
   }
 
   if (nameMateria4 == null) {
     materia4.classList.add("hide");
   } else {
     materia4.classList.remove("hide");
-    materia4.classList.add("card_materia");
   }
 
   if (nameMateria5 == null) {
     materia5.classList.add("hide");
   } else {
     materia5.classList.remove("hide");
-    materia5.classList.add("card_materia");
   }
 
   if (nameMateria6 == null) {
     materia6.classList.add("hide");
   } else {
     materia6.classList.remove("hide");
-    materia6.classList.add("card_materia");
   }
 
   if (nameMateria7 == null) {
     materia7.classList.add("hide");
   } else {
     materia7.classList.remove("hide");
-    materia7.classList.add("card_materia");
   }
 
   if (nameMateria8 == null) {
     materia8.classList.add("hide");
   } else {
     materia8.classList.remove("hide");
-    materia8.classList.add("card_materia");
   }
   // **********  Columna Izquierda (termino)  ********** //
 
