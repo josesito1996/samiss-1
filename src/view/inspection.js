@@ -269,7 +269,7 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">4. Inspector
                             auxiliar</label>
-                        <input type="text" class="form-control"  placeholder="Federico Pajuelo"
+                        <input type="text" class="form-control" id="auxiliar"  placeholder="Federico Pajuelo"
                             style="width:355.19px; height:39px;">
                         <div class="d-flex column justify-content-end" >
                             <i class="fas fa-plus link-success "></i><a class="link-success" href="#"
@@ -290,7 +290,7 @@ export default () => {
                             <div class="check1" style="margin-left:242.93px;margin-rigth:30px;">
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
+                                    <input type="checkbox" class="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
                                         style="width:auto;" />
                                     <label class="form-check-label"  style="margin-left:0px;width:auto;"
                                         for="Relaciones laborales">
@@ -299,7 +299,7 @@ export default () => {
                                 </div>
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" id="check2" value="Seguridad y salud en el trabajo" value="Seguridad y salud en el trabajo" style="width:auto;" />
+                                    <input type="checkbox" class="checkbox" id="check2" value="Seguridad y salud en el trabajo" value="Seguridad y salud en el trabajo" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Seguridad y salud en el trabajo">
                                         Seguridad y salud en el trabajo
@@ -307,7 +307,7 @@ export default () => {
                                 </div>
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check3"  id="check3" value="Empleo y colocación" id="check3" style="width:auto;" />
+                                    <input type="checkbox" name="check3" class="checkbox"  id="check3" value="Empleo y colocación" id="check3" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Empleo y colocación">
                                         Empleo y colocación
@@ -315,7 +315,7 @@ export default () => {
                                 </div>
     
                                 <div class="row ">
-                                    <input type="checkbox" name="check4" id="check4" value="Intermediación laboral" style="width:auto;" />
+                                    <input type="checkbox" name="check4" class="checkbox" id="check4" value="Intermediación laboral" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Intermediación laboral">
                                         Intermediación laboral
@@ -327,7 +327,7 @@ export default () => {
                             <div class="check2 " style=" margin-left:31px;">
     
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check5"  id="check5" value="Promoción y formación" style="width:auto;" />
+                                    <input type="checkbox" name="check5" class="checkbox"  id="check5" value="Promoción y formación" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Promoción y formacións">
                                         Promoción y formación
@@ -340,7 +340,7 @@ export default () => {
 
     
                                 <div class="row">
-                                    <input type="checkbox" name="check6" id="check6" value =" Intermediación laboral" style="width:auto;" />
+                                    <input type="checkbox" name="check6" class="checkbox" id="check6" value =" Intermediación laboral" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Intermediación laboral">
                                         Extranjeros
@@ -348,7 +348,7 @@ export default () => {
                                 </div>
 
                                <div class="row " style=" margin-button:31px;">
-                                  <input type="checkbox" name="check7" id="check7" value="Seguridad social" style="width:auto;" />
+                                  <input type="checkbox" name="check7" class="checkbox" id="check7" value="Seguridad social" style="width:auto;" />
                                   <label class="form-check-label col-12 col-lg-7 " style="margin-left:0px;width:auto;"
                                       for="Seguridad social">
                                       Seguridad social
@@ -356,7 +356,7 @@ export default () => {
                               </div>
 
                                 <div class="row " style=" margin-button:31px;">
-                                    <input type="checkbox" name="check8" id="check8" value ="Labor inspectiva" style="width:auto;" />
+                                    <input type="checkbox" name="check8" class="checkbox" id="check8" value ="Labor inspectiva" style="width:auto;" />
                                     <label class="form-check-label " style="margin-left:0px;width:auto;"
                                         for="Labor inspectiva">
                                         Labor inspectiva
@@ -401,14 +401,16 @@ export default () => {
 
   //Validar Size
 
-  var inputElement = viewInspection.querySelector("#myfile");
+//   var inputElement = viewInspection.querySelector("#myfile");
+
+  //inspector auxiliar
 
   //******* Form Caso *******//
   const inspectionDate = viewInspection.querySelector("#fecha_inspection");
   // const inspectionOrder = viewInspection.querySelector("#orden_inspection");
-  const checkboxes = viewInspection.querySelector(
-    'input[type="checkbox"]:checked'
-  );
+//   const checkboxes = viewInspection.querySelector(
+//     'input[type="checkbox"]:checked'
+//   );
 
   function handlerDate() {
     localStorage.setItem("date", inspectionDate.value);
@@ -538,10 +540,10 @@ const the_return = viewInspection.querySelector(".file-return");
         console.log(cambiar(fileInput.value))
         const nameFile = cambiar(fileInput.value);
         localStorage.setItem('file',nameFile )
-
+     
         window.location.hash = '#/home' 
         });
-
+       
 //droppear
 // var MAX_BYTES = 102400; // 100 KB
 const fileLimit = 5000000;
@@ -611,6 +613,13 @@ function drop(event) {
         e.preventDefault();
         form2.classList.remove("ocultar")
         form1.classList.add("ocultar")
+
+           console.log(cambiar(fileInput.value))
+            const nameFile = cambiar(fileInput.value);
+            localStorage.setItem('file',nameFile )
+
+         
+            
       });
 
       //check
@@ -627,12 +636,10 @@ function drop(event) {
         
          } ; 
         }  
-            
       });
 
      //uncheck
     uncheck.addEventListener ('click',  (e) => {
-         
         var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
         console.log(checkboxes)
         check.classList.remove("ocultar");
@@ -642,8 +649,7 @@ function drop(event) {
          } else  {
          
          } ; 
-        }  
-            
+        }       
       });
 
       //código por optimizar
@@ -662,34 +668,44 @@ function drop(event) {
       });
 
       //guardar en firesbase
-      const guardar = viewInspection.querySelector("#enviar");
-      guardar.addEventListener('click' , (e) => {  
+    //   const guardar = viewInspection.querySelector("#enviar");
+    //   guardar.addEventListener('click' , (e) => {  
 
-        const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection").value;
-        const orden_inscripcion = viewInspection.querySelector("#orden_inspection").value;
+    //     const fecha_inscripcion = viewInspection.querySelector("#fecha_inspection").value;
+    //     const orden_inscripcion = viewInspection.querySelector("#orden_inspection").value;
        
-        firebase.firestore()
-        .collection("users").add({
-            fecha:fecha_inscripcion,
-            orden:orden_inscripcion,
+    //     firebase.firestore()
+    //     .collection("users").add({
+    //         fecha:fecha_inscripcion,
+    //         orden:orden_inscripcion,
        
-        })
-        .then (function (docRef){
-            console.log("document with id", docRef.id);
+    //     })
+    //     .then (function (docRef){
+    //         console.log("document with id", docRef.id);
 
            
-            viewInspection.querySelector("#fecha_inspection").value = '';
-            viewInspection.querySelector("#orden_inspection").value  = ''; 
+    //         viewInspection.querySelector("#fecha_inspection").value = '';
+    //         viewInspection.querySelector("#orden_inspection").value  = ''; 
          
-        })
-        .catch (function (error){
-           
-        })
-    
-    });
+    //     })
+    //     .catch (function (error){ 
+    //     })
+    // });
       //ir a home con el boton crear caso
       const btn_home = viewInspection.querySelector('#enviar');
       btn_home.addEventListener('click', (e) => {
+
+        let checkedElements = viewInspection.querySelectorAll('input:checked');
+        console.log(checkedElements)
+        // let allCheckboxes = viewInspection.querySelectorAll('.checkbox');
+
+        let allIsChecked = checkedElements.length;
+
+        console.log( allIsChecked);
+        localStorage.setItem("checked", allIsChecked);
+
+        const auxiliar = viewInspection.querySelector("#auxiliar");
+        localStorage.setItem("inspectorAuxiliar", auxiliar.value);
         window.location.hash = '#/home' 
         });
       return viewInspection
