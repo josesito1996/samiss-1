@@ -296,6 +296,7 @@ margin-left: 20px;
 
 
 
+
 /******* Home - columna izquierda *******/
 
   .text-blue-opacity {
@@ -361,3 +362,15 @@ margin-left: 20px;
   .all-svg {
     margin: 5px;
   }
+
+/* estilos Label Nivel de Riesgo*/
+
+#label_level_risk{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 20px;
+    color: #0E3141;
+}
+
