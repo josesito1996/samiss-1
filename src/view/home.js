@@ -131,8 +131,10 @@ export default () => {
                                     </div>
                                     <div class="card_materia_dos">
                                         <img src ="../img/svg/seguro-vida.svg" class="cardIcon">
-                                        <h6 id ="materia2" class="text-blue"> Seguridad y salud en el trabajo</h6>
+                                        <h6 id ="materia2" class="text-blue"> Seguridad y salud </h6>
                                     </div>
+
+
                                     <div class="card_materia_tres">
                                         <img src ="../img/svg/bandera.svg" class="cardIcon">
                                         <h6 id ="materia3" class="text-blue"> Empleo y colocación</h6>
@@ -143,6 +145,8 @@ export default () => {
                                     <div class="card_materia_cinco">
                                         <h6 id ="materia5" class="text-blue"> Promoción y formación</h6>
                                     </div>
+
+
                                     <div class="card_materia_seis">
                                         <h6 id ="materia6" class="text-blue"> Extranjeros</h6>
                                     </div>
@@ -160,7 +164,7 @@ export default () => {
                     </div>
     
                     <!--actuacion en proceso-->
-                    <div class="card col-12 col-lg-9 " style=" width:585px; height:686px; margin-top:19px; margin-left:18px; margin-rigth:42px;background: #FFFFFF;">
+                    <div class="card col-12 col-lg-9 " style=" width:585px; height:686px; margin-top:19px; margin-left:110px; margin-rigth:42px;background: #FFFFFF;">
     
                         <div class="col-12">
                         </div>
