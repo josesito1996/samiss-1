@@ -1,26 +1,8 @@
 // var admin = require('firebase-admin');
-// import { user } from "../firebase/firebase-Auth";
-// import { getProfileInfo } from "../firebase/firestore-controller";
 
 export default () => {
   localStorage.removeItem("date");
   localStorage.removeItem("order");
-  // const currentUser = user();
-  // getProfileInfo(currentUser.uid).then((doc) => {
-  //     localStorage.setItem('orden', doc.data().orden);
-  // });
-
-  // // user
-  // const currentUser = firebase.auth();
-  // currentUser.currentUser;
-
-  // // getProfileInfo
-  // const getProfileInfo = (userId) =>
-  //   firebase.firestore().collection("users").doc(userId).get();
-
-  // getProfileInfo(currentUser.uid).then((doc) => {
-  //   localStorage.setItem("orden", doc.data().orden);
-  // });
 
   const viewInspection = document.createElement("div");
   viewInspection.innerHTML = `
@@ -242,17 +224,17 @@ export default () => {
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <form id="form_handbook" style="width:740px; height:852px;">
                     <div class="mb-3 row" style="margin-left:30px;margin-top:58px;">
-                        <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
+                        <label for="fecha_inspection" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
                             inicio</label>
                         <input type="date"  class="form-control" style="width:161.54px; height:39px;"
-                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31"> 
+                            name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31" required> 
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Orden de
+                        <label for="orden_inspection" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Orden de
                             inspección</label>
                         <input type="text" class="form-control" id="orden_inspection"  placeholder="1924-2021" 
-                            style="width:161.54px; height:39px;">
+                            style="width:161.54px; height:39px;" required>
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
@@ -334,13 +316,8 @@ export default () => {
                                     </label>
                                 </div>
     
-
-    
-    
-
-    
-                                <div class="row">
-                                    <input type="checkbox" name="check6" id="check6" value =" Intermediación laboral" style="width:auto;" />
+                             <div class="row">
+                                    <input type="checkbox" name="check6" id="check6" value ="Extranjeros" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"
                                         for="Intermediación laboral">
                                         Extranjeros
@@ -368,7 +345,6 @@ export default () => {
                         </div>
                     </div>
     
-    
                     <div class="mb-3 row " style="margin-left:30px;margin-top:40px;">
                         <label for="Denominación del caso" class="col-sm-2 col-form-label col-12 col-lg-5"  style=" margin-left:0px;">6. Denominación del caso</label>
                         <input type="text" class="form-control" required id="mensaje" placeholder="Caso Estibadores"
@@ -376,7 +352,10 @@ export default () => {
                     </div>
     
                     <div class="row" id="btn_crearCaso">
+                      <!--
                        <input type="button" disabled id="enviar" value="Crear caso">
+                      -->
+                       <button disabled id="enviar">Crear caso</button>
                     </div>
 
                  
@@ -405,17 +384,36 @@ export default () => {
 
   //******* Form Caso *******//
   const inspectionDate = viewInspection.querySelector("#fecha_inspection");
-  // const inspectionOrder = viewInspection.querySelector("#orden_inspection");
-  const checkboxes = viewInspection.querySelector(
-    'input[type="checkbox"]:checked'
-  );
+  const inspectionOrder = viewInspection.querySelector("#orden_inspection");
+  // const checkboxes = viewInspection.querySelector(
+  //   'input[type="checkbox"]:checked'
+  // );
+
+  const countChecked = viewInspection.querySelectorAll(".checkbox");
+
+function countMaterias() {
+
+  console.log("Checks marcados", countChecked);
+
+  // let cont = 0;
+  // for (var x = 0; x < checkboxes.length; x++) {
+  //   if (checkboxes[x].checked) {
+  //     cont = cont + 1;
+  //     console.log(cont);
+  //   }
+  // }
+}
 
   function handlerDate() {
     localStorage.setItem("date", inspectionDate.value);
   }
 
+    function handlerOrder() {
+      localStorage.setItem("order", inspectionOrder.value);
+    }
+
   inspectionDate.addEventListener("change", handlerDate);
-  // inspectionOrder.addEventListener("change", handlerOrder);
+  inspectionOrder.addEventListener("change", handlerOrder);
 
   //******* Form Caso - Materias *******//
   const checkUno = viewInspection.querySelector("#check1");
@@ -653,11 +651,15 @@ function drop(event) {
          const boton = viewInspection.querySelector("#enviar");
         console.log(boton)
         
-        if (mensaje.value.trim() !== "") {
-          console.log("Se muestra")
-          boton.removeAttribute('disabled')
+        if (
+          mensaje.value.trim() &&
+          inspectionOrder.value &&
+          inspectionOrder.value.trim()  !== ""
+        ) {
+          console.log("Se muestra");
+          boton.removeAttribute("disabled");
         } else {
-          boton.setAttribute('disabled', "true");
+          boton.setAttribute("disabled", "true");
         }
       });
 
@@ -690,6 +692,7 @@ function drop(event) {
       //ir a home con el boton crear caso
       const btn_home = viewInspection.querySelector('#enviar');
       btn_home.addEventListener('click', (e) => {
+        countMaterias();
         window.location.hash = '#/home' 
         });
       return viewInspection
