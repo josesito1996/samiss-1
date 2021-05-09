@@ -1,0 +1,35 @@
+:root {
+  --background-primary : #F9FBFC;
+  --line-header : #E1E6F0;
+  --line-sidebar : #BDBDBD;
+  --primary-blue : #0F3041;
+  --border-blue :#466EFE;
+  --orange-card : #FFE7B3;
+  --skyblue-card : #C1F0CB;
+  --pink-card : #FFC2CC;
+  --white : #ffffff;
+  --primary-red: #FF3355;
+  --secondary-red : #D70025;
+  --height-card-materia : 37px;
+  --margin-card-materia : 0 0 10px;
+  --padding-card-materia : 10px;
+  --border-radius-card : 10px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* a {
+  color: inherit;
+  text-decoration: none;
+} */
