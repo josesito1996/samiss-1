@@ -1,3 +1,4 @@
+
 /*boton editar*/
 #edit{
     background-image: url(../img/highlight.png);
@@ -10,20 +11,11 @@
 /*estilos titulos card*/
 ´.title_card{
     font-family: Raleway;
-font-style: normal;
-font-weight: bold;
-font-size: 16px;
-line-height: 15px;
-/* identical to box height, or 94% */
-
-display: flex;
-align-items: center;
-
-/* Primary Blue */
-
-color: #0F3041;
-opacity: 0.42;
-margin-left: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0E3141;
 }
 
 /*estilos aside*/
@@ -137,7 +129,13 @@ margin-left: 20px;
   }
 
 
+  .hide {
+    display: none;
+  }
 
+  .card_materia {
+    border: 1px solid red;
+  }
 
   /*circle progress*/
   .mt-100 {
@@ -283,8 +281,6 @@ margin-left: 20px;
 } */
 
 
-
-
 /******* Home - columna izquierda *******/
 
   .text-blue-opacity {
@@ -381,9 +377,7 @@ margin-left: 20px;
     display: flex;
   }
 
-   
-
-  
+ 
   
   /******* Home - Columna derecha *******/
 
@@ -411,6 +405,7 @@ margin-left: 20px;
     margin: 5px;
   }
 
+
 /* estilos Label Nivel de Riesgo*/
 
 #label_level_risk{
@@ -421,4 +416,3 @@ margin-left: 20px;
     line-height: 20px;
     color: #0E3141;
 }
-
