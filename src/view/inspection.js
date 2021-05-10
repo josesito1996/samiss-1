@@ -97,8 +97,7 @@ export default () => {
     
     </div>
     <!---FILA 2-->
-    <div class="row" style="height:815px;">
-    
+    <div class="row" >
         <div class="col-12" style="margin-left:152px;margin-top:20px;">
             <ul class="navbar-nav flex-row">
                 <li class="nav-item me-3 me-lg-1">

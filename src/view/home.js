@@ -38,7 +38,7 @@ export default () => {
         </div>
         <div class="title-btnActions d-flex">
           <h5>Caso estibadores</h5>
-          <div class="btn-actions d-flex">
+          <div class="btn-actions d-flex" id="actuacion">
             <p class="moreIcon">+</p>
             <p>Actuación</p>
           </div>
@@ -46,7 +46,7 @@ export default () => {
         <div class="tags-case d-flex">
           <ul class="">
             <li><a href="#">Datos</a></li>
-            <li><a href="#">Actuaciones</a></li>
+            <li><a href="#" >Actuaciones</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Tareas</a></li>
           </ul>
@@ -583,6 +583,13 @@ export default () => {
             bar3.style.opacity = 1;
             console.log("riesgo bajo")
         }
+
+        //ir actuacion
+
+        const actuacion =viewHome.querySelector("#actuacion");
+        actuacion.addEventListener("click", ()=> {
+            window.location.hash = "#/actuacion";
+        })
     
     return viewHome;
   };
