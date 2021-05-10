@@ -85,7 +85,7 @@ export default () => {
                 <img src="./img/svg/headhunting.svg" class="cardIcon" />
                 <p id="materia3" class="text-blue">Empleo y colocación</p>
               </div>
-              <div class="card_materia_cuatro">
+              <!-- <div class="card_materia_cuatro">
                 <img src="./img/svg/apreton-manos.svg" class="cardIcon" />
                 <p id="materia4" class="text-blue">Intermediación laboral</p>
               </div>
@@ -104,7 +104,7 @@ export default () => {
               <div class="card_materia_ocho">
                 <img src="./img/svg/inspeccion.svg" class="cardIcon" />
                 <p id="materia8" class="text-blue">Labor inspectiva</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -222,8 +222,9 @@ export default () => {
         </div>
       </div>
 
-      <div class="footer">
-        <h1>FOOTER</h1>
+      <div class="footer d-flex">
+        <p>Copyright © 2021 <strong>sami.</strong>Todos los derechos reservados. <span>Términos del Servicio y Políticas de Privacidad</span></p>
+        <img src="./img/svg/group.svg" alt="logo" />
       </div>
     </div>
   `;

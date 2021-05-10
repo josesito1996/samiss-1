@@ -1,5 +1,7 @@
 :root {
   --background-primary : #F9FBFC;
+  --primary-red: #FF3355;
+  --secondary-red : #D70025;
   --line-header : #E1E6F0;
   --line-sidebar : #BDBDBD;
   --line-main : #7D7D7D;
@@ -14,10 +16,8 @@
   --pinkLight-card : #FFC2C2;
   --pinkL-card : #FFC2F2;
   --lila-card : #BFBEFF;
-
+  --grayLight : #838795;
   --white : #ffffff;
-  --primary-red: #FF3355;
-  --secondary-red : #D70025;
   --height-card-materia : 37px;
   --margin-card-materia : 0 0 10px;
   --padding-card-materia : 10px;
