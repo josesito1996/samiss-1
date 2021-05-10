@@ -7,6 +7,7 @@
 
 .disabled {
   display: none;
+ 
 }
 
 /******** HEADER (inicio) ********/
@@ -212,13 +213,13 @@
 }
 
 .detailMain .detail-process-performance{
-  border: 1px solid red;
-  width:100%;
+  /* border: 1px solid red; */
+  width:120%;
   height:594px;
 }
 
 .card-process{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 686px;
  
 }

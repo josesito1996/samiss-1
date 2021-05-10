@@ -146,7 +146,7 @@ export default () => {
                     </div>
                 </div>
                     <hr>
-                    <div class="col-12">
+                    <div class="col-12 d-flex ">
                         <div class="row">
                             <div class="col-12 col-lg-6">
                                 <div>
@@ -155,11 +155,11 @@ export default () => {
                                         <img src="./img/trending up.png" alt="" loading="lazy"
                                             style=" width: 24px;height: 27px; margin-right:12.68px;margin-left:67px" />
                                         <p id="multa" style="font-weight: 600;
-                                        font-size: 20px;
-                                        line-height: 20px;      
-                                        display: flex;
-                                        align-items: center;
-                                        color: #0E3141;"></p>
+                                            font-size: 20px;
+                                            line-height: 20px;      
+                                            display: flex;
+                                            align-items: center;
+                                            color: #0E3141;"></p>
                                     </div>
                                 </div>
 
@@ -169,18 +169,21 @@ export default () => {
                                         <div id="label_risk" style="margin-left:65px; margin-right:26.7px;">
                                             <li class="bullets1" style="
                                             color: #FF3355;
+                                            list-style:initial;
                                             opacity: 0.2;"><span id="label_level_risk" class="label_level_risk1">Nivel
                                                     Alto</span>
                                             </li>
 
                                             <li class="bullets2" style="
-                                        color: #FFB000;;
-                                        opacity: 0.2;"><span id="label_level_risk" class="label_level_risk2">Nivel
+                                            color: #FFB000;
+                                            list-style:initial;;
+                                             opacity: 0.2;"><span id="label_level_risk" class="label_level_risk2">Nivel
                                                     Moderado</span></li>
 
                                             <li class="bullets3" style="
-                                        color:  #31CC53;
-                                        opacity: 0.2;"><span id="label_level_risk" class="label_level_risk3">Nivel
+                                            color:  #31CC53;
+                                            list-style:initial;
+                                            opacity: 0.2;"><span id="label_level_risk" class="label_level_risk3">Nivel
                                                     Leve</span> </li>
                                         </div>
 
@@ -222,7 +225,7 @@ export default () => {
                                 line-height: 20px;
                                 align-items: center;
                                 color: #969CBA;
-                               ">Perfil de funcionario</h6>
+                               ">Perfil de funcionarios</h6>
 
                                     <div class="d-flex flex-row align-items-center justify-content-center" style="width:261px; height:68px; background: #F9FBFC;                
                                         border: 1px solid #466EFE;
@@ -245,7 +248,7 @@ export default () => {
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <div class="row d-flex align-items-center">
+                                <div class="row d-flex  justify-content-center">
                                     <div class="col-12 col-lg-3">
                                         <div class="row d-flex justify-content-center mt-100">
                                             <div class="col-md-6">
@@ -261,19 +264,17 @@ export default () => {
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-lg-6">
-                                        <h6 class="title_card">Documentos</h6>
+                                    <div class="col-12 col-lg-6" style="margin-left:20px;">
+                                        <p class="title_card" style="margin-bottom:0px;font-weight: 600;">Documentos</p>
                                         <p style="font-family: Raleway;
                                             font-style: normal;
-                                            font-weight: 600;
+                                            // font-weight: 600;
                                             font-size: 11px;
                                             line-height: 20px;
-                                            display: flex;
-                                            align-items: center;
-                                            color: #969CBA;">aun no tienes documentos solicitados?</p>
+                                            color: #969CBA;">aun no tienes documentos <br> solicitados?</p>
                                     </div>
 
-                                    <div class="col-12 col-lg-3">
+                                    <div class="col-12 col-lg-1">
                                         <img src="./img/+.png" alt="" style=" width: 20px;height: 20px;" />
                                     </div>
                                 </div>
