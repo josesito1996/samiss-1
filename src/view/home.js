@@ -220,6 +220,7 @@ export default () => {
             <img src="./img/svg/btn-right.svg" alt="next button" />
           </div>
         </div>
+
       </div>
 
       <div class="footer d-flex">
@@ -298,6 +299,7 @@ export default () => {
 
 //     //agregar archivos subidos al home
 //     let getFile = localStorage.getItem('file')  
+
      
 //     //localStorage file date orden
      
