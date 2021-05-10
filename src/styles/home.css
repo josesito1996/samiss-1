@@ -330,13 +330,61 @@ margin-left: 20px;
   .card_materia_tres{
     height: var(--height-card-materia);
     margin: var(--margin-card-materia);
-    background: var(--pink-card);
+    background: var(--lila-card);
     padding: var(--padding-card-materia);
     border-radius: var(--border-radius-card);
     display: flex;
   }
 
+  .card_materia_cuatro{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--pinkL-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
 
+  .card_materia_cinco{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--orangeLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_seis{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--pinkLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_siete{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--skyblueLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_ocho{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--blueLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+   
+
+  
+  
   /******* Home - Columna derecha *******/
 
   /* .div-process {

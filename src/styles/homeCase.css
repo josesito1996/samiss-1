@@ -87,14 +87,13 @@
 
 /******** MAIN (inicio) ********/
 .mainCase {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   grid-row: 2/3;
   grid-column: 1/2;
   padding: 10px 29px 38px 72px;
 }
 
 .mainCase .btn-back {
-  border: 1px solid red;
   align-items: center;
 }
 
@@ -106,19 +105,115 @@
 }
 
 .mainCase .title-btnActions {
-  border: 1px solid peru;
+  margin-top: 20px;
   align-items: center;
   justify-content: space-between;
 }
 
 .title-btnActions h5 {
   margin: 0;
-  border: 1px solid yellow;
+  font-size: 25px;
 
 }
 
-.title-btnActions button {
-  border: 1px solid green;
+.title-btnActions .btn-actions {
+  height: 40px;
+  width: 146px;
+  padding: 8px 18px 10px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-red);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.btn-actions .moreIcon {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+
+.btn-actions p {
+  margin: 0 2px 0 0;
+}
+
+.mainCase .tags-case {
+  height: 36px;
+  margin-top: 32px;
+  border-bottom: 1px solid var(--line-main);
+}
+
+.tags-case ul{
+  display: flex;
+  padding: 0;
+}
+
+.tags-case li {
+  display: inline-block;
+  height: 33px;
+  width: 130px;
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+.tags-case li:first-child {
+  font-weight: 600;
+  border-bottom: 3px solid var(--primary-blue);
+}
+
+.tags-case a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.detailMain {
+  /* border: 1px solid yellow; */
+  margin-top: 18px;
+}
+
+.title-description h6 {
+  margin-top: 10px;
+}
+
+.detailMain .detail-description {
+  /* border: 1px solid skyblue; */
+  height: 454px;
+  width: 300px;
+  padding: 20px;
+  background: var(--white);
+}
+
+.detail-description .title-description {
+  justify-content: space-between;
+}
+
+.detail-description .txt-comment {
+  height: 70px;
+  width: 258px;
+  margin: 5px 0 18px;
+  background: var(--background-primary);
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.detail-description .txt-comment:active {
+  border: none;
+}
+
+.detail-description .txt-comment:focus {
+  border: none;
+}
+
+.detail-description p {
+  margin: 2px 0 18px 0;
+}
+
+.detail-description .cardsMaterias p {
+  margin: 0;
+  font-size: 14px;
+
 }
 
 /******** MAIN (termino) ********/

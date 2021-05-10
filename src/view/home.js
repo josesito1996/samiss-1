@@ -38,15 +38,75 @@ export default () => {
         </div>
         <div class="title-btnActions d-flex">
           <h5>Caso estibadores</h5>
-          <button>Actuación</button>
+          <div class="btn-actions d-flex">
+            <p class="moreIcon">+</p>
+            <p>Actuación</p>
+          </div>
         </div>
-        <div class="tags-case">
-          <ul>
-            <li>Datos</li>
-            <li>Actuaciones</li>
-            <li>Documentos</li>
-            <li>Tareas</li>
+        <div class="tags-case d-flex">
+          <ul class="">
+            <li><a href="#">Datos</a></li>
+            <li><a href="#">Actuaciones</a></li>
+            <li><a href="#">Documentos</a></li>
+            <li><a href="#">Tareas</a></li>
           </ul>
+        </div>
+        <div class="detailMain">
+          <div class="detail-description">
+            <div class="title-description d-flex">
+              <h6 class="text-blue-opacity">Descripción</h6>
+              <img src="./img/svg/edit.svg" alt="icon edit" />
+            </div>
+            <textarea
+              disabled
+              name="comment"
+              id=""
+              cols=""
+              rows=""
+              class="txt-comment"
+            ></textarea>
+            <h6 class="text-blue-opacity">Fecha de creación</h6>
+            <p>17/04/21</p>
+            <h6 class="text-blue-opacity">Orden de inspección</h6>
+            <p>1924-2021</p>
+            <h6 class="text-blue-opacity">Materias</h6>
+            <div id="materias" class="cardsMaterias">
+              <div class="card_materia_uno">
+                <img src="./img/svg/redes.svg" class="cardIcon" />
+                <p id="materia1" class="text-blue">Relaciones Laborales</p>
+              </div>
+              <div class="card_materia_dos">
+                <img src="./img/svg/seguro-de-vida.svg" class="cardIcon" />
+                <p id="materia2" class="text-blue">
+                  Seguridad y salud en el trabajo
+                </p>
+              </div>
+              <div class="card_materia_tres">
+                <img src="./img/svg/headhunting.svg" class="cardIcon" />
+                <p id="materia3" class="text-blue">Empleo y colocación</p>
+              </div>
+              <div class="card_materia_cuatro">
+                <img src="./img/svg/apreton-manos.svg" class="cardIcon" />
+                <p id="materia4" class="text-blue">Intermediación laboral</p>
+              </div>
+              <div class="card_materia_cinco">
+                <img src="./img/svg/presentacion.svg" class="cardIcon" />
+                <p id="materia5" class="text-blue">Promoción y formación</p>
+              </div>
+              <div class="card_materia_seis">
+                <img src="./img/svg/headhunting.svg" class="cardIcon" />
+                <p id="materia6" class="text-blue">Extranjeros</p>
+              </div>
+              <div class="card_materia_siete">
+                <img src="./img/svg/bandera.svg" class="cardIcon" />
+                <p id="materia7" class="text-blue">Seguridad social</p>
+              </div>
+              <div class="card_materia_ocho">
+                <img src="./img/svg/inspeccion.svg" class="cardIcon" />
+                <p id="materia8" class="text-blue">Labor inspectiva</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
