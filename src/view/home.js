@@ -1,7 +1,7 @@
 export default () => {
   const viewHome = document.createElement("div");
-//   const inspectionDate = localStorage.getItem("date");
-//   const inspectionOrder = localStorage.getItem("order");
+  const inspectionDate = localStorage.getItem("date");
+  const inspectionOrder = localStorage.getItem("order");
 
   viewHome.innerHTML = `
     <div class="wrapper">
@@ -55,55 +55,80 @@ export default () => {
           <div class="detail-description">
             <div class="title-description d-flex">
               <h6 class="text-blue-opacity">Descripción</h6>
-              <img src="./img/svg/edit.svg" id="edit" alt="icon edit" />
+
+              <img
+                id="btnEditComment"
+                src="./img/svg/edit.svg"
+                class="btnEditComment"
+                alt="icon edit"
+              />
+              <img
+                id="btnSaveComment"
+                src="./img/svg/save.svg"
+                class="btnSaveComment hide"
+                alt="icon edit"
+              />
             </div>
-            <textarea
-              disabled
-              name="comment"
-              id=""
-              cols=""
-              rows=""
-              class="txt-comment"
-            ></textarea>
+            <p id="pComment" class="ptxt-comment">
+              Hola <strong>Alonso</strong> si deseas escribir algo puntual sobre
+              el caso puedes hacer <strong>click aquí</strong> o en el
+              <strong>ícono del lapiz</strong>. Recuerda que podrás editar en
+              cualquier momento la descripción.
+            </p>
+            <div id="textareaContainer" class="textarea-container hide">
+              <textarea
+                name="txtComment"
+                id="txtComment"
+                placeholder="Escribir aquí..."
+                cols=""
+                rows=""
+                autofocus
+                class="txt-comment hide"
+              ></textarea>
+              <p id="countComment" class="hide">(Máximo 200 caracteres)</p>
+
+            </div>
             <h6 class="text-blue-opacity">Fecha de creación</h6>
-            <p>17/04/21</p>
+            <p>${inspectionDate}</p>
             <h6 class="text-blue-opacity">Orden de inspección</h6>
-            <p>1924-2021</p>
+            <p>${inspectionOrder}</p>
             <h6 class="text-blue-opacity">Materias</h6>
             <div id="materias" class="cardsMaterias">
-              <div class="card_materia_uno">
+              <div id="materia1" class="card_materia_uno">
                 <img src="./img/svg/redes.svg" class="cardIcon" />
-                <p id="materia1" class="text-blue">Relaciones Laborales</p>
+                <p class="text-blue">Relaciones Laborales</p>
               </div>
-              <div class="card_materia_dos">
+              <div id="materia2" class="card_materia_dos">
                 <img src="./img/svg/seguro-de-vida.svg" class="cardIcon" />
-                <p id="materia2" class="text-blue">
-                  Seguridad y salud en el trabajo
-                </p>
+                <p class="text-blue">Seguridad y salud en el trabajo</p>
               </div>
-              <div class="card_materia_tres">
+              <div id="materia3" class="card_materia_tres">
                 <img src="./img/svg/headhunting.svg" class="cardIcon" />
-                <p id="materia3" class="text-blue">Empleo y colocación</p>
+                <p class="text-blue">Empleo y colocación</p>
               </div>
-              <div class="card_materia_cuatro">
+
+              <div id="materia4" class="card_materia_cuatro">
+
                 <img src="./img/svg/apreton-manos.svg" class="cardIcon" />
-                <p id="materia4" class="text-blue">Intermediación laboral</p>
+                <p class="text-blue">Intermediación laboral</p>
               </div>
-              <div class="card_materia_cinco">
+              <div id="materia5" class="card_materia_cinco">
                 <img src="./img/svg/presentacion.svg" class="cardIcon" />
-                <p id="materia5" class="text-blue">Promoción y formación</p>
+                <p class="text-blue">Promoción y formación</p>
               </div>
-              <div class="card_materia_seis">
+              <div id="materia6" class="card_materia_seis">
                 <img src="./img/svg/headhunting.svg" class="cardIcon" />
-                <p id="materia6" class="text-blue">Extranjeros</p>
+                <p class="text-blue">Extranjeros</p>
               </div>
-              <div class="card_materia_siete">
+              <div id="materia7" class="card_materia_siete">
                 <img src="./img/svg/bandera.svg" class="cardIcon" />
-                <p id="materia7" class="text-blue">Seguridad social</p>
+                <p class="text-blue">Seguridad social</p>
               </div>
-              <div class="card_materia_ocho">
+              <div id="materia8" class="card_materia_ocho">
                 <img src="./img/svg/inspeccion.svg" class="cardIcon" />
-                <p id="materia8" class="text-blue">Labor inspectiva</p>
+
+                <p class="text-blue">Labor inspectiva</p>
+
               </div>
             </div>
           </div>
@@ -296,10 +321,12 @@ export default () => {
           <div class="detail-process">
             <p class="detail-title">En proceso</p>
             <p class="detail-txt">
-              El 13/12/21 se notificó la inspección. Recuerda que a la fecha de
+              Felicitaciones por crear tu primer caso, no olvides registrar tu
+              primera actuación.
+              <!-- El 13/12/21 se notificó la inspección. Recuerda que a la fecha de
               hoy 30/04/21 quedan
               <span>7 días</span>
-              para iniciar la siguiente actuación
+              para iniciar la siguiente actuación -->
             </p>
           </div>
           <img src="./img/svg/copy.svg" class="copyIcon" alt="Icono copiar" />
@@ -385,32 +412,31 @@ export default () => {
             <a class="title-right"> Ver todas </a>
           </div>
           <div class="activity-details d-flex">
-            <p>
+            <p>Puedes registrar nuevas tareas en la pestaña de actuaciones</p>
+            <!-- <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Habitant
               sit lacus mattis.
             </p>
-            <img src="./img/svg/btn-right.svg" alt="next button" />
-          </div>
-          <div class="activity-details d-flex">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Habitant
-              sit lacus mattis.
-            </p>
-            <img src="./img/svg/btn-right.svg" alt="next button" />
+            <img src="./img/svg/btn-right.svg" alt="next button" /> -->
           </div>
         </div>
 
       </div>
 
       <div class="footer d-flex">
-        <p>Copyright © 2021 <strong>sami.</strong>Todos los derechos reservados. <span>Términos del Servicio y Políticas de Privacidad</span></p>
+        <p>
+          Copyright © 2021 <strong>sami.</strong>Todos los derechos reservados.
+          <span>Términos del Servicio y Políticas de Privacidad</span>
+        </p>
         <img src="./img/svg/group.svg" alt="logo" />
       </div>
     </div>
   `;
 
-//   // **********  Columna Izquierda (inicio)********** //
-  const materias = viewHome.querySelector("#materias");
+
+  // **********  Columna Izquierda (inicio)********** //
+  // const materias = viewHome.querySelector("#materias");
+
   const nameMateria1 = localStorage.getItem("materia1");
   const nameMateria2 = localStorage.getItem("materia2");
   const nameMateria3 = localStorage.getItem("materia3");
@@ -475,6 +501,46 @@ export default () => {
   } else {
     materia8.classList.remove("hide");
   }
+
+
+ 
+        //Ingresar comentarios al textarea
+        const edit = viewHome.querySelector("#btnEditComment");
+        const save = viewHome.querySelector("#btnSaveComment");
+        const pComment = viewHome.querySelector("#pComment");
+        const divComment = viewHome.querySelector("#textareaContainer");
+        const txtComment = viewHome.querySelector("#txtComment");
+        const countComment = viewHome.querySelector("#countComment");
+        
+        pComment.addEventListener("click", () => {
+          pComment.classList.add("hide");
+          divComment.classList.remove("hide");
+          txtComment.classList.remove("hide");
+          countComment.classList.remove("hide");
+          save.classList.remove("hide");
+          edit.classList.add("hide");
+        })
+
+        edit.addEventListener("click", ()=>{
+          pComment.classList.add("hide");
+          divComment.classList.remove("hide");
+          txtComment.classList.remove("hide");
+          countComment.classList.remove("hide");
+          save.classList.remove("hide");
+          edit.classList.add("hide");
+        });
+
+        save.addEventListener("click", ()=> {
+          txtComment.value="";
+          divComment.classList.add("hide");
+          txtComment.classList.add("hide");
+          countComment.classList.add("hide");
+          pComment.classList.remove("hide");
+          edit.classList.remove("hide");
+          save.classList.add("hide");
+        })
+
+
 
 //  agregar archivos subidos al home
     let getFile = localStorage.getItem('file')  
