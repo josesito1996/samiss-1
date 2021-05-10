@@ -133,7 +133,7 @@ export default () => {
             </div>
           </div>
           <div class="detail-process-performance d-flex  justify-content-center align-items-center">
-            <div class="card-process ">
+            <div class="card-process bg-white ">
                 <div class="col-12 " id="inProcess">
                     <div class="row" id="title_inProcess">
                     <p >Actuación en proceso</p>
@@ -163,7 +163,7 @@ export default () => {
                         <div class="d-flex flex-row justify-content-center    " id="container_adicional_information">
                             <div class="d-flex flex-column  align-items-center">
                                 <p class="text_Resolution" style="color: #FF3355;">Tareas</p>
-                                <p class="text_Resolution" style="font-size: 10px;margin-left:28px;">4 pendientes</p>
+                                <p class="text_Resolution" style="font-size: 10px;margin-left:28px;">0 pendientes</p>
                             </div>
                             <img src="./img/svg/Vector.svg"  class="style_icon_right" alt="" />
                         </div>
@@ -561,14 +561,14 @@ export default () => {
 //   // **********  Columna Izquierda (termino)  ********** //
 
 //   //evento list para utenticar
-  const autenticar = firebase.auth();
-  autenticar.onAuthStateChanged((user) => {
-    if (user) {
-      console.log("signin");
-    } else {
-      console.log("signup");
-    }
-  });
+//   const autenticar = firebase.auth();
+//   autenticar.onAuthStateChanged((user) => {
+//     if (user) {
+//       console.log("signin");
+//     } else {
+//       console.log("signup");
+//     }
+//   });
 
 
 // // //leer documentos
@@ -587,18 +587,18 @@ export default () => {
 // //         });
 // //       });
    
-      //habilitar input
-      const editar = viewHome.querySelector("#edit");
-      editar.addEventListener("click", ()=>{
-        const description = viewHome.querySelector("#description");
-        if(description .disabled == true)	{
-		      description.disabled=false;
-	         }
-              else
-        {
-          description.disabled=true;
-        }
-            });
+    //   //habilitar input
+    //   const editar = viewHome.querySelector("#edit");
+    //   editar.addEventListener("click", ()=>{
+    //     const description = viewHome.querySelector("#description");
+    //     if(description .disabled == true)	{
+	// 	      description.disabled=false;
+	//          }
+    //           else
+    //     {
+    //       description.disabled=true;
+    //     }
+    //         });
 
         //número aleatorio
         function aleatorio(inferior, superior) {
