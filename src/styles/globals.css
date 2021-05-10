@@ -1,0 +1,43 @@
+:root {
+  --background-primary : #F9FBFC;
+  --primary-red: #FF3355;
+  --secondary-red : #D70025;
+  --line-header : #E1E6F0;
+  --line-sidebar : #BDBDBD;
+  --line-main : #7D7D7D;
+  --primary-blue : #0F3041;
+  --border-blue :#466EFE;
+  --blueLight-card : #C2DAFF;
+  --orange-card : #FFE7B3;
+  --orangeLight-card : #FFDFC2;
+  --skyblue-card : #C1F0CB;
+  --skyblueLight-card : #C2FFFB;
+  --pink-card : #FFC2CC;
+  --pinkLight-card : #FFC2C2;
+  --pinkL-card : #FFC2F2;
+  --lila-card : #BFBEFF;
+  --grayLight : #838795;
+  --white : #ffffff;
+  --height-card-materia : 37px;
+  --margin-card-materia : 0 0 10px;
+  --padding-card-materia : 10px;
+  --border-radius-card : 10px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

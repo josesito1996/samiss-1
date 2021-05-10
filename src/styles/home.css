@@ -1,15 +1,3 @@
-:root {
-  --primary-blue : #0F3041;
-  --orange-card : #FFE7B3;
-  --skyblue-card : #C1F0CB;
-  --pink-card : #FFC2CC;
-  --height-card-materia : 37px;
-  --margin-card-materia : 0 0 10px;
-  --padding-card-materia : 10px;
-  --border-radius-card : 10px;
-}
-
-
 /*boton editar*/
 #edit{
     background-image: url(../img/highlight.png);
@@ -42,9 +30,9 @@ margin-left: 20px;
 
 
 .line {
-    padding: 10px 90px;
+    padding: 10px 40px;
     position: relative;
-    
+    margin-top: 8px;
   }
   
   .line::before {
@@ -342,22 +330,82 @@ margin-left: 20px;
   .card_materia_tres{
     height: var(--height-card-materia);
     margin: var(--margin-card-materia);
-    background: var(--pink-card);
+    background: var(--lila-card);
     padding: var(--padding-card-materia);
     border-radius: var(--border-radius-card);
     display: flex;
   }
 
+  .card_materia_cuatro{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--pinkL-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
 
+  .card_materia_cinco{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--orangeLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_seis{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--pinkLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_siete{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--skyblueLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+  .card_materia_ocho{
+    height: var(--height-card-materia);
+    margin: var(--margin-card-materia);
+    background: var(--blueLight-card);
+    padding: var(--padding-card-materia);
+    border-radius: var(--border-radius-card);
+    display: flex;
+  }
+
+   
+
+  
+  
   /******* Home - Columna derecha *******/
 
   /* .div-process {
     display: flex;
   } */
 
-  /* .borde {
-    border: 1px solid red;
-  } */
+  .rojo {
+    border: 1px solid red !important;
+  }
+
+  .verde {
+    border: 1px solid yellowgreen !important;
+  }
+
+  .naranja {
+    border: 1px solid peru !important;
+  }
+
+  .azul {
+    border: 1px solid blue !important;
+  }
 
   .all-svg {
     margin: 5px;
