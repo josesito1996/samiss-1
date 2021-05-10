@@ -9,7 +9,6 @@ export default () => {
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light " style="height: 64px;border-bottom: 1px solid  #E1E6F0;">
         <div class="container-fluid justify-content-between">
-
             <!-- Left elements -->
             <div class="d-flex col-12 col-lg-3">
                 <!-- Brand -->
@@ -17,7 +16,6 @@ export default () => {
                     <img src="./img/logo_inspection.png" position: absolute; alt="" loading="lazy"
                         style="margin-top: 19px; width: 77.19px;height: 26px;margin-left: 152px;margin-top: 19px;" />
                 </a>
-
             </div>
             <div class="lines">
             </div>
@@ -34,7 +32,6 @@ export default () => {
                                     style="color:#0E3141;font-weight: bold;font-size:12px;" href="#">Mis casos</a>
                             </li>
                         </div>
-
                     </ul>
                 </div>
                 <div class="d-flex float-end align-items-center justify-content-center" style="margin-top:15px;">
@@ -99,7 +96,6 @@ export default () => {
                                 <input type="text" id="description" disabled=true
                                     style="width:260px; height:77px;margin-bottom:20px;">
                             </div>
-
                             <!--
                             <div class="fecha_orden" id="fecha_orden"></div>
                             -->
@@ -113,14 +109,13 @@ export default () => {
                             <div class="materias" id="materia7"></div>
                             <div class="materias" id="materia8"></div>
                             -->
-
                             <h6>Fecha de creación</h6>
                             ${inspectionDate}
-                            <br></br>
+                            <br>
 
                             <h6>Orden de inspección</h6>
                             ${inspectionOrder}
-                            <br></br>
+                            <br>
                             
                             <div id="materias">
                                 <h6 id="materia1" class=""> Relaciones Laborales</h6>
@@ -141,13 +136,13 @@ export default () => {
                 <div class="card col-12 col-lg-9 "
                     style=" width:585px; height:686px; margin-top:19px; margin-left:18px; margin-right:42px;background: #FFFFFF;">
                     <div class="col-12" style="height:143px">
-                        <h7 class="title_card" style="margin-left:36px;font-family: Raleway;
+                        <h5 class="title_card" style="margin-left:36px;font-family: Raleway;
                                 font-style: normal;
                                 font-weight: bold;
                                 font-size: 14px;
                                 line-height: 20px;
                                 align-items: center;
-                                color: #969CBA;">Perfil de funcionario</h7>
+                                color: #969CBA;">Perfil de funcionario</h5>
                         <h6 class="title_card" style="margin-left:36px;">Tipo:Resolución de Sub Interdencia</h6>
                     </div>
                     <hr>
@@ -220,14 +215,14 @@ export default () => {
                                 </div>
 
                                 <div>
-                                    <h7 class="title_card" style="margin-left:36px;font-family: Raleway;
+                                    <h6 class="title_card" style="margin-left:36px;font-family: Raleway;
                                 font-style: normal;
                                 font-weight: bold;
                                 font-size: 14px;
                                 line-height: 20px;
                                 align-items: center;
                                 color: #969CBA;
-                               ">Perfil de funcionario</h7>
+                               ">Perfil de funcionario</h6>
 
                                     <div class="d-flex flex-row align-items-center justify-content-center" style="width:261px; height:68px; background: #F9FBFC;                
                                         border: 1px solid #466EFE;
@@ -376,9 +371,7 @@ export default () => {
                         <img src="../img/vector_actividades.png" alt="" class="ocultar"
                             style="height: 12px;width: 6px;margin-top:20px;">
                     </div>
-
                     <div>
-
                     </div>
                 </div>
             </div>
