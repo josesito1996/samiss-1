@@ -204,6 +204,7 @@
   display: none;
 }
 
+
 .detail-description .textarea-container {
   flex-direction: column;
   height: 78px;
@@ -268,8 +269,11 @@
 
 .detailMain .detail-process-performance{
   /* border: 1px solid red; */
+
+  margin-left: 18px;
   width:120%;
   height:594px;
+  background: white;
 }
 
 .card-process{
