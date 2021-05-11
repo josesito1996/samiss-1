@@ -270,6 +270,8 @@
   /* border: 1px solid red; */
   width:120%;
   height:594px;
+  margin-left: 18px;
+  background:white;
 }
 
 .card-process{

@@ -226,10 +226,16 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Tipo de actuación</label>
                         <select name="cars" id="cars" required="seleciona aquí" class="form-control" style="width:266px; height:36.49px;"> 
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
+                                <option value="">Selecciona aquí</option>
+                                <option value="Visita inspectiva">Visita inspectiva</option>
+                                <option value="Requerimiento de comparecencia ">Requerimiento de comparecencia </option>
+                                <option value="Comparecencia">Comparecencia</option>
+                                <option value="Requerimiento">Requerimiento</option>
+                                <option value="Acta de infracción ">Acta de infracción </option>
+                                <option value=" Descargos"> Descargos</option>
+                                <option value=" Resolución  "> Resolución  </option>
+                                <option value="  Apelación"> Apelación</option>
+                                <option value="  Escrito"> Escrito</option>
                             </select>
                      
                     </div>
@@ -246,11 +252,11 @@ export default () => {
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">4. Etapa</label>
-                        <select name="cars" id="cars" required="seleciona aquí" class="form-control" style="width:231px; height:36.49px;">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
+                        <select name="cars" id="cars" required="Selecciona aquí" class="form-control" style="width:231px; height:36.49px;">
+                                <option value="">Selecciona aquí</option>
+                                <option value="Investigación ">Investigación </option>
+                                <option value="Inspección">Inspecció</option>
+                                <option value="Sancionadora">Sancionadora</option>
                             </select>
                       
                     </div>
@@ -258,12 +264,12 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <div class="d-flex flex-row bd-highlight ">
                             <label for="inputPassword" class="form-label" style=" margin-left:0px">5. Descripcion</label>
-                            <input type="text" class="form-control" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="select-all" />                          
+                            <input type="text" class="form-control" placeholder="Escribir aquí" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="select-all" />                          
                         </div>
                     </div>
     
                     <div class="row" id="btn_crearCaso">
-                       <input type="button" disabled id="enviar" value="Crear actuación">
+                       <input type="button" disabled id="enviar" value="Crear actuación" style="height:auto;">
                     </div>
                 </form>
             </div>

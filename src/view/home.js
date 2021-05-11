@@ -84,6 +84,7 @@ export default () => {
                 rows=""
                 autofocus
                 class="txt-comment hide"
+                disabled
               ></textarea>
               <p id="countComment" class="hide">(Máximo 200 caracteres)</p>
 
@@ -516,6 +517,7 @@ export default () => {
           pComment.classList.add("hide");
           divComment.classList.remove("hide");
           txtComment.classList.remove("hide");
+          txtComment.disabled = false;
           countComment.classList.remove("hide");
           save.classList.remove("hide");
           edit.classList.add("hide");
@@ -525,20 +527,19 @@ export default () => {
           pComment.classList.add("hide");
           divComment.classList.remove("hide");
           txtComment.classList.remove("hide");
+          txtComment.disabled = false;
           countComment.classList.remove("hide");
           save.classList.remove("hide");
           edit.classList.add("hide");
         });
 
         save.addEventListener("click", ()=> {
-          txtComment.value="";
-          divComment.classList.add("hide");
-          txtComment.classList.add("hide");
-          countComment.classList.add("hide");
-          pComment.classList.remove("hide");
-          edit.classList.remove("hide");
-          save.classList.add("hide");
-        })
+            txtComment.disabled= true ;
+            edit.classList.remove("hide");
+            save.classList.add("hide");
+          })
+  
+
 
 
 

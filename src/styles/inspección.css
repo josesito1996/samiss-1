@@ -225,9 +225,10 @@ width: 138px;
 height: 40px;
 left: 301px;
 bottom: 50px;
-margin: 33px 301px 50px 301px;
-
+margin: 0px 301px 50px 301px;
+color: white;
 text-align: center;
+opacity: 0.2;
 
 /* Primary Red */
 
@@ -292,4 +293,9 @@ margin: 0px 10px;
 
 input :invalid {
   border: 1px solid red;
+}
+
+/*cambios slect*/
+option {
+  background-color: khaki;
 }
