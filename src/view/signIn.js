@@ -11,17 +11,17 @@ export default () => {
           <div class="form">
             <form class="form1">
               <div clas="row">
-                <img src="./img/Group.png" class="img_group" alt="logo" />
+                <img src="./img/svg/group.svg" class="img_group" alt="logo" />
               </div>
 
               <div clas="row">
                 <div class="flex_newAccount">
-                  <p class="txtgray txtFont">
+                  <p class="txtgray ">
                     Completa tus credenciales. ¿Aún no tienes una cuenta?&nbsp
                   </p>
                   <a
                     href="#/signUp"
-                    class="ptxtRed txtFont"
+                    class="ptxtRed"
                     id="newAccount"
                     style="text-decoration:none"
                     >Crea tu cuenta</a
@@ -37,17 +37,19 @@ export default () => {
                 >
                   <label
                     for="exampleInputEmail1"
-                    class="form-label txtgray subtxt txtFont"
+                    class="form-label txtgray subtxt"
+                    style="position: absolute;"
                     >Usuario</label
                   >
                   <input
                     type="email"
                     name="email"
                     id="fname"
-                    class="form-control inputForm txtPlaceholderGray txtFont"
+                    class="form-control txtPlaceholderGray"
                     placeholder="nombre@petroperu.com"
                     aria-required="true"
                     aria-invalid="false"
+                    style="border-radius:10px; background:none; position: relative; :focus:outline: 0;"
                     required
                   /><br />
                   <p id="messageEmail"></p>
@@ -57,9 +59,10 @@ export default () => {
                   <input
                     type="password"
                     id="password"
-                    class="form-control txtPlaceholderGray txtFont"
+                    class="form-control txtPlaceholderGray"
                     name="txtPassword"
                     placeholder="Contraseña"
+                    style="border-radius:10px; outline: 0;"
                   />
                   <!-- <button type="button" id="btnToggle" class="toggle"><i id="eyeIcon" class="bi bi-eye"></i></button> -->
                   <button type="button" id="btnToggle" class="toggle">
@@ -69,15 +72,15 @@ export default () => {
               </div>
 
               <div clas="row" style="margin-top:15px;margin-left:252px;">
-                <a href="#/signUp" class="txtFont" style="font-size:12px" color:#1890FF;"
+                <a href="#/signUp" class="" style="font-size:12px" color:#1890FF;"
                   >Olvidé mi contraseña</a
                 >
               </div>
 
               <!-- <div clas="row"></div> -->
-              <div clas="row txtFont">
-                <button type="button" id="getIn" style="margin-top:15px" class="ingresar txtFont">
-                  <span class="txtFont">Ingresar</span>
+              <div clas="row ">
+                <button type="button" id="getIn" style="margin-top:15px" class="ingresar ">
+                  <span class="">Ingresar</span>
                 </button>
               </div>
             </form>
