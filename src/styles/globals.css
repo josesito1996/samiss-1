@@ -19,6 +19,7 @@
   --grayLight : #838795;
   --white : #ffffff;
   --txtRed : #FF4766;
+    /* --txtGray :#696465; */
   --txtGray :#7D7577;
   --txtPlaceholderGray : #B6B2B2; 
   --background-light: #F0F3F5;
@@ -37,8 +38,8 @@
 }
 
 /* body {
-
 } */
+
 
 a {
   color: inherit;
