@@ -395,7 +395,7 @@ export default () => {
                             <div class="d-flex flex-column">
                               <p class="text_tipoResolution" style="margin-bottom:0px;">PRINCIPAL</p>
                               <div class="d-flex flex-row align-items-center ">
-                              <p id="txt_cargar">Cargar documento</p>
+                              <p id="txt_carga">Cargar documento</p>
                                 <label for="file-upload" id="subir" style="margin-left:0px;">
                                 <img  src="./img/svg/carga.svg" alt="" />
                                   </label>
@@ -574,7 +574,7 @@ export default () => {
   `;
 
 
-  // **********  Columna Izquierda (inicio)********** //
+  // ****  Columna Izquierda (inicio)**** //
   // const materias = viewHome.querySelector("#materias");
 
   const nameMateria1 = localStorage.getItem("materia1");
@@ -698,7 +698,7 @@ export default () => {
 //  calcular el nivel de riesgo
 //   Cuantos values me traigo
 
-//   // **********  Columna Izquierda (termino)  ********** //
+//   // ****  Columna Izquierda (termino)  **** //
 
 //   //evento list para utenticar
 //   const autenticar = firebase.auth();
@@ -810,11 +810,11 @@ export default () => {
         });
 
         const subir = viewHome.querySelector("#subir");
-        const txt_cargar = viewHome.querySelector("#txt_cargar");
+        const txt_carga = viewHome.querySelector("#txt_carga");
         const file_upload = viewHome.querySelector("#file-upload");
         file_upload.addEventListener("change", ()=> {
           subir.classList.add("ocultar");
-          txt_cargar.classList.add("ocultar");
+          txt_carga.classList.add("ocultar");
           var pdrs = document.getElementById('file-upload').files[0].name;
           document.getElementById('info').innerHTML = pdrs;
          
@@ -824,4 +824,3 @@ export default () => {
     
     return viewHome;
   };
-
