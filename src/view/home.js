@@ -2,9 +2,19 @@ export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
   const inspectionOrder = localStorage.getItem("order");
+  const etapa_actuacion = localStorage.getItem("etapa");
+  const tipo_actuacion = localStorage.getItem("tipo"); 
+  const date_actuacion = localStorage.getItem("date_actuacion"); 
+  
+  const year = localStorage.getItem("year"); 
+  const day = localStorage.getItem("day"); 
+  const month = localStorage.getItem("month"); 
 
+  const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
+  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion"); 
   viewHome.innerHTML = `
     <div class="wrapper">
+
       <div class="header">
         <div class="header-left d-flex">
           <img src="./img/svg/logo.svg" class="logo" alt="logo" />
@@ -46,11 +56,12 @@ export default () => {
         <div class="tags-case d-flex">
           <ul class="">
             <li><a href="#">Datos</a></li>
-            <li><a href="#" >Actuaciones</a></li>
+            <li id="irActuacion" ><a href="#" >Actuaciones</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Tareas</a></li>
           </ul>
         </div>
+        <div  id="main-datos">
         <div class="detailMain d-flex">
           <div class="detail-description">
             <div class="title-description d-flex">
@@ -82,7 +93,7 @@ export default () => {
                 placeholder="Escribir aquí..."
                 cols=""
                 rows=""
-                autofocus
+            
                 class="txt-comment hide"
                 disabled
               ></textarea>
@@ -313,7 +324,134 @@ export default () => {
 
           </div>
         </div>
-      </div>
+        </div>
+        <div class="ocultar" id="main-actuaciones">
+            <!--MAIN-INFORMATION-->
+       
+          <div class="row" style="margin-top:20px" >
+            <!--COLUMNA IZQUIERDA-->
+            <div class="col-12 col-lg-3">
+              <div class="container_line_time">
+                <div id="year">${year}</div>
+           
+
+
+                <div class="timeline">
+                  <div class="container left">
+                    <div class="content">
+                    <div id="day">${day}</div>
+                    <div id="month">${month}</div>
+                    </div>
+                  </div>
+                </div>
+               
+
+              </div>
+            </div>     
+        <!--COLUMNA DERECHA-->
+            <div class="col-12 col-lg-9">
+              <div class="container_actuacion_head">
+             <!--primera-fila-->
+             <div class="row">
+             <div id="etapas">${etapa_actuacion}</div>
+             </div>
+             
+              <!--segunda-fila-->
+            <div class=" d-flex  flex-row align-items-center justify-content-center" >
+                <!--image flecha-->
+              <div class="col-12 col-lg-2" id="container_adicional_information_actuacion">
+                <img src="./img/svg/up.svg" alt="" />
+              </div>
+                <!--trae datos de crear actuacion-->
+              <div class="col-12 col-lg-3"   id="container_adicional_information_actuacion" style="margin-bottom:10px;">
+                
+                <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">ACTUACIÓN</p>
+                <div id="actuacion_tipo" class="title_tipoResolution" style="margin-left:0px;">Tipo:${tipo_actuacion}</div>
+              </div>
+                  <!--descripcion-->
+              <div class="col-12 col-lg-4" id="container_adicional_information_actuacion"  >
+              <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
+              <div style= "font-size:12px;">${descripcion_actuacion}</div>
+              </div>
+                  <!--funcionario-->
+              <div class="col-12 col-lg-3"  id="container_adicional_information_actuacion">
+              <div class="d-flex justify-content-center align-items-center ">
+                            <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
+                            <div class="d-flex flex-column  align-items-center ">
+                                <p class="text_Resolution">${funcionario_actuacion}</p>
+                                <p class="text_tipoResolution"  style="margin-bottom:0px;">Funcionario(a)</p>
+                            </div>
+                          </div>
+                       </div>
+                  
+              </div>
+        
+            <!--tercera-fila-->
+            <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
+             <!--archivos subidos-->
+                      <div class="col-12 col-lg-4">
+                        <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
+                            <img class="img_tipoResolution" src="./img/svg/cli.svg" alt="" />
+                            <div class="d-flex flex-column">
+                              <p class="text_tipoResolution" style="margin-bottom:0px;">PRINCIPAL</p>
+                              <div class="d-flex flex-row align-items-center ">
+                              <p id="txt_cargar">Cargar documento</p>
+                                <label for="file-upload" id="subir" style="margin-left:0px;">
+                                <img  src="./img/svg/carga.svg" alt="" />
+                                  </label>
+                                  <input id="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
+                                  <div id="info"></div>
+                                  <div>
+                                 
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                        <div class="col-12 col-lg-5">
+                          <div class="d-flex flex-row">
+              <!--nombre de usuario-->
+                            <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion">
+                                <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
+                                <div class="d-flex flex-column  align-items-center ">
+                                <p class="text_Resolution">Subido por Alonso</p>
+                                  <p class="text_tipoResolution"> ${date_actuacion}</p>
+                                </div>
+                            </div>
+              <!--tareas-->
+                            <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
+                                <img class="img_tipoResolution" src="./img/svg/list.svg" alt="" />
+                                <div class="d-flex flex-column   ">
+                                    <p class="text_Resolution">0 Tareas</p>
+                                    <p class="text_tipoResolution">0 completadas</p>
+                                </div>
+                            </div>
+                          </div>
+                   </div>
+            <div class="col-12 col-lg-3">
+              <!--Documentos-->          
+              <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
+                            <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
+                            <div class="d-flex flex-column   ">
+                                <p class="text_Resolution">0 Documentos</p>
+                                <p class="text_tipoResolution">0 completadas</p>
+                            </div>
+                        </div>
+                        </div>
+            </div>
+
+            </div>
+
+            </div>
+            </div>
+
+          </div>
+
+         
+
+          </div>
+    
 
       <div class="sidebarCase">
         <h6>Estado del caso</h6>
@@ -431,6 +569,7 @@ export default () => {
         </p>
         <img src="./img/svg/group.svg" alt="logo" />
       </div>
+
     </div>
   `;
 
@@ -651,12 +790,37 @@ export default () => {
             console.log("riesgo bajo")
         }
 
-        //ir actuacion
+        //ir a crear actuación actuacion
 
         const actuacion =viewHome.querySelector("#actuacion");
         actuacion.addEventListener("click", ()=> {
             window.location.hash = "#/actuacion";
         })
+
+        //ir a link  actuaciones (main)
+
+        const irActuacion = viewHome.querySelector("#irActuacion");
+        const mainDatos = viewHome.querySelector("#main-datos");
+        const mainActuaciones = viewHome.querySelector("#main-actuaciones");
+        irActuacion.addEventListener("click", (e)=> {
+          e.preventDefault();
+          mainDatos.classList.add("ocultar");
+          mainActuaciones.classList.remove("ocultar");
+
+        });
+
+        const subir = viewHome.querySelector("#subir");
+        const txt_cargar = viewHome.querySelector("#txt_cargar");
+        const file_upload = viewHome.querySelector("#file-upload");
+        file_upload.addEventListener("change", ()=> {
+          subir.classList.add("ocultar");
+          txt_cargar.classList.add("ocultar");
+          var pdrs = document.getElementById('file-upload').files[0].name;
+          document.getElementById('info').innerHTML = pdrs;
+         
+        })
+       
+      
     
     return viewHome;
   };

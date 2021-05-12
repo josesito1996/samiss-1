@@ -220,12 +220,12 @@ export default () => {
                         <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
                             actuación</label>
                         <input type="date"   
-                        style="width:161px; height:39px;" class="form-control" name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" placeholder="13/04/21" max="2030-12-31"> 
+                        style="width:161px; height:39px;" class="form-control" name="trip-start" id="date_actuacion" value="2021-05-03" min="1980-01-01" placeholder="13/04/21" max="2030-12-31"> 
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Tipo de actuación</label>
-                        <select name="cars" id="cars" required="seleciona aquí" class="form-control" style="width:266px; height:36.49px;"> 
+                        <select name="mySelectValueTipo" id="mySelectValueTipo"  required="seleciona aquí" class="form-control" style="width:266px; height:36.49px;"> 
                                 <option value="">Selecciona aquí</option>
                                 <option value="Visita inspectiva">Visita inspectiva</option>
                                 <option value="Requerimiento de comparecencia ">Requerimiento de comparecencia </option>
@@ -242,7 +242,7 @@ export default () => {
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">3. Funcionarios</label>
-                        <input type="text" class="form-control"  placeholder="Alberto Morán"
+                        <input type="text" class="form-control" id="funcionario_actuacion"  placeholder="Ejem. Rosa Cubas Linares "
                             style="width:354px; height:39px;">
                         <div class="d-flex column justify-content-end me-5" >
                             <img src="./img/svg/+.svg" class="logo" alt="logo" /><a class="link-success" href="#"
@@ -252,7 +252,7 @@ export default () => {
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">4. Etapa</label>
-                        <select name="cars" id="cars" required="Selecciona aquí" class="form-control" style="width:231px; height:36.49px;">
+                        <select name="mySelectValueEtapa" id="mySelectValueEtapa" required="Selecciona aquí" class="form-control" style="width:231px; height:36.49px;">
                                 <option value="">Selecciona aquí</option>
                                 <option value="Investigación ">Investigación </option>
                                 <option value="Inspección">Inspecció</option>
@@ -264,12 +264,12 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <div class="d-flex flex-row bd-highlight ">
                             <label for="inputPassword" class="form-label" style=" margin-left:0px">5. Descripcion</label>
-                            <input type="text" class="form-control" placeholder="Escribir aquí" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="select-all" />                          
+                            <input type="text" class="form-control" placeholder="Escribir aquí" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="descripcion_actuacion" />                          
                         </div>
                     </div>
     
-                    <div class="row" id="btn_crearCaso">
-                       <input type="button" disabled id="enviar" value="Crear actuación" style="height:auto;">
+                    <div class="row" id="btn_crearActuacion">
+                       <input type="button" id="enviar" value="Crear actuación" style="height:auto;">
                     </div>
                 </form>
             </div>
@@ -305,14 +305,86 @@ sube_manual.addEventListener('click', (e) => {
   form2.classList.remove("ocultar")
   form1.classList.add("ocultar")
 
-     console.log(cambiar(fileInput.value))
-      const nameFile = cambiar(fileInput.value);
-      localStorage.setItem('file',nameFile )
+    //  console.log(cambiar(fileInput.value))
+    //   const nameFile = cambiar(fileInput.value);
+    //   localStorage.setItem('file',nameFile )
 
-   
-      
 });
+
+//localstorage Etapas
+const btn_crearActuacion = viewActuacion.querySelector("#btn_crearActuacion");
+btn_crearActuacion.addEventListener("click", () => {
+
+    
+    // returns selected option value  
+        const selectedOptionEtapa = viewActuacion.querySelector("#mySelectValueEtapa").options[ viewActuacion.querySelector("#mySelectValueEtapa").selectedIndex]; // returns selected option element
+        console.log(selectedOptionEtapa.value); // return selected option value (2nd method)
+        localStorage.setItem("etapa", selectedOptionEtapa.value )
+
+        const selectedOptionTipo = viewActuacion.querySelector("#mySelectValueTipo").options[ viewActuacion.querySelector("#mySelectValueTipo").selectedIndex]; // returns selected option element
+        console.log(selectedOptionTipo.value); // return selected option value (2nd method)
+        localStorage.setItem("tipo", selectedOptionTipo.value )    
+
+        const funcionario_actuacion = viewActuacion.querySelector("#funcionario_actuacion").value; // returns selected option element
+        
+        localStorage.setItem("funcionario_actuacion",  funcionario_actuacion )
+        
+        const descripcion_actuacion = viewActuacion.querySelector("#descripcion_actuacion").value;
+        localStorage.setItem("descripcion_actuacion", descripcion_actuacion )
+
+        const date_actuacion = viewActuacion.querySelector("#date_actuacion").value;
+        localStorage.setItem("date_actuacion", date_actuacion )
+
+        //sacar año
+
+       
+        function getYear(curDate){
+            var dt = new Date(curDate);`enter code here`
+             var year = dt.getFullYear();
+            return year.toString() 
+            }
+        
+           console.log( getYear(date_actuacion));
+           const year =  getYear(date_actuacion);
+           localStorage.setItem("year", year )
+
+        //sacar dia 
+
+        function getDate(curDate){
+            var dt = new Date(curDate);`enter code here`       
+            return  (dt.getDate()+1).toString().padStart(2, 0);
+            }
+        
+           console.log(getDate(date_actuacion));
+
+           const day =  getDate(date_actuacion);
+           localStorage.setItem("day", day )
+
+        //sacar mes
+        function getMonth(curDate){
+
+            var meses = [
+                "Enero", "Febrero", "Marzo",
+                "Abril", "Mayo", "Junio", "Julio",
+                "Agosto", "Septiembre", "Octubre",
+                "Noviembre", "Diciembre"
+              ] 
+            const  dt = new Date(curDate);`enter code here`
+            var mes = dt.getMonth();
+            // const mes = (dt.getMonth() + 1).toString().padStart(2, 0).toString();
+            return meses[mes]   ;
+            }
+        
+           console.log(getMonth(date_actuacion));
+           const month =  getMonth(date_actuacion);
+           localStorage.setItem("month", month )
+    
+
+        window.location.hash = "#/home";
+    });
+
+
+
 
       return viewActuacion 
   };
-  
