@@ -2,225 +2,235 @@
 export default () => {
     const viewSignUp = document.createElement('div');
     
-    viewSignUp.innerHTML = `
-  <!---Primera fila-->
-<div class="row">
-    <!---Columna izquierda-->
-    <div class="col-12 col-lg-4">
-        <img src="./img/logo.png" class=" " id="img_logos" style="width:160px; height:54px;" alt="logo">
-    </div>
-    <!---Columna derecha-->
-    <div class="col-12 col-lg-8">
-        <!--FORMULARIO 1-->
-        <form id="form2" >
-            <div class="row" >
-                <div class="col-12">
-                    <h1 class="registrar">Regístrate</h1>
-                </div>
+    viewSignUp.innerHTML =`
+        <div class="container-register d-flex">
 
-                <div class="col-12 d-flex align-items-center bd-highlight" id="completar">
-                    <p style="text-align: center;">Completa los datos solicitados¿Ya tienes una cuenta? &nbsp</p>
-                    <a href="" class="text-danger mb-3" style="text-decoration:none ;">Ingresa</a>
-                </div>
-
-                <div class="col-12">
-                <div class="row ms-5 mt-3 mb-3">
-                        <div class="col-12 col-lg-3">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <button id="btn_color" >1 </buton>
-                                    </td>
-                                    <td>
-                                        <a href="" class="text-muted" style="text-decoration:none">Datos personales</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div class="col-12 col-lg-9">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <button id="btn_color" >2 </buton>
-                                    </td>
-                                    <td>
-                                        <a href="" class="text-muted" style="text-decoration:none">Datos empresa</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                
-                </div>
-            </div>
-
-                <div class="col-12">
-                    <div id="container_infoUser">
-                        <div class="container_user1 col-md-4 mt-5">
-
-                            <div class="textOnInput">
-                                <label for="camponombre">Nombre</label>                         
-                                <input type="text" name="nombre" id="fname1" class="form-control"
-                                    placeholder="completar" id="camponombre">
-                            </div>
-
-                            <div class="textOnInput">
-                                <label for="camponombre">Apellido</label>
-                                <input type="text" name="nombre" id="fname1" class="form-control"
-                                    placeholder="completar" id="camponombre">
-                            </div>
-                        </div>
-
-                        <div class="container_user1">
-                            <div class="textOnInput">
-                                <label for="camponombre">Correo</label>
-                                <input type="email" name="email" id="email" class="form-control"
-                                    placeholder="nombre@petroperu.com">
-                            </div>
-
-                            <div class="textOnInput">
-                                <label for="camponombre">Contraseña</label>
-                                <input type="password" id="password1" class="form-control" name="txtPassword"
-                                    placeholder="Contraseña" />
-                                <button type="button" id="btn_password" class=""><i id="eyeIcon"
-                                        class="bi bi-eye"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="col-12 d-flex flex-row" style="margin-top:8px">
-                            <div class="d-flex flex-row ms-5 mb-3">
-                                <input type="checkbox" name="check" class="form-check-input" style= margin:5px;">
-                                <p>Acepto los <a href="#" class="text-danger" id="newAccount"
-                                        style="text-decoration:none">
-                                        Términos
-                                        del Servicio </a> y <a href="#" class="text-danger" id="newAccount"
-                                        style="text-decoration:none"> Políticas de Privacidad</a> </p>
-                            </div>
-                        </div>
+            <!-- <div class="row"> -->
+                <!---Columna izquierda-->
+                <!-- <div class="col-12 col-lg-4"> -->
+                <div class="div-logo-form d-flex">
+                    <div class="">
+                        <img src="./img/svg/logo.svg"  id="" style="width:160px; height:54px;" alt="logo">
                     </div>
-                </div>
-
-                <!---INFORMACIÓN EMPRESA-->
-                <div class="col-12">
-                <div id="container_infoEmpresa" class="ocultar">
-                    <div class="textOnInput2" >
-                        <label for="camponombre">Empresa</label>
-                        <input type="email" name="email" id="email" class="form-control"
-                            placeholder="nombre@petroperu.com"><br>
-                    </div>
-
-                    <div id="ajuste" class="d-flex align-items-center bd-highlight">
-                        <p class=" fs-6 fw-normal text-muted mb-1">Agregar un colocador &nbsp</p>
-                        <i class="bi bi-question-circle "></i>
-                    </div>
-                    <!-- Modal -->
-                    <!-- Button trigger modal -->
-                    <div class="d-flex colum">
-                        <button type="button" id="btn_New" class="btn btn-primary ms-5" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                        </button>
-
-                        <!--Show Data-->
-                        <div class="">
-                            <div class="rounded-circle mt-2" id="btn_border_showNamei" style:"width:110px; height:110px;">
-                                <div id="showNamei" class="rounded-circle">
-                                    <p ></p>
-                                </div>
-                            </div> 
-
-                            <div id="showName" style="font-size: 10px;color: #5A6072;" class="showName">
-                                <p></p>
+                <!---Columna derecha-->
+                <!-- <div class="col-12 col-lg-8"> -->
+                    <!--FORMULARIO 1-->
+                    <div class="form">
+                    <form id="form2" >
+                        <div class="row" >
+                            <div class="col-12">
+                                <h1 class="registrar txtFont">Regístrate</h1>
                             </div>
+    
+                            <div class="col-12 d-flex align-items-center bd-highlight" id="completar">
+                                <p class="txtFont txtgray" style="text-align: center; font-size: 14px">Completa los datos solicitados¿Ya tienes una cuenta?&nbsp</p>
+                                <a href="" class="ptxtRed mb-3 txtFont" style="text-decoration:none; font-size: 14px;">Ingresa</a>
+                            </div>
+    
+                            <div class="col-12 txtFont">
+                            <div class="row ms-5 mt-3 mb-3">
+                                    <div class="col-12 col-lg-3">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button id="btn_color1" >1 </buton>
+                                                </td>
+                                                <td>
+                                                    <a href="" class="text-muted" style="text-decoration:none; margin-left:9px; font-size:13px">Datos personales</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="col-12 col-lg-9">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button id="btn_color" >2 </buton>
+                                                </td>
+                                                <td>
+                                                    <a href="" class="text-muted" style="text-decoration:none; margin-left:9px; font-size:13px">Datos empresa</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                             
-                            <div id="show_icon" class="ocultar">
-                                <div class="row " style="height:50%">
-                                    <div class="col col-12 col-lg-6  align-items-center"  "style="width:12px; padding:0px" >
-                                            <button id="pencil"></button>
-                                    </div>
-                                    
-                                    <div class="col col-12 col-lg-6 " style="width:12px;padding:0px">
-                                            <button id="trash"></button>
-                                    </div>        
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content" style:"width:500px; height:402px;">
-                                <div class="modal-header" style="border-bottom: none;">
-                                    <h5 class="modal-title mt-3 ms-5" id="staticBackdropLabel">Nuevo Colaborador</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-
-                                <p class="mt-3 ms-5">Completa los datos solicitados de un usuario frecuente.</p>
-                                <div class="d-flex align-items-center flex-column justify-content-center ">
-                                    
-                                <div class="row d-flex justify-content-start">
-                                    <div id="textOnInput3">
-                                        <label for="camponombre">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control"
-                                            style="width:302px; height:45px;margin-left: 60px;" placeholder="completar" id="name">
+    
+                            <div class="col-12">
+                                <div id="container_infoUser">
+                                    <div class="container_user1 col-md-4 mt-5">
+    
+                                        <div class="textOnInput txtFont">
+                                            <label for="camponombre" class="txtFont" style="color: #7D7577;">Nombre</label>                         
+                                            <input type="text" name="nombre" id="fname1" class="form-control"
+                                                placeholder="Completar" id="camponombre">
+                                        </div>
+    
+                                        <div class="textOnInput txtFont">
+                                            <label for="camponombre" class="txtFont">Apellido</label>
+                                            <input type="text" name="nombre" id="fname1" class="form-control"
+                                                placeholder="Completar" id="camponombre">
+                                        </div>
                                     </div>
-                                
-                                    <div id="textOnInput3">
-                                        <label for="camponombre">Correo</label>
-                                        <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="nombre@petroperu.com">
+    
+                                    <div class="container_user1">
+                                        <div class="textOnInput">
+                                            <label for="camponombre" class="txtFont">Correo</label>
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                placeholder="nombre@petroperu.com">
+                                        </div>
+    
+                                        <div class="textOnInput">
+                                            <label for="camponombre" class="txtFont">Contraseña</label>
+                                            <input type="password" id="password1" class="form-control" name="txtPassword"
+                                                placeholder="Contraseña" />
+                                            <button type="button" id="btn_password" class=""><i id="eyeIcon"
+                                                    class="bi bi-eye"></i></button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer" style="border-top:none;">
-                                    <button type="button" class="btn btn-secondary btn-danger" id="add"
-                                        data-bs-dismiss="modal">Agregar</button>
+    
+                                    <div class="col-12 d-flex flex-row" style="margin-top:8px">
+                                        <div class="d-flex flex-row ms-5 mb-3" style="font-size:14px;">
+                                            <input type="checkbox" name="check" class="form-check-input" style= margin:5px;">
+                                            <p class="txtFont">Acepto los <a href="#" class="text-danger txtFont" id="newAccount"
+                                                    style="text-decoration:none">
+                                                    Términos
+                                                    del Servicio </a> y <a href="#" class="text-danger" id="newAccount"
+                                                    style="text-decoration:none"> Políticas de Privacidad</a> </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+    
+                            <!---INFORMACIÓN EMPRESA-->
+                            <div class="col-12">
+                            <div id="container_infoEmpresa" class="ocultar">
+                                <div class="textOnInput2" >
+                                    <label for="camponombre">Empresa</label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="nombre@petroperu.com"><br>
+                                </div>
+    
+                                <div id="ajuste" class="d-flex align-items-center bd-highlight">
+                                    <p class=" fs-6 fw-normal text-muted mb-1">Agregar un colocador &nbsp</p>
+                                    <i class="bi bi-question-circle "></i>
+                                </div>
+                                <!-- Modal -->
+                                <!-- Button trigger modal -->
+                                <div class="d-flex colum">
+                                    <button type="button" id="btn_New" class="btn btn-primary ms-5" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                    </button>
+    
+                                    <!--Show Data-->
+                                    <div class="">
+                                        <div class="rounded-circle mt-2" id="btn_border_showNamei" style:"width:110px; height:110px;">
+                                            <div id="showNamei" class="rounded-circle">
+                                                <p ></p>
+                                            </div>
+                                        </div> 
+    
+                                        <div id="showName" style="font-size: 10px;color: #5A6072;" class="showName">
+                                            <p></p>
+                                        </div>
+                                        
+                                        <div id="show_icon" class="ocultar">
+                                            <div class="row " style="height:50%">
+                                                <div class="col col-12 col-lg-6  align-items-center"  "style="width:12px; padding:0px" >
+                                                        <button id="pencil"></button>
+                                                </div>
+                                                
+                                                <div class="col col-12 col-lg-6 " style="width:12px;padding:0px">
+                                                        <button id="trash"></button>
+                                                </div>        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" style:"width:500px; height:402px;">
+                                            <div class="modal-header" style="border-bottom: none;">
+                                                <h5 class="modal-title mt-3 ms-5" id="staticBackdropLabel">Nuevo Colaborador</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+    
+                                            <p class="mt-3 ms-5">Completa los datos solicitados de un usuario frecuente.</p>
+                                            <div class="d-flex align-items-center flex-column justify-content-center ">
+                                                
+                                            <div class="row d-flex justify-content-start">
+                                                <div id="textOnInput3">
+                                                    <label for="camponombre">Nombre</label>
+                                                    <input type="text" name="nombre" class="form-control"
+                                                        style="width:302px; height:45px;margin-left: 60px;" placeholder="completar" id="name">
+                                                </div>
+                                            
+                                                <div id="textOnInput3">
+                                                    <label for="camponombre">Correo</label>
+                                                    <input type="email" name="email" id="email" class="form-control"
+                                                        placeholder="nombre@petroperu.com">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer" style="border-top:none;">
+                                                <button type="button" class="btn btn-secondary btn-danger" id="add"
+                                                    data-bs-dismiss="modal">Agregar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 p-5" >
+                                <hr style="width:650px;">
+                                <button id="btn_next">Siguiente</button>
+                                <button id="btn_nextWelcome" class="ocultar">Siguiente</button>
+                                <button id="btn_behind" class="ocultar">Anterior</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                </div>
-                <div class="col-12 p-5" >
-                    <hr style="width:650px;">
-                    <button id="btn_next">Siguiente</button>
-                    <button id="btn_nextWelcome" class="ocultar">Siguiente</button>
-                    <button id="btn_behind" class="ocultar">Anterior</button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!--FORMULARIO 2-->
-
-    <form id="form3" class="ocultar">
-        <h1 class="registrar">Registro Completado</h1>
-        <img src="./img/banner.png" id="banner" style="with:160px" alt="logo">
-
-        <div class="m-5">
-            <div id="showMessage_part1" class="mb-5">
-                <p></p>
-            </div>
-            <div id="showMessage_part2" >
-                <p></p>
             </div>
         </div>
-        <button class="btn btn-danger" id="añadir_Inspección">Añadir Inspección</button>
-    </form>
-</div>
-
-<!---Segunda fila-->
-<div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
-        <footer class="d-flex justify-content-around" >
-            <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
-                <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
-                <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
-                <p>y</p>
-                <a href="" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
+    
+                <!--FORMULARIO 2-->
+    
+                <form id="form3" class="ocultar">
+                    <h1 class="registrar">Registro Completado</h1>
+                    <img src="./img/banner.png" id="banner" style="with:160px" alt="logo">
+    
+                    <div class="m-5">
+                        <div id="showMessage_part1" class="mb-5">
+                            <p></p>
+                        </div>
+                        <div id="showMessage_part2" >
+                            <p></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" id="añadir_Inspección">Añadir Inspección</button>
+                </form>
             </div>
-            <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
-        </footer>
-    </div>
+    
+            <!---Segunda fila-->
+
+                    <footer class="d-flex justify-content-around" >
+                        <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
+                            <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
+                            <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
+                            <p>y</p>
+                            <a href="" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
+                        </div>
+                        <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
+                    </footer>
+                </div>
+
+        </div>
+        <!---Primera fila-->
+
         `;
 
   //email con la nomenclatura correcta

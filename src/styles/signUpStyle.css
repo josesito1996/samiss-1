@@ -1,0 +1,28 @@
+.container-register {
+  height: 100vh;
+  background: var(--background-light);
+  justify-content: center;
+}
+
+.container-register  .div-logo-form {
+  /* border: 1px solid pink; */
+  /* align-items: center; */
+  
+  margin: 104px 253px 185px 152px;
+}
+
+/* .container-register  .logoRegister {
+  border: 1px solid blue;
+  height: 67.51px;
+  width: 200px;
+} */
+
+/* .container-register  .form { */
+  /* margin-left: 120px; */
+  /* border: 1px solid yellow; */
+  /* height: 624px;
+  width: 760px;
+  align-self: center; */
+/* } */
+
+

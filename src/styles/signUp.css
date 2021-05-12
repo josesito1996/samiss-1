@@ -18,9 +18,10 @@
 #form2{
     width: 760px;
     height: 624px;
-    margin-right: 253px;
-    margin-top: 151px;
-    margin-bottom:80px;
+    margin: 47;
+    /* margin-right: 253px; */
+    /* margin-top: 151px; */
+    /* margin-bottom:80px; */
     /* White */
     background: #FFFFFF;
     box-shadow: 0px 16px 16px rgba(50, 50, 71, 0.08);
@@ -29,7 +30,6 @@
 }
 
 .registrar{
-    font-family: Raleway;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
