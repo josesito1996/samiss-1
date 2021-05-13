@@ -66,7 +66,7 @@ export default () => {
                   />
                   <!-- <button type="button" id="btnToggle" class="toggle"><i id="eyeIcon" class="bi bi-eye"></i></button> -->
                   <button type="button" id="btnToggle" class="toggle">
-                    <img src="./img/svg/eye.svg" alt="eye" />
+                    <img  src="./img/svg/eye.svg" style="margin-right:-18px;" alt="eye" />
                   </button>
                 </div>
               </div>
