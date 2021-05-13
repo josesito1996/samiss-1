@@ -267,7 +267,15 @@ export default () => {
                             <input type="text" class="form-control" placeholder="Escribir aquí" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="descripcion_actuacion" />                          
                         </div>
                     </div>
+
+
+                    <label for="file-upload" id="subir" style="margin-left:0px;">
+                                  <img  src="./img/svg/carga.svg" alt="" />
+                                    </label>
+                                    <input id="file-upload"  type="file" style='display: none;'/>
+                                    <div id="info"></div>
     
+
                     <div class="row" id="btn_crearActuacion">
                        <input type="button" id="enviar" value="Crear actuación" style="height:auto;">
                     </div>
@@ -289,27 +297,60 @@ export default () => {
     </div>
     `;
 
-//email con la nomenclatura correcta
+//subir documento
+// const subir = viewActuacion.querySelector("#subir");
 
+// const file_upload = viewActuacion.querySelector("#file-upload");
+// file_upload.addEventListener("change", ()=> {
+//   subir.classList.add("ocultar");
+  
+//   var pdrs = document.getElementById('file-upload').files[0].name;
+//   document.getElementById('info').innerHTML = pdrs;
+ 
+// })
+
+var fichero;
+var storageRef;
+
+function inicializar() {
+    fichero = viewActuacion.querySelector("#file-upload");
+    fichero.addEventListener("change", subirDocAFirebase, false);
+    storageRef = firebase.storage().ref();
+}
+inicializar()
+
+function subirDocAFirebase(){
+    console.log("subiendo")
+    var documentoSubir = fichero.files[0];
+
+    var subir = storageRef.child("documentos/"+documentoSubir.name).put(documentoSubir)
+   
+    .then(function(snapshot) {
+  console.log('Uploaded a blob or file!');
+});
+   
+}
 //Evento click Crear de formulario manual
 const form1 =  viewActuacion.querySelector("#drop");  
 const form2 =  viewActuacion.querySelector("#handbook");   
 const line_manual= viewActuacion.querySelector("#line_manual");    
 const line_drop= viewActuacion.querySelector("#sube_archivo");    
-const sube_manual =  viewActuacion.querySelector("#sube_manual");    
+const sube_manual =  viewActuacion.querySelector("#sube_manual");   
+
+const descripcion_actuacion = viewActuacion.querySelector("#descripcion_actuacion").value;
+localStorage.removeItem("descripcion_actuacion", descripcion_actuacion )
+
 sube_manual.addEventListener('click', (e) => {
   e.preventDefault();
  
-  line_manual.style.borderBottomColor = " black";
+  line_manual.style.borderBottomColor = "black";
   line_drop.style.borderBottomColor = "white";
   form2.classList.remove("ocultar")
   form1.classList.add("ocultar")
 
-    //  console.log(cambiar(fileInput.value))
-    //   const nameFile = cambiar(fileInput.value);
-    //   localStorage.setItem('file',nameFile )
 
 });
+
 
 //localstorage Etapas
 const btn_crearActuacion = viewActuacion.querySelector("#btn_crearActuacion");
@@ -330,14 +371,48 @@ btn_crearActuacion.addEventListener("click", () => {
         localStorage.setItem("funcionario_actuacion",  funcionario_actuacion )
         
         const descripcion_actuacion = viewActuacion.querySelector("#descripcion_actuacion").value;
-        localStorage.setItem("descripcion_actuacion", descripcion_actuacion )
+        console.log(descripcion_actuacion)
+             
 
         const date_actuacion = viewActuacion.querySelector("#date_actuacion").value;
         localStorage.setItem("date_actuacion", date_actuacion )
 
+        //USANDO FIREBASE PARA CREAR COLLECTION DEL FORMULARIO CREAR ACTUACION
+        const db = firebase.firestore()
+        db.collection("crearActuación").add({
+            Fecha: date_actuacion,
+            Tipo: selectedOptionTipo.value,
+            Funcionario: funcionario_actuacion,
+            Etapa: selectedOptionEtapa.value,
+            Descripcion: descripcion_actuacion,
+            
+            // Documentos: "USA",
+        })
+        .then(() => {
+            console.log("Document successfully written!", );
+            selectedOptionTipo.value = "";
+            selectedOptionEtapa.value ="";
+            viewActuacion.querySelector("#funcionario_actuacion").value="";
+            viewActuacion.querySelector("#descripcion_actuacion").value="";
+            viewActuacion.querySelector("#date_actuacion").value="";
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+
+        
+             function handlerDescripcion() {
+                if (descripcion_actuacion) {
+                    localStorage.setItem("descripcion_actuacion", descripcion_actuacion );
+                } else {
+              console.log("soy nulo")
+                }
+              }
+              handlerDescripcion()
+        
+
         //sacar año
 
-       
         function getYear(curDate){
             var dt = new Date(curDate);`enter code here`
              var year = dt.getFullYear();
@@ -379,8 +454,8 @@ btn_crearActuacion.addEventListener("click", () => {
            const month =  getMonth(date_actuacion);
            localStorage.setItem("month", month )
     
-
-        window.location.hash = "#/home";
+           
+            window.location.hash = "#/home";
     });
 
 

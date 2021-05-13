@@ -147,16 +147,23 @@
 }
 
 .tags-case li {
-  display: inline-block;
+  /* display: inline-block; */
   height: 33px;
   width: 130px;
   color: var(--primary-blue);
   text-align: center;
 }
 
-.tags-case li:first-child {
+.allA{
+  display: inline-block;
+  width: 100%;
+  height: 99%;
+}
+
+#irDatos {
   font-weight: 600;
   border-bottom: 3px solid var(--primary-blue);
+ 
 }
 
 .tags-case a {
@@ -226,6 +233,32 @@
   border: none;
   outline: none;
   resize: none;
+}
+
+.textarea-container  .txt-comment_actuacion {
+  height: 37px;
+  width: 304px;
+  padding: 4px 7px 0 9px;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--primary-blue);
+  background: var(--white);
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+#textareaContainer_actuacion{
+  width: 304px;
+height: 37px;
+left: 433px;
+top: 426px;
+
+background: #FFFFFF;
+border: 1px solid #E1E6F0;
+box-sizing: border-box;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
 }
 
 .textarea-container p {
@@ -323,6 +356,7 @@ line-height: 12px;
 display: flex;
 align-items: center;
 color: #969CBA;
+padding-top: 5px;
 }
 .text_Resolution{
   font-family: Raleway;
@@ -339,6 +373,11 @@ margin-bottom: 0px;
 .img_tipoResolution{
   margin-right: 8px;
   margin-bottom: 15px;
+}
+
+.img_tipoResolution_sinDoc{
+  margin-right: 8px;
+ 
 }
 .style_icon_right{
   margin-left:20px;
@@ -458,18 +497,19 @@ margin-bottom: 0px;
 
 
 .container_actuacion_head{
-  border: 1px solid red;
+  
   width: 777px;
   height: 231px;
-  padding: 30px;
+  padding: 30px 37px 40px 22px;
   background: #FFFFFF;
   border-radius: 5px;
 }
 
 .container_line_time{
-  border: 1px solid yellow;
+ 
   width: auto;
   height: 100%;
+
  
 
 }
@@ -497,7 +537,7 @@ padding-top: 2px;
 padding-bottom: 2px;
 padding-left: 5px;
 padding-right: 5px;
-margin-left: 59px;
+margin-left: 50px;
 }
 
 #container_3Line_actuacion{
@@ -518,7 +558,7 @@ margin-left: 59px;
   text-align: center;
   width: 59px;
   height: 24px;
-  margin-left: 55px;
+  margin-left: 30%;
 }
 
 #month{
@@ -560,7 +600,7 @@ margin-left: 59px;
   top: 0;
   bottom: 0;
   left: 25%;
-  margin-left: -3px;
+  margin-left: 30%;
   height: 200px;
 
 }
@@ -579,7 +619,7 @@ margin-left: 59px;
   position: absolute;
   width: 25px;
   height: 25px;
-  left: 73;
+  left: 45%;
   background-color: white;
   border: 5px solid #FFB000;;
   top: 45;
@@ -618,6 +658,7 @@ margin-left: 59px;
   width: auto;
 top: 35;
   position: relative;
+  right: 20%;
  
 }
 
@@ -649,13 +690,15 @@ top: 35;
   }
 }
 
-#txt_cargar{
+#txt_carga{
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   color: #FF3355;
+  margin-right:5px;
+  margin-top:7px;
 }
 
 #info{
@@ -669,4 +712,69 @@ top: 35;
   text-decoration-line: underline;
   color: #0F3041;
   
+}
+
+/*boton TOTAL*/
+#button_total{
+  width: 162px;
+  height: 37px;
+  left: 0px;
+  top: 0px;
+  background: rgba(15, 48, 65, 0.5);
+  border-radius: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  margin: 10px;
+  }
+
+/*botones etapas*/
+#buttons_etapa{
+  width: 162px;
+  height: 37px;
+  left: 182px;
+  top: 0px;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F3041;
+  margin: 10px;
+}
+/*sin tareas y documentos*/
+#Sintareas{
+  border-left: 1px solid rgba(15, 48, 65, 0.21);
+  padding: 0px 20px 0px 20px;
+}
+
+/*editar actuaciones*/
+#pComment_actuacion{
+  width: 303px;
+  height: 59px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  margin-bottom: 0px;
+} 
+
+#title_descripcion_actuacion{
+  margin-bottom:0px;
+  font-size:10px;
+  margin-right:5px
 }

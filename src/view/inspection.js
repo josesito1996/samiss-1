@@ -332,12 +332,7 @@ export default () => {
                                         Promoción y formación
                                     </label>
                                 </div>
-    
-
-    
-    
-
-    
+        
                                 <div class="row">
                                     <input type="checkbox" name="check6" class="checkbox" id="check6" value =" Intermediación laboral" style="width:auto;" />
                                     <label class="form-check-label" style="margin-left:0px;width:auto;"

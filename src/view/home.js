@@ -11,15 +11,18 @@ export default () => {
   const month = localStorage.getItem("month"); 
 
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
-  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion"); 
-  viewHome.innerHTML = `
+
+  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion")
+  viewHome.innerHTML =  `
     <div class="wrapper">
 
       <div class="header">
+
         <div class="header-left d-flex">
           <img src="./img/svg/logo.svg" class="logo" alt="logo" />
           <span class="vertical-line"></span>
         </div>
+
         <div class="header-center d-flex">
           <div class="tag-case d-flex">
             <p>Mis Casos</p>
@@ -34,11 +37,13 @@ export default () => {
             <span class="vertical-line"></span>
           </div>
         </div>
+
         <div class="header-right d-flex">
           <img src="./img/svg/avatar.svg" class="avatar" alt="profile" />
           <p>Alonso Hoyos</p>
           <img src="./img/svg/chevron-down.svg" alt="profile menu" />
         </div>
+
       </div>
 
       <div class="mainCase">
@@ -55,8 +60,8 @@ export default () => {
         </div>
         <div class="tags-case d-flex">
           <ul class="">
-            <li><a href="#">Datos</a></li>
-            <li id="irActuacion" ><a href="#" >Actuaciones</a></li>
+            <li  ><a id="irDatos" class="allA"  href="#">Datos</a></li>
+            <li id="liActuacion"  ><a href="#" id="irActuacion"  class="allA">Actuaciones</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Tareas</a></li>
           </ul>
@@ -327,15 +332,37 @@ export default () => {
         </div>
         <div class="ocultar" id="main-actuaciones">
             <!--MAIN-INFORMATION-->
-       
+
+            <!--Menú botones-->
+
+            <div class="row" style="margin-top:47px;" >
+
+              <div class="d-flex flex-row">
+                  <div id="button_total">
+                    Total
+                  </div>
+
+                  <div id="buttons_etapa">
+                  <strong>Etapa 1:</strong>Investigación
+                  </div>
+
+                  <div id="buttons_etapa">
+                    <strong>Etapa 2:</strong>Instrucción
+                  </div>
+
+                  <div id="buttons_etapa">
+                    <strong>Etapa 3:</strong>Sancionadora
+                  </div>
+              
+              </div>
+
+            </div>
           <div class="row" style="margin-top:20px" >
             <!--COLUMNA IZQUIERDA-->
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-1">
               <div class="container_line_time">
                 <div id="year">${year}</div>
            
-
-
                 <div class="timeline">
                   <div class="container left">
                     <div class="content">
@@ -349,109 +376,160 @@ export default () => {
               </div>
             </div>     
         <!--COLUMNA DERECHA-->
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-11">
               <div class="container_actuacion_head">
-             <!--primera-fila-->
-             <div class="row">
-             <div id="etapas">${etapa_actuacion}</div>
-             </div>
-             
-              <!--segunda-fila-->
-            <div class=" d-flex  flex-row align-items-center justify-content-center" >
-                <!--image flecha-->
-              <div class="col-12 col-lg-2" id="container_adicional_information_actuacion">
-                <img src="./img/svg/up.svg" alt="" />
-              </div>
-                <!--trae datos de crear actuacion-->
-              <div class="col-12 col-lg-3"   id="container_adicional_information_actuacion" style="margin-bottom:10px;">
+                <!--primera-fila-->
+                <div class="row">
+                <div id="etapas">${etapa_actuacion}</div>
+                </div>
                 
-                <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">ACTUACIÓN</p>
-                <div id="actuacion_tipo" class="title_tipoResolution" style="margin-left:0px;">Tipo:${tipo_actuacion}</div>
-              </div>
-                  <!--descripcion-->
-              <div class="col-12 col-lg-4" id="container_adicional_information_actuacion"  >
-              <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
-              <div style= "font-size:12px;">${descripcion_actuacion}</div>
-              </div>
-                  <!--funcionario-->
-              <div class="col-12 col-lg-3"  id="container_adicional_information_actuacion">
-              <div class="d-flex justify-content-center align-items-center ">
-                            <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
-                            <div class="d-flex flex-column  align-items-center ">
-                                <p class="text_Resolution">${funcionario_actuacion}</p>
-                                <p class="text_tipoResolution"  style="margin-bottom:0px;">Funcionario(a)</p>
-                            </div>
-                          </div>
-                       </div>
-                  
-              </div>
-        
-            <!--tercera-fila-->
-            <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
-             <!--archivos subidos-->
-                      <div class="col-12 col-lg-4">
-                        <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
-                            <img class="img_tipoResolution" src="./img/svg/cli.svg" alt="" />
-                            <div class="d-flex flex-column">
-                              <p class="text_tipoResolution" style="margin-bottom:0px;">PRINCIPAL</p>
-                              <div class="d-flex flex-row align-items-center ">
-                              <p id="txt_carga">Cargar documento</p>
-                                <label for="file-upload" id="subir" style="margin-left:0px;">
-                                <img  src="./img/svg/carga.svg" alt="" />
-                                  </label>
-                                  <input id="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
-                                  <div id="info"></div>
-                                  <div>
-                                 
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
+                <!--segunda-fila-->
+                <div class=" d-flex  flex-row align-items-center justify-content-center" >
+                    
+                    <!--trae datos de crear actuacion-->
+                    <div class="col-12 col-lg-4"   id="container_adicional_information_actuacion" style="margin-bottom:10px;margin-left:55px">
+                      <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">ACTUACIÓN</p>
+                      <div id="actuacion_tipo" class="title_tipoResolution" style="margin-left:0px;">Tipo:${tipo_actuacion}</div>
+                    </div>
+                      <!--descripcion-->
+                    <div class="col-12 col-lg-4" id="container_adicional_information_actuacion"  >
+                      <div id="descripcion_actuacion_get">
+                        <p class="text_tipoResolution" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
+                        <p style= "font-size:12px;" id="input_setDescripcion_actuacion"  >${descripcion_actuacion}</p>
                       </div>
+                      <div id="descripcion_actuacion_edit" class="ocultar">
+                            <div class="title-description d-flex">
+                                <p class="text-blue-opacity" id="title_descripcion_actuacion" style="">Descripción</p>
 
-                        <div class="col-12 col-lg-5">
-                          <div class="d-flex flex-row">
-              <!--nombre de usuario-->
-                            <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion">
-                                <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
-                                <div class="d-flex flex-column  align-items-center ">
-                                <p class="text_Resolution">Subido por Alonso</p>
-                                  <p class="text_tipoResolution"> ${date_actuacion}</p>
-                                </div>
+                                <img
+                                  id="btnEditComment_actuacion"
+                                  src="./img/svg/edit_actuacion_descripcion.svg"
+                                  class="btnEditComment_actuacion"
+                                  alt="icon edit"
+                                />
+                                <img
+                                  id="btnSaveComment_actuacion"
+                                  src="./img/svg/save_actuacion.svg"
+                                  class="btnSaveComment hide"
+                                  alt="icon edit"
+                                />
+                              </div>
+                              <p id="pComment_actuacion" class="ptxt-comment">
+                              Si deseas escribir algo puntal sobre la actuación puedes hacerlo <strong>aquí</strong>.Recuerda que puedes edicarlo en cualquier momento haciendo click en el lápiz.
+                              </p>
+                              <div id="textareaContainer_actuacion" class="textarea-container hide">
+                                <textarea
+                                  name="txtComment"
+                                  id="txtComment_actuacion"
+                                  placeholder="Escribir aquí..."
+                                  cols=""
+                                  rows=""
+                              
+                                  class="txt-comment_actuacion hide"
+                                  disabled
+                                ></textarea>
+                                <p id="countComment_actuacion" style="width:304px;" class="hide">(Máximo 200 caracteres)</p>
+                             </div>
+                      </div>
+                    </div>
+                  
+                      <!--funcionario-->
+                    <div class="col-12 col-lg-4"  id="container_adicional_information_actuacion">
+                        <div class="d-flex justify-content-center align-items-center ">
+                                  <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
+                                  <div class="d-flex flex-column  align-items-center ">
+                                      <p class="text_Resolution">${funcionario_actuacion}</p>
+                                      <p class="text_tipoResolution"  style="margin-bottom:0px;">Funcionario(a)</p>
+                                  </div>
+                        </div>
+                    </div>
+                    
+                </div>
+          
+              <!--tercera-fila-->
+                <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
+              <!--archivos subidos-->
+                        <div class="col-12 col-lg-4">
+                          <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
+                              <img class="img_tipoResolution" src="./img/svg/cli.svg" alt="" />
+                              <div class="d-flex flex-column">
+                                <p class="text_tipoResolution" style="margin-bottom:0px;">PRINCIPAL</p>
+                                <div class="d-flex flex-row align-items-center justify-content-center ">
+                                <p id="txt_carga">Cargar documento</p>
+                                  <label for="file-upload" id="subir" style="margin-left:0px;">
+                                  <img  src="./img/svg/carga.svg" alt="" />
+                                    </label>
+                                    <input id="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
+                                    <div id="info"></div>
+                                    <div>
+                                  
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+
+                          <div class="col-12 col-lg-4">
+                            <div class="d-flex flex-row">
+                <!--nombre de usuario-->
+                            <div class="ocultar">
+                              <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
+                                  <div class="d-flex flex-column  align-items-center ">
+                                  <p class="text_Resolution">Subido por Alonso</p>
+                                    <p class="text_tipoResolution"> ${date_actuacion}</p>
+                                  </div>
+                               </div>
                             </div>
-              <!--tareas-->
+                <!--tareas-->
+                            <div class="ocultar">
+                              <div class="d-flex flex-row justify-content-center   " style="border-left:none;" id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution" src="./img/svg/list.svg" alt="" />
+                                  <div class="d-flex flex-column   ">
+                                      <p class="text_Resolution">0 Tareas</p>
+                                      <p class="text_tipoResolution">0 completadas</p>
+                                  </div>
+                              </div>
+                            </div>  
+                <!--Sin tareas -->
+                          <div id="Sintareas" >
+                            <div class="d-flex flex-row justify-content-center  align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
+                                <img class="img_tipoResolution_sinDoc" src="./img/svg/noList.svg" alt="" />
+                                  <p class="text_tipoResolution"  style="margin-bottom:0px;">Aún sin tareas</p>
+                            </div>
+                          </div> 
+
+                          </div>
+                        </div>
+
+                          <div class="col-12 col-lg-4">
+                <!--Documentos--> 
+                          <div class="ocultar">         
                             <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
-                                <img class="img_tipoResolution" src="./img/svg/list.svg" alt="" />
+                                <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
                                 <div class="d-flex flex-column   ">
-                                    <p class="text_Resolution">0 Tareas</p>
+                                    <p class="text_Resolution">0 Documentos</p>
                                     <p class="text_tipoResolution">0 completadas</p>
                                 </div>
                             </div>
                           </div>
-                   </div>
-            <div class="col-12 col-lg-3">
-              <!--Documentos-->          
-              <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
-                            <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
-                            <div class="d-flex flex-column   ">
-                                <p class="text_Resolution">0 Documentos</p>
-                                <p class="text_tipoResolution">0 completadas</p>
+
+                <!--Sin Documentos--> 
+                          <div id="Sintareas" >
+                            <div class="d-flex flex-row align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
+                                <img class="img_tipoResolution_sinDoc" src="./img/svg/noDoc.svg" alt="" />
+                                  <p class="text_tipoResolution"  style="margin-bottom:0px;">Aún sin documentos</p>
                             </div>
+                        </div> 
+
                         </div>
-                        </div>
-            </div>
+              </div>
 
+              </div>
             </div>
-
-            </div>
-            </div>
-
           </div>
-
-         
-
-          </div>
-    
+        </div> 
+      </div>
 
       <div class="sidebarCase">
         <h6>Estado del caso</h6>
@@ -571,6 +649,7 @@ export default () => {
       </div>
 
     </div>
+
   `;
 
 
@@ -578,6 +657,7 @@ export default () => {
   // const materias = viewHome.querySelector("#materias");
 
   const nameMateria1 = localStorage.getItem("materia1");
+  
   const nameMateria2 = localStorage.getItem("materia2");
   const nameMateria3 = localStorage.getItem("materia3");
   const nameMateria4 = localStorage.getItem("materia4");
@@ -641,6 +721,26 @@ export default () => {
   } else {
     materia8.classList.remove("hide");
   }
+
+//mostar descripcion actuacion
+
+
+// const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
+const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
+const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacion_edit");
+  const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
+ 
+  if (descripcion_actuacion  == null) {
+    console.log("yu")
+    console.log(descripcion_actuacion)
+    descripcion_actuacion_get.classList.add("ocultar");
+    input_setDescripcion_actuacion.classList.add("ocultar");
+    descripcion_actuacion_edit.classList.remove("ocultar");
+  } else {
+    
+  }
+
+
 
 
  
@@ -800,13 +900,19 @@ export default () => {
         //ir a link  actuaciones (main)
 
         const irActuacion = viewHome.querySelector("#irActuacion");
+        const liActuacion = viewHome.querySelector("#liActuacion");
+        const irDatos = viewHome.querySelector("#irDatos");
         const mainDatos = viewHome.querySelector("#main-datos");
         const mainActuaciones = viewHome.querySelector("#main-actuaciones");
-        irActuacion.addEventListener("click", (e)=> {
+        liActuacion.addEventListener("click", (e)=> {
           e.preventDefault();
+          irDatos.style.borderBottom= "1px" ;
+          irDatos.style.fontWeight= "100" ;
+          irActuacion.style.borderBottom = "3px solid #0F3041"; 
+          irActuacion.style.fontWeight= "600" ;
           mainDatos.classList.add("ocultar");
           mainActuaciones.classList.remove("ocultar");
-
+          
         });
 
         const subir = viewHome.querySelector("#subir");
@@ -820,6 +926,47 @@ export default () => {
          
         })
        
+        
+   
+         //Ingresar comentarios al textarea vista actuacion
+         const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
+         const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
+         const pComment_actuacion = viewHome.querySelector("#pComment_actuacion");
+         const divComment_actuacion = viewHome.querySelector("#textareaContainer_actuacion");
+         const txtComment_actuacion = viewHome.querySelector("#txtComment_actuacion");
+         const countComment_actuacion = viewHome.querySelector("#countComment_actuacion");
+         
+         pComment_actuacion.addEventListener("click", () => {
+           pComment_actuacion.classList.add("hide");
+           divComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.disabled = false;
+           countComment_actuacion.classList.remove("hide");
+           save_actuacion.classList.remove("hide");
+           edit_actuacion.classList.add("hide");
+         })
+ 
+         edit_actuacion.addEventListener("click", ()=>{
+           pComment_actuacion.classList.add("hide");
+           divComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.disabled = false;
+           countComment_actuacion.classList.remove("hide");
+           save_actuacion.classList.remove("hide");
+           edit_actuacion.classList.add("hide");
+         });
+ 
+         save_actuacion.addEventListener("click", ()=> {
+             txtComment_actuacion.disabled = true ;
+             edit_actuacion.classList.remove("hide");
+             save_actuacion.classList.add("hide");
+           })
+   //mostrar y acultar descripcon actuacion
+ 
+
+ 
+  
+
       
     
     return viewHome;
