@@ -23,7 +23,7 @@
     padding-right: 100px !important;
     /* margin-right: 253px; */
     /* margin-top: 151px; */
-    /* margin-bottom:80px; */
+    margin-bottom:106px;
     /* White */
     background: #FFFFFF;
     /* box-shadow: 0px 16px 16px rgba(50, 50, 71, 0.08);
@@ -37,11 +37,10 @@
 .registrar{
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 30px;
     color: #0F3041;
-    /* margin: 50px 100px 24px 59px; */
-    margin: 50px 0px 15px 50px; 
+    padding: 50px 0 12px 50px;
 }
 
 .message-completedRegistration {
@@ -155,6 +154,12 @@
    
 }
 
+#fname2{
+    width: 302px;
+    height: 45px;
+    margin-left: 60px;
+}
+
 #password1{
     width: 302px;
     height: 45px;
@@ -177,7 +182,7 @@
     height: 40px;
     background: #FF3355;
     /* margin-right: 66px; */
-    margin-right: -90px;
+    /* margin-right: -90px; */
     border-radius: 8px;
     font-family: Raleway;
     font-style: normal;
@@ -193,7 +198,7 @@
     height: 40px;
     background: #FF3355;
     /* margin-right: 66px; */
-    margin-right: -90px;
+    /* margin-right: -90px; */
     border-radius: 8px;
     font-family: Raleway;
     font-style: normal;
@@ -208,7 +213,7 @@
     width: 87px;
     height: 40px;
     background: #FF3355;
-    margin-left: 66px;
+    /* margin-left: 66px; */
     border-radius: 8px;
     font-family: Raleway;
     font-style: normal;
@@ -268,6 +273,7 @@ float: right;
     border-radius: 10px;
     margin-bottom: 217px;
 }
+
 
 #banner{
     width: 760px;
@@ -349,9 +355,12 @@ margin: 0px 31px 30px 360px;
 /*añadir inspecció*/
 #añadir_Inspección{
 float: right;
-margin-right: 78px;
+/* margin-right: 78px; */
+margin: 0 78px 53px 0;
+border-radius: 10px;
 background: #FF3355;
 border-color: #FF3355;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 /* margin-bottom: 58px;
 margin-right: 70px;
 margin-top: 100px; */

@@ -2,7 +2,7 @@ import { signIn } from '../firebase/firebase-Auth.js';
 
 export default () => {
     const viewSignIn = document.createElement('div');
-    viewSignIn.innerHTML =`
+    viewSignIn.innerHTML = `
       <div class="container-login d-flex">
         <div class="div-logo-form d-flex">
           <div>
@@ -49,7 +49,7 @@ export default () => {
                     placeholder="nombre@petroperu.com"
                     aria-required="true"
                     aria-invalid="false"
-                    style="border-radius:10px; background:none; position: relative; :focus:outline: 0;"
+                    style="border-radius:10px; background:none; position: relative; :focus:outline: 0; box-shadow: 0 0 0px 25px white inset;"
                     required
                   /><br />
                   <p id="messageEmail"></p>
@@ -62,7 +62,7 @@ export default () => {
                     class="form-control txtPlaceholderGray"
                     name="txtPassword"
                     placeholder="Contraseña"
-                    style="border-radius:10px; outline: 0;"
+                    style="border-radius:10px; outline: 0; box-shadow: 0 0 0px 25px white inset;"
                   />
                   <!-- <button type="button" id="btnToggle" class="toggle"><i id="eyeIcon" class="bi bi-eye"></i></button> -->
                   <button type="button" id="btnToggle" class="toggle">
@@ -143,7 +143,7 @@ function validarEmail(correo) {
  auth.signInWithEmailAndPassword(email, pass)
 
  .then(userCredencial => {
-  window.location.hash = "#/inspection";
+  window.location.hash = "#/home";
   var user = userCredential.user;
   console.log("exitoso");
   // readAddNotes();

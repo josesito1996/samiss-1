@@ -13,10 +13,10 @@
   margin: 104px 253px 0px 152px;
 }
 
-.container-register .formRegister {
+/* .container-register .formRegister { */
   /* border: 1px solid pink; */
-  margin-bottom: 106px;
-}
+  /* margin-bottom: 106px; */
+/* } */
 
 /* .container-register  .logoRegister {
   border: 1px solid blue;
@@ -31,6 +31,11 @@
   width: 760px;
   align-self: center; */
 /* } */
+
+.a-case-type {
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
 
 .container-register .footer {
   height: 78px;
@@ -53,6 +58,61 @@
 .container-register .footer img {
   height: 27px;
   width: 18px;
+}
+
+#btn_border_showAlonso{
+    background-color: #FFFFFF;
+    padding: 1px;
+    border:2px solid #466EFE; ;
+}
+
+#showAlonso{
+    background-color: #466EFE;
+  
+    color: #FFFFFF;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    align-items: center;
+    padding: 30%; 
+}
+
+
+#btn_border_showAlonso{
+    background-color: #FFFFFF;
+    padding: 1px;
+    border:2px solid #466EFE; ;
+}
+     
+ #pencil_example{
+    background-image: url(../img/Vector@2x.png);
+    /* background-size:  10.5px 10.5px; */
+    width: 18px;
+    height: 18px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(192, 192, 192, 0);
+   
+}
+
+#trash_example {
+    background-image: url(../img/trash-vector.png);
+    /* background-size:  10.5px 10.5px; */
+    width: 18px;
+    height: 18px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(192, 192, 192, 0);
+
+}
+
+#show_icon_example {
+   margin: auto;
+    
 }
 
 

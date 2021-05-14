@@ -54,3 +54,7 @@ a {
 .ptxtRed {
   color: var(--txtRed);
 }
+
+.enviar_active {
+  opacity: 0;
+}
