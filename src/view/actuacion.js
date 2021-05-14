@@ -439,10 +439,10 @@ btn_crearActuacion.addEventListener("click", () => {
         function getMonth(curDate){
 
             var meses = [
-                "Enero", "Febrero", "Marzo",
-                "Abril", "Mayo", "Junio", "Julio",
-                "Agosto", "Septiembre", "Octubre",
-                "Noviembre", "Diciembre"
+                "Ene", "Feb", "Mar",
+                "Abr", "May", "Jun", "Jul",
+                "Ago", "Sep", "Oct",
+                "Nov", "Dic"
               ] 
             const  dt = new Date(curDate);`enter code here`
             var mes = dt.getMonth();

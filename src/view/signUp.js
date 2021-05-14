@@ -252,7 +252,6 @@ export default () => {
     })
 
 
-
     const btn_ingresar = viewSignUp.querySelector('#btn_next');
     const container_infoUser =  viewSignUp.querySelector('#container_infoUser');
     const conteiner_infoEmpresa =  viewSignUp.querySelector('#container_infoEmpresa');
