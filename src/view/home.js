@@ -31,7 +31,7 @@ if(months < 10){
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion")
-  viewHome.innerHTML = `
+  viewHome.innerHTML =  `
     <div class="wrapper">
 
       <div class="header">
@@ -276,7 +276,7 @@ if(months < 10){
                                         </div>
                                     </div>
                                 </div>
-
+                              <!--funcionario homeCase-->
                                 <div>
                                     <h6 class="title_card" style="margin-left:36px;font-family: Raleway;
                                 font-style: normal;
@@ -287,24 +287,88 @@ if(months < 10){
                                 color: #969CBA;
                                ">Perfil de funcionarios</h6>
 
-                                    <div class="d-flex flex-row align-items-center justify-content-center" style="width:261px; height:68px; background: #F9FBFC;                
-                                        border: 1px solid #466EFE;
-                                        margin-top:14px;
-                                        box-sizing: border-box;
-                                        border-radius: 6px;
-                                        margin-bottom:73px;
-                                        margin-left:32px;">
+                                <div class="d-flex colum">
+                                    <div class="d-flex flex-row align-items-center justify-content-center" id="container_funcionario_homeCaso" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                                         <img src="./img/funcionario.png" alt="" loading="lazy"
                                             style=" width: 38.3px;height: 38px;" />
-                                        <p style="margin-left:18.7px;margin-top:10px;font-family: Raleway;
-                                        font-style: normal;
-                                        font-weight: bold;
-                                        font-size: 14px;
-                                        line-height: 16px;
-                                        display: flex;
-                                        align-items: center;
-                                        color: #0F3041;">${localStorage.getItem('inspectorAuxiliar') }</p>
+                                        <p >${localStorage.getItem('inspectorAuxiliar') }</p>
                                     </div>
+                                </div>
+                                      <!-- Modal Infromación Funcionario -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content" style="width:488px; height:367px;">
+                                              <div class="row">
+                                                <div class="d-flex flex-row">
+                                                  <div class="padding_funcionario" style="width:150px;">
+                                                  <img src="./img/svg/Rectangle 300.svg" alt="" loading="lazy"/>
+                                                  </div>
+                                                  <div class="padding_funcionario_modal" style="width:338px;">
+                                                  <div class="d-flex flex-column  align-items-center justify-content-center" >
+                                                      <div class="row">
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"><img src="./img/svg/x.svg" alt="" loading="lazy"/></button>
+                                                      </div>
+                                                      <div class="row">
+                                                        <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
+                                                        <p class="nameFuncionario_modal">${localStorage.getItem('inspectorAuxiliar') }</p>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="d-flex flex-row">
+                                                          <div class="modal_etapas">
+                                                          <p class="modal_title_funcionario" style="margin-bottom:0px;" >Etapa</p>
+                                                            <div class="d-flex flex-row">
+                                                              <img src="./img/svg/!.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" >Investigación</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="modal_cantidadCasos">
+                                                          <p class="modal_title_funcionario"  style="margin-bottom:0px;">Cantidad de casos</p>
+                                                            <div class="d-flex flex-row">
+                                                              <img src="./img/svg/list modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" >0 casos</p>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                      <p class="modal_title_funcionario" style="margin-bottom:0px;" >Multas promedio</p>
+                                                      <div class="d-flex flex-row">
+                                                          <div class="modal_up">
+                                                            <div class="d-flex flex-row">
+                                                              <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" >Investigación</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="down">
+                                                            <div class="d-flex flex-row">
+                                                              <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" >0 casos</p>
+                                                            </div>
+                                                          </div>
+                                                        
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
+                                                           <div class="d-flex flex-row">
+                                                           <img src="./img/svg/user check modal.svg" alt="" loading="lazy"/>
+                                                           <p class="modal_txt_funcionario" >Puesto 3 de 10</p>
+                                                           </div> 
+                                                      </div>
+                                                      <div class="row">
+                                                        <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                                                   
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
@@ -422,7 +486,7 @@ if(months < 10){
                           </div>
                           <div id="descripcion_actuacion_edit" class="ocultar" style="margin-left:50px">
                                 <div class="title-description d-flex">
-                                    <p class="text-blue-opacity" id="title_descripcion_actuacion" style="">Descripción</p>
+                                    <p class="text-blue-opacity" id="title_descripcion_actuacion" >Descripción</p>
 
                                     <img
                                       id="btnEditComment_actuacion"
@@ -492,11 +556,11 @@ if(months < 10){
                               </div>
                             </div>
 
-                              <div class="col-12 col-lg-8">
-                                <div class="d-flex flex-row">
+                              <div class="col-12 col-lg-8 ">
+                                <div class="d-flex flex-row ">
                     <!--nombre de usuario-->
                                 <div class="ocultar" id="usuario">
-                                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;">
+                                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
                                       <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
                                       <div class="d-flex flex-column">
                                       <p class="text_Resolution">Subido por Alonso</p>
@@ -505,10 +569,10 @@ if(months < 10){
                                   </div>
                                 </div>
                     <!--tareas-->
-                                <div class="ocultar" id="conTareas">
-                                  <div class="d-flex flex-row justify-content-center   " style="border-left:none;" id="container_adicional_information_actuacion">
-                                      <img class="img_tipoResolution" src="./img/svg/list.svg" alt="" />
-                                      <div class="d-flex flex-column   " style="margin-top:10px;">
+                                <div class="ocultar" id="conTareas" >
+                                  <div class="d-flex flex-row justify-content-center" style="border-left:none;margin-right:15px;" id="container_adicional_information_actuacion">
+                                      <img class="img_tipoResolution_actuacion" src="./img/svg/list.svg" alt="" />
+                                      <div class="d-flex flex-column" style="margin-top:5px;">
                                           <p class="text_Resolution">0 Tareas</p>
                                           <p class="text_tipoResolution_fila1">0 completadas</p>
                                       </div>
@@ -525,8 +589,8 @@ if(months < 10){
                     <!--Documentos--> 
                               <div class="ocultar" id="conDocumentos">         
                                 <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
-                                    <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
-                                    <div class="d-flex flex-column" style="margin-top:10px;">
+                                    <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
+                                    <div class="d-flex flex-column"  style="margin-top:5px;">
                                         <p class="text_Resolution">1 Documentos</p>
                                         <p class="text_tipoResolution_fila1">De tareas</p>
                                     </div>
@@ -686,8 +750,6 @@ if(months < 10){
     </div>
 
   `;
-
-
   // ****  Columna Izquierda (inicio)**** //
   // const materias = viewHome.querySelector("#materias");
 
@@ -757,28 +819,6 @@ if(months < 10){
     materia8.classList.remove("hide");
   }
 
-//mostar descripcion actuacion
-
-
-// const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
-const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
-const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacion_edit");
-  const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
- 
-  if (descripcion_actuacion  == null) {
-    console.log("yu")
-    console.log(descripcion_actuacion)
-    descripcion_actuacion_get.classList.add("ocultar");
-    input_setDescripcion_actuacion.classList.add("ocultar");
-    descripcion_actuacion_edit.classList.remove("ocultar");
-  } else {
-    
-  }
-
-
-
-
- 
         //Ingresar comentarios al textarea
         const edit = viewHome.querySelector("#btnEditComment");
         const save = viewHome.querySelector("#btnSaveComment");
@@ -813,25 +853,17 @@ const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacio
             save.classList.add("hide");
           })
   
-
-
-
-
 //  agregar archivos subidos al home
     let getFile = localStorage.getItem('file')  
 
      
     // localStorage file date orden
      
-
-
     const  container_archivosSubidos = viewHome.querySelector("#container_archivosSubidos");
     container_archivosSubidos.innerHTML = `
     <div><button>${getFile}</button>
     </div>
     `
-//  calcular el nivel de riesgo
-//   Cuantos values me traigo
 
 //   // ****  Columna Izquierda (termino)  **** //
 
@@ -925,6 +957,17 @@ const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacio
             console.log("riesgo bajo")
         }
 
+        //Crear MODAL para funcionario
+
+         //modal
+         const myModal = viewHome.querySelector('.modal');
+        
+
+     
+         myModal.addEventListener('shown.bs.modal',function () {
+       
+         });
+        //HOME ACTUACIONES
         //ir a crear actuación actuacion
 
         const actuacion =viewHome.querySelector("#actuacion");
@@ -949,6 +992,23 @@ const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacio
           mainActuaciones.classList.remove("ocultar");
           
         });
+
+        //mostar descripcion actuacion
+
+        // const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
+        const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
+        const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacion_edit");
+          const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
+        
+          if (descripcion_actuacion  == null) {
+            console.log("yu")
+            console.log(descripcion_actuacion)
+            descripcion_actuacion_get.classList.add("ocultar");
+            input_setDescripcion_actuacion.classList.add("ocultar");
+            descripcion_actuacion_edit.classList.remove("ocultar");
+          } else {
+            
+          }
 
         const subir = viewHome.querySelector("#subir");
         const txt_carga = viewHome.querySelector("#txt_carga");
@@ -1090,33 +1150,8 @@ const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacio
                this.classList.add("button_change_etapas");
              };
            }
-  // buttons_etapa1.addEventListener("click", ()=>{
-  //   buttons_total.style.background = "#FFFFFF";
-  //   buttons_total.style.border = "1px solid #BDBDBD";
-  //   buttons_total.style.boxSizing = "border-box";
-  //   buttons_total.style.fontWeight = "500";
-  //   buttons_total.style.fontSize = "11px";
-  //   buttons_total.style.color = "#0F3041";
 
-  //   buttons_etapa1.style.background = "rgba(15, 48, 65, 0.5)";
-   
-  //   buttons_etapa1.style.fontWeight = "800";
-  //   buttons_etapa1.style.fontSize = "14px";
-  //   buttons_etapa1.style.color = "#FFFFFF";
-   
-  // });
-
-  // buttons_etapa2.addEventListener("click", ()=>{
-
-  // });
-
-  // buttons_etapa3.addEventListener("click", ()=>{
-
-  // });
-
-  // buttons_total.addEventListener("click", ()=>{
-
-  // });
+           
   
 
       

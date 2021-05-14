@@ -144,42 +144,42 @@ export default () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content" style:"width:500px; height:402px;">
-                                <div class="modal-header" style="border-bottom: none;">
-                                    <h5 class="modal-title mt-3 ms-5" id="staticBackdropLabel">Nuevo Colaborador</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style=" width:500px; height:402px;">
+                                    <div class="modal-header" style="border-bottom: none;">
+                                        <h5 class="modal-title mt-3 ms-5" id="staticBackdropLabel">Nuevo Colaborador</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
 
-                                <p class="mt-3 ms-5">Completa los datos solicitados de un usuario frecuente.</p>
-                                <div class="d-flex align-items-center flex-column justify-content-center ">
+                                    <p class="mt-3 ms-5">Completa los datos solicitados de un usuario frecuente.</p>
+                                    <div class="d-flex align-items-center flex-column justify-content-center ">
+                                        
+                                    <div class="row d-flex justify-content-start">
+                                        <div id="textOnInput3">
+                                            <label for="camponombre">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control"
+                                                style="width:302px; height:45px;margin-left: 60px;" placeholder="completar" id="name">
+                                        </div>
                                     
-                                <div class="row d-flex justify-content-start">
-                                    <div id="textOnInput3">
-                                        <label for="camponombre">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control"
-                                            style="width:302px; height:45px;margin-left: 60px;" placeholder="completar" id="name">
+                                        <div id="textOnInput3">
+                                            <label for="camponombre">Correo</label>
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                placeholder="nombre@petroperu.com">
+                                        </div>
                                     </div>
-                                
-                                    <div id="textOnInput3">
-                                        <label for="camponombre">Correo</label>
-                                        <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="nombre@petroperu.com">
+                                    <div class="modal-footer" style="border-top:none;">
+                                        <button type="button" class="btn btn-secondary btn-danger" id="add"
+                                            data-bs-dismiss="modal">Agregar</button>
                                     </div>
-                                </div>
-                                <div class="modal-footer" style="border-top:none;">
-                                    <button type="button" class="btn btn-secondary btn-danger" id="add"
-                                        data-bs-dismiss="modal">Agregar</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        </div>
                 </div>
                 <div class="col-12 p-5" >
                     <hr style="width:650px;">
@@ -282,11 +282,11 @@ export default () => {
         
             //modal
             const myModal = viewSignUp.querySelector('.modal');
-            const myInput = viewSignUp.querySelector('.myInput');
+            // const myInput = viewSignUp.querySelector('.myInput');
 
         
             myModal.addEventListener('shown.bs.modal',function () {
-            myInput.focus()
+            // myInput.focus()
             });
 
     // Evento click agregar
