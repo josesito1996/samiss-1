@@ -297,7 +297,7 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:58px;">
                         <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;font-size: 15px;">1. Fecha de
                             inicio</label>
-                        <input type="date"  class="form-control" style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset;"
+                        <input type="date"  class="form-control" style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;"
                             name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31"> 
                     </div>
     
@@ -305,14 +305,14 @@ export default () => {
                         <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px; font-size: 15px;">2. Orden de
                             inspección</label>
                         <input type="text" class="form-control" id="orden_inspection"  placeholder="1924-2021" 
-                            style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset;">
+                            style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">3. Inspector de
                             trabajo</label>
                         <input type="text" class="form-control"  placeholder="Alberto Morán"
-                            style="width:355.19px; height:73px;box-shadow: 0 0 0px 25px white inset;">
+                            style="width:355.19px; height:39px;box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                         <div class="d-flex column justify-content-end" >
                             <!-- <i class="fas fa-plus link-success "></i> -->
                             <img src="./img/svg/more.svg" class="" alt="mas" />
@@ -321,11 +321,11 @@ export default () => {
                         </div>
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:45px;">
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">4. Inspector
                             auxiliar</label>
                         <input type="text" class="form-control" id="auxiliar"  placeholder="Federico Pajuelo"
-                            style="width:355.19px; height:39px; box-shadow: 0 0 0px 25px white inset;">
+                            style="width:355.19px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                         <div class="d-flex column justify-content-end" >
                            <!-- <i class="fas fa-plus link-success "></i> -->
                             <img src="./img/svg/more.svg" class="" alt="mas" />
@@ -334,17 +334,17 @@ export default () => {
                         </div>
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <div class="d-flex flex-row bd-highlight ">
+                    <div style="margin-left:30px;margin-top:50px; display:flex;">
+                        <div class="d-flex flex-row bd-highlight " style="margin-left:11px">
                             <label for="inputPassword" class="form-label" style=" margin-left:0px; font-size:14px; font-size: 15px;">5. Materias</label>
-                            <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" name="CheckAll" id="select-all" />
+                            <!-- <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" name="CheckAll" id="select-all" />
                             <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" class="ocultar"  name="CheckAll"  id="select-all1" />
                             <label class = " form-check-label" style="margin-left:0px;">
                             Selecionar todos
-                            </label>
+                            </label>-->
                         </div>
                         <div id="container_check">
-                            <div class="check1" style="margin-left:242.93px;margin-rigth:30px;">
+                            <div class="check1" style="margin-left:230px;margin-rigth:30px;">
     
                                 <div class="row " style=" margin-button:31px;">
                                     <input type="checkbox" class="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
@@ -426,10 +426,10 @@ export default () => {
                     </div>
     
     
-                    <div class="mb-3 row " style="margin-left:30px;margin-top:40px;">
+                    <div class="mb-3 row " style="margin-left:30px;margin-top:45px;">
                         <label for="Denominación del caso" class="col-sm-2 col-form-label col-12 col-lg-5"  style=" margin-left:0px; font-size: 15px;">6. Denominación del caso</label>
                         <input type="text" class="form-control" required id="mensaje" placeholder="Caso Estibadores"
-                            style="width:285.96px; height:39px; box-shadow: 0 0 0px 25px white inset;">
+                            style="width:285.96px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                     </div>
     
                     <div class="row" id="btn_crearCaso">
@@ -708,34 +708,34 @@ function drop(event) {
       });
 
       //check
-     const check= viewInspection.querySelector('#select-all')
-     const uncheck= viewInspection.querySelector('#select-all1')
-     check.addEventListener ('click',  (e) => {
-        check.classList.add("ocultar");
-        uncheck.classList.remove("ocultar");
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = true;
-         } else  {
+    //  const check= viewInspection.querySelector('#select-all')
+    //  const uncheck= viewInspection.querySelector('#select-all1')
+    //  check.addEventListener ('click',  (e) => {
+    //     check.classList.add("ocultar");
+    //     uncheck.classList.remove("ocultar");
+    //     var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    //     console.log(checkboxes)
+    //     for (var i = 0; i < checkboxes.length; i++) {
+    //       if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = true;
+    //      } else  {
         
-         } ; 
-        }  
-      });
+    //      } ; 
+    //     }  
+    //   });
 
      //uncheck
-    uncheck.addEventListener ('click',  (e) => {
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        check.classList.remove("ocultar");
-        uncheck.classList.add("ocultar");
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = false;
-         } else  {
+    // uncheck.addEventListener ('click',  (e) => {
+    //     var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    //     console.log(checkboxes)
+    //     check.classList.remove("ocultar");
+    //     uncheck.classList.add("ocultar");
+    //     for (var i = 0; i < checkboxes.length; i++) {
+    //       if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = false;
+    //      } else  {
          
-         } ; 
-        }       
-      });
+    //      } ; 
+    //     }       
+    //   });
 
       //código por optimizar
       const mensaje = viewInspection.querySelector("#mensaje");
