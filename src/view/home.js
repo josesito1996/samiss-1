@@ -301,64 +301,78 @@ if(months < 10){
                                             <div class="modal-content" style="width:488px; height:367px;">
                                               <div class="row">
                                                 <div class="d-flex flex-row">
-                                                  <div class="padding_funcionario" style="width:150px;">
-                                                  <img src="./img/svg/Rectangle 300.svg" alt="" loading="lazy"/>
+                                                  <div class="padding_funcionario" style="width:150px;position: relative;"/>
+                                                  <img src="./img/svg/Rectangle 300.svg" class="funcionario" alt="" loading="lazy"/>
+                                                  <div class="fondo_camera">
+                                                  </div>
+                                                  <img src="./img/svg/camera on.svg" class="camera" alt="" loading="lazy"/>
+                                                  
                                                   </div>
                                                   <div class="padding_funcionario_modal" style="width:338px;">
-                                                  <div class="d-flex flex-column  align-items-center justify-content-center" >
-                                                      <div class="row">
-                                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"><img src="./img/svg/x.svg" alt="" loading="lazy"/></button>
+                                                  <div class="d-flex flex-column   justify-content-center" >
+                                                      <div class="row" style= "width:338px;">
+                                                      <button type="button" ><img src="./img/svg/x.svg" alt="" loading="lazy" id="close_modal_funcionario" data-bs-dismiss="modal"
+                                                      aria-label="Close"/></button>
                                                       </div>
-                                                      <div class="row">
+                                                      <div class="row" style="border-bottom:1px solid #BDBDBD; width:187px;margin-bottom:13px;" >
                                                         <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
                                                         <p class="nameFuncionario_modal">${localStorage.getItem('inspectorAuxiliar') }</p>
                                                       </div>
                                                       <div class="row">
-                                                        <div class="d-flex flex-row">
-                                                          <div class="modal_etapas">
+                                                        <div class="d-flex flex-row" style="margin-bottom:25px;">
+                                                          <div class="modal_etapas" style="margin-right:20px;">
                                                           <p class="modal_title_funcionario" style="margin-bottom:0px;" >Etapa</p>
-                                                            <div class="d-flex flex-row">
+                                                            <div class="d-flex flex-row align-items-center">
                                                               <img src="./img/svg/!.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" >Investigación</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; Investigación</p>
                                                             </div>
                                                           </div>
                                                           <div class="modal_cantidadCasos">
                                                           <p class="modal_title_funcionario"  style="margin-bottom:0px;">Cantidad de casos</p>
-                                                            <div class="d-flex flex-row">
+                                                            <div class="d-flex flex-row align-items-center">
                                                               <img src="./img/svg/list modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" >0 casos</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 0 casos</p>
                                                             </div>
                                                           </div>
                                                         </div>
                                                       </div>
-                                                      <div class="row">
+                                                      <div class="row" style="margin-bottom:22px;">
                                                       <p class="modal_title_funcionario" style="margin-bottom:0px;" >Multas promedio</p>
                                                       <div class="d-flex flex-row">
                                                           <div class="modal_up">
-                                                            <div class="d-flex flex-row">
+                                                            <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" >Investigación</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa1")}</p>
                                                             </div>
                                                           </div>
                                                           <div class="down">
-                                                            <div class="d-flex flex-row">
+                                                            <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" >0 casos</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa2")}</p>
                                                             </div>
                                                           </div>
                                                         
                                                         </div>
                                                       </div>
-                                                      <div class="row">
+                                                      <div class="row" style="margin-bottom:22px;">
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
                                                            <div class="d-flex flex-row">
-                                                           <img src="./img/svg/user check modal.svg" alt="" loading="lazy"/>
-                                                           <p class="modal_txt_funcionario" >Puesto 3 de 10</p>
+                                                           <img src="./img/svg/user check modal.svg" style="margin-right:16px;" alt="" loading="lazy"/>
+                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem("aleatorio")} &nbsp; de 10</p>
                                                            </div> 
                                                       </div>
                                                       <div class="row">
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
+                                                        
+                                                        <div id='rating'>
+                                                      
+                                                        <i class="bi bi-star" value="1"></i>
+                                                        <i class="bi bi-star" value="2"></i>
+                                                        <i class="bi bi-star" value="3"></i>
+                                                        <i class="bi bi-star" value="4"></i>
+                                                        <i class="bi bi-star" value="5"></i>
+                                                         </div>
+                                                       
                                                         </div>
                                                       </div>
                                                   </div>
@@ -919,6 +933,8 @@ if(months < 10){
             return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
           }
           console.log(multa_aleatoria(aleatorio(5000, 250000))); 
+          const multaAleatoria = multa_aleatoria(aleatorio(5000, 250000))
+
 
           //Registar multa alearotia en input
           const multa = viewHome.querySelector("#multa");
@@ -961,12 +977,95 @@ if(months < 10){
 
          //modal
          const myModal = viewHome.querySelector('.modal');
-        
-
-     
          myModal.addEventListener('shown.bs.modal',function () {
+
+          //multa maxima
+
+        function aleatorio1(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+      }
+
+      const multa_aleatoria1 = (x) =>  {
+          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        console.log(multa_aleatoria1(aleatorio1(5000, 250000))); 
+        const multaAleatoria1 = multa_aleatoria1(aleatorio1(15000, 250000))
+        localStorage.setItem("multa1", multaAleatoria1);      
+      
+
+         //multa min
+
+        function aleatorio2(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+      }
+
+      const multa_aleatoria2 = (x) =>  {
+          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        console.log(multa_aleatoria2(aleatorio2(5000, 250000))); 
+        const multaAleatoria2 = multa_aleatoria2(aleatorio2(5000, 150000))
+        localStorage.setItem("multa2", multaAleatoria2); 
+
+          //número aleatorio del 1 al 10
+        //ir a link  actuaciones (main)
+        function aleatorioNumber(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+        }
+
+        console.log(aleatorioNumber (1, 10))
+        const valorNumber = aleatorioNumber (1, 10)
+        console.log(valorNumber);
        
+        localStorage.setItem("aleatorio", valorNumber); 
+
          });
+
+         //estrellas
+
+         let x = viewHome.getElementsByTagName("i");
+         console.log(x)
+         for(let i=0;i<x.length;i++){
+           x[i].addEventListener("click",function(){
+             console.log("pintar")
+             let value=this.getAttribute("value");
+             console.log(value)
+             clearClass();
+             for(let j=value-1;j>=0;j--){
+               x[j].classList.toggle('ap');
+             }
+           })
+         };
+         
+         function clearClass(){
+           let x = viewHome.getElementsByTagName("i");
+           for(let i=0;i<x.length;i++){
+               //console.log(x[i].classList);
+               x[i].classList.remove('ap');
+           };
+         }
+
+      //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
+      //     if (e.target.nodeName === 'IMG') {
+      //         var currentSibling = e.target;
+      //         var nextSibling = e.target;
+      //         currentSibling.classList.add('active');
+      //         while ((currentSibling = currentSibling.previousElementSibling)) {
+      //             currentSibling.classList.add('active');
+      //         }
+      //         while ((nextSibling = nextSibling.nextElementSibling)) {
+      //             nextSibling.classList.remove('active');
+      //         }
+      //     }
+      // });
         //HOME ACTUACIONES
         //ir a crear actuación actuacion
 
@@ -975,7 +1074,7 @@ if(months < 10){
             window.location.hash = "#/actuacion";
         })
 
-        //ir a link  actuaciones (main)
+      
 
         const irActuacion = viewHome.querySelector("#irActuacion");
         const liActuacion = viewHome.querySelector("#liActuacion");

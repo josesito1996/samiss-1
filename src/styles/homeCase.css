@@ -370,6 +370,33 @@ margin-bottom: 0px;
 }
 
 /*MODAL FUNCIONARIO*/
+
+.camera{
+  float: right;
+  position: absolute;
+  z-index: 1;
+  margin-top: 325px;
+  margin-left: 123px;
+  background-color: white;
+
+  
+}
+
+.fondo_camera{
+  background-color: white;
+  z-index: 1;
+  width: 37px;
+  height: 33px;
+  position: absolute;
+  margin-top: 321px;
+  margin-left: 118px;
+  border-radius: 50%;
+}
+
+.funcionario{
+  position: absolute;
+  z-index: 1;
+}
 .modal_title_funcionario{
  
   font-family: Raleway;
@@ -386,7 +413,7 @@ margin-bottom: 0px;
 .modal_txt_funcionario{
   font-family: Raleway;
 font-style: normal;
-font-weight: 500;
+font-weight: 600;
 font-size: 12px;
 line-height: 20px;
 display: flex;
@@ -395,7 +422,8 @@ color: #0F3041;
 }
 
 .padding_funcionario{
-  padding: 5px 5px 12px 5px;
+
+  padding: 5px 0px 12px 5px;
 }
 
 .nameFuncionario_modal{
@@ -408,6 +436,43 @@ color: #0F3041;
   display: flex;
   align-items: center;
 }
+
+.bi-star {
+  color:  #0F3041 !important;
+  width: 20px !important;
+  height: 19.02px !important;
+  opacity: 0.3 !important;
+}
+
+.ap{
+  background-color:#FFB000;
+  }
+
+  /* #rating img.active {
+    color: #FFB000;
+  } */
+  
+  #rating i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #close_modal_funcionario{
+    float: right;
+    margin-right: 12.5px;
+    margin-top: 12.5px;
+  }
+
+  .padding_funcionario_modal{
+    padding-left: 20px;
+  }
+
+  .modal_cantidadCasos{
+    width: 120px;
+  }
+  .modal_etapas{
+    width: 120px;
+  }
 /******** MAIN (termino) ********/
 
 
