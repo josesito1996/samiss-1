@@ -282,7 +282,7 @@
   } 
 
   .textarea-container  .txt-comment_actuacion {
-    height: 37px;
+    height: 30px;
     width: 304px;
     padding: 0px 5px 0 9px;
     font-size: 12px;
@@ -297,7 +297,7 @@
   
   #textareaContainer_actuacion{
     width: 304px;
-    height: 37px;
+    height: 47px;
     left: 433px;
     top: 426px;
     background: #FFFFFF;
