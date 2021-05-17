@@ -3,6 +3,7 @@ import signUp from './signUp.js';
 import inspection from './inspection.js';
 import home from './home.js';
 import actuacion from './actuacion.js';
+import homework from './homework.js';
 import Different from './404.js';
 
 // ------------------------Objetos----------------------------------
@@ -12,5 +13,6 @@ export const components = {
   inspection,
   home,
   actuacion,
+  homework,
   Different,
 };
