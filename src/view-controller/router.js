@@ -26,6 +26,9 @@ export const changeTmp = (hash) => {
     case '#/documentos':
         container.appendChild(components.documentos());
         break;
+    case '#/homework':
+      container.appendChild(components.homework());
+      break;
     default:
       return container.appendChild(components.Different());
   }

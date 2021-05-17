@@ -1,0 +1,159 @@
+.modal-dialog .fromHomework {
+  border: 1px solid red ;
+  height: 624px;
+  width: 679px;
+  
+}
+.modal-dialog .header-fromHomework {
+  padding: 22px 30px 0;
+  border-bottom: none;
+}
+
+.modal-dialog .title-fromHomework {
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 200;
+  text-align: center;
+  padding: 11px 0 0 255px;
+}
+
+/* .modal-dialog .btnClose-fromHomework {
+
+} */
+
+
+.modal-dialog .body-fromHomework {
+  padding: 0;
+}
+
+.modal-dialog .form-homework {
+  /* border: 1px solid blue; */
+  margin: 57px 83px 0;
+  
+}
+
+.modal-dialog .row-fromHomework {
+  /* border: 1px solid green; */
+  display: flex;
+  margin: 0 0 25px;
+  justify-content: space-between;
+}
+
+.modal-dialog .label-fromHomework {
+  /* border: 1px solid yellow; */
+  width: auto;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--txtForm);
+}
+
+.modal-dialog .containerInput-fromHomework {
+  /* border: 1px solid red; */
+  width: 299px;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.modal-dialog .input-fromHomework {
+  height: 39px;
+  /* width: 299px; */
+  padding: 0 0 0 10px;
+  margin: 0;
+  border-radius: 10px;
+  /* border: 1px solid var(--borderInputForm); */
+   box-shadow: 0 0 0px 25px white inset !important;
+}
+
+.modal-dialog .input-fromHomework::placeholder {
+  color: var(--txtPlaceholder);
+}
+
+.modal-dialog .date-fromHomework {
+  width: 175px;
+  color: var(--txtPlaceholder);
+}
+
+/* 
+ [type="date"] {
+    position: relative;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+}
+[type="date"]:before {
+    color: #b68644;
+    background: none;
+    display: block;
+    /* font-family: 'FontAwesome'; */
+    /* width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    content: '\f073'; */
+/* }  */
+
+
+
+
+/* [type="date"] { */
+  /* background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ; */
+  /* background: url("./img/svg/calendar-red.svg") 97% 50% no-repeat; */
+/* } */
+
+[type="date"] {
+  position:relative; 
+}
+
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  background: red ;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* [type="date"]:before {
+
+} */
+
+/* input::-webkit-calendar-picker-indicator {
+   opacity:0; 
+}  */
+
+/* input {
+  position:relative; 
+}  */
+
+[type="date"]:before { 
+ content: "\f073"; 
+ display: inline-block; 
+ font: normal normal normal 14px/1 FontAwesome; 
+ font-size: inherit; 
+ text-rendering: auto; 
+ -webkit-font-smoothing: antialiased; 
+ -moz-osx-font-smoothing: grayscale; 
+ position:absolute; 
+ right:0; 
+ top:50%; 
+ transform:translateY(-50%); 
+} 
+
+
+
+/* .modal-dialog .containerInput-fromHomework input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+} */
+
+/* .modal-dialog .containerInput-fromHomework input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+} */
+

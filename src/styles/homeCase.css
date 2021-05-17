@@ -204,6 +204,7 @@
   display: none;
 }
 
+
 .detail-description .textarea-container {
   flex-direction: column;
   height: 78px;
@@ -272,6 +273,7 @@
   height:594px;
   margin-left: 18px;
   background:white;
+
 }
 
 .card-process{
