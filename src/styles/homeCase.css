@@ -269,24 +269,20 @@
 
 .detailMain .detail-process-performance{
   /* border: 1px solid red; */
-
-  margin-left: 18px;
   width:120%;
   height:594px;
-  background: white;
+  margin-left: 18px;
+  background:white;
+
 }
 
 .card-process{
   /* border: 1px solid red; */
   width: 686px;
- 
+
 }
 
-/* #inProcess{
-  height: 143px;
-} */
 #title_inProcess{
-
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -326,6 +322,7 @@ display: flex;
 align-items: center;
 color: #969CBA;
 }
+
 .text_Resolution{
   font-family: Raleway;
 font-style: normal;
@@ -348,6 +345,136 @@ margin-bottom: 0px;
   height: 12px;
   margin-top: 8px;
 }
+
+#container_funcionario_homeCaso{
+  width:261px;
+  height:68px; 
+  background: #F9FBFC;                
+  border: 1px solid #466EFE;
+  margin-top:14px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-bottom:73px;
+  margin-left:32px;
+}
+
+#container_funcionario_homeCaso p{
+  margin-left:18.7px;
+  margin-top:10px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #0F3041;
+}
+
+/*MODAL FUNCIONARIO*/
+
+.camera{
+  float: right;
+  position: absolute;
+  z-index: 1;
+  margin-top: 325px;
+  margin-left: 123px;
+  background-color: white;
+
+  
+}
+
+.fondo_camera{
+  background-color: white;
+  z-index: 1;
+  width: 37px;
+  height: 33px;
+  position: absolute;
+  margin-top: 321px;
+  margin-left: 118px;
+  border-radius: 50%;
+}
+
+.funcionario{
+  position: absolute;
+  z-index: 1;
+}
+.modal_title_funcionario{
+ 
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  color: rgba(15, 48, 65, 0.4);
+}
+
+.modal_txt_funcionario{
+  font-family: Raleway;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 20px;
+display: flex;
+align-items: center;
+color: #0F3041;
+}
+
+.padding_funcionario{
+
+  padding: 5px 0px 12px 5px;
+}
+
+.nameFuncionario_modal{
+  width: 190px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.bi-star {
+  color:  #0F3041 !important;
+  width: 20px !important;
+  height: 19.02px !important;
+  opacity: 0.3 !important;
+}
+
+.ap{
+  background-color:#FFB000;
+  }
+
+  /* #rating img.active {
+    color: #FFB000;
+  } */
+  
+  #rating i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #close_modal_funcionario{
+    float: right;
+    margin-right: 12.5px;
+    margin-top: 12.5px;
+  }
+
+  .padding_funcionario_modal{
+    padding-left: 20px;
+  }
+
+  .modal_cantidadCasos{
+    width: 120px;
+  }
+  .modal_etapas{
+    width: 120px;
+  }
 /******** MAIN (termino) ********/
 
 
