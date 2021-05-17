@@ -32,6 +32,7 @@ if(months < 10){
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion")
   viewHome.innerHTML =  `
+
     <div class="wrapper">
 
       <div class="header">

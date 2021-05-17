@@ -3,8 +3,11 @@
 // import { getProfileInfo } from "../firebase/firestore-controller";
 
 export default () => {
-  localStorage.removeItem("date");
-  localStorage.removeItem("order");
+// ******
+  // localStorage.removeItem("date");
+  // localStorage.removeItem("order");
+// ******
+
   // const currentUser = user();
   // getProfileInfo(currentUser.uid).then((doc) => {
   //     localStorage.setItem('orden', doc.data().orden);
@@ -24,27 +27,57 @@ export default () => {
 
   const viewInspection = document.createElement("div");
   viewInspection.innerHTML = `
+      <div class="header" style="height:64px; background:#F9FBFC;">
+        <div class="header-left d-flex">
+          <img src="./img/svg/logo.svg" class="logo" alt="logo" />
+          <span class="vertical-line"></span>
+        </div>
+        <div class="header-center d-flex">
+          <div class="tag-case d-flex">
+            <p>Mis Casos</p>
+          </div>
+          <div class="search-notification d-flex">
+            <img src="./img/svg/search.svg" class="icon" alt="search" />
+            <img
+              src="./img/svg/notifications.svg"
+              class="icon"
+              alt="nofications"
+            />
+            <span class="vertical-line"></span>
+          </div>
+        </div>
+        <div class="header-right d-flex">
+          <img src="./img/svg/avatar.svg" class="avatar" alt="profile" />
+          <p>Alonso Hoyos</p>
+          <img src="./img/svg/chevron-down.svg" alt="profile menu" />
+        </div>
+      </div>
+
+
+
+
+
     <!---Primera fila-->
-    <div class="row " style="">
+    <!-- <div class="row " style=""> -->
         <!-- Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light " style="height: 64px;border-bottom: 1px solid  #E1E6F0;">
-            <div class="container-fluid justify-content-between">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light " style="height: 64px;border-bottom: 1px solid  #E1E6F0;">
+            <div class="container-fluid justify-content-between"> -->
     
                 <!-- Left elements -->
-                <div class="d-flex col-12 col-lg-3">
+                <!-- <div class="d-flex col-12 col-lg-3"> -->
                     <!-- Brand -->
-                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                    <!-- <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
                         <img src="./img/logo_inspection.png" position: absolute; alt="" loading="lazy"
                             style="margin-top: 19px; width: 77.19px;height: 26px;margin-left: 152px;margin-top: 19px;" />
                     </a>
     
                 </div>
                 <div class="lines">
-                </div>
+                </div> -->
     
                 <!-- Center elements -->
     
-                <div class="col-12 col-lg-6">
+                <!-- <div class="col-12 col-lg-6">
                     <div class="float-start align-items-center justify-content-center">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <div class="d-flex align-items-center "style="height: 64px;border-bottom: 1px solid  #D70025;width:106px;">
@@ -72,9 +105,9 @@ export default () => {
                     </div>
                 </div>
                 <div class="lines">
-                </div>
+                </div> -->
                 <!-- Right elements -->
-                <div class="col-12 ">
+                <!-- <div class="col-12 ">
                     <ul class="navbar-nav flex-row">
                         <li class="nav-item me-3 me-lg-1">
                             <a class="nav-link d-sm-flex align-items-sm-center" href="#">
@@ -92,16 +125,21 @@ export default () => {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
         <!-- Navbar -->
-    
-    </div>
+    <!-- </div> -->
+
+
+
+
+
+
     <!---FILA 2-->
-    <div class="row" >
+    <div class="row" style="background:#F9FBFC;">
         <div class="col-12" style="margin-left:152px;margin-top:20px;">
             <ul class="navbar-nav flex-row">
                 <li class="nav-item me-3 me-lg-1">
-                    <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                    <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                         <img src="./img/double left.png" class="rounded-circle" height="24px" ; width="24px" ; alt=""
                             loading="lazy" />
                         <strong class="d-none d-sm-block ms-1" id="home_inspection">Home</strong>
@@ -118,9 +156,8 @@ export default () => {
 
     <div class=" d-flex  flex-row float-start align-items-center justify-content-center">
         <li class=" " style="list-style: none; width:400px;text-align: center;">
-            <a class="nav-link active" id="sube_archivo" aria-current="page"
-                style="color: #0F3041;font-weight: 600;
-                font-size: 16px;border-bottom:  1px solid #7D7D7D;" href="#">Sube
+            <a class="nav-link active link-active" id="sube_archivo" aria-current="page"
+                style="color: #0F3041; font-size: 16px;" href="#">Sube
                 tus archivos</a>
 
 
@@ -128,7 +165,7 @@ export default () => {
 
         </li>
         <li class=" " style="list-style: none; width:400px;text-align: center;">
-            <a class="nav-link active" href="#" id="sube_manual" style="color:#0E3141;font-size: 16px; ">Crear de forma manual</a>
+            <a class="nav-link active link-inactive" href="#" id="sube_manual" style="color:#0E3141;font-size: 16px;">Crear de forma manual</a>
         </li>
     </div>
 
@@ -138,8 +175,7 @@ export default () => {
 <div id="drop" style="margin-bottom:150px;">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form>
-            <p style="font-family: Montserrat;
-                font-style: normal;
+            <p style="font-style: normal;
                 font-weight: 300;
                 font-size: 14px;
                 line-height: 17px;
@@ -171,16 +207,22 @@ export default () => {
                 <label for="myfiles" class="myfile">
                              Cargar desde computadora
                         </label>
-                        <input id="myfiles"  type="file" style='display: none;' />
+                        <input id="myfiles"  type="file" style='display: none; ' />
                   
 
                
             </div>
 
+            
+
             <div id="file1" class="ocultar" > 
-                <div class="d-flex flex-row d-flex align-items-center" >
-                <input type="radio" name="file" value="file"> 
-                <div style ="border: 1px solid #C1C7DA;
+                <p style="margin:10px 0 10px 325px; font-size:12px; font-weight:bold;">Principal</p>
+                <div class="d-flex flex-row align-items-center" style="justify-content: center; margin-left:32px" >
+                <!-- <input type="radio" name="file" value="file">  -->
+
+                <img src="./img/svg/selected.svg" class="radio" alt="radio" />
+
+                <div d-flex style ="border: 1px solid #C1C7DA;
                 box-sizing: border-box;
                 border-radius: 7px;
                 
@@ -189,8 +231,20 @@ export default () => {
                 flex: none;
                 order: 1;
                 flex-grow: 0;
-                margin: 0px 20px;">
-                <p class="file-return" id="gallery"></p>
+                margin: 0px 20px;
+                width: 732px;
+                height: 44px;
+                padding:10px ;
+                display: flex;
+                justify-content: space-between;">
+                 <div style="display:flex;">
+                  <img src="./img/svg/picture.svg" alt="imagen" />
+                  <p id="gallery" class="file-return" style="margin:0; font-size:14px; color: #0E3141; margin-left:6px;"></p>
+                 </div>
+                 <div style="display:flex;">
+                  <img src="./img/svg/check2.svg" alt="check" />
+                  <img src="./img/svg/delete2.svg" alt="eliminar" style="margin-left:10px;"/>
+                 </div>
                 </div>
                 </div>
             </div>
@@ -198,7 +252,7 @@ export default () => {
 
             <div id="file2" class="ocultar d-flex flex-row d-flex align-items-center"> 
                 <div >
-                <input type="radio" name="file" value="file"> 
+               <input type="radio" name="file" value="file">
                 <div style="border: 1px solid #C1C7DA;
                 box-sizing: border-box;
                 border-radius: 7px;
@@ -209,7 +263,7 @@ export default () => {
                 order: 1;
                 flex-grow: 0;
                 margin: 0px 20px;">
-                <p class ="gallery"id="gallery" ></p>
+                <p id="gallery" class ="gallery"></p>
                 </div>
                 </div>
                 </div>
@@ -219,74 +273,78 @@ export default () => {
             </div>
             </div>
             <button style="background: #FF3355;
-            opacity: 0.4;
-                     
+            height: 43px;
+            width: 98px;
             border: 2px solid #FF3355;
             box-sizing: border-box;
             box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
-            
+            color: #ffffff;
                      
             flex: none;
             order: 4;
             flex-grow: 0;
-            margin: 30px 671px;" class="pruebahome">Continuar</button>
+            margin: 30px 630px;" class="pruebahome btnenviar_desacti">Continuar</button>
         </form>
     </div>
 </div>
     
     
         <!---FROM 2 --->
-        <div id="handbook" class="ocultar">
+        <div id="handbook" class="ocultar" style="background:#F9FBFC;">
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <form id="form_handbook" style="width:740px; height:852px;">
                     <div class="mb-3 row" style="margin-left:30px;margin-top:58px;">
-                        <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
+                        <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;font-size: 15px;">1. Fecha de
                             inicio</label>
-                        <input type="date"  class="form-control" style="width:161.54px; height:39px;"
+                        <input type="date"  class="form-control" style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;"
                             name="trip-start" id="fecha_inspection" value="2021-05-03" min="1980-01-01" max="2030-12-31"> 
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Orden de
+                        <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px; font-size: 15px;">2. Orden de
                             inspección</label>
                         <input type="text" class="form-control" id="orden_inspection"  placeholder="1924-2021" 
-                            style="width:161.54px; height:39px;">
+                            style="width:161.54px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">3. Inspector de
+                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">3. Inspector de
                             trabajo</label>
                         <input type="text" class="form-control"  placeholder="Alberto Morán"
-                            style="width:355.19px; height:73px;">
+                            style="width:355.19px; height:39px;box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                         <div class="d-flex column justify-content-end" >
-                            <i class="fas fa-plus link-success "></i><a class="link-success" href="#"
-                                id="links_new_inspector" style="margin-right:60px;">Nuevo inspector</a>
+                            <!-- <i class="fas fa-plus link-success "></i> -->
+                            <img src="./img/svg/more.svg" class="" alt="mas" />
+                            <a class="link-success" href="#"
+                                id="links_new_inspector" style="margin-right:60px; color: #FF3355; font-weight: bold; font-size: 12px; line-height: 14px; ">Nuevo inspector</a>
                         </div>
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
-                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">4. Inspector
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:45px;">
+                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">4. Inspector
                             auxiliar</label>
                         <input type="text" class="form-control" id="auxiliar"  placeholder="Federico Pajuelo"
-                            style="width:355.19px; height:39px;">
+                            style="width:355.19px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                         <div class="d-flex column justify-content-end" >
-                            <i class="fas fa-plus link-success "></i><a class="link-success" href="#"
+                           <!-- <i class="fas fa-plus link-success "></i> -->
+                            <img src="./img/svg/more.svg" class="" alt="mas" />
+                            <a class="link-success" href="#"
                                 id="links_new_inspector" style="margin-right:60px;">Nuevo inspector</a>
                         </div>
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <div class="d-flex flex-row bd-highlight ">
-                            <label for="inputPassword" class="form-label" style=" margin-left:0px">5. Materias</label>
-                            <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" name="CheckAll" id="select-all" />
+                    <div style="margin-left:30px;margin-top:50px; display:flex;">
+                        <div class="d-flex flex-row bd-highlight " style="margin-left:11px">
+                            <label for="inputPassword" class="form-label" style=" margin-left:0px; font-size:14px; font-size: 15px;">5. Materias</label>
+                            <!-- <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" name="CheckAll" id="select-all" />
                             <input type="checkbox" style=" margin-left:170px;margin-bottom:38px;" class="ocultar"  name="CheckAll"  id="select-all1" />
                             <label class = " form-check-label" style="margin-left:0px;">
                             Selecionar todos
-                            </label>
+                            </label>-->
                         </div>
                         <div id="container_check">
-                            <div class="check1" style="margin-left:242.93px;margin-rigth:30px;">
+                            <div class="check1" style="margin-left:230px;margin-rigth:30px;">
     
                                 <div class="row " style=" margin-button:31px;">
                                     <input type="checkbox" class="checkbox" id="check1" name="Relaciones laborales" value="Relaciones laborales" 
@@ -363,14 +421,14 @@ export default () => {
                     </div>
     
     
-                    <div class="mb-3 row " style="margin-left:30px;margin-top:40px;">
-                        <label for="Denominación del caso" class="col-sm-2 col-form-label col-12 col-lg-5"  style=" margin-left:0px;">6. Denominación del caso</label>
+                    <div class="mb-3 row " style="margin-left:30px;margin-top:45px;">
+                        <label for="Denominación del caso" class="col-sm-2 col-form-label col-12 col-lg-5"  style=" margin-left:0px; font-size: 15px;">6. Denominación del caso</label>
                         <input type="text" class="form-control" required id="mensaje" placeholder="Caso Estibadores"
-                            style="width:285.96px; height:39px;">
+                            style="width:285.96px; height:39px; box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                     </div>
     
                     <div class="row" id="btn_crearCaso">
-                       <input type="button" disabled id="enviar" value="Crear caso">
+                       <input type="button" disabled id="enviar" value="Crear caso" class="btnenviar_desacti">
                     </div>
 
                  
@@ -379,8 +437,17 @@ export default () => {
             </div>
         </div>
         <!---FILA 3-->
-        <div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
-        
+
+        <footer class="footer d-flex" style="height: 81px; background: #F9FBFC;">
+        <p>
+          Copyright © 2021 <strong>sami.</strong>Todos los derechos reservados.
+          <span>Términos del Servicio y Políticas de Privacidad</span>
+        </p>
+        <img src="./img/svg/group.svg" alt="logo" />
+      </footer>
+
+
+        <!-- <div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
         <footer class="d-flex justify-content-around" >
             <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
                 <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
@@ -390,7 +457,7 @@ export default () => {
             </div>
             <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
         </footer>
-    </div>
+    </div> -->
         `;
 
   //Validar Size
@@ -426,14 +493,17 @@ export default () => {
   const checkSeis = viewInspection.querySelector("#check6");
   const checkSiete = viewInspection.querySelector("#check7");
   const checkOcho = viewInspection.querySelector("#check8");
-  localStorage.removeItem("materia1");
-  localStorage.removeItem("materia2");
-  localStorage.removeItem("materia3");
-  localStorage.removeItem("materia4");
-  localStorage.removeItem("materia5");
-  localStorage.removeItem("materia6");
-  localStorage.removeItem("materia7");
-  localStorage.removeItem("materia8");
+  // *******
+  // localStorage.removeItem("materia1");
+  // localStorage.removeItem("materia2");
+  // localStorage.removeItem("materia3");
+  // localStorage.removeItem("materia4");
+  // localStorage.removeItem("materia5");
+  // localStorage.removeItem("materia6");
+  // localStorage.removeItem("materia7");
+  // localStorage.removeItem("materia8");
+  // *******
+  
 
   function handlerCheck1() {
     let checked = checkUno.checked;
@@ -528,6 +598,7 @@ const the_return = viewInspection.querySelector(".file-return");
     viewInspection.querySelector("#myfiles").onchange = function() {cambiar()}
             function cambiar() {
                 file1.classList.remove("ocultar");
+                buton_prueba.classList.remove("btnenviar_desacti");
                 return the_return.innerHTML = fileInput.value;
                 
             };
@@ -596,21 +667,32 @@ function drop(event) {
         
     const form1 =  viewInspection.querySelector("#drop");    
     const sube_archivo = viewInspection.querySelector("#sube_archivo");    
+    const sube_manual = viewInspection.querySelector("#sube_manual");   
     sube_archivo.addEventListener('click', (e) => {
       e.preventDefault();
       form1.classList.remove("ocultar");
-      form2.classList.add("ocultar")
-     
+      form2.classList.add("ocultar");
+      sube_archivo.classList.remove("link-inactive");
+      sube_archivo.classList.add ("link-active");
+      sube_manual.classList.remove("link-activo");
+      sube_manual.classList.add("link-inactive");
+
     });
 
       //Evento click Crear de formulario manual
 
       const form2 =  viewInspection.querySelector("#handbook");    
-      const sube_manual = viewInspection.querySelector("#sube_manual");    
+      // const sube_manual = viewInspection.querySelector("#sube_manual");    
       sube_manual.addEventListener('click', (e) => {
         e.preventDefault();
-        form2.classList.remove("ocultar")
-        form1.classList.add("ocultar")
+        form2.classList.remove("ocultar");
+        form1.classList.add("ocultar");
+        sube_manual.classList.add("link-active");
+        sube_manual.classList.remove("link-inactive");
+        sube_archivo.classList.remove("link-active");
+        sube_archivo.classList.add("link-inactive");
+        // sube_manual.classList.remove("link-inactive");
+
 
            console.log(cambiar(fileInput.value))
             const nameFile = cambiar(fileInput.value);
@@ -621,34 +703,34 @@ function drop(event) {
       });
 
       //check
-     const check= viewInspection.querySelector('#select-all')
-     const uncheck= viewInspection.querySelector('#select-all1')
-     check.addEventListener ('click',  (e) => {
-        check.classList.add("ocultar");
-        uncheck.classList.remove("ocultar");
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = true;
-         } else  {
+    //  const check= viewInspection.querySelector('#select-all')
+    //  const uncheck= viewInspection.querySelector('#select-all1')
+    //  check.addEventListener ('click',  (e) => {
+    //     check.classList.add("ocultar");
+    //     uncheck.classList.remove("ocultar");
+    //     var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    //     console.log(checkboxes)
+    //     for (var i = 0; i < checkboxes.length; i++) {
+    //       if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = true;
+    //      } else  {
         
-         } ; 
-        }  
-      });
+    //      } ; 
+    //     }  
+    //   });
 
      //uncheck
-    uncheck.addEventListener ('click',  (e) => {
-        var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
-        console.log(checkboxes)
-        check.classList.remove("ocultar");
-        uncheck.classList.add("ocultar");
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = false;
-         } else  {
+    // uncheck.addEventListener ('click',  (e) => {
+    //     var checkboxes = viewInspection.querySelectorAll('input[type="checkbox"]');
+    //     console.log(checkboxes)
+    //     check.classList.remove("ocultar");
+    //     uncheck.classList.add("ocultar");
+    //     for (var i = 0; i < checkboxes.length; i++) {
+    //       if (checkboxes[i].type == 'checkbox'){  checkboxes[i].checked = false;
+    //      } else  {
          
-         } ; 
-        }       
-      });
+    //      } ; 
+    //     }       
+    //   });
 
       //código por optimizar
       const mensaje = viewInspection.querySelector("#mensaje");
@@ -660,8 +742,11 @@ function drop(event) {
         if (mensaje.value.trim() !== "") {
           console.log("Se muestra")
           boton.removeAttribute('disabled')
+          boton.classList.remove('btnenviar_desacti');
+          boton.classList.add("btnenviar_acti");
         } else {
           boton.setAttribute('disabled', "true");
+          
         }
       });
 

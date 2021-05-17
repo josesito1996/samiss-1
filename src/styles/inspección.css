@@ -1,3 +1,11 @@
+/* .header_Case {
+  height: 64px;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 257px 1fr 325px;
+  background: var(--background-primary);
+} */
+
 #cajasoltar
 {
 	float:left;
@@ -48,7 +56,7 @@
   flex: none;
   order: 3;
   flex-grow: 0;
-  margin: 30px 320px 59px 320px;
+  margin: 30px 320px 0px 320px;
 }
 #drop-area.highlight {
   border-color: purple;
@@ -61,7 +69,7 @@ p {
 }
 /* estilos archibos subidos*/
 #gallery {
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
 font-style: normal;
 font-weight: 300;
 font-size: 14px;
@@ -87,7 +95,7 @@ align-items: center;
 
 #gallery {
   text-align: center;
-  margin-top: 1.5em;
+  /* margin-top: 1.5em; */
 }
 #gallery div {
   display: inline-block;
@@ -122,8 +130,20 @@ align-items: center;
  
 } */
 
+.link-active {
+ font-weight: 600;
+ border-bottom: 2px solid #0F3041;
+}
+
+.link-inactive {
+  font-weight: 400;
+  border-bottom: 1px solid #7D7D7D;
+}
+
+/* border-bottom: 1px solid #7D7D7D */
+
 #home_inspection{
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -146,7 +166,7 @@ align-items: center;
 }
 
 .new_case{
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
@@ -161,7 +181,7 @@ align-items: center;
 .limit_size{
     /* Texto */
 
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -196,7 +216,7 @@ align-items: center;
 }
 
 #links_new_inspector{
-  font-family: Roboto;
+  /* font-family: Roboto; */
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
@@ -220,29 +240,44 @@ align-items: center;
 flex-direction: row;
 justify-content: center;
 align-items: center;
-padding: 11px 16px;
+/* padding: 11px 16px; */
 width: 138px;
 height: 40px;
 left: 301px;
 bottom: 50px;
-margin: 0px 301px 50px 301px;
-color: white;
+margin: 38px 301px 50px 301px;
 text-align: center;
 opacity: 0.2;
 
 /* Primary Red */
 
-background: #FF3355;
-
+/* background: #FF3355; */
+/* opacity: 0.3; */
 /* Primary Red */
 
-border: 2px solid #FF3355;
+/* border: 2px solid #FF3355; */
 box-sizing: border-box;
 box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
+color: white;
 }
 
+.btnenviar_desacti {
+  background: #FF3355;
+  border: 2px solid #FF3355;
+  opacity: 0.3;
+}
+
+.btnenviar_acti {
+  background: #FF3355;
+  border: 2px solid #FF3355;
+}
+
+            
+        
 .myfile{
+  width: 230px;
+  height: 43px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -268,9 +303,9 @@ border-radius: 10px;
   flex-grow: 0;
   margin: 20px 0px;
 
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
 font-style: normal;
-font-weight: 500;
+font-weight: 680;
 font-size: 14px;
 line-height: 17px;
 /* identical to box height */

@@ -51,16 +51,11 @@
       display: inline-block;
       margin-bottom: .5rem;
   }
-  .form-control {
-      box-shadow: none !important;
-
-  }
-
   
      /*Input Nombre registar*/
   .textOnInput2{
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 7px;
     margin-top: 57px;
   }
 
@@ -125,3 +120,8 @@
   width: 18px;
   height: 27.2px;
   }
+
+    /* .form-control {
+      box-shadow: none !important;
+
+  } */
