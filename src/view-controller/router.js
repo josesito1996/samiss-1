@@ -23,6 +23,9 @@ export const changeTmp = (hash) => {
     case '#/actuacion':
       container.appendChild(components.actuacion());
       break;
+    case '#/documentos':
+        container.appendChild(components.documentos());
+        break;
     default:
       return container.appendChild(components.Different());
   }
