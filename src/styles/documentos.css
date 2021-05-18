@@ -1,0 +1,21 @@
+#info{
+    cursor: pointer;
+}
+
+#verFiles{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+   
+}
+.styleIframe{
+   width:447px;
+   border-style: none;
+    height:622px;
+    text-decoration: solid;
+
+  
+   
+}
+
+

@@ -14,6 +14,7 @@ export const components = {
   inspection,
   home,
   actuacion,
+  documentos,
   homework,
   Different,
 };
