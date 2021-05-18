@@ -629,15 +629,15 @@ if(months < 10){
             </div>
 
             <div class="ocultar" id="container_etapa1">
-              <div style="width:800px; height:600px; background: #C1F0CB;" > ETAPA 1</div>
+              <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
           
             <div class="ocultar" id="container_etapa2"> 
-            <div style="width:800px; height:600px; background: #FFE7B3;" > ETAPA 2</div>
+            <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
             
             <div class="ocultar" id="container_etapa3">
-            <div style="width:800px; height:600px; background: #BFBEFF;" > ETAPA 3</div>
+            <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
 
           </div>
