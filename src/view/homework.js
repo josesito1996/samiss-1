@@ -4,10 +4,8 @@ export default () => {
   viewHomework.innerHTML = `
   <!-- TABLA -->
   <div class="createTask d-flex">
-
       <div id="container_table" class="container-table"> 
       </div>
-    
       <div class="container-btnCreateTask d-flex">
           <button
             id="showModal_taskform"
@@ -20,12 +18,10 @@ export default () => {
                 <img src="./img/svg/+_red.svg" class="" alt="agregar" />
             </button>
         </div>
-
   </div>
 
 
-  <!-- Formulario - Nueva tarea -->
-  <!-- Modal -->
+  <!-- MODAL FORMULARIO - (Nueva tarea) -->
   <div
     class="modal fade"
     id="exampleModal"
@@ -49,9 +45,9 @@ export default () => {
             <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
           </button>
         </div>
-
         <div class="modal-body body-fromHomework">
           <form class="form-homework">
+
             <div class="form-group row row-fromHomework">
               <label
                 for="inputText1"
@@ -78,7 +74,6 @@ export default () => {
                 class="col-sm-10 containerInput-fromHomework"
                 id="date_fromHomework"
               >
-                <!-- <input type="date" class="form-control input-fromHomework " id="inputDate2" value="" placeholder=""> -->
               </div>
             </div>
 
@@ -129,8 +124,6 @@ export default () => {
               >
               <div class="col-sm-10 containerInput-fromHomework">
                 <div class="containerTexarea-fromHomework">
-
-
                   <button
                     id="btnShow_modal_message"
                     type="button"
@@ -140,7 +133,6 @@ export default () => {
                     data-bs-keyboard="false"
                   >
                     <img src="./img/svg/edit-red.svg" class="" alt="editar" />
-                    
                     <textarea
                     class="form-control textarea-fromHomework"
                     id="textarea5"
@@ -150,17 +142,13 @@ export default () => {
                     placeholder="Mensaje"
                     disabled
                     ></textarea>
-
                   </button>
-                    
-
                   <p>(Máximo 1200 caracteres)</p>
                 </div>
               </div>
             </div>
           </form>
         </div>
-
         <div class="modal-footer footer-fromHomework">
           <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
           <button
@@ -181,21 +169,7 @@ export default () => {
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Texarea del Formulario - Mensaje -->
-  <!-- Modal -->
+  <!-- MODAL Texarea del Formulario - (Mensaje) -->
   <div
     class="modal fade"
     data-backdrop="static"
@@ -219,12 +193,9 @@ export default () => {
             aria-label="Close"
           >
             <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
-            <!--<span aria-hidden="true">&times;</span>-->
           </button>
         </div>
-
         <div class="modal-body body-modalMessage">
-        
           <div class="containerTexarea-modalMessage">
             <textarea
               class="form-control textarea-modalMessage"
@@ -236,13 +207,8 @@ export default () => {
             ></textarea>
             <p>(Máximo 1200 caracteres)</p>
           </div>
-        
         </div>
-
         <div class="modal-footer footer-modalMessage">
-          <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
-          </button>-->
           <button type="button" id="btnAdd_message" class="btn" data-bs-dismiss="modal">Continuar</button>
         </div>
       </div>
@@ -250,26 +216,13 @@ export default () => {
   </div>
 
 
+  <!-- MODAL Registro de Tarea completada - (Ok) -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <div
+  <div
+    id="modalOk"
     class="modal fade"
     data-backdrop="static"
     data-keyboard="false"
-
-    id="modalOk"
     tabindex="-1"
     aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true"
@@ -277,35 +230,30 @@ export default () => {
   >
     <div class="modal-dialog modal-dialog-centered modalDialog-ok">
       <div class="modal-content modalOk ">
-        <div class="modal-header header-modalOk d-flex" style="display: flex; justify-content: flex-end; padding-bottom: 0; border-bottom: none;">
+
+        <div class="modal-header header-modalOk d-flex">
           <button
             id="btnClose_Ok"
             type="button"
             class="close"
             data-bs-dismiss="modal"
             aria-label="Close"
-            
           >
             <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
-            <!--<span aria-hidden="true">&times;</span>-->
           </button>
         </div>
 
-        <div class="modal-body body-modalOk" style="display: flex; justify-content: center; padding: 0;">
-        
-          <div class="containerTexarea-modalOk" style="padding: 0 40px 0 40px;">
-            <img src="./img/svg/check-circle.svg" class="" style="margin-left:180px;" alt="cerrar" />
-            <p style="font-size:20px ;padding-top:10px; text-align:center">Tu tarea ha sido creada con éxito en la actuacón de "Requerimiento de comparecencia"</p>
+        <div class="modal-body body-modalOk">
+          <div class="container-modalOk">
+            <img src="./img/svg/check-circle.svg" alt="cerrar" />
+            <p>Tu tarea ha sido creada con éxito en la actuación de "Requerimiento de comparecencia"</p>
           </div>
-        
         </div>
 
-        <div class="modal-footer footer-modalOk" style="border-top: none; align-self: center;">
-          <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
-          </button>-->
-          <button type="button" id="btnAdd_message" class="btn" data-bs-dismiss="modal">Continuar</button>
+        <div class="modal-footer footer-modalOk">
+          <button type="button" id="btnAdd_message" class="btn" data-bs-dismiss="modal">Ver mi tarea</button>
         </div>
+
       </div>
     </div>
   </div>
@@ -347,11 +295,7 @@ export default () => {
 
   btnShow_modal_message.addEventListener("click", (e) => {
     e.preventDefault;
-    // modalMessage.style.display = "block";
     modalForm.classList.add("zIndexDown-modal");
-    // modalMessage.modal('show')
-    // modalMessage.className="show";
-    // alert('hola');
   });
 
   btnAddMessage.addEventListener("click", (e) => {
@@ -416,9 +360,9 @@ export default () => {
     const textareaModal = viewHomework.querySelector("#textareaModal");
 
     if (
-      // inputDenominacion.value === "" ||
-      // inputDestinatario.value === "" ||
-      // inputCorreo.value === "" ||
+      inputDenominacion.value === "" ||
+      inputDestinatario.value === "" ||
+      inputCorreo.value === "" ||
       textareaModal.value === ""
     ) {
       console.log("campos vacios");
@@ -442,17 +386,17 @@ export default () => {
   };
 
 
-    const inputDenominacion = viewHomework.querySelector("#inputText1");
-    const dateVencimiento = viewHomework.querySelector("#inputDate2");
-    const inputDestinatario = viewHomework.querySelector("#inputText3");
-    const inputCorreo = viewHomework.querySelector("#inputText4");
-    // const textarea5 = viewHomework.querySelector("textarea5");
+  const inputDenominacion = viewHomework.querySelector("#inputText1");
+  const dateVencimiento = viewHomework.querySelector("#inputDate2");
+  const inputDestinatario = viewHomework.querySelector("#inputText3");
+  const inputCorreo = viewHomework.querySelector("#inputText4");
+  // const textarea5 = viewHomework.querySelector("textarea5");
 
 
-    inputDenominacion.addEventListener("input", homeworkValidInputs);
-    inputDestinatario.addEventListener("input", homeworkValidInputs);
-    inputCorreo.addEventListener("input", homeworkValidInputs);
-    textareaModal.addEventListener("input", homeworkValidInputs);
+  inputDenominacion.addEventListener("input", homeworkValidInputs);
+  inputDestinatario.addEventListener("input", homeworkValidInputs);
+  inputCorreo.addEventListener("input", homeworkValidInputs);
+  textareaModal.addEventListener("input", homeworkValidInputs);
 
 
 
@@ -466,6 +410,7 @@ export default () => {
   }
  
 const showModalTaskform = viewHomework.querySelector("#showModal_taskform");
+
 //******* botón Crear tarea - abre modal del formulario *******/
 showModalTaskform.addEventListener("click", (e) => {
   e.preventDefault;
@@ -475,7 +420,7 @@ showModalTaskform.addEventListener("click", (e) => {
   btnCreateHomework.disabled = true;
 });
 
- //***** botón CREAR TAREA del formulario ******/
+//***** botón CREAR TAREA del formulario ******/
 btnCreateHomework.addEventListener("click", (e) => {
   e.preventDefault;
   createHomework();
