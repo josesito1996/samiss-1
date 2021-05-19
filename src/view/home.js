@@ -78,12 +78,11 @@ if(months < 10){
           </div>
         </div>
         <div class="tags-case d-flex">
-          <ul class="">
-            <li  ><a id="irDatos" class="allA"  href="#">Datos</a></li>
-            <li id="liActuacion"  ><a href="#" id="irActuacion"  class="allA">Actuaciones</a></li>
-            <li><a href="#">Documentos</a></li>
-            <li><a href="#">Tareas</a></li>
-          </ul>
+        
+            <div id="link_datos"  class="links">Datos</div>
+            <div id="link_actuaciones" class="links">Actuaciones</div>
+            <div id="link_documentos" class="links">Documentos</div>
+        
         </div>
         <div  id="main-datos">
         <div class="detailMain d-flex">
@@ -553,7 +552,7 @@ if(months < 10){
                   <!--archivos subidos-->
                             <div class="col-12 col-lg-4">
                               <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
-                                  <img class="img_tipoResolution" src="./img/svg/cli.svg" alt="" />
+                                  <img class="ocultar" id="mostrarCli" src="./img/svg/cli.svg" alt="" />
                                   <div class="d-flex flex-column">
                                     <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
                                     <div class="d-flex flex-row align-items-center justify-content-center ">
@@ -629,23 +628,172 @@ if(months < 10){
             </div>
 
             <div class="ocultar" id="container_etapa1">
-              <div style="width:800px; height:600px; background: #C1F0CB;" > ETAPA 1</div>
+              <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
           
             <div class="ocultar" id="container_etapa2"> 
-            <div style="width:800px; height:600px; background: #FFE7B3;" > ETAPA 2</div>
+            <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
             
             <div class="ocultar" id="container_etapa3">
-            <div style="width:800px; height:600px; background: #BFBEFF;" > ETAPA 3</div>
+            <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
 
           </div>
 
         </div> 
+
+        <div class="ocultar" id ="main-documentos">
+
+        <div class="d-flex flex-row">
+
+        <!--principal-->
+          <div id="column_izquierda_documentos">
+          <div>
+          <p id="title_principal">PRINCIPAL</p>
+          <div id="style_generalContainer_principal">
+            <div class="d-flex flex-row justify-content-between" id="container_principal">
+             
+              <div style="width: 231px;height: 21px;">
+              <p class="styles_principal"><strong>Principal:</strong></p>
+              <p class="styles_principal">Constancia de Compadecencia</p>
+              </div>
+
+              <div style="width: 61px;height: 21px;">
+              <p class="styles_principal"><strong>Vence:</strong></p>
+              <p id="date_documentos">30/05/21</p>
+              </div>
+
+            </div>
+
+            <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+            <p >01.</p>
+              <label for="file-upload" id="subir" style="margin-left:0px;">
+              <img  src="./img/svg/clicdoc.svg" alt="" />
+                </label>
+                <div class="d-flex flex-column ">
+                <div id="name_info" style="width: 183.58px;height: 15px;"></div>
+                <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+                </div>
+              <img  src="./img/svg/up_doc.svg" alt="" />  
+            </div>
+            </div>
+            </div>
+          </div>
+
+          <!--see doc o pdf o img-->
+          <div id="see" style="">
+
+          <div id="verFiles">
+          </div>
+          </div>
+
+        </div>
+
+        </div>
       </div>
 
       <div class="sidebarCase">
+      <img src="./img/svg/sunafil.svg" class="" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+      <img src="./img/svg/sunafilBlue.svg" class="ocultar" id="sunafilBlue" alt="Icono check" />
+       <!-- Modal SUNAFIL -->
+       <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content d-flex flex-column align-items-center" style="width:763px;">
+
+              <div>
+                <button type="button" ><img src="./img/svg/x.svg" alt="" loading="lazy" id="close_modal_sunafil" data-bs-dismiss="modal"
+                aria-label="Close"/></button>
+              </div>
+                           
+              <div clas="d-flex flex-row" >
+                <p id="message_thank" style="margin-bottom:0px;"> <strong>${localStorage.getItem('name')} </strong> gracias por confiar en nosotros, en esta ventana podrás registrar tu usuario y contraseña de forma segura. &nbsp;<img src="./img/svg/!sunafil.svg" class="checkIcon" id="sunafil" alt="Icono check"/></p>
+                
+                </div>
+
+              <form  id="container_date_sunafil" >
+              
+                <div class="d-flex flex-row">
+                  <button class="ruc">RUC</button>
+                  <button class="dni">DNI</button>
+                </div>
+
+                 <!-- RUC input -->
+                 <div class="form-outline">
+                  <input type="text" required id="input_modalSunafil" class="form-control" placeholder="RUC" />
+                </div>
+
+    
+                 <!-- Usuario input -->
+                 <div class="form-outline">
+                  <input type="txt" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline">
+                  <input type="password" required  id="input_modalSunafil1" class="form-control" placeholder="Contraseña" />
+                </div>
+
+                <div class="d-flex flex-row align-items-center" style="margin-top:9px;margin-bottom:29px;">
+                  <p id="recordatorio_modal_sunafil" style="margin-bottom:0px;">Recuérdame, para entrar más fácil</p>
+                
+                  <!-- Default switch -->
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" style="width:42px; height:18px;  background-size: contain; background-repeat: no-repeat;" id="flexSwitchCheckDefault" />
+
+                  </div>
+                </div>
+
+                <a id="link_sunafil" href="" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña solicítalos desde SUNAT Virtual</a>
+
+                <!-- Submit button -->
+                <button type="submit" disabled id = "btn_entrar_modal_sunafil" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1"  class="btn btn-block ">Entrar</button>
+              
+                </form>
+
+                <div >
+                <img src="./img/svg/imageSunafil.svg" class="checkIcon" style="margin-bottom:44px;" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#staticBackdrop"/>
+                </div>
+                                                
+                </div>
+                </div>
+                </div>
+                  <!-- Mini Modal SUNAFIL -->
+                <div class="modal fade" id="exampleModal1" data-bs-backdrop="static" data-bs-keyboard="false"
+                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog " style="margin-top:89px;">
+            <div class="modal-content d-flex flex-column align-items-center" style="width:763px;">
+
+            <div>
+                        <button type="button" ><img src="./img/svg/x.svg" alt="" loading="lazy" id="close_modal_sunafil" data-bs-dismiss="modal"
+                        aria-label="Close"/></button>
+                      </div>
+
+                      <div >
+                      <img src="./img/svg/check_nimimodal.svg" class="checkIcon" style="margin-bottom:44px;" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#staticBackdrop"/>
+                      </div>
+                                  
+                      <div clas="d-flex flex-row" >
+                        <p id="message_congratulations" style="margin-bottom:0px;"> ¡Felicidades ${localStorage.getItem('name')}!Tu registro ha sido creado correctamente</p>
+                      </div>
+
+                      <div style="margin-top: 33px;" >
+                        <button type="submit"  id = "btn_entrar_minimodal_sunafil"  class="btn btn-block " data-bs-dismiss="modal">Regresar al home</button>
+                      </div>
+                                                      
+                      <div >
+                      <img src="./img/svg/imageSunafil.svg" class="checkIcon" style="margin-bottom:44px;margin-top:43px;" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#staticBackdrop"/>
+                      </div>
+
+                                                  
+                </div>
+              </div>
+                </div>
+                
+
+           
+      <hr class="horizontalLine-sidebar" />
         <h6>Estado del caso</h6>
         <div class="div-process d-flex">
           <img src="./img/svg/check.svg" class="checkIcon" alt="Icono check" />
@@ -909,18 +1057,18 @@ if(months < 10){
 // //         });
 // //       });
    
-    //   //habilitar input
-    //   const editar = viewHome.querySelector("#edit");
-    //   editar.addEventListener("click", ()=>{
-    //     const description = viewHome.querySelector("#description");
-    //     if(description .disabled == true)	{
-	// 	      description.disabled=false;
-	//          }
-    //           else
-    //     {
-    //       description.disabled=true;
-    //     }
-    //         });
+      //habilitar input
+      // const editar = viewHome.querySelector("#edit");
+      // editar.addEventListener("click", ()=>{
+      //   const description = viewHome.querySelector("#description");
+      //   if(description .disabled == true)	{
+		  //     description.disabled=false;
+	    //      }
+      //         else
+      //   {
+      //     description.disabled=true;
+      //   }
+      //       });
 
         //número aleatorio
         function aleatorio(inferior, superior) {
@@ -1075,25 +1223,8 @@ if(months < 10){
             window.location.hash = "#/actuacion";
         })
 
-      
 
-        const irActuacion = viewHome.querySelector("#irActuacion");
-        const liActuacion = viewHome.querySelector("#liActuacion");
-        const irDatos = viewHome.querySelector("#irDatos");
-        const mainDatos = viewHome.querySelector("#main-datos");
-        const mainActuaciones = viewHome.querySelector("#main-actuaciones");
-        liActuacion.addEventListener("click", (e)=> {
-          e.preventDefault();
-          irDatos.style.borderBottom= "1px" ;
-          irDatos.style.fontWeight= "100" ;
-          irActuacion.style.borderBottom = "3px solid #0F3041"; 
-          irActuacion.style.fontWeight= "600" ;
-          mainDatos.classList.add("ocultar");
-          mainActuaciones.classList.remove("ocultar");
-          
-        });
-
-        //mostar descripcion actuacion
+            //mostar descripcion actuacion
 
         // const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
         const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
@@ -1101,7 +1232,6 @@ if(months < 10){
           const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
         
           if (descripcion_actuacion  == null) {
-            console.log("yu")
             console.log(descripcion_actuacion)
             descripcion_actuacion_get.classList.add("ocultar");
             input_setDescripcion_actuacion.classList.add("ocultar");
@@ -1109,32 +1239,7 @@ if(months < 10){
           } else {
             
           }
-
-        const subir = viewHome.querySelector("#subir");
-        const txt_carga = viewHome.querySelector("#txt_carga");
-        const file_upload = viewHome.querySelector("#file-upload");
-
-        const usuario = viewHome.querySelector("#usuario");
-        const conTarea = viewHome.querySelector("#conTareas");
-        const Sintarea = viewHome.querySelector("#Sintareas");
-        const conDocumentos = viewHome.querySelector("#conDocumentos");
-        const Sindocumentos = viewHome.querySelector("#Sindocumentos");
-
-        file_upload.addEventListener("change", ()=> {
-          subir.classList.add("ocultar");
-          txt_carga.classList.add("ocultar");
-          usuario.classList.remove("ocultar");
-          conTarea.classList.remove("ocultar");
-          Sintarea.classList.add("ocultar");
-          conDocumentos.classList.remove("ocultar");
-          Sindocumentos.classList.add("ocultar");
-          var pdrs = document.getElementById('file-upload').files[0].name;
-          document.getElementById('info').innerHTML = pdrs;
-         
-        })
-       
-        
-   
+      
          //Ingresar comentarios al textarea vista actuacion
          const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
          const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
@@ -1169,7 +1274,6 @@ if(months < 10){
              save_actuacion.classList.add("hide");
            })
   // menú etapas
-
   
   const buttons_total = viewHome.querySelector("#button_total");
   const buttons_etapa1 = viewHome.querySelector("#buttons_etapa1");
@@ -1230,6 +1334,7 @@ if(months < 10){
   container_etapa3.classList.remove ("ocultar");
   })
 
+  //boton etapas
   buttons_total.classList.add("button_change_etapas");
   const buttons_etapas = viewHome.getElementsByClassName("buttons_etapa");
   for(let i=0; i < buttons_etapas.length; i ++)
@@ -1251,10 +1356,188 @@ if(months < 10){
              };
            }
 
+           //habilitar y deshabiliat boton entrar modal sunafil
+
+           const sunafil = viewHome.querySelector('#sunafil');
+           sunafil.addEventListener("click" , () => {
+
+            const mensaje = viewHome.querySelector("#input_modalSunafil1");
+             mensaje.addEventListener("keyup", (e) => {
+             console.log("change");
+             const boton = viewHome.querySelector("#btn_entrar_modal_sunafil");
+              console.log(boton)
+
+                       
+            if (mensaje.value.trim() !== "") {
+              console.log("Se muestra")
+              boton.removeAttribute('disabled')
+              const miniModal = viewHome.querySelector("#exampleModal1");
+           } else {
+              boton.setAttribute('disabled', "true");
+              
+            }
+          });
+              })
+
+ //LINKS
+ const link_datos = viewHome.querySelector("#link_datos");
+ const link_actuaciones = viewHome.querySelector("#link_actuaciones");
+ const link_documentos = viewHome.querySelector("#link_documentos");
+ const mainDatos = viewHome.querySelector("#main-datos");
+ const mainActuaciones = viewHome.querySelector("#main-actuaciones");
+ const mainDocumentos= viewHome.querySelector("#main-documentos");
+
+ link_datos.addEventListener("click", ()=> {
+   mainDatos.classList.remove("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.add("ocultar");
+ })
+
+ link_actuaciones.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.remove("ocultar");
+   mainDocumentos.classList.add("ocultar");
+   
+ })
+
+ link_documentos.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.remove("ocultar");
+
+   rootRef.on('value', function(snapshot){
+     var datos = snapshot.val();
+     var results = "" 
+     for(var key in datos){
+
+       console.log(datos[key].nombre)
+     
+       results +=  '<div  class="name_info_down">'+datos[key].nombre+'</div>';
+       
+     } 
+     document.getElementById("name_info").innerHTML= results;
+     const click_show_doc = document.getElementById("name_info")
+     click_show_doc.addEventListener("click", ()=> {
+
+       rootRef.on('value', function(snapshot){
+         var datos = snapshot.val();
+         var result = "" 
+         for(var key in datos){
+   
+           console.log(datos[key].url)
+         
+           result +=  '<iframe  class="styleIframe"  src="'+ datos[key].url +'"></iframe>';
            
-  
+         } 
+         document.getElementById("verFiles").innerHTML= result;
+       })
+
+     })
+   })
+
+   
+ })
+
+
+ link_datos.classList.add("links_change");
+ const links = viewHome.getElementsByClassName("links");
+ for(let i=0; i < links.length; i ++)
+          {
+           links[i].onclick = function (){
+
+             let el = links[0];
+             while(el)
+             {
+               if(el.tagName === "DIV"){
+               // remueve class
+               el.classList.remove("links_change");
+             }
+
+             //pasa al hermano
+             el = el.nextSibling;
+           }
+              this.classList.add("links_change");
+            };
+          }              
 
       
+  
+//subir datoss al storage
+const txt_carga = viewHome.querySelector("#txt_carga");
+const cli = viewHome.querySelector("#mostrarCli");
+
+const subir = viewHome.querySelector("#subir");
+
+const file_upload = viewHome.querySelector("#file-upload");
+file_upload.addEventListener("change", ()=> {
+  subir.classList.add("ocultar");
+  txt_carga.classList.add("ocultar");
+  cli.classList.remove("ocultar");
+  var pdrs = document.getElementById('file-upload').files[0].name;
+  document.getElementById('info').innerHTML = pdrs;
+  const mostrarDoc = document.getElementById('info')
+  
+      
+ 
+});
+
+
+  // window.onload = inicializar;
+   var fichero;
+   var storageRef;
     
+    // function inicializar() {
+        fichero = viewHome.querySelector("#file-upload");
+        fichero.addEventListener("change", subirDocAFirebase, false);
+        storageRef = firebase.storage().ref();
+        var rootRef = firebase.database().ref().child("documentos");
+    
+
+ function subirDocAFirebase(){
+//     console.log("subiendo")
+
+const documentoSubir = fichero.files[0];
+console.log(documentoSubir)
+const uploadTask = storageRef.child("documentos/"+documentoSubir.name).put(documentoSubir)
+ 
+ // Register three observers:
+// 1. 'state_changed' observer, called any time the state changes
+// 2. Error observer, called on failure
+// 3. Completion observer, called on successful completion
+uploadTask.on('state_changed', function(snapshot){
+
+  //  // Observe state change events such as progress, pause, and resume
+  // console.log("subido");
+  
+}, function(error) {
+  alert("hubo un error")
+  // Handle unsuccessful uploads
+}, function() {
+  // Handle successful uploads on complete
+  // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    alert('se subió la imagen conURL', downloadURL);
+    console.log('Uploaded a blob or file!');
+    crearNodoEnBDFirebase(documentoSubir.name,downloadURL);
+    
+  });
+});
+};
+
+function  crearNodoEnBDFirebase(name,url){
+  rootRef.push({
+  nombre:name,
+  url:url,
+})
+}
+
+//cambiar logo Sunafil una ver sincronizado
+const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
+const sunafilS = viewHome.querySelector('#sunafil');
+const sunafilBlue = viewHome.querySelector('#sunafilBlue');
+    cambiarLogo.addEventListener('click', ()=>{
+sunafilS.classList.add('ocultar');
+sunafilBlue.classList.remove('ocultar');
+    })
     return viewHome;
   };

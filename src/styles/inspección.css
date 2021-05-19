@@ -5,54 +5,53 @@
   grid-template-columns: 257px 1fr 325px;
   background: var(--background-primary);
 } */
-
+ 
 #cajasoltar
 {
-	float:left;
-	width:500px;
-	height:300px;
-	margin:10px;
-	border:1px solid #999999;
-
+  float:left;
+  width:500px;
+  height:300px;
+  margin:10px;
+  border:1px solid #999999;
+ 
 }
-
+ 
 #cajaimagenes
 {
-	float:left;
-	width:320px;
-	margin:10px;
-	border:1px solid #999999;
+  float:left;
+  width:320px;
+  margin:10px;
+  border:1px solid #999999;
 }
-
+ 
 #cajaimagenes > img
 {
-	float:left;
-	padding:5px;
+  float:left;
+  padding:5px;
 }
   
-
+ 
 #fileElem {
   display: none;
 }
-
+ 
 #drop-area {
   background: #EFF2F9;
   border: 1px dashed #C1C7DA;
   box-sizing: border-box;
   border-radius: 16px;
-
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px 60px;
-
   position: static;
   width: 800px;
   height: 288px;
   left: 0px;
   top: 174px;
-
+ 
   flex: none;
   order: 3;
   flex-grow: 0;
@@ -75,12 +74,12 @@ font-weight: 300;
 font-size: 14px;
 line-height: 17px;
 /* identical to box height */
-
+ 
 display: flex;
 align-items: center;
-
+ 
 }
-
+ 
 .button {
   display: inline-block;
   padding: 10px;
@@ -92,7 +91,7 @@ align-items: center;
 .button:hover {
   background: #ddd;
 }
-
+ 
 #gallery {
   text-align: center;
   /* margin-top: 1.5em; */
@@ -129,19 +128,19 @@ align-items: center;
   
  
 } */
-
+ 
 .link-active {
  font-weight: 600;
  border-bottom: 2px solid #0F3041;
 }
-
+ 
 .link-inactive {
   font-weight: 400;
   border-bottom: 1px solid #7D7D7D;
 }
-
+ 
 /* border-bottom: 1px solid #7D7D7D */
-
+ 
 #home_inspection{
   /* font-family: Montserrat; */
   font-style: normal;
@@ -164,7 +163,7 @@ align-items: center;
   flex-grow: 0;
   margin: 0px 6px;
 }
-
+ 
 .new_case{
   /* font-family: Montserrat; */
   font-style: normal;
@@ -177,30 +176,28 @@ align-items: center;
   
   color: #0E3141;
 }
-
+ 
 .limit_size{
     /* Texto */
-
+ 
   /* font-family: Montserrat; */
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
-
+ 
   text-align: center;
-
+ 
   color: #7B89B2;
-
-
+ 
   /* Inside Auto Layout */
-
   flex: none;
   order: 1;
   flex-grow: 0;
   margin: 30px 0px;
 }
-
+ 
 /*ESTILOS FORMULARIO 2*/
 #form_handbook{
    
@@ -212,9 +209,9 @@ align-items: center;
   border-radius: 10px;
   margin-top: 30px;
   /* margin: 30px 350px 60px 350px; */
-
+ 
 }
-
+ 
 #links_new_inspector{
   /* font-family: Roboto; */
   font-style: normal;
@@ -228,12 +225,12 @@ align-items: center;
   text-decoration: none;
   margin-left:5px;
 }
-
+ 
 #container_check{
   display: flex;
  
 }
-
+ 
 /*boton crear caso*/
 #enviar{
   display: flex;
@@ -246,33 +243,33 @@ height: 40px;
 left: 301px;
 bottom: 50px;
 margin: 38px 301px 50px 301px;
+ 
 text-align: center;
-opacity: 0.2;
-
+ 
 /* Primary Red */
-
+ 
 /* background: #FF3355; */
 /* opacity: 0.3; */
 /* Primary Red */
-
+ 
 /* border: 2px solid #FF3355; */
 box-sizing: border-box;
 box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 color: white;
 }
-
+ 
 .btnenviar_desacti {
   background: #FF3355;
   border: 2px solid #FF3355;
   opacity: 0.3;
 }
-
+ 
 .btnenviar_acti {
   background: #FF3355;
   border: 2px solid #FF3355;
 }
-
+ 
             
         
 .myfile{
@@ -291,7 +288,6 @@ color: white;
   
   background: #FFFFFF;
   /* Principal */
-  
   border: 1px solid #D70025;
   box-sizing: border-box;
   border-radius: 10px;
@@ -302,35 +298,30 @@ color: white;
   order: 3;
   flex-grow: 0;
   margin: 20px 0px;
-
+ 
   /* font-family: Montserrat; */
 font-style: normal;
 font-weight: 680;
 font-size: 14px;
 line-height: 17px;
 /* identical to box height */
-
+ 
 display: flex;
 align-items: center;
-
+ 
 /* Primary Red */
-
+ 
 color: #D70025;
-
-
+ 
 /* Inside Auto Layout */
-
+ 
 flex: none;
 order: 0;
 flex-grow: 0;
 margin: 0px 10px;
 }
-
+ 
 input :invalid {
   border: 1px solid red;
 }
 
-/*cambios slect*/
-option {
-  background-color: khaki;
-}
