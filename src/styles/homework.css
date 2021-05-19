@@ -1,5 +1,19 @@
+
+.zIndexTop-modal {
+  z-index: 1060;
+}
+
+.zIndexDown-modal {
+  z-index: 0 !important;
+}
+
+/* 
+.modal #modalMessage {
+  z-index: 1070;
+} */
+
 .modal-dialog .fromHomework {
-  border: 1px solid red ;
+  /* border: 1px solid red ; */
   height: 624px;
   width: 679px;
   
@@ -17,11 +31,6 @@
   padding: 11px 0 0 255px;
 }
 
-/* .modal-dialog .btnClose-fromHomework {
-
-} */
-
-
 .modal-dialog .body-fromHomework {
   padding: 0;
 }
@@ -29,7 +38,6 @@
 .modal-dialog .form-homework {
   /* border: 1px solid blue; */
   margin: 57px 83px 0;
-  
 }
 
 .modal-dialog .row-fromHomework {
@@ -55,7 +63,6 @@
   width: 299px;
   padding: 0;
   margin: 0;
- 
 }
 
 .modal-dialog .input-fromHomework {
@@ -65,8 +72,62 @@
   margin: 0;
   border-radius: 10px;
   /* border: 1px solid var(--borderInputForm); */
-   box-shadow: 0 0 0px 25px white inset !important;
+  box-shadow: 0 0 0px 25px white inset !important;
 }
+
+/**** Efecto email ******/
+.modal-dialog .div-email {
+  /* border: 1px solid blue; */
+  border: 1px solid #ced4da;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.modal-dialog .div-email .span-emailX {
+  /* border: 1px solid yellow; */
+  height: 24px;
+   width: auto;
+  /* width: 203px; */
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  background: var(--borderInputForm);
+  border-radius: 10px;
+}
+
+.span-emailX .input-email {
+  border: 1px solid red;
+  width: auto;
+  /* width: 250px; */
+  padding: 0 0 0 8px;
+  border: none;
+  background: var(--borderInputForm);
+  border-radius: 10px;
+  /* font-size: 13px; */
+  color: var(--primary-blue);
+  box-shadow: 0 0 0px 25px white inset !important;
+}
+
+.span-emailX .input-email:focus {
+  box-shadow: 0 0 0px 25px white inset !important;
+}
+
+.span-emailX span {
+  /* border: 1px solid blue; */
+  font-weight: 500;
+  background: var(--borderInputForm);
+  padding: 0 15px;
+  border-radius: 10px;
+
+}
+
+.modal-dialog .input-email::placeholder {
+  color: var(--txtPlaceholder);
+}
+/****/
+
+
 
 .modal-dialog .input-fromHomework::placeholder {
   color: var(--txtPlaceholder);
@@ -77,83 +138,266 @@
   color: var(--txtPlaceholder);
 }
 
-/* 
- [type="date"] {
-    position: relative;
-}
-[type="date"]::-webkit-calendar-picker-indicator {
-    color: transparent;
-    background: none;
-    z-index: 1;
-}
-[type="date"]:before {
-    color: #b68644;
-    background: none;
-    display: block;
-    /* font-family: 'FontAwesome'; */
-    /* width: 15px;
-    height: 20px;
-    position: absolute;
-    top: 12px;
-    right: 6px;
-    content: '\f073'; */
-/* }  */
-
-
-
-
-/* [type="date"] { */
-  /* background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ; */
-  /* background: url("./img/svg/calendar-red.svg") 97% 50% no-repeat; */
-/* } */
-
-[type="date"] {
-  position:relative; 
+.modal-dialog .labelTextarea-fromHomework {
+  margin-top: -89px;
 }
 
-[type="date"]::-webkit-inner-spin-button {
-  display: none;
-  background: red ;
-}
-[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+.modal-dialog .containerTexarea-fromHomework {
+  /* border: 1px solid yellow; */
+  height: 134px;
+  width: 299px;
+  position: relative;
 }
 
-/* [type="date"]:before {
+.modal-dialog .containerTexarea-fromHomework img {
+  position: absolute;
+  margin-top: 14px;
+  margin-left: 120px;
+  padding: 0;
+}
 
+.modal-dialog .textarea-fromHomework {
+  /* border: 1px solid red; */
+  /* width: 298px; */
+  height: 120px;
+  width: 299px;
+  padding: 10px 40px 25px 15px;
+  font-size: 15px;
+  /* font-weight: 500; */
+  line-height: 16px;
+  color: var(--primary-blue);
+  resize: none;
+  overflow-y: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 0px 25px white inset !important;
+}
+
+.modal-dialog .textarea-fromHomework::placeholder {
+  color: var(--txtPlaceholder);
+}
+
+.modal-dialog .textarea-fromHomework:disabled {
+  background: var(--white);
+}
+
+.modal-dialog .containerTexarea-fromHomework p {
+  /* border: 1px solid blue; */
+  font-size: 11px;
+  line-height: 12px;
+  margin: 0;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: 150px;
+  color: var(--txtPlaceholder);
+
+}
+
+.modal-dialog .footer-fromHomework {
+  /* border: 1px solid red; */
+  padding: 0;
+  border: none;
+  justify-content: center;
+  margin-bottom: 38px;
+
+}
+
+.modal-dialog .footer-fromHomework .btnCreate-fromHomework {
+  height: 40px;
+  width: 107px;
+  /* padding: 11px 16px; */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  background: var(--primary-red);
+  border: 2px solid var(--primary-red);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.btnDisabled {
+  opacity: 0.3;
+  cursor: none;
+}
+
+
+/****** modal - Ingresar mensaje ******/
+
+#modalMessage {
+      background-color: rgba(0,0,0,0.4);
+}
+
+#modalMessage  .modalDialog-message {
+    max-width: 678px;
+  }
+
+/* @media (min-width: 576px) {
+#modalMessage  .modalDialog-message {
+    max-width: 700px;
+  }
 } */
 
-/* input::-webkit-calendar-picker-indicator {
-   opacity:0; 
-}  */
-
-/* input {
-  position:relative; 
-}  */
-
-[type="date"]:before { 
- content: "\f073"; 
- display: inline-block; 
- font: normal normal normal 14px/1 FontAwesome; 
- font-size: inherit; 
- text-rendering: auto; 
- -webkit-font-smoothing: antialiased; 
- -moz-osx-font-smoothing: grayscale; 
- position:absolute; 
- right:0; 
- top:50%; 
- transform:translateY(-50%); 
-} 
 
 
+.modal-dialog .modalMessage {
+  /* border: 1px solid red; */
+  /* max-width: 1700px; */
+  margin-top: -100px;
+  padding: 0px 20px 20px 40px;
+  /* z-index: 1050; */
+}
 
-/* .modal-dialog .containerInput-fromHomework input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    display: none;
+
+.modal-dialog .header-modalMessage {
+  padding: 0;
+  border: none;
+}
+
+.modal-dialog .header-modalMessage h4 {
+  margin-top: 30px;
+}
+
+.modal-dialog .header-modalMessage button {
+  margin-top: -30px;
+}
+
+.modal-dialog .header-modalMessage img {
+  margin-top: 20px;
+}
+
+/* .modal-dialog .header-modalMessage span {
+  align-self: flex-start;
+  font-size: 25px;
 } */
 
-/* .modal-dialog .containerInput-fromHomework input[type=date]::-webkit-calendar-picker-indicator {
-    -webkit-appearance: none;
-    display: none;
-} */
+.modal-dialog .body-modalMessage {
+  padding: 0;
+}
 
+.body-modalMessage .containerTexarea-modalMessage {
+  margin: 24px 20px 0px 0;
+
+}
+
+.body-modalMessage .containerTexarea-modalMessage p {
+  font-size: 12px;
+  margin: 0;
+  text-align: end;
+  color: var(--txtPlaceholder);
+}
+
+
+.body-modalMessage .textarea-modalMessage {
+  height: 270px;
+  font-size: 15px;
+  line-height: 16px;
+  color: var(--primary-blue);
+  resize: none;
+  /* overflow-y: hidden; */
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 0px 25px white inset !important;
+}
+
+
+.modal-dialog .footer-modalMessage {
+  padding: 0;
+  border: none;
+  justify-content: center;
+}
+
+.modal-dialog .footer-modalMessage button {
+  height: 40px;
+  width: 107px;
+  border-radius: 10px;
+  color: var(--white);
+  background: var(--primary-red);
+  border: 2px solid var(--primary-red);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+/****** MODAL - OK registro correcto  ******/
+
+.modal-dialog .modalOk {
+  padding: 22px, 30px, 47px, 61px;
+}
+
+.modal-dialog .footer-modalOk button {
+  height: 40px;
+  width: 107px;
+  border-radius: 10px;
+  color: var(--white);
+  background: var(--primary-red);
+  border: 2px solid var(--primary-red);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+
+
+/*******  Tabla de tareas  *******/
+.createTask {
+  /* border: 1px solid red; */
+  width: 777px;
+  padding: 16px 37px 0 22px;
+  flex-direction: column;
+  font-family: Raleway;
+}
+
+.createTask .container-btnCreateTask {
+  /* border: 1px solid  pink; */
+  height: 35px;
+  padding-bottom: 8px;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* align-items: center; */
+}
+
+.createTask .container-btnCreateTask p {
+  /* border: 1px solid blue; */
+  margin-bottom: 0;
+  font-size: 12px;
+  /* line-height: 15px; */
+  font-weight: 700;
+  color: var(--primary-red);
+}
+
+.createTask .container-btnCreateTask img {
+  /* border: 1px solid yellowgreen; */
+  margin: 0 5px 0 10px;
+}
+
+.createTask .table-createTask {
+  /* border: 1px solid teal; */
+}
+
+.table-createTask .thTable-createTask {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--primary-blue);
+  border-bottom: 2px solid var(--line-table);
+  text-align: center;
+}
+
+.createTask .tdTable-createTask {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+.createTask .tdTable-createTask label {
+  margin-left: 24px;
+  font-weight: normal;
+  color: var(--primary-blue);
+}
