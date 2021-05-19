@@ -123,12 +123,12 @@ align-items: center;
 
 
 /*link drop y subir de fomra manual*/
-#sube_archivo{
+/* #sube_archivo{
  }
 #line_manual{
   
  
-}
+} */
 
 .link-active {
  font-weight: 600;
@@ -246,8 +246,8 @@ height: 40px;
 left: 301px;
 bottom: 50px;
 margin: 38px 301px 50px 301px;
-
 text-align: center;
+opacity: 0.2;
 
 /* Primary Red */
 
@@ -328,4 +328,9 @@ margin: 0px 10px;
 
 input :invalid {
   border: 1px solid red;
+}
+
+/*cambios slect*/
+option {
+  background-color: khaki;
 }

@@ -2,14 +2,46 @@ export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
   const inspectionOrder = localStorage.getItem("order");
+  const etapa_actuacion = localStorage.getItem("etapa");
+  const tipo_actuacion = localStorage.getItem("tipo"); 
+  // const date_actuacion = localStorage.getItem("date_actuacion"); 
 
-  viewHome.innerHTML =`
+  // fecha actual  
+  let date = new Date()
+
+let days = date.getDate()
+let months = date.getMonth() + 1
+let years = date.getFullYear()
+
+if(months < 10){
+  const fecha1 = `${days}/0${months}/${years}`
+  localStorage.setItem("fechaActual", fecha1)
+  console.log(`${days}/0${months}/${years}`)
+}else{
+  const fecha2 = `${days}/${months}/${years}`
+  console.log(`${days}/${months}/${years}`)
+  localStorage.setItem("fechaActual", fecha2)
+}
+// Imprime: 9/6/2019
+  
+  const year = localStorage.getItem("year"); 
+  const day = localStorage.getItem("day"); 
+  const month = localStorage.getItem("month"); 
+
+  const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
+
+  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion")
+  viewHome.innerHTML =  `
+
     <div class="wrapper">
+
       <div class="header">
+
         <div class="header-left d-flex">
           <img src="./img/svg/logo.svg" class="logo" alt="logo" />
           <span class="vertical-line"></span>
         </div>
+
         <div class="header-center d-flex">
           <div class="tag-case d-flex">
             <p>Mis Casos</p>
@@ -24,11 +56,13 @@ export default () => {
             <span class="vertical-line"></span>
           </div>
         </div>
+
         <div class="header-right d-flex">
           <img src="./img/svg/avatar.svg" class="avatar" alt="profile" />
           <p>Alonso Hoyos</p>
           <img src="./img/svg/chevron-down.svg" alt="profile menu" />
         </div>
+
       </div>
 
       <div class="mainCase">
@@ -45,12 +79,13 @@ export default () => {
         </div>
         <div class="tags-case d-flex">
           <ul class="">
-            <li><a href="#">Datos</a></li>
-            <li><a href="#" >Actuaciones</a></li>
+            <li  ><a id="irDatos" class="allA"  href="#">Datos</a></li>
+            <li id="liActuacion"  ><a href="#" id="irActuacion"  class="allA">Actuaciones</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Tareas</a></li>
           </ul>
         </div>
+        <div  id="main-datos">
         <div class="detailMain d-flex">
           <div class="detail-description">
             <div class="title-description d-flex">
@@ -82,7 +117,7 @@ export default () => {
                 placeholder="Escribir aquí..."
                 cols=""
                 rows=""
-                autofocus
+            
                 class="txt-comment hide"
                 disabled
               ></textarea>
@@ -242,7 +277,7 @@ export default () => {
                                         </div>
                                     </div>
                                 </div>
-
+                              <!--funcionario homeCase-->
                                 <div>
                                     <h6 class="title_card" style="margin-left:36px;font-family: Raleway;
                                 font-style: normal;
@@ -253,24 +288,102 @@ export default () => {
                                 color: #969CBA;
                                ">Perfil de funcionarios</h6>
 
-                                    <div class="d-flex flex-row align-items-center justify-content-center" style="width:261px; height:68px; background: #F9FBFC;                
-                                        border: 1px solid #466EFE;
-                                        margin-top:14px;
-                                        box-sizing: border-box;
-                                        border-radius: 6px;
-                                        margin-bottom:73px;
-                                        margin-left:32px;">
+                                <div class="d-flex colum">
+                                    <div class="d-flex flex-row align-items-center justify-content-center" id="container_funcionario_homeCaso" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                                         <img src="./img/funcionario.png" alt="" loading="lazy"
                                             style=" width: 38.3px;height: 38px;" />
-                                        <p style="margin-left:18.7px;margin-top:10px;font-family: Raleway;
-                                        font-style: normal;
-                                        font-weight: bold;
-                                        font-size: 14px;
-                                        line-height: 16px;
-                                        display: flex;
-                                        align-items: center;
-                                        color: #0F3041;">${localStorage.getItem('inspectorAuxiliar') }</p>
+                                        <p >${localStorage.getItem('inspectorAuxiliar') }</p>
                                     </div>
+                                </div>
+                                      <!-- Modal Infromación Funcionario -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content" style="width:488px; height:367px;">
+                                              <div class="row">
+                                                <div class="d-flex flex-row">
+                                                  <div class="padding_funcionario" style="width:150px;position: relative;"/>
+                                                  <img src="./img/svg/Rectangle 300.svg" class="funcionario" alt="" loading="lazy"/>
+                                                  <div class="fondo_camera">
+                                                  </div>
+                                                  <img src="./img/svg/camera on.svg" class="camera" alt="" loading="lazy"/>
+                                                  
+                                                  </div>
+                                                  <div class="padding_funcionario_modal" style="width:338px;">
+                                                  <div class="d-flex flex-column   justify-content-center" >
+                                                      <div class="row" style= "width:338px;">
+                                                      <button type="button" ><img src="./img/svg/x.svg" alt="" loading="lazy" id="close_modal_funcionario" data-bs-dismiss="modal"
+                                                      aria-label="Close"/></button>
+                                                      </div>
+                                                      <div class="row" style="border-bottom:1px solid #BDBDBD; width:187px;margin-bottom:13px;" >
+                                                        <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
+                                                        <p class="nameFuncionario_modal">${localStorage.getItem('inspectorAuxiliar') }</p>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="d-flex flex-row" style="margin-bottom:25px;">
+                                                          <div class="modal_etapas" style="margin-right:20px;">
+                                                          <p class="modal_title_funcionario" style="margin-bottom:0px;" >Etapa</p>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                              <img src="./img/svg/!.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; Investigación</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="modal_cantidadCasos">
+                                                          <p class="modal_title_funcionario"  style="margin-bottom:0px;">Cantidad de casos</p>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                              <img src="./img/svg/list modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 0 casos</p>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row" style="margin-bottom:22px;">
+                                                      <p class="modal_title_funcionario" style="margin-bottom:0px;" >Multas promedio</p>
+                                                      <div class="d-flex flex-row">
+                                                          <div class="modal_up">
+                                                            <div class="d-flex flex-row" style="width:135px;">
+                                                              <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa1")}</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="down">
+                                                            <div class="d-flex flex-row" style="width:135px;">
+                                                              <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa2")}</p>
+                                                            </div>
+                                                          </div>
+                                                        
+                                                        </div>
+                                                      </div>
+                                                      <div class="row" style="margin-bottom:22px;">
+                                                        <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
+                                                           <div class="d-flex flex-row">
+                                                           <img src="./img/svg/user check modal.svg" style="margin-right:16px;" alt="" loading="lazy"/>
+                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem("aleatorio")} &nbsp; de 10</p>
+                                                           </div> 
+                                                      </div>
+                                                      <div class="row">
+                                                        <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
+                                                        
+                                                        <div id='rating'>
+                                                      
+                                                        <i class="bi bi-star" value="1"></i>
+                                                        <i class="bi bi-star" value="2"></i>
+                                                        <i class="bi bi-star" value="3"></i>
+                                                        <i class="bi bi-star" value="4"></i>
+                                                        <i class="bi bi-star" value="5"></i>
+                                                         </div>
+                                                       
+                                                        </div>
+                                                      </div>
+                                                  </div>
+
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                                                   
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
@@ -313,6 +426,223 @@ export default () => {
 
           </div>
         </div>
+        </div>
+        <div class="ocultar" id="main-actuaciones">
+            <!--MAIN-INFORMATION-->
+
+            <!--Menú botones-->
+
+            <div class="row" style="margin-top:47px;" >
+
+              <div class="d-flex flex-row" id="parent_buttons_etapas">
+                  <div id="button_total" class="buttons_etapa">
+                    Total
+                  </div>
+
+                  <div id="buttons_etapa1" class="buttons_etapa">
+                  <strong>ETAPA 1:</strong>&nbsp; Investigación
+                  </div>
+
+                  <div id="buttons_etapa2" class="buttons_etapa">
+                    <strong>ETAPA 2:</strong>&nbsp; Instrucción
+                  </div>
+
+                  <div id="buttons_etapa3" class="buttons_etapa">
+                    <strong>ETAPA 3:</strong>&nbsp; Sancionadora
+                  </div>
+              
+              </div>
+
+            </div>
+
+           <div id="linea_grey"></div> 
+          <div class="row" style="margin-top:19px"  >
+            <div   id="container_total">
+               <div class="row">
+              <!--COLUMNA IZQUIERDA-->
+                <div class="col-12 col-lg-1" id="container_line_time">
+                  <div class="container_line_time">
+                    <div id="year"><span>${year}</span></div>
+              
+                    <div class="timeline">
+                      <div class="container left">
+                        <div class="content">
+                        <div id="day">${day}</div>
+                        <div id="month">${month}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class= "timeLineAfter"></div>
+                  
+
+                  </div>
+                </div>     
+          <!--COLUMNA DERECHA-->
+                <div class="col-12 col-lg-11" id="container_actuacion_head">
+                  <div class="container_actuacion_head">
+                    <!--primera-fila-->
+                    <div class="row">
+                    <div id="etapas"><span>${etapa_actuacion}</span></div>
+                    </div>
+                    
+                    <!--segunda-fila-->
+                    <div class=" d-flex  flex-row  justify-content-center" >
+                        
+                        <!--trae datos de crear actuacion-->
+                        <div class="col-12 col-lg-3"   id="container_adicional_information_actuacion" style="margin-left:55px">
+                          <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;">ACTUACIÓN</p>
+                          <div id="actuacion_tipo"  style="margin-left:0px;"><span>Tipo:${tipo_actuacion}</span></div>
+                        </div>
+                          <!--descripcion-->
+                        <div class="col-12 col-lg-5"   >
+                          <div id="descripcion_actuacion_get" style="margin-left:50px">
+                            <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
+                            <p style= "font-size:12px;font-weight: 600;" id="input_setDescripcion_actuacion"  >${descripcion_actuacion}</p>
+                          </div>
+                          <div id="descripcion_actuacion_edit" class="ocultar" style="margin-left:50px">
+                                <div class="title-description d-flex">
+                                    <p class="text-blue-opacity" id="title_descripcion_actuacion" >Descripción</p>
+
+                                    <img
+                                      id="btnEditComment_actuacion"
+                                      src="./img/svg/edit actuacion descripcion.svg"
+                                      class="btnEditComment_actuacion"
+                                      alt="icon edit"
+                                    />
+                                    <img
+                                      id="btnSaveComment_actuacion"
+                                      src="./img/svg/save_actuacion.svg"
+                                      class="btnSaveComment hide"
+                                      alt="icon edit"
+                                    />
+                                  </div>
+                                  <p id="pComment_actuacion" class="ptxt-comment">
+                                  Si deseas escribir algo puntal sobre la actuación puedes hacerlo <strong >aquí</strong>.Recuerda que puedes edicarlo en cualquier momento haciendo click en el lápiz.
+                                  </p>
+                                  <div id="textareaContainer_actuacion" class="textarea-container hide">
+                                    <textarea
+                                      name="txtComment"
+                                      id="txtComment_actuacion"
+                                      placeholder="Escribir aquí..."
+                                      cols=""
+                                      rows=""
+                                  
+                                      class="txt-comment_actuacion hide"
+                                      disabled
+                                    ></textarea>
+                                    <p id="countComment_actuacion"  class="hide">(Máximo 200 caracteres)</p>
+                                </div>
+                          </div>
+                        </div>
+                      
+                          <!--funcionario-->
+                        <div class="col-12 col-lg-4"  id="container_adicional_information_actuacion">
+                            <div class="d-flex justify-content-end align-items-center ">
+                                      <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
+                                      <div class="d-flex flex-column  align-items-center" style="margin-right:10px;">
+                                          <p class="text_Resolution" style="margin-right:25px;">${funcionario_actuacion}</p>
+                                          <p class="text_tipoResolution_fila"  style="margin-bottom:0px;padding-right:35px">Funcionario (a)</p>
+                                      </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+              
+                  <!--tercera-fila-->
+                    <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
+                  <!--archivos subidos-->
+                            <div class="col-12 col-lg-4">
+                              <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution" src="./img/svg/cli.svg" alt="" />
+                                  <div class="d-flex flex-column">
+                                    <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
+                                    <div class="d-flex flex-row align-items-center justify-content-center ">
+                                    <p id="txt_carga">Cargar documento</p>
+                                      <label for="file-upload" id="subir" >
+                                      <img  src="./img/svg/carga.svg" alt="" />
+                                        </label>
+                                        <input id="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
+                                        <div id="info"></div>
+                                        <div>
+                                      
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+
+                              <div class="col-12 col-lg-8 ">
+                                <div class="d-flex flex-row ">
+                    <!--nombre de usuario-->
+                                <div class="ocultar" id="usuario">
+                                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
+                                      <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
+                                      <div class="d-flex flex-column">
+                                      <p class="text_Resolution">Subido por Alonso</p>
+                                        <p class="text_tipoResolution_fila">${localStorage.getItem("fechaActual")}</p>
+                                      </div>
+                                  </div>
+                                </div>
+                    <!--tareas-->
+                                <div class="ocultar" id="conTareas" >
+                                  <div class="d-flex flex-row justify-content-center" style="border-left:none;margin-right:15px;" id="container_adicional_information_actuacion">
+                                      <img class="img_tipoResolution_actuacion" src="./img/svg/list.svg" alt="" />
+                                      <div class="d-flex flex-column" style="margin-top:5px;">
+                                          <p class="text_Resolution">0 Tareas</p>
+                                          <p class="text_tipoResolution_fila1">0 completadas</p>
+                                      </div>
+                                  </div>
+                                </div>  
+                    <!--Sin tareas -->
+                                <div id="Sintareas" >
+                                  <div class="d-flex flex-row justify-content-center  align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
+                                      <img class="img_tipoResolution_sinDoc" src="./img/svg/noList.svg" alt="" />
+                                        <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin tareas</p>
+                                  </div>
+                                </div> 
+                              
+                    <!--Documentos--> 
+                              <div class="ocultar" id="conDocumentos">         
+                                <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
+                                    <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
+                                    <div class="d-flex flex-column"  style="margin-top:5px;">
+                                        <p class="text_Resolution">1 Documentos</p>
+                                        <p class="text_tipoResolution_fila1">De tareas</p>
+                                    </div>
+                                </div>
+                              </div>
+
+                    <!--Sin Documentos--> 
+                              <div id="Sindocumentos" >
+                                <div class="d-flex flex-row  " style="border-left:none;" id="container_adicional_information_actuacion">
+                                    <img class="img_tipoResolution_sinDoc" src="./img/svg/noDoc.svg" alt="" />
+                                      <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin documentos</p>
+                                </div>
+                              </div> 
+                            </div>
+                          </div>
+                  </div>
+
+                  </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="ocultar" id="container_etapa1">
+              <div style="width:800px; height:600px; background: #C1F0CB;" > ETAPA 1</div>
+            </div>
+          
+            <div class="ocultar" id="container_etapa2"> 
+            <div style="width:800px; height:600px; background: #FFE7B3;" > ETAPA 2</div>
+            </div>
+            
+            <div class="ocultar" id="container_etapa3">
+            <div style="width:800px; height:600px; background: #BFBEFF;" > ETAPA 3</div>
+            </div>
+
+          </div>
+
+        </div> 
       </div>
 
       <div class="sidebarCase">
@@ -431,14 +761,15 @@ export default () => {
         </p>
         <img src="./img/svg/group.svg" alt="logo" />
       </div>
+
     </div>
+
   `;
-
-
-  // **********  Columna Izquierda (inicio)********** //
+  // ****  Columna Izquierda (inicio)**** //
   // const materias = viewHome.querySelector("#materias");
 
   const nameMateria1 = localStorage.getItem("materia1");
+  
   const nameMateria2 = localStorage.getItem("materia2");
   const nameMateria3 = localStorage.getItem("materia3");
   const nameMateria4 = localStorage.getItem("materia4");
@@ -503,8 +834,6 @@ export default () => {
     materia8.classList.remove("hide");
   }
 
-
- 
         //Ingresar comentarios al textarea
         const edit = viewHome.querySelector("#btnEditComment");
         const save = viewHome.querySelector("#btnSaveComment");
@@ -527,37 +856,31 @@ export default () => {
           pComment.classList.add("hide");
           divComment.classList.remove("hide");
           txtComment.classList.remove("hide");
-          txtComment.disabled= false ;
+          txtComment.disabled = false;
           countComment.classList.remove("hide");
           save.classList.remove("hide");
           edit.classList.add("hide");
         });
 
         save.addEventListener("click", ()=> {
-          txtComment.disabled= true ;
-          edit.classList.remove("hide");
-          save.classList.add("hide");
-        })
-
-
-
+            txtComment.disabled= true ;
+            edit.classList.remove("hide");
+            save.classList.add("hide");
+          })
+  
 //  agregar archivos subidos al home
     let getFile = localStorage.getItem('file')  
 
      
     // localStorage file date orden
      
-
-
     const  container_archivosSubidos = viewHome.querySelector("#container_archivosSubidos");
     container_archivosSubidos.innerHTML = `
     <div><button>${getFile}</button>
     </div>
     `
-//  calcular el nivel de riesgo
-//   Cuantos values me traigo
 
-//   // **********  Columna Izquierda (termino)  ********** //
+//   // ****  Columna Izquierda (termino)  **** //
 
 //   //evento list para utenticar
 //   const autenticar = firebase.auth();
@@ -611,6 +934,8 @@ export default () => {
             return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
           }
           console.log(multa_aleatoria(aleatorio(5000, 250000))); 
+          const multaAleatoria = multa_aleatoria(aleatorio(5000, 250000))
+
 
           //Registar multa alearotia en input
           const multa = viewHome.querySelector("#multa");
@@ -649,13 +974,287 @@ export default () => {
             console.log("riesgo bajo")
         }
 
-        //ir actuacion
+        //Crear MODAL para funcionario
+
+         //modal
+         const myModal = viewHome.querySelector('.modal');
+         myModal.addEventListener('shown.bs.modal',function () {
+
+          //multa maxima
+
+        function aleatorio1(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+      }
+
+      const multa_aleatoria1 = (x) =>  {
+          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        console.log(multa_aleatoria1(aleatorio1(5000, 250000))); 
+        const multaAleatoria1 = multa_aleatoria1(aleatorio1(15000, 250000))
+        localStorage.setItem("multa1", multaAleatoria1);      
+      
+
+         //multa min
+
+        function aleatorio2(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+      }
+
+      const multa_aleatoria2 = (x) =>  {
+          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        console.log(multa_aleatoria2(aleatorio2(5000, 250000))); 
+        const multaAleatoria2 = multa_aleatoria2(aleatorio2(5000, 150000))
+        localStorage.setItem("multa2", multaAleatoria2); 
+
+          //número aleatorio del 1 al 10
+        //ir a link  actuaciones (main)
+        function aleatorioNumber(inferior, superior) {
+          var numPosibilidades = superior - inferior;
+          var aleatorio = Math.random() * (numPosibilidades + 1);
+          aleatorio = Math.floor(aleatorio);
+          return inferior + aleatorio;
+        }
+
+        console.log(aleatorioNumber (1, 10))
+        const valorNumber = aleatorioNumber (1, 10)
+        console.log(valorNumber);
+       
+        localStorage.setItem("aleatorio", valorNumber); 
+
+         });
+
+         //estrellas
+
+         let x = viewHome.getElementsByTagName("i");
+         console.log(x)
+         for(let i=0;i<x.length;i++){
+           x[i].addEventListener("click",function(){
+             console.log("pintar")
+             let value=this.getAttribute("value");
+             console.log(value)
+             clearClass();
+             for(let j=value-1;j>=0;j--){
+               x[j].classList.toggle('ap');
+             }
+           })
+         };
+         
+         function clearClass(){
+           let x = viewHome.getElementsByTagName("i");
+           for(let i=0;i<x.length;i++){
+               //console.log(x[i].classList);
+               x[i].classList.remove('ap');
+           };
+         }
+
+      //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
+      //     if (e.target.nodeName === 'IMG') {
+      //         var currentSibling = e.target;
+      //         var nextSibling = e.target;
+      //         currentSibling.classList.add('active');
+      //         while ((currentSibling = currentSibling.previousElementSibling)) {
+      //             currentSibling.classList.add('active');
+      //         }
+      //         while ((nextSibling = nextSibling.nextElementSibling)) {
+      //             nextSibling.classList.remove('active');
+      //         }
+      //     }
+      // });
+        //HOME ACTUACIONES
+        //ir a crear actuación actuacion
 
         const actuacion =viewHome.querySelector("#actuacion");
         actuacion.addEventListener("click", ()=> {
             window.location.hash = "#/actuacion";
         })
+
+      
+
+        const irActuacion = viewHome.querySelector("#irActuacion");
+        const liActuacion = viewHome.querySelector("#liActuacion");
+        const irDatos = viewHome.querySelector("#irDatos");
+        const mainDatos = viewHome.querySelector("#main-datos");
+        const mainActuaciones = viewHome.querySelector("#main-actuaciones");
+        liActuacion.addEventListener("click", (e)=> {
+          e.preventDefault();
+          irDatos.style.borderBottom= "1px" ;
+          irDatos.style.fontWeight= "100" ;
+          irActuacion.style.borderBottom = "3px solid #0F3041"; 
+          irActuacion.style.fontWeight= "600" ;
+          mainDatos.classList.add("ocultar");
+          mainActuaciones.classList.remove("ocultar");
+          
+        });
+
+        //mostar descripcion actuacion
+
+        // const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
+        const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
+        const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacion_edit");
+          const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
+        
+          if (descripcion_actuacion  == null) {
+            console.log("yu")
+            console.log(descripcion_actuacion)
+            descripcion_actuacion_get.classList.add("ocultar");
+            input_setDescripcion_actuacion.classList.add("ocultar");
+            descripcion_actuacion_edit.classList.remove("ocultar");
+          } else {
+            
+          }
+
+        const subir = viewHome.querySelector("#subir");
+        const txt_carga = viewHome.querySelector("#txt_carga");
+        const file_upload = viewHome.querySelector("#file-upload");
+
+        const usuario = viewHome.querySelector("#usuario");
+        const conTarea = viewHome.querySelector("#conTareas");
+        const Sintarea = viewHome.querySelector("#Sintareas");
+        const conDocumentos = viewHome.querySelector("#conDocumentos");
+        const Sindocumentos = viewHome.querySelector("#Sindocumentos");
+
+        file_upload.addEventListener("change", ()=> {
+          subir.classList.add("ocultar");
+          txt_carga.classList.add("ocultar");
+          usuario.classList.remove("ocultar");
+          conTarea.classList.remove("ocultar");
+          Sintarea.classList.add("ocultar");
+          conDocumentos.classList.remove("ocultar");
+          Sindocumentos.classList.add("ocultar");
+          var pdrs = document.getElementById('file-upload').files[0].name;
+          document.getElementById('info').innerHTML = pdrs;
+         
+        })
+       
+        
+   
+         //Ingresar comentarios al textarea vista actuacion
+         const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
+         const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
+         const pComment_actuacion = viewHome.querySelector("#pComment_actuacion");
+         const divComment_actuacion = viewHome.querySelector("#textareaContainer_actuacion");
+         const txtComment_actuacion = viewHome.querySelector("#txtComment_actuacion");
+         const countComment_actuacion = viewHome.querySelector("#countComment_actuacion");
+         
+         pComment_actuacion.addEventListener("click", () => {
+           pComment_actuacion.classList.add("hide");
+           divComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.disabled = false;
+           countComment_actuacion.classList.remove("hide");
+           save_actuacion.classList.remove("hide");
+           edit_actuacion.classList.add("hide");
+         })
+ 
+         edit_actuacion.addEventListener("click", ()=>{
+           pComment_actuacion.classList.add("hide");
+           divComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.classList.remove("hide");
+           txtComment_actuacion.disabled = false;
+           countComment_actuacion.classList.remove("hide");
+           save_actuacion.classList.remove("hide");
+           edit_actuacion.classList.add("hide");
+         });
+ 
+         save_actuacion.addEventListener("click", ()=> {
+             txtComment_actuacion.disabled = true ;
+             edit_actuacion.classList.remove("hide");
+             save_actuacion.classList.add("hide");
+           })
+  // menú etapas
+
+  
+  const buttons_total = viewHome.querySelector("#button_total");
+  const buttons_etapa1 = viewHome.querySelector("#buttons_etapa1");
+  const buttons_etapa2 = viewHome.querySelector("#buttons_etapa2");
+  const buttons_etapa3 = viewHome.querySelector("#buttons_etapa3");
+  const container_total = viewHome.querySelector("#container_total");
+  const container_etapa1 = viewHome.querySelector("#container_etapa1");
+  const container_etapa2 = viewHome.querySelector("#container_etapa2");
+  const container_etapa3 = viewHome.querySelector("#container_etapa3");
+
+  buttons_total.addEventListener("click", ()=>{
+    buttons_total.style.background = "rgba(15, 48, 65, 0.5)";
+     buttons_total.style.fontWeight = "800";
+   buttons_total.style.fontSize = "14px";
+  buttons_total.style.color = "#FFFFFF";
+  container_total.classList.remove ("ocultar");
+  container_etapa1.classList.add ("ocultar");
+  container_etapa2.classList.add ("ocultar");
+  container_etapa3.classList.add ("ocultar");
+  })
+  
+  buttons_etapa1.addEventListener("click", ()=>{
+    buttons_total.style.background = "#FFFFFF";
+   buttons_total.style.border = "1px solid #BDBDBD";
+   buttons_total.style.boxSizing = "border-box";
+   buttons_total.style.fontWeight = "500";
+   buttons_total.style.fontSize = "11px";
+  buttons_total.style.color = "#0F3041";
+  container_total.classList.add ("ocultar");
+  container_etapa1.classList.remove ("ocultar");
+  container_etapa2.classList.add ("ocultar");
+  container_etapa3.classList.add ("ocultar");
+  })
+
+  buttons_etapa2.addEventListener("click", ()=>{
+    buttons_total.style.background = "#FFFFFF";
+   buttons_total.style.border = "1px solid #BDBDBD";
+   buttons_total.style.boxSizing = "border-box";
+   buttons_total.style.fontWeight = "500";
+   buttons_total.style.fontSize = "11px";
+  buttons_total.style.color = "#0F3041";
+  container_total.classList.add ("ocultar");
+  container_etapa1.classList.add ("ocultar");
+  container_etapa2.classList.remove ("ocultar");
+  container_etapa3.classList.add ("ocultar");
+  })
+
+  buttons_etapa3.addEventListener("click", ()=>{
+    buttons_total.style.background = "#FFFFFF";
+   buttons_total.style.border = "1px solid #BDBDBD";
+   buttons_total.style.boxSizing = "border-box";
+   buttons_total.style.fontWeight = "500";
+   buttons_total.style.fontSize = "11px";
+  buttons_total.style.color = "#0F3041";
+  container_total.classList.add ("ocultar");
+  container_etapa1.classList.add ("ocultar");
+  container_etapa2.classList.add ("ocultar");
+  container_etapa3.classList.remove ("ocultar");
+  })
+
+  buttons_total.classList.add("button_change_etapas");
+  const buttons_etapas = viewHome.getElementsByClassName("buttons_etapa");
+  for(let i=0; i < buttons_etapas.length; i ++)
+           {
+             buttons_etapas[i].onclick = function (){
+
+              let el = buttons_etapas[0];
+              while(el)
+              {
+                if(el.tagName === "DIV"){
+                // remueve class
+                el.classList.remove("button_change_etapas");
+              }
+
+              //pasa al hermano
+              el = el.nextSibling;
+            }
+               this.classList.add("button_change_etapas");
+             };
+           }
+
+           
+  
+
+      
     
     return viewHome;
   };
-

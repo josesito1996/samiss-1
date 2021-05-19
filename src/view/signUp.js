@@ -422,7 +422,6 @@ export default () => {
                             id="name"
                           />
                         </div>
-
                         <!-- Input correo -->
                         <div id="textOnInput3">
                           <label
@@ -474,7 +473,7 @@ export default () => {
               <div
                 id="show_message"
                 class="show_message"
-                style="color:#7D7577; font-size: 14.5px; line-height: 20px; margin:25px 222px 58px 50px"
+                tysle="color:#7D7577; font-size: 14.5px; line-height: 20px; margin:25px 222px 58px 50px"
               ></div>
 
               <button class="btn btn-danger" id="añadir_Inspección">
@@ -508,6 +507,7 @@ export default () => {
   }
 
   //PANTALLA RESGITRO
+
   //mostrar contraseña
   const password = viewSignUp.querySelector("#password1");
   const btn_password = viewSignUp.querySelector("#btn_password");
@@ -520,6 +520,7 @@ export default () => {
     } else if (click) {
       password.type = "password";
       click = false;
+
     }
   });
 
