@@ -3,35 +3,35 @@ export default () => {
   const inspectionDate = localStorage.getItem("date");
   const inspectionOrder = localStorage.getItem("order");
   const etapa_actuacion = localStorage.getItem("etapa");
-  const tipo_actuacion = localStorage.getItem("tipo"); 
-  // const date_actuacion = localStorage.getItem("date_actuacion"); 
+  const tipo_actuacion = localStorage.getItem("tipo");
+  // const date_actuacion = localStorage.getItem("date_actuacion");
 
-  // fecha actual  
-  let date = new Date()
+  // fecha actual
+  let date = new Date();
 
-let days = date.getDate()
-let months = date.getMonth() + 1
-let years = date.getFullYear()
+  let days = date.getDate();
+  let months = date.getMonth() + 1;
+  let years = date.getFullYear();
 
-if(months < 10){
-  const fecha1 = `${days}/0${months}/${years}`
-  localStorage.setItem("fechaActual", fecha1)
-  console.log(`${days}/0${months}/${years}`)
-}else{
-  const fecha2 = `${days}/${months}/${years}`
-  console.log(`${days}/${months}/${years}`)
-  localStorage.setItem("fechaActual", fecha2)
-}
-// Imprime: 9/6/2019
-  
-  const year = localStorage.getItem("year"); 
-  const day = localStorage.getItem("day"); 
-  const month = localStorage.getItem("month"); 
+  if (months < 10) {
+    const fecha1 = `${days}/0${months}/${years}`;
+    localStorage.setItem("fechaActual", fecha1);
+    console.log(`${days}/0${months}/${years}`);
+  } else {
+    const fecha2 = `${days}/${months}/${years}`;
+    console.log(`${days}/${months}/${years}`);
+    localStorage.setItem("fechaActual", fecha2);
+  }
+  // Imprime: 9/6/2019
+
+  const year = localStorage.getItem("year");
+  const day = localStorage.getItem("day");
+  const month = localStorage.getItem("month");
 
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
-  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion")
-  viewHome.innerHTML =  `
+  const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
+  viewHome.innerHTML = `
 
     <div class="wrapper">
 
@@ -291,7 +291,9 @@ if(months < 10){
                                     <div class="d-flex flex-row align-items-center justify-content-center" id="container_funcionario_homeCaso" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                                         <img src="./img/funcionario.png" alt="" loading="lazy"
                                             style=" width: 38.3px;height: 38px;" />
-                                        <p >${localStorage.getItem('inspectorAuxiliar') }</p>
+                                        <p >${localStorage.getItem(
+                                          "inspectorAuxiliar"
+                                        )}</p>
                                     </div>
                                 </div>
                                       <!-- Modal Infromación Funcionario -->
@@ -316,7 +318,9 @@ if(months < 10){
                                                       </div>
                                                       <div class="row" style="border-bottom:1px solid #BDBDBD; width:187px;margin-bottom:13px;" >
                                                         <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
-                                                        <p class="nameFuncionario_modal">${localStorage.getItem('inspectorAuxiliar') }</p>
+                                                        <p class="nameFuncionario_modal">${localStorage.getItem(
+                                                          "inspectorAuxiliar"
+                                                        )}</p>
                                                       </div>
                                                       <div class="row">
                                                         <div class="d-flex flex-row" style="margin-bottom:25px;">
@@ -342,13 +346,17 @@ if(months < 10){
                                                           <div class="modal_up">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa1")}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
+                                                                "multa1"
+                                                              )}</p>
                                                             </div>
                                                           </div>
                                                           <div class="down">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem("multa2")}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
+                                                                "multa2"
+                                                              )}</p>
                                                             </div>
                                                           </div>
                                                         
@@ -358,7 +366,9 @@ if(months < 10){
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
                                                            <div class="d-flex flex-row">
                                                            <img src="./img/svg/user check modal.svg" style="margin-right:16px;" alt="" loading="lazy"/>
-                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem("aleatorio")} &nbsp; de 10</p>
+                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem(
+                                                             "aleatorio"
+                                                           )} &nbsp; de 10</p>
                                                            </div> 
                                                       </div>
                                                       <div class="row">
@@ -578,7 +588,9 @@ if(months < 10){
                                       <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
                                       <div class="d-flex flex-column">
                                       <p class="text_Resolution">Subido por Alonso</p>
-                                        <p class="text_tipoResolution_fila">${localStorage.getItem("fechaActual")}</p>
+                                        <p class="text_tipoResolution_fila">${localStorage.getItem(
+                                          "fechaActual"
+                                        )}</p>
                                       </div>
                                   </div>
                                 </div>
@@ -623,7 +635,29 @@ if(months < 10){
                   </div>
 
                   </div>
+                  <!--Tareas de la actuación --> 
+                  <div class="container_task">
+                      <!-- TABLA -->
+                      <div class="createTask d-flex">
+                          <div id="container_table" class="container-table"> 
+                          </div>
+                          <div class="container-btnCreateTask d-flex">
+                              <button
+                                id="showModal_taskform"
+                                type="button"
+                                class="d-flex"
+                                data-bs-toggle="modal"
+                                data-bs-target="#newTaskModal"
+                                data-bs-whatever="@mdo">
+                                    <p>Crear tarea</p>
+                                    <img src="./img/svg/+_red.svg" class="" alt="agregar" />
+                                </button>
+                            </div>
+                      </div>
                   </div>
+
+                </div>
+
                 </div>
             </div>
 
@@ -892,7 +926,9 @@ if(months < 10){
               </div>
                            
               <div clas="d-flex flex-row" >
-                <p id="message_thank" style="margin-bottom:0px;"> <strong>${localStorage.getItem('name')} </strong> gracias por confiar en nosotros, en esta ventana podrás registrar tu usuario y contraseña de forma segura. &nbsp;<img src="./img/svg/!sunafil.svg" class="checkIcon" id="sunafil" alt="Icono check"/></p>
+                <p id="message_thank" style="margin-bottom:0px;"> <strong>${localStorage.getItem(
+                  "name"
+                )} </strong> gracias por confiar en nosotros, en esta ventana podrás registrar tu usuario y contraseña de forma segura. &nbsp;<img src="./img/svg/!sunafil.svg" class="checkIcon" id="sunafil" alt="Icono check"/></p>
                 
                 </div>
 
@@ -959,7 +995,9 @@ if(months < 10){
                       </div>
                                   
                       <div clas="d-flex flex-row" >
-                        <p id="message_congratulations" style="margin-bottom:0px;"> ¡Felicidades ${localStorage.getItem('name')}!Tu registro ha sido creado correctamente</p>
+                        <p id="message_congratulations" style="margin-bottom:0px;"> ¡Felicidades ${localStorage.getItem(
+                          "name"
+                        )}!Tu registro ha sido creado correctamente</p>
                       </div>
 
                       <div style="margin-top: 33px;" >
@@ -1096,12 +1134,256 @@ if(months < 10){
 
     </div>
 
+
+
+    
+
+<!-- MODAL FORMULARIO - (Nueva tarea) -->
+  <div
+    class="modal fade"
+    id="newTaskModal"
+    tabindex="-1"
+    aria-labelledby="newTaskModalLabel"
+    aria-hidden="true"
+    style="padding-right: 140px;"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content fromHomework">
+        <div class="modal-header header-fromHomework">
+          <h5 class="modal-title title-fromHomework" id="newTaskModalLabel">
+            Crear tarea
+          </h5>
+          <button
+            type="button"
+            class=" btnClose-fromHomework"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
+          </button>
+        </div>
+        <div class="modal-body body-fromHomework">
+          <form class="form-homework">
+
+            <div class="form-group row row-fromHomework">
+              <label
+                for="inputText1"
+                class="col-sm-2 col-form-label label-fromHomework"
+                >1. Denominación</label
+              >
+              <div class="col-sm-10 containerInput-fromHomework">
+                <input
+                  type="text"
+                  class="form-control input-fromHomework "
+                  id="inputText1"
+                  placeholder="Ejem: Solicitud de documentos a RRHH"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row row-fromHomework">
+              <label
+                for="inputDate2"
+                class="col-sm-2 col-form-label label-fromHomework"
+                >2. Vencimiento</label
+              >
+              <div
+                class="col-sm-10 containerInput-fromHomework"
+                id="date_fromHomework"
+              >
+              </div>
+            </div>
+
+            <div class="form-group row row-fromHomework">
+              <label
+                for="inputText3"
+                class="col-sm-2 col-form-label label-fromHomework"
+                >3. Destinatario</label
+              >
+              <div class="col-sm-10 containerInput-fromHomework">
+                <input
+                  type="text"
+                  class="form-control input-fromHomework "
+                  id="inputText3"
+                  placeholder="Escribir nombre del destinatario"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row row-fromHomework">
+              <label
+                for="inputText4"
+                class="col-sm-2 col-form-label label-fromHomework"
+                >4. Correo</label
+              >
+              <div class="col-sm-10 containerInput-fromHomework">
+
+                <!--<div class="input-fromHomework div-email">-->
+                  <!--<span class="span-emailX">-->
+                    <input
+                    type="text"
+                    class="form-control input-fromHomework"
+                    id="inputText4"
+                    placeholder="Escribir email del destinatario"
+                    />
+                    <!--<span>x</span>-->
+                  <!--</span>-->
+                <!--</div>-->
+                
+              </div>
+            </div>
+
+            <div class="form-group row row-fromHomework">
+              <label
+                for="textarea5"
+                class="col-sm-2 col-form-label label-fromHomework labelTextarea-fromHomework"
+                >5. Mensaje</label
+              >
+              <div class="col-sm-10 containerInput-fromHomework">
+                <div class="containerTexarea-fromHomework">
+                  <button
+                    id="btnShow_modal_message"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalMessage"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
+                  >
+                    <img src="./img/svg/edit-red.svg" class="" alt="editar" />
+                    <textarea
+                    class="form-control textarea-fromHomework"
+                    id="textarea5"
+                    rows="5"
+                    col="5"
+                    maxlength="135"
+                    placeholder="Mensaje"
+                    disabled
+                    ></textarea>
+                  </button>
+                  <p>(Máximo 1200 caracteres)</p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer footer-fromHomework">
+          <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+          <button
+            type="button"
+            id="btnCreate_homework"
+            class="btnCreate-fromHomework btnDisabled"
+            data-bs-dismiss="modal"
+
+            data-bs-toggle="modal"
+            data-bs-target="#modalOk"
+
+          >
+            Crear tarea
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL Texarea del Formulario - (Mensaje) -->
+  <div
+    class="modal fade"
+    data-backdrop="static"
+    data-keyboard="false"
+
+    id="modalMessage"
+    tabindex="-1"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+    style="z-index: 1060;"
+  >
+    <div class="modal-dialog modal-dialog-centered modalDialog-message">
+      <div class="modal-content modalMessage">
+        <div class="modal-header header-modalMessage">
+          <h4 class="modal-title" id="exampleModalCenterTitle">Mensaje</h4>
+          <button
+            id="btnClose_message"
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
+          </button>
+        </div>
+        <div class="modal-body body-modalMessage">
+          <div class="containerTexarea-modalMessage">
+            <textarea
+              class="form-control textarea-modalMessage"
+              id="textareaModal"
+              rows="5"
+              col="5"
+              maxlength="1200"
+              placeholder="Escriba su mensaje aquí."
+            ></textarea>
+            <p>(Máximo 1200 caracteres)</p>
+          </div>
+        </div>
+        <div class="modal-footer footer-modalMessage">
+          <button type="button" id="btnAdd_message" class="btn" data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL Registro de Tarea completada - (Ok) -->
+
+  <div
+    id="modalOk"
+    class="modal fade"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+    style="z-index: 1060;"
+  >
+    <div class="modal-dialog modal-dialog-centered modalDialog-ok">
+      <div class="modal-content modalOk ">
+
+        <div class="modal-header header-modalOk d-flex">
+          <button
+            id="btnClose_Ok"
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <img src="./img/svg/x_homework.svg" class="" alt="cerrar" />
+          </button>
+        </div>
+
+        <div class="modal-body body-modalOk">
+          <div class="container-modalOk">
+            <img src="./img/svg/check-circle.svg" alt="cerrar" />
+            <p>Tu tarea ha sido creada con éxito en la actuación de "Requerimiento de comparecencia"</p>
+          </div>
+        </div>
+
+        <div class="modal-footer footer-modalOk">
+          <button type="button" id="btnAdd_message" class="btn" data-bs-dismiss="modal">Ver mi tarea</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
   `;
   // ****  Columna Izquierda (inicio)**** //
   // const materias = viewHome.querySelector("#materias");
 
   const nameMateria1 = localStorage.getItem("materia1");
-  
+
   const nameMateria2 = localStorage.getItem("materia2");
   const nameMateria3 = localStorage.getItem("materia3");
   const nameMateria4 = localStorage.getItem("materia4");
@@ -1166,299 +1448,301 @@ if(months < 10){
     materia8.classList.remove("hide");
   }
 
-        //Ingresar comentarios al textarea
-        const edit = viewHome.querySelector("#btnEditComment");
-        const save = viewHome.querySelector("#btnSaveComment");
-        const pComment = viewHome.querySelector("#pComment");
-        const divComment = viewHome.querySelector("#textareaContainer");
-        const txtComment = viewHome.querySelector("#txtComment");
-        const countComment = viewHome.querySelector("#countComment");
-        
-        pComment.addEventListener("click", () => {
-          pComment.classList.add("hide");
-          divComment.classList.remove("hide");
-          txtComment.classList.remove("hide");
-          txtComment.disabled = false;
-          countComment.classList.remove("hide");
-          save.classList.remove("hide");
-          edit.classList.add("hide");
-        })
+  //Ingresar comentarios al textarea
+  const edit = viewHome.querySelector("#btnEditComment");
+  const save = viewHome.querySelector("#btnSaveComment");
+  const pComment = viewHome.querySelector("#pComment");
+  const divComment = viewHome.querySelector("#textareaContainer");
+  const txtComment = viewHome.querySelector("#txtComment");
+  const countComment = viewHome.querySelector("#countComment");
 
-        edit.addEventListener("click", ()=>{
-          pComment.classList.add("hide");
-          divComment.classList.remove("hide");
-          txtComment.classList.remove("hide");
-          txtComment.disabled = false;
-          countComment.classList.remove("hide");
-          save.classList.remove("hide");
-          edit.classList.add("hide");
-        });
+  pComment.addEventListener("click", () => {
+    pComment.classList.add("hide");
+    divComment.classList.remove("hide");
+    txtComment.classList.remove("hide");
+    txtComment.disabled = false;
+    countComment.classList.remove("hide");
+    save.classList.remove("hide");
+    edit.classList.add("hide");
+  });
 
-        save.addEventListener("click", ()=> {
-            txtComment.disabled= true ;
-            edit.classList.remove("hide");
-            save.classList.add("hide");
-          })
-  
-//  agregar archivos subidos al home
-    let getFile = localStorage.getItem('file')  
+  edit.addEventListener("click", () => {
+    pComment.classList.add("hide");
+    divComment.classList.remove("hide");
+    txtComment.classList.remove("hide");
+    txtComment.disabled = false;
+    countComment.classList.remove("hide");
+    save.classList.remove("hide");
+    edit.classList.add("hide");
+  });
 
-     
-    // localStorage file date orden
-     
-    const  container_archivosSubidos = viewHome.querySelector("#container_archivosSubidos");
-    container_archivosSubidos.innerHTML = `
+  save.addEventListener("click", () => {
+    txtComment.disabled = true;
+    edit.classList.remove("hide");
+    save.classList.add("hide");
+  });
+
+  //  agregar archivos subidos al home
+  let getFile = localStorage.getItem("file");
+
+  // localStorage file date orden
+
+  const container_archivosSubidos = viewHome.querySelector(
+    "#container_archivosSubidos"
+  );
+  container_archivosSubidos.innerHTML = `
     <div><button>${getFile}</button>
     </div>
-    `
+    `;
 
-//   // ****  Columna Izquierda (termino)  **** //
+  //   // ****  Columna Izquierda (termino)  **** //
 
-//   //evento list para utenticar
-//   const autenticar = firebase.auth();
-//   autenticar.onAuthStateChanged((user) => {
-//     if (user) {
-//       console.log("signin");
-//     } else {
-//       console.log("signup");
-//     }
-//   });
+  //   //evento list para utenticar
+  //   const autenticar = firebase.auth();
+  //   autenticar.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       console.log("signin");
+  //     } else {
+  //       console.log("signup");
+  //     }
+  //   });
 
+  // // //leer documentos
+  // // firebase.firestore()
+  // // .collection("users").onSnapshot((querySnapshot) => {
+  // //   fecha_orden.innerHTML='';
+  // //   querySnapshot.forEach((doc) => {
+  // //     //   console.log(`${doc.id} => ${doc.data().check1}`);
+  // //       fecha_orden.innerHTML += `
+  // //         <h6 class="title_card">Fecha de creación</h6>
+  // //         <p style="font-size: 14px;">${doc.data().fecha}</p>
+  // //         <h6 class="title_card">Orden de inspección</h6>
+  // //         <p style="font-size: 14px;">${doc.data().orden}</p>
+  // //         <h6 class="title_card">Materias</h6>
+  // //       `
+  // //         });
+  // //       });
 
-// // //leer documentos
-// // firebase.firestore()
-// // .collection("users").onSnapshot((querySnapshot) => {
-// //   fecha_orden.innerHTML='';
-// //   querySnapshot.forEach((doc) => {
-// //     //   console.log(`${doc.id} => ${doc.data().check1}`);
-// //       fecha_orden.innerHTML += `
-// //         <h6 class="title_card">Fecha de creación</h6>
-// //         <p style="font-size: 14px;">${doc.data().fecha}</p>
-// //         <h6 class="title_card">Orden de inspección</h6>
-// //         <p style="font-size: 14px;">${doc.data().orden}</p>
-// //         <h6 class="title_card">Materias</h6>
-// //       `
-// //         });
-// //       });
-   
-      //habilitar input
-      // const editar = viewHome.querySelector("#edit");
-      // editar.addEventListener("click", ()=>{
-      //   const description = viewHome.querySelector("#description");
-      //   if(description .disabled == true)	{
-		  //     description.disabled=false;
-	    //      }
-      //         else
-      //   {
-      //     description.disabled=true;
-      //   }
-      //       });
+  //habilitar input
+  // const editar = viewHome.querySelector("#edit");
+  // editar.addEventListener("click", ()=>{
+  //   const description = viewHome.querySelector("#description");
+  //   if(description .disabled == true)	{
+  //     description.disabled=false;
+  //      }
+  //         else
+  //   {
+  //     description.disabled=true;
+  //   }
+  //       });
 
-        //número aleatorio
-        function aleatorio(inferior, superior) {
-            var numPosibilidades = superior - inferior;
-            var aleatorio = Math.random() * (numPosibilidades + 1);
-            aleatorio = Math.floor(aleatorio);
-            return inferior + aleatorio;
-        }
+  //número aleatorio
+  function aleatorio(inferior, superior) {
+    var numPosibilidades = superior - inferior;
+    var aleatorio = Math.random() * (numPosibilidades + 1);
+    aleatorio = Math.floor(aleatorio);
+    return inferior + aleatorio;
+  }
 
-        const multa_aleatoria = (x) =>  {
-            return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-          }
-          console.log(multa_aleatoria(aleatorio(5000, 250000))); 
-          const multaAleatoria = multa_aleatoria(aleatorio(5000, 250000))
+  const multa_aleatoria = (x) => {
+    return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  };
+  console.log(multa_aleatoria(aleatorio(5000, 250000)));
+  const multaAleatoria = multa_aleatoria(aleatorio(5000, 250000));
 
+  //Registar multa alearotia en input
+  const multa = viewHome.querySelector("#multa");
+  multa.innerHTML = "S/" + multa_aleatoria(aleatorio(5000, 250000));
 
-          //Registar multa alearotia en input
-          const multa = viewHome.querySelector("#multa");
-          multa.innerHTML='S/' + multa_aleatoria((aleatorio(5000, 250000)))
+  //nivel de riego
+  const sizeCheck = localStorage.getItem("checked");
+  if (sizeCheck >= 4) {
+    //Si el usuario marca 4 o más materias debe aparecer riesgo alto
+    const label_level_risk = viewHome.querySelector(".label_level_risk1");
+    label_level_risk.style.fontSize = "14px";
+    const bullets = viewHome.querySelector(".bullets1");
+    bullets.style.opacity = 1;
+    const bar1 = viewHome.querySelector("#bar1");
+    bar1.style.opacity = 1;
+    console.log("riesgo alto");
+  } else if (sizeCheck >= 2) {
+    //Si marca 2 o 3 riesgo medio
+    const label_level_risk = viewHome.querySelector(".label_level_risk2");
+    label_level_risk.style.fontSize = "14px";
+    const bullets = viewHome.querySelector(".bullets2");
+    bullets.style.opacity = 1;
+    const bar2 = viewHome.querySelector("#bar2");
+    bar2.style.opacity = 1;
+    console.log("riesgo medio");
+  } else {
+    // solo 1 materia debe aparecer como riesgo bajo
+    const label_level_risk = viewHome.querySelector(".label_level_risk3");
+    label_level_risk.style.fontSize = "14px";
+    const bullets = viewHome.querySelector(".bullets3");
+    bullets.style.opacity = 1;
+    const bar3 = viewHome.querySelector("#bar3");
+    bar3.style.opacity = 1;
+    console.log("riesgo bajo");
+  }
 
-          //nivel de riego
-          const sizeCheck = localStorage.getItem("checked");
-          if(sizeCheck>=4){
-            //Si el usuario marca 4 o más materias debe aparecer riesgo alto
-            const  label_level_risk = viewHome.querySelector(".label_level_risk1");
-            label_level_risk.style.fontSize = '14px';
-            const  bullets = viewHome.querySelector(".bullets1");
-            bullets.style.opacity = 1;
-            const  bar1 = viewHome.querySelector("#bar1");
-            bar1.style.opacity = 1;
-            console.log("riesgo alto")
+  //Crear MODAL para funcionario
 
-        }else if (sizeCheck>=2){
-             //Si marca 2 o 3 riesgo medio 
-             const  label_level_risk = viewHome.querySelector(".label_level_risk2");
-             label_level_risk.style.fontSize = '14px';
-             const  bullets = viewHome.querySelector(".bullets2");
-             bullets.style.opacity = 1;
-             const  bar2 = viewHome.querySelector("#bar2");
-             bar2.style.opacity = 1;
-            console.log("riesgo medio")
+  //modal
+  const myModal = viewHome.querySelector(".modal");
+  myModal.addEventListener("shown.bs.modal", function () {
+    //multa maxima
 
-        }else{
-            // solo 1 materia debe aparecer como riesgo bajo
-            const  label_level_risk = viewHome.querySelector(".label_level_risk3");
-            label_level_risk.style.fontSize = '14px';
-            const  bullets = viewHome.querySelector(".bullets3");
-            bullets.style.opacity = 1;
-            const  bar3 = viewHome.querySelector("#bar3");
-            bar3.style.opacity = 1;
-            console.log("riesgo bajo")
-        }
+    function aleatorio1(inferior, superior) {
+      var numPosibilidades = superior - inferior;
+      var aleatorio = Math.random() * (numPosibilidades + 1);
+      aleatorio = Math.floor(aleatorio);
+      return inferior + aleatorio;
+    }
 
-        //Crear MODAL para funcionario
+    const multa_aleatoria1 = (x) => {
+      return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    };
+    console.log(multa_aleatoria1(aleatorio1(5000, 250000)));
+    const multaAleatoria1 = multa_aleatoria1(aleatorio1(15000, 250000));
+    localStorage.setItem("multa1", multaAleatoria1);
 
-         //modal
-         const myModal = viewHome.querySelector('.modal');
-         myModal.addEventListener('shown.bs.modal',function () {
+    //multa min
 
-          //multa maxima
+    function aleatorio2(inferior, superior) {
+      var numPosibilidades = superior - inferior;
+      var aleatorio = Math.random() * (numPosibilidades + 1);
+      aleatorio = Math.floor(aleatorio);
+      return inferior + aleatorio;
+    }
 
-        function aleatorio1(inferior, superior) {
-          var numPosibilidades = superior - inferior;
-          var aleatorio = Math.random() * (numPosibilidades + 1);
-          aleatorio = Math.floor(aleatorio);
-          return inferior + aleatorio;
+    const multa_aleatoria2 = (x) => {
+      return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    };
+    console.log(multa_aleatoria2(aleatorio2(5000, 250000)));
+    const multaAleatoria2 = multa_aleatoria2(aleatorio2(5000, 150000));
+    localStorage.setItem("multa2", multaAleatoria2);
+
+    //número aleatorio del 1 al 10
+    //ir a link  actuaciones (main)
+    function aleatorioNumber(inferior, superior) {
+      var numPosibilidades = superior - inferior;
+      var aleatorio = Math.random() * (numPosibilidades + 1);
+      aleatorio = Math.floor(aleatorio);
+      return inferior + aleatorio;
+    }
+
+    console.log(aleatorioNumber(1, 10));
+    const valorNumber = aleatorioNumber(1, 10);
+    console.log(valorNumber);
+
+    localStorage.setItem("aleatorio", valorNumber);
+  });
+
+  //estrellas
+
+  let x = viewHome.getElementsByTagName("i");
+  console.log(x);
+  for (let i = 0; i < x.length; i++) {
+    x[i].addEventListener("click", function () {
+      console.log("pintar");
+      let value = this.getAttribute("value");
+      console.log(value);
+      clearClass();
+      for (let j = value - 1; j >= 0; j--) {
+        x[j].classList.toggle("ap");
       }
+    });
+  }
 
-      const multa_aleatoria1 = (x) =>  {
-          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-        }
-        console.log(multa_aleatoria1(aleatorio1(5000, 250000))); 
-        const multaAleatoria1 = multa_aleatoria1(aleatorio1(15000, 250000))
-        localStorage.setItem("multa1", multaAleatoria1);      
-      
+  function clearClass() {
+    let x = viewHome.getElementsByTagName("i");
+    for (let i = 0; i < x.length; i++) {
+      //console.log(x[i].classList);
+      x[i].classList.remove("ap");
+    }
+  }
 
-         //multa min
+  //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
+  //     if (e.target.nodeName === 'IMG') {
+  //         var currentSibling = e.target;
+  //         var nextSibling = e.target;
+  //         currentSibling.classList.add('active');
+  //         while ((currentSibling = currentSibling.previousElementSibling)) {
+  //             currentSibling.classList.add('active');
+  //         }
+  //         while ((nextSibling = nextSibling.nextElementSibling)) {
+  //             nextSibling.classList.remove('active');
+  //         }
+  //     }
+  // });
+  //HOME ACTUACIONES
+  //ir a crear actuación actuacion
 
-        function aleatorio2(inferior, superior) {
-          var numPosibilidades = superior - inferior;
-          var aleatorio = Math.random() * (numPosibilidades + 1);
-          aleatorio = Math.floor(aleatorio);
-          return inferior + aleatorio;
-      }
+  const actuacion = viewHome.querySelector("#actuacion");
+  actuacion.addEventListener("click", () => {
+    window.location.hash = "#/actuacion";
+  });
 
-      const multa_aleatoria2 = (x) =>  {
-          return x.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-        }
-        console.log(multa_aleatoria2(aleatorio2(5000, 250000))); 
-        const multaAleatoria2 = multa_aleatoria2(aleatorio2(5000, 150000))
-        localStorage.setItem("multa2", multaAleatoria2); 
+  //mostar descripcion actuacion
 
-          //número aleatorio del 1 al 10
-        //ir a link  actuaciones (main)
-        function aleatorioNumber(inferior, superior) {
-          var numPosibilidades = superior - inferior;
-          var aleatorio = Math.random() * (numPosibilidades + 1);
-          aleatorio = Math.floor(aleatorio);
-          return inferior + aleatorio;
-        }
+  // const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
+  const input_setDescripcion_actuacion = viewHome.querySelector(
+    "#input_setDescripcion_actuacion"
+  );
+  const descripcion_actuacion_edit = viewHome.querySelector(
+    "#descripcion_actuacion_edit"
+  );
+  const descripcion_actuacion_get = viewHome.querySelector(
+    "#descripcion_actuacion_get"
+  );
 
-        console.log(aleatorioNumber (1, 10))
-        const valorNumber = aleatorioNumber (1, 10)
-        console.log(valorNumber);
-       
-        localStorage.setItem("aleatorio", valorNumber); 
+  if (descripcion_actuacion == null) {
+    console.log(descripcion_actuacion);
+    descripcion_actuacion_get.classList.add("ocultar");
+    input_setDescripcion_actuacion.classList.add("ocultar");
+    descripcion_actuacion_edit.classList.remove("ocultar");
+  } else {
+  }
 
-         });
+  //Ingresar comentarios al textarea vista actuacion
+  const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
+  const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
+  const pComment_actuacion = viewHome.querySelector("#pComment_actuacion");
+  const divComment_actuacion = viewHome.querySelector(
+    "#textareaContainer_actuacion"
+  );
+  const txtComment_actuacion = viewHome.querySelector("#txtComment_actuacion");
+  const countComment_actuacion = viewHome.querySelector(
+    "#countComment_actuacion"
+  );
 
-         //estrellas
+  pComment_actuacion.addEventListener("click", () => {
+    pComment_actuacion.classList.add("hide");
+    divComment_actuacion.classList.remove("hide");
+    txtComment_actuacion.classList.remove("hide");
+    txtComment_actuacion.disabled = false;
+    countComment_actuacion.classList.remove("hide");
+    save_actuacion.classList.remove("hide");
+    edit_actuacion.classList.add("hide");
+  });
 
-         let x = viewHome.getElementsByTagName("i");
-         console.log(x)
-         for(let i=0;i<x.length;i++){
-           x[i].addEventListener("click",function(){
-             console.log("pintar")
-             let value=this.getAttribute("value");
-             console.log(value)
-             clearClass();
-             for(let j=value-1;j>=0;j--){
-               x[j].classList.toggle('ap');
-             }
-           })
-         };
-         
-         function clearClass(){
-           let x = viewHome.getElementsByTagName("i");
-           for(let i=0;i<x.length;i++){
-               //console.log(x[i].classList);
-               x[i].classList.remove('ap');
-           };
-         }
+  edit_actuacion.addEventListener("click", () => {
+    pComment_actuacion.classList.add("hide");
+    divComment_actuacion.classList.remove("hide");
+    txtComment_actuacion.classList.remove("hide");
+    txtComment_actuacion.disabled = false;
+    countComment_actuacion.classList.remove("hide");
+    save_actuacion.classList.remove("hide");
+    edit_actuacion.classList.add("hide");
+  });
 
-      //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
-      //     if (e.target.nodeName === 'IMG') {
-      //         var currentSibling = e.target;
-      //         var nextSibling = e.target;
-      //         currentSibling.classList.add('active');
-      //         while ((currentSibling = currentSibling.previousElementSibling)) {
-      //             currentSibling.classList.add('active');
-      //         }
-      //         while ((nextSibling = nextSibling.nextElementSibling)) {
-      //             nextSibling.classList.remove('active');
-      //         }
-      //     }
-      // });
-        //HOME ACTUACIONES
-        //ir a crear actuación actuacion
-
-        const actuacion =viewHome.querySelector("#actuacion");
-        actuacion.addEventListener("click", ()=> {
-            window.location.hash = "#/actuacion";
-        })
-
-
-            //mostar descripcion actuacion
-
-        // const descripcion_actuacion = localStorage.getItem("#descripcion_actuacion");
-        const input_setDescripcion_actuacion = viewHome.querySelector("#input_setDescripcion_actuacion");
-        const descripcion_actuacion_edit = viewHome.querySelector("#descripcion_actuacion_edit");
-          const descripcion_actuacion_get = viewHome.querySelector("#descripcion_actuacion_get");
-        
-          if (descripcion_actuacion  == null) {
-            console.log(descripcion_actuacion)
-            descripcion_actuacion_get.classList.add("ocultar");
-            input_setDescripcion_actuacion.classList.add("ocultar");
-            descripcion_actuacion_edit.classList.remove("ocultar");
-          } else {
-            
-          }
-      
-         //Ingresar comentarios al textarea vista actuacion
-         const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
-         const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
-         const pComment_actuacion = viewHome.querySelector("#pComment_actuacion");
-         const divComment_actuacion = viewHome.querySelector("#textareaContainer_actuacion");
-         const txtComment_actuacion = viewHome.querySelector("#txtComment_actuacion");
-         const countComment_actuacion = viewHome.querySelector("#countComment_actuacion");
-         
-         pComment_actuacion.addEventListener("click", () => {
-           pComment_actuacion.classList.add("hide");
-           divComment_actuacion.classList.remove("hide");
-           txtComment_actuacion.classList.remove("hide");
-           txtComment_actuacion.disabled = false;
-           countComment_actuacion.classList.remove("hide");
-           save_actuacion.classList.remove("hide");
-           edit_actuacion.classList.add("hide");
-         })
- 
-         edit_actuacion.addEventListener("click", ()=>{
-           pComment_actuacion.classList.add("hide");
-           divComment_actuacion.classList.remove("hide");
-           txtComment_actuacion.classList.remove("hide");
-           txtComment_actuacion.disabled = false;
-           countComment_actuacion.classList.remove("hide");
-           save_actuacion.classList.remove("hide");
-           edit_actuacion.classList.add("hide");
-         });
- 
-         save_actuacion.addEventListener("click", ()=> {
-             txtComment_actuacion.disabled = true ;
-             edit_actuacion.classList.remove("hide");
-             save_actuacion.classList.add("hide");
-           })
+  save_actuacion.addEventListener("click", () => {
+    txtComment_actuacion.disabled = true;
+    edit_actuacion.classList.remove("hide");
+    save_actuacion.classList.add("hide");
+  });
   // menú etapas
-  
+
   const buttons_total = viewHome.querySelector("#button_total");
   const buttons_etapa1 = viewHome.querySelector("#buttons_etapa1");
   const buttons_etapa2 = viewHome.querySelector("#buttons_etapa2");
@@ -1468,59 +1752,60 @@ if(months < 10){
   const container_etapa2 = viewHome.querySelector("#container_etapa2");
   const container_etapa3 = viewHome.querySelector("#container_etapa3");
 
-  buttons_total.addEventListener("click", ()=>{
+  buttons_total.addEventListener("click", () => {
     buttons_total.style.background = "rgba(15, 48, 65, 0.5)";
-     buttons_total.style.fontWeight = "800";
-   buttons_total.style.fontSize = "14px";
-  buttons_total.style.color = "#FFFFFF";
-  container_total.classList.remove ("ocultar");
-  container_etapa1.classList.add ("ocultar");
-  container_etapa2.classList.add ("ocultar");
-  container_etapa3.classList.add ("ocultar");
-  })
-  
-  buttons_etapa1.addEventListener("click", ()=>{
-    buttons_total.style.background = "#FFFFFF";
-   buttons_total.style.border = "1px solid #BDBDBD";
-   buttons_total.style.boxSizing = "border-box";
-   buttons_total.style.fontWeight = "500";
-   buttons_total.style.fontSize = "11px";
-  buttons_total.style.color = "#0F3041";
-  container_total.classList.add ("ocultar");
-  container_etapa1.classList.remove ("ocultar");
-  container_etapa2.classList.add ("ocultar");
-  container_etapa3.classList.add ("ocultar");
-  })
+    buttons_total.style.fontWeight = "800";
+    buttons_total.style.fontSize = "14px";
+    buttons_total.style.color = "#FFFFFF";
+    container_total.classList.remove("ocultar");
+    container_etapa1.classList.add("ocultar");
+    container_etapa2.classList.add("ocultar");
+    container_etapa3.classList.add("ocultar");
+  });
 
-  buttons_etapa2.addEventListener("click", ()=>{
+  buttons_etapa1.addEventListener("click", () => {
     buttons_total.style.background = "#FFFFFF";
-   buttons_total.style.border = "1px solid #BDBDBD";
-   buttons_total.style.boxSizing = "border-box";
-   buttons_total.style.fontWeight = "500";
-   buttons_total.style.fontSize = "11px";
-  buttons_total.style.color = "#0F3041";
-  container_total.classList.add ("ocultar");
-  container_etapa1.classList.add ("ocultar");
-  container_etapa2.classList.remove ("ocultar");
-  container_etapa3.classList.add ("ocultar");
-  })
+    buttons_total.style.border = "1px solid #BDBDBD";
+    buttons_total.style.boxSizing = "border-box";
+    buttons_total.style.fontWeight = "500";
+    buttons_total.style.fontSize = "11px";
+    buttons_total.style.color = "#0F3041";
+    container_total.classList.add("ocultar");
+    container_etapa1.classList.remove("ocultar");
+    container_etapa2.classList.add("ocultar");
+    container_etapa3.classList.add("ocultar");
+  });
 
-  buttons_etapa3.addEventListener("click", ()=>{
+  buttons_etapa2.addEventListener("click", () => {
     buttons_total.style.background = "#FFFFFF";
-   buttons_total.style.border = "1px solid #BDBDBD";
-   buttons_total.style.boxSizing = "border-box";
-   buttons_total.style.fontWeight = "500";
-   buttons_total.style.fontSize = "11px";
-  buttons_total.style.color = "#0F3041";
-  container_total.classList.add ("ocultar");
-  container_etapa1.classList.add ("ocultar");
-  container_etapa2.classList.add ("ocultar");
-  container_etapa3.classList.remove ("ocultar");
-  })
+    buttons_total.style.border = "1px solid #BDBDBD";
+    buttons_total.style.boxSizing = "border-box";
+    buttons_total.style.fontWeight = "500";
+    buttons_total.style.fontSize = "11px";
+    buttons_total.style.color = "#0F3041";
+    container_total.classList.add("ocultar");
+    container_etapa1.classList.add("ocultar");
+    container_etapa2.classList.remove("ocultar");
+    container_etapa3.classList.add("ocultar");
+  });
+
+  buttons_etapa3.addEventListener("click", () => {
+    buttons_total.style.background = "#FFFFFF";
+    buttons_total.style.border = "1px solid #BDBDBD";
+    buttons_total.style.boxSizing = "border-box";
+    buttons_total.style.fontWeight = "500";
+    buttons_total.style.fontSize = "11px";
+    buttons_total.style.color = "#0F3041";
+    container_total.classList.add("ocultar");
+    container_etapa1.classList.add("ocultar");
+    container_etapa2.classList.add("ocultar");
+    container_etapa3.classList.remove("ocultar");
+  });
 
   //boton etapas
   buttons_total.classList.add("button_change_etapas");
   const buttons_etapas = viewHome.getElementsByClassName("buttons_etapa");
+
   for(let i=0; i < buttons_etapas.length; i ++)
            {
              buttons_etapas[i].onclick = function (){
@@ -1678,45 +1963,296 @@ file_upload.addEventListener("change", ()=> {
 });
 
 
-  // window.onload = inicializar;
-   var fichero;
-   var storageRef;
-    
-    // function inicializar() {
-        fichero = viewHome.querySelector("#file-upload");
-        fichero.addEventListener("change", subirDocAFirebase, false);
-        storageRef = firebase.storage().ref();
-        var rootRef = firebase.database().ref().child("documentos");
-    
+  link_documentos.addEventListener("click", () => {
+    mainDatos.classList.add("ocultar");
+    mainActuaciones.classList.add("ocultar");
+    mainDocumentos.classList.remove("ocultar");
 
- function subirDocAFirebase(){
-//     console.log("subiendo")
+    rootRef.on("value", function (snapshot) {
+      var datos = snapshot.val();
+      var results = "";
+      for (var key in datos) {
+        console.log(datos[key].nombre);
 
-const documentoSubir = fichero.files[0];
-console.log(documentoSubir)
-const uploadTask = storageRef.child("documentos/"+documentoSubir.name).put(documentoSubir)
- 
- // Register three observers:
-// 1. 'state_changed' observer, called any time the state changes
-// 2. Error observer, called on failure
-// 3. Completion observer, called on successful completion
-uploadTask.on('state_changed', function(snapshot){
+        results +=
+          '<div  class="name_info_down">' + datos[key].nombre + "</div>";
+      }
+      document.getElementById("name_info").innerHTML = results;
+      const click_show_doc = document.getElementById("name_info");
+      click_show_doc.addEventListener("click", () => {
+        rootRef.on("value", function (snapshot) {
+          var datos = snapshot.val();
+          var result = "";
+          for (var key in datos) {
+            console.log(datos[key].url);
 
-  //  // Observe state change events such as progress, pause, and resume
-  // console.log("subido");
-  
-}, function(error) {
-  alert("hubo un error")
-  // Handle unsuccessful uploads
-}, function() {
-  // Handle successful uploads on complete
-  // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-    alert('se subió la imagen conURL', downloadURL);
-    console.log('Uploaded a blob or file!');
-    crearNodoEnBDFirebase(documentoSubir.name,downloadURL);
-    
+            result +=
+              '<iframe  class="styleIframe"  src="' +
+              datos[key].url +
+              '"></iframe>';
+          }
+          document.getElementById("verFiles").innerHTML = result;
+        });
+      });
+    });
   });
+
+  link_datos.classList.add("links_change");
+  const links = viewHome.getElementsByClassName("links");
+  for (let i = 0; i < links.length; i++) {
+    links[i].onclick = function () {
+      let el = links[0];
+      while (el) {
+        if (el.tagName === "DIV") {
+          // remueve class
+          el.classList.remove("links_change");
+        }
+
+        //pasa al hermano
+        el = el.nextSibling;
+      }
+      this.classList.add("links_change");
+    };
+  }
+
+  //subir datoss al storage
+  const txt_carga = viewHome.querySelector("#txt_carga");
+  const cli = viewHome.querySelector("#mostrarCli");
+
+  const subir = viewHome.querySelector("#subir");
+
+  const file_upload = viewHome.querySelector("#file-upload");
+  file_upload.addEventListener("change", () => {
+    subir.classList.add("ocultar");
+    txt_carga.classList.add("ocultar");
+    cli.classList.remove("ocultar");
+    var pdrs = document.getElementById("file-upload").files[0].name;
+    document.getElementById("info").innerHTML = pdrs;
+    const mostrarDoc = document.getElementById("info");
+  });
+
+  // window.onload = inicializar;
+  var fichero;
+  var storageRef;
+
+  // function inicializar() {
+  fichero = viewHome.querySelector("#file-upload");
+  fichero.addEventListener("change", subirDocAFirebase, false);
+  storageRef = firebase.storage().ref();
+  var rootRef = firebase.database().ref().child("documentos");
+
+  function subirDocAFirebase() {
+    //     console.log("subiendo")
+
+    const documentoSubir = fichero.files[0];
+    console.log(documentoSubir);
+    const uploadTask = storageRef
+      .child("documentos/" + documentoSubir.name)
+      .put(documentoSubir);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      "state_changed",
+      function (snapshot) {
+        //  // Observe state change events such as progress, pause, and resume
+        // console.log("subido");
+      },
+      function (error) {
+        alert("hubo un error");
+        // Handle unsuccessful uploads
+      },
+      function () {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          alert("se subió la imagen conURL", downloadURL);
+          console.log("Uploaded a blob or file!");
+          crearNodoEnBDFirebase(documentoSubir.name, downloadURL);
+        });
+      }
+    );
+  }
+
+  function crearNodoEnBDFirebase(name, url) {
+    rootRef.push({
+      nombre: name,
+      url: url,
+    });
+  }
+
+  //cambiar logo Sunafil una ver sincronizado
+  const cambiarLogo = viewHome.querySelector("#btn_entrar_minimodal_sunafil");
+  const sunafilS = viewHome.querySelector("#sunafil");
+  const sunafilBlue = viewHome.querySelector("#sunafilBlue");
+  cambiarLogo.addEventListener("click", () => {
+    sunafilS.classList.add("ocultar");
+    sunafilBlue.classList.remove("ocultar");
+  });
+
+
+  //****************** CONTENEDOR DE TAREAS ********************//
+  //******* Fecha actual - input date *******/
+  const dateNew = new Date();
+  const yearNow = dateNew.getFullYear();
+  const monthNow = String(date.getMonth() + 1).padStart(2, "0");
+  const todayDate = String(date.getDate()).padStart(2, "0");
+  const datePattern = year + "-" + monthNow + "-" + todayDate;
+  const currentDate = todayDate + "/" + monthNow + "/" + yearNow;
+
+  const dateFromHomework = viewHome.querySelector("#date_fromHomework");
+  const btnCreateHomework = viewHome.querySelector("#btnCreate_homework");
+
+  dateFromHomework.innerHTML = `
+  <input 
+    type="date" 
+    id="inputDate2" 
+    value="${datePattern}" 
+    class="form-control input-fromHomework date-fromHomework" 
+  >
+  <!-- <img src="./img/svg/calendar-red.svg" class="" alt="icono calendario" /> -->
+`;
+
+  /******* Modal ingresar mensaje *******/
+  const modalForm = viewHome.querySelector("#exampleModal");
+  const btnShow_modal_message = viewHome.querySelector(
+    "#btnShow_modal_message"
+  );
+  const textareaModal = viewHome.querySelector("#textareaModal");
+  const btnAddMessage = viewHome.querySelector("#btnAdd_message");
+  const btnCloseMessage = viewHome.querySelector("#btnClose_message");
+  const textarea5 = viewHome.querySelector("#textarea5");
+
+  btnShow_modal_message.addEventListener("click", (e) => {
+    e.preventDefault;
+    modalForm.classList.add("zIndexDown-modal");
+  });
+
+  btnAddMessage.addEventListener("click", (e) => {
+    e.preventDefault;
+    const valueTextAreaModal = textareaModal.value;
+
+    textarea5.value = valueTextAreaModal;
+    console.log(valueTextAreaModal);
+
+    modalForm.classList.remove("zIndexDown-modal");
+  });
+
+
+  btnCloseMessage.addEventListener("click", (e) => {
+    e.preventDefault;
+    modalForm.classList.remove("zIndexDown-modal");
+  });
+
+  //****** Crea template de la tabla con datos del formulario  *******/
+  const createHomework = () => {
+    const expirationDate = viewHome.querySelector("#inputDate2").value;
+    const containerTable = viewHome.querySelector("#container_table");
+
+    containerTable.innerHTML = `
+    <table class="table table-hover table-createTask">
+      <thead>
+        <tr class="thTable-createTask">
+          <th scope="col">Tareas</th>
+          <th scope="col">Documentos</th>
+          <th scope="col">Equipo</th>
+          <th scope="col">Registrado</th>
+          <th scope="col">Vencimiento</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tdTable-createTask">
+          <td>
+          <input type="checkbox" id="cbox1" value="primary_checkbox">
+          <label for="cbox1">Tema 1</label>
+          </td>
+          <td></td>
+          <td>Imagen</td>
+          <td>${currentDate}</td>
+          <td>${expirationDate}</td>
+          <td>Pendiente</td>
+        </tr>
+      </tbody>
+    </table>
+`;
+  };
+
+  //*******Validando campos del formulario********//
+  const homeworkValidInputs = () => {
+    const inputDenominacion = viewHome.querySelector("#inputText1");
+    const dateVencimiento = viewHome.querySelector("#inputDate2");
+    const inputDestinatario = viewHome.querySelector("#inputText3");
+    const inputCorreo = viewHome.querySelector("#inputText4");
+    const textareaModal = viewHome.querySelector("#textareaModal");
+
+    if (
+      inputDenominacion.value === "" ||
+      inputDestinatario.value === "" ||
+      inputCorreo.value === "" ||
+      textareaModal.value === ""
+    ) {
+      console.log("campos vacios");
+      btnCreateHomework.classList.add("btnDisabled");
+      btnCreateHomework.disabled = true;
+    } else {
+      console.log("campos llenos");
+      btnCreateHomework.classList.remove("btnDisabled");
+      btnCreateHomework.disabled = false;
+    }
+
+    // else if (
+    //   inputDenominacion.validity.valid &&
+    //   inputDestinatario.validity.valid &&
+    //   inputCorreo.validity.valid &&
+    //   inputMensaje.validity.valid
+    // ) {
+    //   btnCreateHomework.classList.remove("btnDisabled");
+    //   btnCreateHomework.disabled = false;
+    // }
+  };
+
+  const inputDenominacion = viewHome.querySelector("#inputText1");
+  const dateVencimiento = viewHome.querySelector("#inputDate2");
+  const inputDestinatario = viewHome.querySelector("#inputText3");
+  const inputCorreo = viewHome.querySelector("#inputText4");
+  // const textarea5 = viewHome.querySelector("textarea5");
+
+  inputDenominacion.addEventListener("input", homeworkValidInputs);
+  inputDestinatario.addEventListener("input", homeworkValidInputs);
+  inputCorreo.addEventListener("input", homeworkValidInputs);
+  textareaModal.addEventListener("input", homeworkValidInputs);
+
+  //******** Limpia inputs ********/
+  const cleanInputs = () => {
+    inputDenominacion.value = "";
+    inputDestinatario.value = "";
+    inputCorreo.value = "";
+    textarea5.value = "";
+    textareaModal.value = "";
+  };
+
+  const showModalTaskform = viewHome.querySelector("#showModal_taskform");
+
+  //******* botón Crear tarea - abre modal del formulario *******/
+  showModalTaskform.addEventListener("click", (e) => {
+    e.preventDefault;
+    console.log("limpia?");
+    cleanInputs();
+    btnCreateHomework.classList.add("btnDisabled");
+    btnCreateHomework.disabled = true;
+  });
+
+  //***** botón CREAR TAREA del formulario ******/
+  btnCreateHomework.addEventListener("click", (e) => {
+    e.preventDefault;
+    createHomework();
+    cleanInputs();
+  });
+
+
 });
 };
 
@@ -1752,3 +2288,4 @@ sunafilBlue.classList.remove('ocultar');
     })
     return viewHome;
   };
+

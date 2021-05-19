@@ -3,7 +3,7 @@ export default () => {
   const viewSignUp = document.createElement("div");
   // const initials_local = localStorage.getItem("iniciales");
  
-  viewSignUp.innerHTML = `
+  viewSignUp.innerHTML =html `
       <div class="container-register d-flex">
         <div class="div-logo-form d-flex">
           <!-- Columna izquierda - Logo -->
@@ -201,65 +201,64 @@ export default () => {
                     </div>
                   </div>
                 </div>
-   
-                <!---INFORMACIÓN EMPRESA-->
-                <div class="col-12">
-                  <div id="container_infoEmpresa" class="ocultar">
-                    <!--  Input empresa -->
-                    <div class="textOnInput2">
-                      <label
-                        for="camponombre"
-                        style="font-size:12px; color:#696465;"
-                        >Empresa</label
-                      >
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="form-control"
-                        style="font-size:14px; background:none; box-shadow: 0 0 0px 25px white inset;"
-                        placeholder="Ej. Petroperu"
-                      /><br />
-                    </div>
-   
-                    <!-- txt agrega usuario -->
-                    <div
-                      id="ajuste"
-                      class="d-flex align-items-center bd-highlight"
+
+              <!---INFORMACIÓN EMPRESA-->
+              <div class="col-12">
+                <div id="container_infoEmpresa" class="ocultar">
+                  <!--  Input empresa -->
+                  <div class="textOnInput2">
+                    <label
+                      for="camponombre"
+                      style="font-size:12px; color:#696465;"
+                      >Empresa</label
                     >
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      class="form-control"
+                      style="font-size:14px; background:none; box-shadow: 0 0 0px 25px white inset;"
+                      placeholder="Ej. Petroperu"
+                    /><br />
+                  </div>
+
+                  <!-- txt agrega usuario -->
+                  <div
+                    id="ajuste"
+                    class="d-flex align-items-center bd-highlight"
+                  >
+                    <p
+                      class=""
+                      style="font-size:14px; color: #7D7577; margin-bottom:0px;"
+                    >
+                      Agrega un Usuario &nbsp
+                    </p>
+                    <img
+                      src="./src/img/svg/help-circle.svg"
+                      alt="help circle"
+                    />
+                  </div>
+
+                  <!-- Boton agregar que muestra circulos azules  -->
+                  <div class="d-flex colum" style="height:110px; margin-bottom: 65px;">
+                    <!-- btn + agrega un usuario -->
+                    <button
+                      type="button"
+                      id="btn_New"
+                      class="btn btn-primary ms-5"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      <img
+                        src="./img/svg/add-new-circle.svg"
+                        alt="agrega usuario"
+                      />
                       <p
-                        class=""
-                        style="font-size:14px; color: #7D7577; margin-bottom:0px;"
-                        >
-                          Agrega un Usuario &nbsp
-                        </p>
-                        <img
-                          src="../src/img/svg/help-circle.svg"
-                          alt="help circle"
-                        />
-                      </div>
-     
-                      <!-- Boton agregar que muestra circulos azules  -->
-                      <div class="d-flex colum" style="height:110px; margin-bottom: 65px;">
-                        <!-- btn + agrega un usuario -->
-                        <button
-                          type="button"
-                          id="btn_New"
-                          class="btn btn-primary ms-5"
-                          data-bs-toggle="modal"
-                          data-bs-target="#staticBackdrop"
-                        >
-                          <img
-                            src="./img/svg/add-new-circle.svg"
-                            alt="agrega usuario"
-                          />
-                          <p
-                            style="font-size: 11px;color: #466EFE;font-weight: 500;line-height: 16px; margin-top:6px; margin-bottom:3px;"
-                          >
-                            Nuevo
-                          </p>
-                        </button>
-     
+                        style="font-size: 11px;color: #466EFE;font-weight: 500;line-height: 16px; margin-top:6px; margin-bottom:3px;"
+                      >
+                        Nuevo
+                      </p>
+                    </button>
                         <!-- usuario predeterminado - ALONSO -->
                         <div
                           id="div_show_alonso"
