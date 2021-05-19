@@ -1,5 +1,23 @@
-#info{
+#main-documentos{
+    width: 1006px;
+height: 862px;
+margin-top: 20px;
+background: #FFFFFF;
+border-radius: 6px 0px 0px 13px;
+}
+
+.name_info_down{
     cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0F3041;
+   
 }
 
 #verFiles{
@@ -16,6 +34,76 @@
 
   
    
+}
+
+.styles_principal{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+#container_principal{
+padding: 19px 22px 12px 10px;
+}
+
+#date_documentos{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+  
+    color: rgba(15, 48, 65, 0.4);
+    
+}
+
+#column_izquierda_documentos{
+    margin:0px 54px 0px 52px;
+}
+
+#container_doc_princial{
+    background: rgba(150, 156, 186, 0.2);
+    border-radius: 5px;
+}
+
+#see{
+    margin: 0px 17px 0px 42px;
+    padding: 5px 5px 5px 38px;
+    border-left: 2px solid #EFF2F9;
+}
+
+#verFiles{
+    width: 447px;
+    height: 622px;
+}
+
+#title_principal{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    
+    color: #969CBA;
+    margin-bottom: 0px;
+}
+
+#style_generalContainer_principal{
+    width: 377px;
+height: 110px;
+left: 128px;
+top: 510px;
+
+background: #F9FBFC;
+box-shadow: 0px 1px 3px 1px rgba(123, 137, 178, 0.26);
+border-radius: 5px;
 }
 
 

@@ -122,12 +122,12 @@ align-items: center;
 
 
 /*link drop y subir de fomra manual*/
-#sube_archivo{
+/* #sube_archivo{
  }
 #line_manual{
   
  
-}
+} */
  
 .link-active {
  font-weight: 600;

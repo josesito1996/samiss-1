@@ -534,6 +534,7 @@ export default () => {
     const step_two = viewSignUp.querySelector("#btn_step_two");
     const div_Show_Data = viewSignUp.querySelector("#div_Show_Data");
     const fname1 = viewSignUp.querySelector("#fname1");
+    localStorage.setItem("name", fname1.value)
     const fname2 = viewSignUp.querySelector("#fname2");
     const showAlonso = viewSignUp.querySelector("#showAlonso");
     const full_namesAlonso = viewSignUp.querySelector("#full_namesAlonso"); 
@@ -565,6 +566,9 @@ export default () => {
       e.preventDefault();
    
       first_initials();
+
+      const fname1 = viewSignUp.querySelector("#fname1");
+      localStorage.setItem("name", fname1.value)
    
       const email = document.getElementById("email").value;
       const passwordSubmit = viewSignUp.querySelector("#password1").value;
@@ -712,6 +716,7 @@ export default () => {
  
     // screen1.classList.add("ocultar");
   });
+ 
  
   return viewSignUp;
 };
