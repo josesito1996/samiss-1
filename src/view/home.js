@@ -681,52 +681,236 @@ export default () => {
 
         <div class="ocultar" id ="main-documentos">
 
-        <div class="d-flex flex-row">
+        <!---BOTONES CANTIDAD DE ACTUACION, DOCUMENTOS Y TAREAS--->
+        <div class="d-flex flex-row" id="container_total_mainGeneral" >
 
-        <!--principal-->
-          <div id="column_izquierda_documentos">
+        <div class="d-flex flex-row align-items-center justify-content-center" id="container_total_general">
+        <p id="total_head_documentos">Total de Actuaciones</p>
+        <p id="total_number_documentos">01</p>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-center" id="container_total_general">
+        <p id="total_head_documentos">Total de Documentos</p>
+        <p id="total_number_documentos">01</p>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-center" id="container_total_general">
+        <p id="total_head_documentos">Total de Pendientes</p>
+        <p id="total_number_documentos" style="color:red;">01</p>
+        </div>
+
+        </div>
+        <!--BUSCADORES--->
+        <div class="d-flex flex-row justify-content-between align-items-center" id="styles_container_buscador">
+          <div class="d-flex flex-row ">
+            <ul class="d-flex flex-row mb-0">
+              <li class="me-3 ">
+                <a id="style_a_doc" href="">
+                  Por Etapa <img  src="./img/svg/down_doc.svg" alt="" />
+                </a>
+              </li >
+
+              <li class="me-3">
+                <a id="style_a_doc" href="" >
+                  Por mes/año <img  src="./img/svg/down_doc.svg" alt="" />
+                </a>
+              </li>
+
+              <li class="me-3">
+                <a  id="style_a_doc" href="">
+                  Exportar <img  src="./img/svg/download.svg" alt="" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div>
-          <p id="title_principal">PRINCIPAL</p>
-          <div id="style_generalContainer_principal">
-            <div class="d-flex flex-row justify-content-between" id="container_principal">
-             
-              <div style="width: 231px;height: 21px;">
-              <p class="styles_principal"><strong>Principal:</strong></p>
-              <p class="styles_principal">Constancia de Compadecencia</p>
-              </div>
+          <div class="input-group justify-content-between" id="style_buscar">
+            <div class="form-outline">
+              <input type="search" id="search_doc" placeholder="Buscar por texto" />
+            </div>
+            <button type="button" class="btn">
+            <img  src="./img/svg/search_doc.svg" alt="" />
+            </button>
+          </div>
+          </div>
+        </div>
+             <!--DOCTUMENTOS--->
+        <div class="row" id="container_doc" style="background: #F9FBFC;" >
 
-              <div style="width: 61px;height: 21px;">
-              <p class="styles_principal"><strong>Vence:</strong></p>
-              <p id="date_documentos">30/05/21</p>
-              </div>
+          <div class="d-flex flex-row  align-items-center" style="height:84px;border-bottom: 2px solid #EFF2F9;">
 
+            <div class="d-flex flex-row" style="margin-left:30px;">
+              <div>
+              <img  src="./img/svg/down_doc_list.svg" id="mostrar_tareas" alt="" />
+              <img  src="./img/svg/up_doc_list.svg" class="ocultar" id="here_tareas" alt="" />
+              </div>
+              <div style="margin-left:19px;">
+                <p class="text_tipoResolution_fila1" style="margin-bottom:10px;">Actuacion</p>
+                <p class="text_Resolution">Tipo:${tipo_actuacion}</span></p>
+              </div>
             </div>
 
-            <div class="d-flex flex-row align-items-center " id="container_doc_princial">
-            <p >01.</p>
-              <label for="file-upload" id="subir" style="margin-left:0px;">
-              <img  src="./img/svg/clicdoc.svg" alt="" />
-                </label>
-                <div class="d-flex flex-column ">
-                <div id="name_info" style="width: 183.58px;height: 15px;"></div>
-                <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+
+            <div id="informationDoc_ocultar">
+              <div class="d-flex flex-row"  style="margin-left:41px;">
+                <div>
+                <img  src="./img/svg/cli.svg" alt="" />
                 </div>
-              <img  src="./img/svg/up_doc.svg" alt="" />  
-            </div>
-            </div>
-            </div>
+
+                <div style="margin-left:10px;">
+                  <p class="text_tipoResolution_fila1" style="margin-bottom:10px;font-size: 9px;">PRINCIPAL</p>
+                    <div class="d-flex flex-column ">
+                      <div id="name_info" style="width: 183.58px;height: 15px;">
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
+
+            <div class="d-flex flex-row justify-content-center align-items-center" style="margin-right:36px;">
+
+            <div>
+              <div class="progressCircle1 red"> <span class="progressCircle1-left">
+                      <span class="progressCircle1-bars"></span> </span> <span
+                      class="progressCircle1-right"> <span
+                      class="progressCircle1-bar"></span>
+                    </span>
+                  <div class="progressCircle1-value">1/3</div>
+                </div>
+              </div>
+              <div style="margin-left:12px;">
+                <p class="text_tipoResolution_fila1" style="margin-bottom:0px;font-size: 11px;width:123px;">DOCS PENDIENTES</p>
+                <p class="show_number_tarea" >01 tarea</p>
+              </div>
+
+              </div>
+
+              <div class="d-flex flex-row justify-content-center align-items-center">
+
+                <div  id="usuario_documentos">
+                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
+                      <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
+                      <p class="text_Resolution">${localStorage.getItem("name")}</p>
+                  </div>
+                </div>
+
+              </div>
+
           </div>
 
-          <!--see doc o pdf o img-->
-          <div id="see" style="">
+          <div class="ocultar" id="tareas_ver">
+          <div class="d-flex flex-row">
 
-          <div id="verFiles">
-          </div>
-          </div>
+          <div class="d-flex flex-column">
 
+          <!--principal actuacion-->
+
+        
+            <div id="column_izquierda_documentos" >
+            <div>
+            <p id="title_principal">PRINCIPAL</p>
+            <div id="style_generalContainer_principal">
+              <div class="d-flex flex-row justify-content-between" id="container_principal">
+              
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Principal:</strong></p>
+                <p class="styles_principal">Constancia de Compadecencia</p>
+                </div>
+
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal"><strong>Vence:</strong></p>
+                <p id="date_documentos">30/05/21</p>
+                </div>
+
+              </div>
+
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+               margin-right:12px;
+
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subir" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+                  </div>
+              
+              </div>
+              </div>
+              </div>
+            </div>
+
+              <!--principal tareas-->
+              <div id="column_izquierda_documentos">
+            <div>
+            <p id="title_principal">TAREAS Y OTROS DOCS</p>
+            <div id="style_generalContainer_principal">
+              <div class="d-flex flex-row justify-content-between" style='border-bottom:2px solid #EFF2F9;' id="container_principal">
+              
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Tarea 1:</strong></p>
+                <p class="styles_principal">Constancia de Compadecencia</p>
+                </div>
+
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
+                <p id="date_documentos" style='color:#D70025'>30/05/21</p>
+                </div>
+
+              </div>
+
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+               margin-right:12px;
+
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subir" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+                  </div>
+              
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+            
+
+            <!--see doc o pdf o img-->
+            <div id="see">
+
+            <div id="verFiles">
+            </div>
+            </div>
+
+          </div>
+        </div>
         </div>
 
         </div>
+
       </div>
 
       <div class="sidebarCase">
@@ -765,7 +949,7 @@ export default () => {
     
                  <!-- Usuario input -->
                  <div class="form-outline">
-                  <input type="txt" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
+                  <input type="text" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
                 </div>
 
                 <!-- Password input -->
@@ -1623,61 +1807,163 @@ export default () => {
   //boton etapas
   buttons_total.classList.add("button_change_etapas");
   const buttons_etapas = viewHome.getElementsByClassName("buttons_etapa");
-  for (let i = 0; i < buttons_etapas.length; i++) {
-    buttons_etapas[i].onclick = function () {
-      let el = buttons_etapas[0];
-      while (el) {
-        if (el.tagName === "DIV") {
-          // remueve class
-          el.classList.remove("button_change_etapas");
-        }
 
-        //pasa al hermano
-        el = el.nextSibling;
-      }
-      this.classList.add("button_change_etapas");
-    };
-  }
+  for(let i=0; i < buttons_etapas.length; i ++)
+           {
+             buttons_etapas[i].onclick = function (){
 
-  //habilitar y deshabiliat boton entrar modal sunafil
+              let el = buttons_etapas[0];
+              while(el)
+              {
+                if(el.tagName === "DIV"){
+                // remueve class
+                el.classList.remove("button_change_etapas");
+              }
 
-  const sunafil = viewHome.querySelector("#sunafil");
-  sunafil.addEventListener("click", () => {
-    const mensaje = viewHome.querySelector("#input_modalSunafil1");
-    mensaje.addEventListener("keyup", (e) => {
-      console.log("change");
-      const boton = viewHome.querySelector("#btn_entrar_modal_sunafil");
-      console.log(boton);
+              //pasa al hermano
+              el = el.nextSibling;
+            }
+               this.classList.add("button_change_etapas");
+             };
+           }
 
-      if (mensaje.value.trim() !== "") {
-        console.log("Se muestra");
-        boton.removeAttribute("disabled");
-        const miniModal = viewHome.querySelector("#exampleModal1");
-      } else {
-        boton.setAttribute("disabled", "true");
-      }
-    });
-  });
+           //habilitar y deshabiliat boton entrar modal sunafil
 
-  //LINKS
-  const link_datos = viewHome.querySelector("#link_datos");
-  const link_actuaciones = viewHome.querySelector("#link_actuaciones");
-  const link_documentos = viewHome.querySelector("#link_documentos");
-  const mainDatos = viewHome.querySelector("#main-datos");
-  const mainActuaciones = viewHome.querySelector("#main-actuaciones");
-  const mainDocumentos = viewHome.querySelector("#main-documentos");
+           const sunafil = viewHome.querySelector('#sunafil');
+           sunafil.addEventListener("click" , () => {
 
-  link_datos.addEventListener("click", () => {
-    mainDatos.classList.remove("ocultar");
-    mainActuaciones.classList.add("ocultar");
-    mainDocumentos.classList.add("ocultar");
-  });
+            const mensaje = viewHome.querySelector("#input_modalSunafil1");
+             mensaje.addEventListener("keyup", (e) => {
+             console.log("change");
+             const boton = viewHome.querySelector("#btn_entrar_modal_sunafil");
+              console.log(boton)
 
-  link_actuaciones.addEventListener("click", () => {
-    mainDatos.classList.add("ocultar");
-    mainActuaciones.classList.remove("ocultar");
-    mainDocumentos.classList.add("ocultar");
-  });
+                       
+            if (mensaje.value.trim() !== "") {
+              console.log("Se muestra")
+              boton.removeAttribute('disabled')
+              const miniModal = viewHome.querySelector("#exampleModal1");
+           } else {
+              boton.setAttribute('disabled', "true");
+              
+            }
+          });
+              })
+
+ //LINKS
+ const link_datos = viewHome.querySelector("#link_datos");
+ const link_actuaciones = viewHome.querySelector("#link_actuaciones");
+ const link_documentos = viewHome.querySelector("#link_documentos");
+ const mainDatos = viewHome.querySelector("#main-datos");
+ const mainActuaciones = viewHome.querySelector("#main-actuaciones");
+ const mainDocumentos= viewHome.querySelector("#main-documentos");
+
+ link_datos.addEventListener("click", ()=> {
+   mainDatos.classList.remove("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.add("ocultar");
+ })
+
+ link_actuaciones.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.remove("ocultar");
+   mainDocumentos.classList.add("ocultar");
+   
+ })
+
+ link_documentos.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.remove("ocultar");
+
+   rootRef.on('value', function(snapshot){
+     var datos = snapshot.val();
+     var results = "" 
+     for(var key in datos){
+
+       console.log(datos[key].nombre)
+     
+       results +=  '<div  class="name_info_down">'+datos[key].nombre+'</div>';
+       
+     } 
+     document.getElementById("name_info").innerHTML= results;
+     document.getElementById("name_info1").innerHTML= results;
+     const click_show_doc = document.getElementById("name_info1")
+     click_show_doc.addEventListener("click", ()=> {
+
+       rootRef.on('value', function(snapshot){
+         var datos = snapshot.val();
+         var result = "" 
+         for(var key in datos){
+   
+           console.log(datos[key].url)
+         
+           result +=  '<iframe  class="styleIframe"  src="'+ datos[key].url +'"></iframe>';
+           
+         } 
+         document.getElementById("verFiles").innerHTML= result;
+       })
+
+     })
+   })
+
+   
+ })
+
+
+ link_datos.classList.add("links_change");
+ const links = viewHome.getElementsByClassName("links");
+ for(let i=0; i < links.length; i ++)
+          {
+           links[i].onclick = function (){
+
+             let el = links[0];
+             while(el)
+             {
+               if(el.tagName === "DIV"){
+               // remueve class
+               el.classList.remove("links_change");
+             }
+
+             //pasa al hermano
+             el = el.nextSibling;
+           }
+              this.classList.add("links_change");
+            };
+          }              
+
+      
+  
+//subir datoss al storage
+const txt_carga = viewHome.querySelector("#txt_carga");
+const conDocumentos = viewHome.querySelector("#conDocumentos");
+const conTareas = viewHome.querySelector("#conTareas");
+const usuario = viewHome.querySelector("#usuario");
+const Sintareas = viewHome.querySelector("#Sintareas");
+const Sindocumentos = viewHome.querySelector("#Sindocumentos");
+
+const cli = viewHome.querySelector("#mostrarCli");
+
+const subir = viewHome.querySelector("#subir");
+
+const file_upload = viewHome.querySelector("#file-upload");
+file_upload.addEventListener("change", ()=> {
+  subir.classList.add("ocultar");
+  txt_carga.classList.add("ocultar");
+  conDocumentos.classList.remove("ocultar");
+  conTareas.classList.remove("ocultar");
+  usuario.classList.remove("ocultar");
+  Sintareas.classList.add("ocultar");
+  Sindocumentos.classList.add("ocultar");
+  cli.classList.remove("ocultar");
+  var pdrs = document.getElementById('file-upload').files[0].name;
+  document.getElementById('info').innerHTML = pdrs;
+  const mostrarDoc = document.getElementById('info')
+  
+      
+ 
+});
+
 
   link_documentos.addEventListener("click", () => {
     mainDatos.classList.add("ocultar");
@@ -1713,39 +1999,39 @@ export default () => {
     });
   });
 
-  link_datos.classList.add("links_change");
-  const links = viewHome.getElementsByClassName("links");
-  for (let i = 0; i < links.length; i++) {
-    links[i].onclick = function () {
-      let el = links[0];
-      while (el) {
-        if (el.tagName === "DIV") {
-          // remueve class
-          el.classList.remove("links_change");
-        }
+  // link_datos.classList.add("links_change");
+  // const links = viewHome.getElementsByClassName("links");
+  // for (let i = 0; i < links.length; i++) {
+  //   links[i].onclick = function () {
+  //     let el = links[0];
+  //     while (el) {
+  //       if (el.tagName === "DIV") {
+  //         // remueve class
+  //         el.classList.remove("links_change");
+  //       }
 
-        //pasa al hermano
-        el = el.nextSibling;
-      }
-      this.classList.add("links_change");
-    };
-  }
+  //       //pasa al hermano
+  //       el = el.nextSibling;
+  //     }
+  //     this.classList.add("links_change");
+  //   };
+  // }
 
-  //subir datoss al storage
-  const txt_carga = viewHome.querySelector("#txt_carga");
-  const cli = viewHome.querySelector("#mostrarCli");
+  // //subir datoss al storage
+  // const txt_carga = viewHome.querySelector("#txt_carga");
+  // const cli = viewHome.querySelector("#mostrarCli");
 
-  const subir = viewHome.querySelector("#subir");
+  // const subir = viewHome.querySelector("#subir");
 
-  const file_upload = viewHome.querySelector("#file-upload");
-  file_upload.addEventListener("change", () => {
-    subir.classList.add("ocultar");
-    txt_carga.classList.add("ocultar");
-    cli.classList.remove("ocultar");
-    var pdrs = document.getElementById("file-upload").files[0].name;
-    document.getElementById("info").innerHTML = pdrs;
-    const mostrarDoc = document.getElementById("info");
-  });
+  // const file_upload = viewHome.querySelector("#file-upload");
+  // file_upload.addEventListener("change", () => {
+  //   subir.classList.add("ocultar");
+  //   txt_carga.classList.add("ocultar");
+  //   cli.classList.remove("ocultar");
+  //   var pdrs = document.getElementById("file-upload").files[0].name;
+  //   document.getElementById("info").innerHTML = pdrs;
+  //   const mostrarDoc = document.getElementById("info");
+  // });
 
   // window.onload = inicializar;
   var fichero;
@@ -1854,6 +2140,7 @@ export default () => {
 
     modalForm.classList.remove("zIndexDown-modal");
   });
+
 
   btnCloseMessage.addEventListener("click", (e) => {
     e.preventDefault;
@@ -2089,6 +2376,23 @@ export default () => {
   });
 
 
+// });
+// };
 
-  return viewHome;
-};
+    //mostar tareas en documentos
+
+    const mostrar_tareas = viewHome.querySelector('#mostrar_tareas');
+    const tareas_ver = viewHome.querySelector('#tareas_ver');
+    const here_tareas = viewHome.querySelector('#here_tareas');
+    const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
+    
+  
+    mostrar_tareas.addEventListener('click',() =>{
+      tareas_ver.classList.remove("ocultar");
+      mostrar_tareas.classList.add("ocultar");
+      here_tareas.classList.remove("ocultar");
+      informationDoc_ocultar.classList.add("ocultarDoc");
+    })
+    return viewHome;
+  };
+
