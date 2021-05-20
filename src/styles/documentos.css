@@ -40,8 +40,6 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    display: flex;
-    align-items: center;
     margin-bottom: 0px;
 }
 
@@ -74,7 +72,7 @@ padding: 19px 10px 12px 22px;
 
 #see{
     margin: 0px 17px 0px 42px;
-    padding: 5px 5px 5px 38px;
+    padding: 5px 5px 5px 0px;
     border-left: 2px solid #EFF2F9;
 }
 
@@ -313,3 +311,31 @@ border-radius: 6px 0px 0px 13px;
 .ocultarDoc{
     visibility:hidden
 }
+
+#container_principal_tarea{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:2px solid #EFF2F9;
+    height:59px;
+    width: 100%;
+    padding-left: 22px;
+    padding-right: 10px;
+}
+
+#style_a_docs{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+
+    /* Primary Blue */
+
+    color: #0F3041;
+    text-decoration: none;
+}
+
+
