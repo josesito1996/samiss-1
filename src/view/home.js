@@ -1523,31 +1523,6 @@ export default () => {
 
   //   // ****  Columna Izquierda (termino)  **** //
 
-  //   //evento list para utenticar
-  //   const autenticar = firebase.auth();
-  //   autenticar.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log("signin");
-  //     } else {
-  //       console.log("signup");
-  //     }
-  //   });
-
-  // // //leer documentos
-  // // firebase.firestore()
-  // // .collection("users").onSnapshot((querySnapshot) => {
-  // //   fecha_orden.innerHTML='';
-  // //   querySnapshot.forEach((doc) => {
-  // //     //   console.log(`${doc.id} => ${doc.data().check1}`);
-  // //       fecha_orden.innerHTML += `
-  // //         <h6 class="title_card">Fecha de creación</h6>
-  // //         <p style="font-size: 14px;">${doc.data().fecha}</p>
-  // //         <h6 class="title_card">Orden de inspección</h6>
-  // //         <p style="font-size: 14px;">${doc.data().orden}</p>
-  // //         <h6 class="title_card">Materias</h6>
-  // //       `
-  // //         });
-  // //       });
 
   //habilitar input
   // const editar = viewHome.querySelector("#edit");
@@ -2174,6 +2149,7 @@ file_upload.addEventListener("change", ()=> {
   });
 
   //****** Crea template de la tabla con datos del formulario  *******/
+
   const createHomework = () => {
     // const expirationDate = viewHome.querySelector("#inputDate2").value;
     const containerTable = viewHome.querySelector("#container_table");
@@ -2304,51 +2280,52 @@ file_upload.addEventListener("change", ()=> {
 
   };
 
-  //*******Validando campos del formulario********//
-  const homeworkValidInputs = () => {
-    const inputDenominacion = viewHome.querySelector("#inputText1");
-    const dateVencimiento = viewHome.querySelector("#inputDate2");
-    const inputDestinatario = viewHome.querySelector("#inputText3");
-    const inputCorreo = viewHome.querySelector("#inputText4");
-    const textareaModal = viewHome.querySelector("#textareaModal");
-
-    if (
-      inputDenominacion.value === "" ||
-      inputDestinatario.value === "" ||
-      inputCorreo.value === "" ||
-      textareaModal.value === ""
-    ) {
-      console.log("campos vacios");
-      btnCreateHomework.classList.add("btnDisabled");
-      btnCreateHomework.disabled = true;
-    } else {
-      console.log("campos llenos");
-      btnCreateHomework.classList.remove("btnDisabled");
-      btnCreateHomework.disabled = false;
-    }
-
-    // else if (
-    //   inputDenominacion.validity.valid &&
-    //   inputDestinatario.validity.valid &&
-    //   inputCorreo.validity.valid &&
-    //   inputMensaje.validity.valid
-    // ) {
-    //   btnCreateHomework.classList.remove("btnDisabled");
+   
+    //*******Validando campos del formulario********//
+    const homeworkValidInputs = () => {
+      const inputDenominacion = viewHome.querySelector("#inputText1");
+      const dateVencimiento = viewHome.querySelector("#inputDate2");
+      const inputDestinatario = viewHome.querySelector("#inputText3");
+      const inputCorreo = viewHome.querySelector("#inputText4");
+      const textareaModal = viewHome.querySelector("#textareaModal");
+   
+      if (
+        inputDenominacion.value === "" ||
+        inputDestinatario.value === "" ||
+        inputCorreo.value === "" ||
+        textareaModal.value === ""
+      ) {
+        console.log("campos vacios");
+        btnCreateHomework.classList.add("btnDisabled");
+        btnCreateHomework.disabled = true;
+      } else {
+        console.log("campos llenos");
+        btnCreateHomework.classList.remove("btnDisabled");
+        btnCreateHomework.disabled = false;
+      }
+   
+      // else if (
+      //   inputDenominacion.validity.valid &&
+      //   inputDestinatario.validity.valid &&
+      //   inputCorreo.validity.valid &&
+      //   inputMensaje.validity.valid
+      // ) {
+ //   btnCreateHomework.classList.remove("btnDisabled");
     //   btnCreateHomework.disabled = false;
     // }
   };
-
+ 
   const inputDenominacion = viewHome.querySelector("#inputText1");
   const dateVencimiento = viewHome.querySelector("#inputDate2");
   const inputDestinatario = viewHome.querySelector("#inputText3");
   const inputCorreo = viewHome.querySelector("#inputText4");
   // const textarea5 = viewHome.querySelector("textarea5");
-
+ 
   inputDenominacion.addEventListener("input", homeworkValidInputs);
   inputDestinatario.addEventListener("input", homeworkValidInputs);
   inputCorreo.addEventListener("input", homeworkValidInputs);
   textareaModal.addEventListener("input", homeworkValidInputs);
-
+ 
   //******** Limpia inputs ********/
   const cleanInputs = () => {
     inputDenominacion.value = "";
@@ -2357,9 +2334,9 @@ file_upload.addEventListener("change", ()=> {
     textarea5.value = "";
     textareaModal.value = "";
   };
-
+ 
   const showModalTaskform = viewHome.querySelector("#showModal_taskform");
-
+ 
   //******* botón Crear tarea - abre modal del formulario *******/
   showModalTaskform.addEventListener("click", (e) => {
     e.preventDefault;
@@ -2368,7 +2345,7 @@ file_upload.addEventListener("change", ()=> {
     btnCreateHomework.classList.add("btnDisabled");
     btnCreateHomework.disabled = true;
   });
-
+ 
   //***** botón CREAR TAREA del formulario ******/
   btnCreateHomework.addEventListener("click", (e) => {
     e.preventDefault;
@@ -2430,8 +2407,8 @@ file_upload.addEventListener("change", ()=> {
  
 //     const ficheroTask = viewHome.querySelector("#file-uploadTask");
 //     ficheroTask.addEventListener("change", sendDocFirebase, false);
- 
- 
+
+
 //     const storageRefTask = firebase.storage().ref();
 //     const rootRefTask = firebase.database().ref().child("docTask");
 //     function sendDocFirebase() {
@@ -2492,41 +2469,12 @@ file_upload.addEventListener("change", ()=> {
       here_tareas.classList.remove("ocultar");
       informationDoc_ocultar.classList.add("ocultarDoc");
 
-      
-    
-    const rootRefTask = firebase.database().ref().child("docTask");
 
-    rootRefTask.on('value', function(snapshot){
-      var datos = snapshot.val();
-      var results = "" 
-      for(var key in datos){
- 
-        console.log(datos[key].nombre)
-      
-        results +=  '<div  class="name_info_down">'+datos[key].nombre+'</div>';
-        
-      } 
-      document.getElementById("file_tarea").innerHTML= results;
+
+    cleanInputs();
+    // });
   });
-
-  const click_show_doc = document.getElementById("file_tarea");
-  click_show_doc.addEventListener("click", () => {
-    rootRefTask.on("value", function (snapshot) {
-      var datos = snapshot.val();
-      var result = "";
-      for (var key in datos) {
-        console.log(datos[key].url);
-
-        result +=
-          '<iframe  class="styleIframe"  src="' +
-          datos[key].url +
-          '"></iframe>';
-      }
-      document.getElementById("verFiles").innerHTML = result;
-    });
-  });
-
-  })
+  
     //subir y traer files para see en documentos
     
   
@@ -2543,27 +2491,7 @@ file_upload.addEventListener("change", ()=> {
       star.classList.add('star__checked');
      
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
     return viewHome;
   };
 
