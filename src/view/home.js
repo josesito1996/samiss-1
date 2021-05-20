@@ -374,14 +374,14 @@ export default () => {
                                                       <div class="row">
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
                                                         
-                                                        <div id='rating'>
+                                                        <div class="star-container">
+                                                        <div class="star" data-val="5"></div>
+                                                        <div class="star" data-val="4"></div>
+                                                        <div class="star" data-val="3"></div>
+                                                        <div class="star" data-val="2"></div>
+                                                        <div class="star" data-val="1"></div>
+                                                      </div>
                                                       
-                                                        <i class="bi bi-star" value="1"></i>
-                                                        <i class="bi bi-star" value="2"></i>
-                                                        <i class="bi bi-star" value="3"></i>
-                                                        <i class="bi bi-star" value="4"></i>
-                                                        <i class="bi bi-star" value="5"></i>
-                                                         </div>
                                                        
                                                         </div>
                                                       </div>
@@ -854,17 +854,9 @@ export default () => {
             <div>
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
             <div id="style_generalContainer_principal">
-              <div class="d-flex flex-row justify-content-between" style='border-bottom:2px solid #EFF2F9;' id="container_principal">
+              <div  id="container_principal_tarea">
               
-                <div style="width: 231px;height: 21px;">
-                <p class="styles_principal"><strong>Tarea 1:</strong></p>
-                <p class="styles_principal">Constancia de Compadecencia</p>
-                </div>
-
-                <div style="width: 61px;height: 21px;">
-                <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
-                <p id="date_documentos" style='color:#D70025'>30/05/21</p>
-                </div>
+       
 
               </div>
 
@@ -885,7 +877,7 @@ export default () => {
                 <img  src="./img/svg/clicdoc.svg" alt="" />
                   </label>
                   <div class="d-flex flex-column ">
-                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
                   <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
                   </div>
               
@@ -898,6 +890,38 @@ export default () => {
 
             <!--see doc o pdf o img-->
             <div id="see">
+
+            <div>
+            
+            <div class="d-flex flex-row justify-content-center ">
+            <ul class="d-flex flex-row ">
+              <li class="me-4 ">
+                <a id="style_a_docs" href="">
+                <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+                </a>
+              </li >
+
+              <li class="me-4">
+                <a id="style_a_docs" href="" >
+                <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+                </a>
+              </li>
+
+              <li class="me-2">
+                <a  id="style_a_docs" href="">
+                <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+                </a>
+              </li>
+
+              <li class="me-4 mx-2">
+                <a  id="style_a_docs" href="">
+                <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+                </a>
+              </li>
+            </ul>
+          </div>
+
+            </div>
 
             <div id="verFiles">
             </div>
@@ -1997,39 +2021,39 @@ file_upload.addEventListener("change", ()=> {
     });
   });
 
-  link_datos.classList.add("links_change");
-  const links = viewHome.getElementsByClassName("links");
-  for (let i = 0; i < links.length; i++) {
-    links[i].onclick = function () {
-      let el = links[0];
-      while (el) {
-        if (el.tagName === "DIV") {
-          // remueve class
-          el.classList.remove("links_change");
-        }
+  // link_datos.classList.add("links_change");
+  // const links = viewHome.getElementsByClassName("links");
+  // for (let i = 0; i < links.length; i++) {
+  //   links[i].onclick = function () {
+  //     let el = links[0];
+  //     while (el) {
+  //       if (el.tagName === "DIV") {
+  //         // remueve class
+  //         el.classList.remove("links_change");
+  //       }
 
-        //pasa al hermano
-        el = el.nextSibling;
-      }
-      this.classList.add("links_change");
-    };
-  }
+  //       //pasa al hermano
+  //       el = el.nextSibling;
+  //     }
+  //     this.classList.add("links_change");
+  //   };
+  // }
 
   //subir datoss al storage
-  const txt_carga = viewHome.querySelector("#txt_carga");
-  const cli = viewHome.querySelector("#mostrarCli");
+  // const txt_carga = viewHome.querySelector("#txt_carga");
+  // const cli = viewHome.querySelector("#mostrarCli");
 
-  const subir = viewHome.querySelector("#subir");
+  // const subir = viewHome.querySelector("#subir");
 
-  const file_upload = viewHome.querySelector("#file-upload");
-  file_upload.addEventListener("change", () => {
-    subir.classList.add("ocultar");
-    txt_carga.classList.add("ocultar");
-    cli.classList.remove("ocultar");
-    var pdrs = document.getElementById("file-upload").files[0].name;
-    document.getElementById("info").innerHTML = pdrs;
-    const mostrarDoc = document.getElementById("info");
-  });
+  // const file_upload = viewHome.querySelector("#file-upload");
+  // file_upload.addEventListener("change", () => {
+  //   subir.classList.add("ocultar");
+  //   txt_carga.classList.add("ocultar");
+  //   cli.classList.remove("ocultar");
+  //   var pdrs = document.getElementById("file-upload").files[0].name;
+  //   document.getElementById("info").innerHTML = pdrs;
+  //   const mostrarDoc = document.getElementById("info");
+  // });
 
   // window.onload = inicializar;
   var fichero;
@@ -2150,6 +2174,11 @@ file_upload.addEventListener("change", ()=> {
   const createHomework = () => {
     const expirationDate = viewHome.querySelector("#inputDate2").value;
     const containerTable = viewHome.querySelector("#container_table");
+    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
+    const nameTask = viewHome.querySelector("#inputText1").value;
+    console.log(nameTask)
+    console.log(expirationDate)
+  
 
     containerTable.innerHTML = `
     <table class="table table-hover table-createTask">
@@ -2167,9 +2196,15 @@ file_upload.addEventListener("change", ()=> {
         <tr class="tdTable-createTask">
           <td>
           <input type="checkbox" id="cbox1" value="primary_checkbox">
-          <label for="cbox1">Tema 1</label>
+          <label for="cbox1">${nameTask}</label>
           </td>
-          <td></td>
+          <td>
+          <label for="file-uploadTask" id="subirTask" >
+              <img  src="./img/svg/cli.svg" alt="adjunto" />
+            </label>
+              <input id="file-uploadTask"  type="file" style='display: none;'/>
+            <div id="infoTask"></div>
+          </td>
           <td>Imagen</td>
           <td>${currentDate}</td>
           <td>${expirationDate}</td>
@@ -2177,7 +2212,22 @@ file_upload.addEventListener("change", ()=> {
         </tr>
       </tbody>
     </table>
-`;
+`
+;
+      container_principal_tarea.innerHTML= `
+      
+        <div style="width: 231px;height: 21px;">
+          <p class="styles_principal"><strong>Tarea 1:</strong></p>
+          <p class="styles_principal">${nameTask}</p>
+        </div>
+
+        <div style="width: 61px;height: 21px;">
+          <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
+          <p id="date_documentos" style='color:#D70025'>${expirationDate}</p>
+        </div>
+    
+      `
+;
   };
 
   //*******Validando campos del formulario********//
@@ -2250,27 +2300,67 @@ file_upload.addEventListener("change", ()=> {
     e.preventDefault;
     createHomework();
     cleanInputs();
-  });
+ 
 
 
-});
-};
+ //******* subir documentos de Tareas a Storage *******/
+    //  const subirTask = viewHome.querySelector("#subirTask");
+    const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+ 
+    file_uploadTask.addEventListener("change", () => {
+      const nDocs = document.getElementById("file-uploadTask").files[0].name;
+      document.getElementById("infoTask").innerHTML = nDocs;
+     
+    });
+ 
+    const ficheroTask = viewHome.querySelector("#file-uploadTask");
+    ficheroTask.addEventListener("change", sendDocFirebase, false);
+ 
+ 
+    const storageRefTask = firebase.storage().ref();
+    const rootRefTask = firebase.database().ref().child("docTask");
+    function sendDocFirebase() {
+      //     console.log("subiendo")
+      const documentoSubirTask = ficheroTask.files[0];
+      console.log(documentoSubirTask);
+      const uploadTasks = storageRefTask
+        .child("docTask/" + documentoSubirTask.name)
+        .put(documentoSubirTask);
+ 
+      uploadTasks.on(
+        "state_changed",
+        function (snapshot) {},
+        function (error) {
+          alert("hubo un error");
+        },
+        function () {
+          uploadTasks.snapshot.ref
+            .getDownloadURL()
+            .then(function (downloadURL) {
+              alert("se subió la imagen conURL", downloadURL);
+              console.log("Uploaded a blob or file!");
+              crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
+            });
+        }
+      );
+    };
 
-function  crearNodoEnBDFirebase(name,url){
-  rootRef.push({
+ 
+function  crearNodoEnBDFirebaseTask(name,url){
+  rootRefTask.push({
   nombre:name,
   url:url,
 })
 }
-
+});
 //cambiar logo Sunafil una ver sincronizado
-const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
-const sunafilS = viewHome.querySelector('#sunafil');
-const sunafilBlue = viewHome.querySelector('#sunafilBlue');
-    cambiarLogo.addEventListener('click', ()=>{
-sunafilS.classList.add('ocultar');
-sunafilBlue.classList.remove('ocultar');
-    })
+// const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
+// const sunafilS = viewHome.querySelector('#sunafil');
+// const sunafilBlue = viewHome.querySelector('#sunafilBlue');
+//     cambiarLogo.addEventListener('click', ()=>{
+// sunafilS.classList.add('ocultar');
+// sunafilBlue.classList.remove('ocultar');
+//     })
 
     //mostar tareas en documentos
 
@@ -2285,7 +2375,79 @@ sunafilBlue.classList.remove('ocultar');
       mostrar_tareas.classList.add("ocultar");
       here_tareas.classList.remove("ocultar");
       informationDoc_ocultar.classList.add("ocultarDoc");
-    })
+
+      
+    
+    const rootRefTask = firebase.database().ref().child("docTask");
+
+    rootRefTask.on('value', function(snapshot){
+      var datos = snapshot.val();
+      var results = "" 
+      for(var key in datos){
+ 
+        console.log(datos[key].nombre)
+      
+        results +=  '<div  class="name_info_down">'+datos[key].nombre+'</div>';
+        
+      } 
+      document.getElementById("file_tarea").innerHTML= results;
+  });
+
+  const click_show_doc = document.getElementById("file_tarea");
+  click_show_doc.addEventListener("click", () => {
+    rootRefTask.on("value", function (snapshot) {
+      var datos = snapshot.val();
+      var result = "";
+      for (var key in datos) {
+        console.log(datos[key].url);
+
+        result +=
+          '<iframe  class="styleIframe"  src="' +
+          datos[key].url +
+          '"></iframe>';
+      }
+      document.getElementById("verFiles").innerHTML = result;
+    });
+  });
+
+  })
+    //subir y traer files para see en documentos
+    
+  
+    let stars = viewHome.querySelectorAll('.star');
+    viewHome.querySelector('.star-container').addEventListener('click', starRating);
+   
+    
+    function starRating(e) {
+      const star = e.target;
+      const val = star.getAttribute('data-val');
+    
+      stars.forEach((star) => star.classList.remove('star__checked'));
+    
+      star.classList.add('star__checked');
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return viewHome;
   };
 
