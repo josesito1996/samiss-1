@@ -1,3 +1,5 @@
+// import { addTask } from "../view-controller/home-controller.js";
+
 export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
@@ -31,7 +33,7 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML = `
+  viewHome.innerHTML =`
 
     <div class="wrapper">
 
@@ -1806,7 +1808,6 @@ export default () => {
     sunafilBlue.classList.remove("ocultar");
   });
 
-
   //****************** CONTENEDOR DE TAREAS ********************//
   //******* Fecha actual - input date *******/
   const dateNew = new Date();
@@ -1861,8 +1862,9 @@ export default () => {
 
   //****** Crea template de la tabla con datos del formulario  *******/
   const createHomework = () => {
-    const expirationDate = viewHome.querySelector("#inputDate2").value;
+    // const expirationDate = viewHome.querySelector("#inputDate2").value;
     const containerTable = viewHome.querySelector("#container_table");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
 
     containerTable.innerHTML = `
     <table class="table table-hover table-createTask">
@@ -1876,21 +1878,108 @@ export default () => {
           <th scope="col">Estado</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="tdTable-createTask">
-          <td>
-          <input type="checkbox" id="cbox1" value="primary_checkbox">
-          <label for="cbox1">Tema 1</label>
-          </td>
-          <td></td>
-          <td>Imagen</td>
-          <td>${currentDate}</td>
-          <td>${expirationDate}</td>
-          <td>Pendiente</td>
-        </tr>
+      <tbody id="tableTask">
+
       </tbody>
     </table>
 `;
+
+    const tableTask = viewHome.querySelector("#tableTask");
+
+    firebase
+      .firestore()
+      .collection("tasks")
+      .orderBy("date", "desc")
+      .onSnapshot((querySnapshot) => {
+        tableTask.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const contador = doc.files
+          console.log(contador);
+
+          tableTask.innerHTML += `
+            <tr class="tdTable-createTask">
+              <td>
+              <input type="checkbox" id="cbox1-${doc.id}" value="primary_checkbox">
+              <label for="cbox1">${doc.data().taskName}</label>
+              </td>
+              <td>
+                <label for="file-uploadTask-${doc.id}" id="subirTask" >
+                  <img  src="./img/svg/clip.svg" alt="adjunto" />
+                </label>
+                  <input id="file-uploadTask-${doc.id}" onchange='' type="file" style='display: none;'/>
+                <div id="infoTask${doc.id}">
+                  <span id="count-file-${doc.files}"></span>
+                </div>
+              </td>
+              <td>Imagen</td>
+              <td>${doc.data().date}</td>
+              <td>${doc.data().expiration}</td>
+              <td>${doc.data().status}</td>
+            </tr>
+        `;
+        
+
+          //******* subir documentos de Tareas a Storage *******/
+          //  const subirTask = viewHome.querySelector("#subirTask");
+          const file_uploadTask = viewHome.querySelector(`#file-uploadTask-${doc.id}`);
+
+
+          file_uploadTask.addEventListener("change", () => {
+            const nDocs =
+              document.getElementById(`file-uploadTask-${doc.id}`).files[0].name;
+            document.getElementById(`infoTask${doc.id}`).innerHTML = nDocs;
+            // const mostrarDoc = document.getElementById("info");
+          });
+
+          const ficheroTask = viewHome.querySelector(`#file-uploadTask-${doc.id}`);
+          ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+          const storageRefTask = firebase.storage().ref();
+          const rootRefTask = firebase.database().ref().child("docTask");
+
+          function sendDocFirebase() {
+            console.log("subiendo");
+            const documentoSubirTask = ficheroTask.files[0];
+            console.log(documentoSubirTask);
+            const uploadTasks = storageRefTask
+              .child("docTask/" + documentoSubirTask.name)
+              .put(documentoSubirTask);
+
+            uploadTasks.on(
+              "state_changed",
+              function (snapshot) {},
+              function (error) {
+                alert("hubo un error");
+              },
+              function () {
+                uploadTasks.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    // alert("se subió la imagen conURL", downloadURL);
+                    console.log("Uploaded a blob or file!");
+                    crearNodoEnBDFirebaseTask(
+                      documentoSubirTask.name,
+                      downloadURL
+                    );
+                  });
+              }
+            );
+          }
+
+          function crearNodoEnBDFirebaseTask(name, url) {
+            rootRefTask.push({
+              nombre: name,
+              url: url,
+            });
+          }
+
+          
+        });
+      });
+
+
+
+
   };
 
   //*******Validando campos del formulario********//
@@ -1952,7 +2041,7 @@ export default () => {
   //******* botón Crear tarea - abre modal del formulario *******/
   showModalTaskform.addEventListener("click", (e) => {
     e.preventDefault;
-    console.log("limpia?");
+    // console.log("limpia?");
     cleanInputs();
     btnCreateHomework.classList.add("btnDisabled");
     btnCreateHomework.disabled = true;
@@ -1961,9 +2050,45 @@ export default () => {
   //***** botón CREAR TAREA del formulario ******/
   btnCreateHomework.addEventListener("click", (e) => {
     e.preventDefault;
+
+    // subiendo info de formulario a firebase
+    const taskName = inputDenominacion.value;
+    const taskDate = new Date().toLocaleString();
+    const taskExpiration = dateVencimiento.value;
+    const taskReceiver = inputDestinatario.value;
+    const taskMail = inputCorreo.value;
+    const taskMessages = textarea5.value;
+
+    const newTask = {
+      taskName: taskName,
+      date: taskDate,
+      expiration: taskExpiration,
+      receiver: taskReceiver,
+      mail: taskMail,
+      message: taskMessages,
+      status: "Pendiente",
+      files: []
+    };
+
+    firebase.firestore().collection("tasks").add(newTask);
+
+    // addTask(
+    //   taskName,
+    //   taskDate,
+    //   taskExpiration,
+    //   taskReceiver,
+    //   taskMail,
+    //   taskMessages
+    // ).then(() => {
+    //   console.log("enviado a firebase");
+    // });
+
     createHomework();
     cleanInputs();
+    // });
   });
+
+
 
   return viewHome;
 };
