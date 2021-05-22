@@ -1,4 +1,5 @@
 // import { addTask } from "../view-controller/home-controller.js";
+// import { storage } from '../firebase/firebase.js';
 
 export default () => {
   const viewHome = document.createElement("div");
@@ -33,7 +34,7 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML =`
+  viewHome.innerHTML = `
 
     <div class="wrapper">
 
@@ -489,7 +490,7 @@ export default () => {
                   </div>
                 </div>     
           <!--COLUMNA DERECHA-->
-                <div class="col-12 col-lg-11" id="container_actuacion_head">
+                <div class="col-12 col-lg-11" id="container_actuacion_head" style=";">
                   <div class="container_actuacion_head">
                     <!--primera-fila-->
                     <div class="row">
@@ -641,7 +642,7 @@ export default () => {
                   <div class="container_task">
                       <!-- TABLA -->
                       <div class="createTask d-flex">
-                          <div id="container_table" class="container-table"> 
+                          <div id="container_table" class="container-table" style="margin-top:40px;"> 
                           </div>
                           <div class="container-btnCreateTask d-flex">
                               <button
@@ -705,19 +706,19 @@ export default () => {
           <div class="d-flex flex-row ">
             <ul class="d-flex flex-row mb-0">
               <li class="me-3 ">
-                <a id="style_a_doc" href="">
+                <a id="style_a_doc" href="#/home">
                   Por Etapa <img  src="./img/svg/down_doc.svg" alt="" />
                 </a>
               </li >
 
               <li class="me-3">
-                <a id="style_a_doc" href="" >
+                <a id="style_a_doc" href="#/home" >
                   Por mes/año <img  src="./img/svg/down_doc.svg" alt="" />
                 </a>
               </li>
 
               <li class="me-3">
-                <a  id="style_a_doc" href="">
+                <a  id="style_a_doc" href="#/home">
                   Exportar <img  src="./img/svg/download.svg" alt="" />
                 </a>
               </li>
@@ -791,7 +792,9 @@ export default () => {
                 <div  id="usuario_documentos">
                   <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
                       <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
-                      <p class="text_Resolution">${localStorage.getItem("name")}</p>
+                      <p class="text_Resolution">${localStorage.getItem(
+                        "name"
+                      )}</p>
                   </div>
                 </div>
 
@@ -815,12 +818,14 @@ export default () => {
               
                 <div style="width: 231px;height: 21px;">
                 <p class="styles_principal"><strong>Principal:</strong></p>
-                <p class="styles_principal">Constancia de Compadecencia</p>
+                <p class="styles_principal">${localStorage.getItem("tipo")}</p>
                 </div>
 
                 <div style="width: 61px;height: 21px;">
                 <p class="styles_principal"><strong>Vence:</strong></p>
-                <p id="date_documentos">30/05/21</p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
                 </div>
 
               </div>
@@ -860,12 +865,16 @@ export default () => {
               
                 <div style="width: 231px;height: 21px;">
                 <p class="styles_principal"><strong>Tarea 1:</strong></p>
-                <p class="styles_principal">Constancia de Compadecencia</p>
+                <p class="styles_principal">${localStorage.getItem(
+                  "denomicacion"
+                )}</p>
                 </div>
 
                 <div style="width: 61px;height: 21px;">
                 <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
-                <p id="date_documentos" style='color:#D70025'>30/05/21</p>
+                <p id="date_documentos" style='color:#D70025'>${localStorage.getItem(
+                  "dateVencimiento"
+                )}</p>
                 </div>
 
               </div>
@@ -887,7 +896,7 @@ export default () => {
                 <img  src="./img/svg/clicdoc.svg" alt="" />
                   </label>
                   <div class="d-flex flex-column ">
-                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
                   <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
                   </div>
               
@@ -967,7 +976,7 @@ export default () => {
                   </div>
                 </div>
 
-                <a id="link_sunafil" href="" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña solicítalos desde SUNAT Virtual</a>
+                <a id="link_sunafil" href="#/home" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña solicítalos desde SUNAT Virtual</a>
 
                 <!-- Submit button -->
                 <button type="submit" disabled id = "btn_entrar_modal_sunafil" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1"  class="btn btn-block ">Entrar</button>
@@ -2100,7 +2109,7 @@ file_upload.addEventListener("change", ()=> {
   const yearNow = dateNew.getFullYear();
   const monthNow = String(date.getMonth() + 1).padStart(2, "0");
   const todayDate = String(date.getDate()).padStart(2, "0");
-  const datePattern = year + "-" + monthNow + "-" + todayDate;
+  const datePattern = year + "/" + monthNow + "/" + todayDate;
   const currentDate = todayDate + "/" + monthNow + "/" + yearNow;
 
   const dateFromHomework = viewHome.querySelector("#date_fromHomework");
@@ -2149,9 +2158,16 @@ file_upload.addEventListener("change", ()=> {
 
   //****** Crea template de la tabla con datos del formulario  *******/
   const createHomework = () => {
-    // const expirationDate = viewHome.querySelector("#inputDate2").value;
-    const containerTable = viewHome.querySelector("#container_table");
-    // const nameTask = viewHome.querySelector("#inputText1").value;
+     const expirationDate = viewHome.querySelector("#inputDate2").value;
+     localStorage.setItem("dateVencimiento", inputDate2.value);
+
+
+
+
+
+   const containerTable = viewHome.querySelector("#container_table");
+   const nameTask = viewHome.querySelector("#inputText1").value;
+   localStorage.setItem("denomicacion", nameTask);
 
     containerTable.innerHTML = `
     <table class="table table-hover table-createTask">
@@ -2169,7 +2185,7 @@ file_upload.addEventListener("change", ()=> {
 
       </tbody>
     </table>
-`;
+ `;
 
     const tableTask = viewHome.querySelector("#tableTask");
 
@@ -2180,45 +2196,96 @@ file_upload.addEventListener("change", ()=> {
       .onSnapshot((querySnapshot) => {
         tableTask.innerHTML = "";
         querySnapshot.forEach((doc) => {
-          const contador = doc.files
-          console.log(contador);
-
+          const taskId = doc.id;
           tableTask.innerHTML += `
             <tr class="tdTable-createTask">
               <td>
-              <input type="checkbox" id="cbox1-${doc.id}" value="primary_checkbox">
+              <input type="checkbox" id="cbox1" value="primary_checkbox">
               <label for="cbox1">${doc.data().taskName}</label>
               </td>
+              
               <td>
-                <label for="file-uploadTask-${doc.id}" id="subirTask" >
-                  <img  src="./img/svg/clip.svg" alt="adjunto" />
+              <span class="docCount">${doc.data().files.length}</span>
+
+                <label for="file-uploadTask" id="subirTask" >
+                  <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
                 </label>
-                  <input id="file-uploadTask-${doc.id}" onchange='' type="file" style='display: none;'/>
-                <div id="infoTask${doc.id}">
-                  <span id="count-file-${doc.files}"></span>
-                </div>
+                <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
+                <div id="infoTask">${doc.data().nameFile}</div>
               </td>
-              <td>Imagen</td>
+
+              <td class="tdCircle-blue">
+                <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
+                <span>${doc.data().initials}</span>
+              </td>
               <td>${doc.data().date}</td>
-              <td>${doc.data().expiration}</td>
-              <td>${doc.data().status}</td>
+              <td><strong>${doc.data().expiration}</strong></td>
+              <td id="txt-status">${doc.data().status}</td>
             </tr>
         `;
-        
+
+          // //*****************Cargar de archivos a firebase
+          // let file = "";
+          // let urlFile = "";
+
+          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+
+          // file_uploadTask.addEventListener("change", (e) => {
+          //   console.log("cliqueaste");
+          //   const input = e.target;
+          //   const reader = new FileReader();
+          //   reader.onload = () => {
+          //     const dataURL = reader.result;
+          //     urlFile = dataURL;
+          //     console.log("🤔 urlFile", urlFile);
+
+          //   };
+
+          //   reader.readAsDataURL(input.files[0]);
+          //   file = e.target.files[0];
+          //   console.log("🙄file", file);
+
+          //   // Array temporal
+          //   let arry=[]
+          //   arry.push(file.name);
+          //   console.log(arry);
+
+          //   firebase.firestore().collection('tasks').doc(doc.id).update({
+          //     nameFile: file.name,
+          //     files: arry,
+          //   });
+
+          //   console.log("nombre de archivo", file.name);
+          //   console.log("Id de tarea", `${doc.id}`);
+          // });
+
+          // const uploadFileTask = () => {
+          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
+          //   refStorage.put(file);
+          // }
 
           //******* subir documentos de Tareas a Storage *******/
           //  const subirTask = viewHome.querySelector("#subirTask");
-          const file_uploadTask = viewHome.querySelector(`#file-uploadTask-${doc.id}`);
-
+          const file_uploadTask = viewHome.querySelector(`#file-uploadTask`);
 
           file_uploadTask.addEventListener("change", () => {
             const nDocs =
-              document.getElementById(`file-uploadTask-${doc.id}`).files[0].name;
-            document.getElementById(`infoTask${doc.id}`).innerHTML = nDocs;
+              document.getElementById(`file-uploadTask`).files[0].name;
+
+            // document.getElementById(`infoTask`).innerHTML = nDocs;
             // const mostrarDoc = document.getElementById("info");
+
+            firebase
+              .firestore()
+              .collection("tasks")
+              .doc(doc.id)
+              .update({
+                // nameFile: nDocs,
+                files: [nDocs],
+              });    
           });
 
-          const ficheroTask = viewHome.querySelector(`#file-uploadTask-${doc.id}`);
+          const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
           ficheroTask.addEventListener("change", sendDocFirebase, false);
 
           const storageRefTask = firebase.storage().ref();
@@ -2259,14 +2326,23 @@ file_upload.addEventListener("change", ()=> {
               url: url,
             });
           }
-
-          
         });
+
+        const toggle = viewHome.querySelector("#cbox1");
+        const txtStatus = viewHome.querySelector("#txt-status");
+
+        toggle.addEventListener("change", function () {
+          txtStatus.style.color = this.checked
+            ? "#31CC53"
+            : "#0F3041";
+          console.log("VERDE");
+        });
+
       });
-
-
-
-
+      
+      
+      
+      
   };
 
   //*******Validando campos del formulario********//
@@ -2340,24 +2416,39 @@ file_upload.addEventListener("change", ()=> {
 
     // subiendo info de formulario a firebase
     const taskName = inputDenominacion.value;
-    const taskDate = new Date().toLocaleString();
+    const taskDate = currentDate;
     const taskExpiration = dateVencimiento.value;
     const taskReceiver = inputDestinatario.value;
     const taskMail = inputCorreo.value;
     const taskMessages = textarea5.value;
+    const count = 0;
+
+    // Invertir fecha de expiración d/m/a
+    let resFecha = taskExpiration.split("-");
+    let reversedFecha = resFecha.reverse();
+    let taskExpi = reversedFecha.join("/");
+
+    // // Iniciales del destinatario
+    let initials = Array.prototype.map.call(taskReceiver.split(" "), function(x){ return x.substring(0,1).toUpperCase();}).join('');
+
 
     const newTask = {
       taskName: taskName,
       date: taskDate,
-      expiration: taskExpiration,
+      expiration: taskExpi,
       receiver: taskReceiver,
+      initials: initials,
       mail: taskMail,
       message: taskMessages,
       status: "Pendiente",
-      files: []
+      file: "",
+      nameFile: "",
+      files: [],
+      count: count,
     };
 
     firebase.firestore().collection("tasks").add(newTask);
+    console.log(newTask);
 
     // addTask(
     //   taskName,
@@ -2386,13 +2477,66 @@ file_upload.addEventListener("change", ()=> {
     const here_tareas = viewHome.querySelector('#here_tareas');
     const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
     
+
+   mostrar_tareas.addEventListener("click", () => {
+     tareas_ver.classList.remove("ocultar");
+     mostrar_tareas.classList.add("ocultar");
+     here_tareas.classList.remove("ocultar");
+     informationDoc_ocultar.classList.add("ocultarDoc");
+
+     const rootRefTask = firebase.database().ref().child("docTask");
+
+     rootRefTask.on("value", function (snapshot) {
+       var datos = snapshot.val();
+       var results = "";
+       for (var key in datos) {
+         console.log(datos[key].nombre);
+
+         results +=
+           '<div  class="name_info_down1">' + datos[key].nombre + "</div>";
+       }
+       document.getElementById("file_tarea").innerHTML = results;
+
+       // const cambiarFond = viewHome.querySelector('#file_tarea')
+       // cambiarFond.addEventListener('click', () => {
+       //   console.log('aqui')
+       //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+       // });
+     });
+
+     const click_show_doc = document.getElementById("file_tarea");
+     click_show_doc.addEventListener("click", () => {
+       rootRefTask.on("value", function (snapshot) {
+         var datos = snapshot.val();
+         var result = "";
+         for (var key in datos) {
+           console.log(datos[key].url);
+
+           result +=
+             '<iframe  class="styleIframe"  src="' +
+             datos[key].url +
+             '"></iframe>';
+         }
+
+         document.getElementById("verFiles").innerHTML = result;
+       });
+     });
+   });
+
   
-    mostrar_tareas.addEventListener('click',() =>{
-      tareas_ver.classList.remove("ocultar");
-      mostrar_tareas.classList.add("ocultar");
-      here_tareas.classList.remove("ocultar");
-      informationDoc_ocultar.classList.add("ocultarDoc");
-    })
+
+
+
+
+    here_tareas.addEventListener('click' , () => {
+    tareas_ver.classList.add("ocultar");
+    mostrar_tareas.classList.remove("ocultar");
+    here_tareas.classList.add("ocultar");
+    informationDoc_ocultar.classList.remove("ocultarDoc");
+  });
+
+
+
     return viewHome;
   };
 

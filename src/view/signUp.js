@@ -3,7 +3,7 @@ export default () => {
   const viewSignUp = document.createElement("div");
   // const initials_local = localStorage.getItem("iniciales");
  
-  viewSignUp.innerHTML =html `
+  viewSignUp.innerHTML = `
       <div class="container-register d-flex">
         <div class="div-logo-form d-flex">
           <!-- Columna izquierda - Logo -->
@@ -38,7 +38,7 @@ export default () => {
                     Completa los datos solicitados. ¿Ya tienes una cuenta?&nbsp
                   </p>
                   <a
-                    href=""
+                    href="#"
                     class="ptxtRed mb-3 "
                     style="text-decoration:none; font-size: 14px;"
                     >Ingresa</a

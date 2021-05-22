@@ -2,7 +2,7 @@ import { signIn } from '../firebase/firebase-Auth.js';
 
 export default () => {
     const viewActuacion = document.createElement('div');
-    viewActuacion .innerHTML =  `
+    viewActuacion.innerHTML = `
     <!---Primera fila-->
     <div class="row " >
         <!-- Navbar-->
@@ -12,7 +12,7 @@ export default () => {
                 <!-- Left elements -->
                 <div class="d-flex col-12 col-lg-3">
                     <!-- Brand -->
-                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#/home">
                         <img src="./img/logo_inspection.png" position: absolute; alt="" loading="lazy"
                             style="margin-top: 19px; width: 77.19px;height: 26px;margin-left: 152px;margin-top: 19px;" />
                     </a>
@@ -28,7 +28,7 @@ export default () => {
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <div class="d-flex align-items-center "style="height: 64px;border-bottom: 1px solid  #D70025;width:106px;">
                               <li class="nav-item">
-                                  <a class="nav-link active" aria-current="page" style="color:#0E3141;font-weight: bold;font-size:12px;" href="#">Mis casos</a>
+                                  <a class="nav-link active" aria-current="page" style="color:#0E3141;font-weight: bold;font-size:12px;" href="#/home">Mis casos</a>
                               </li>
                             </div>   
                            
@@ -37,14 +37,14 @@ export default () => {
                     <div class="d-flex float-end align-items-center justify-content-center" style="margin-top:15px;">
                         <ul class="navbar-nav flex-row">
                             <li class="nav-item me-3 me-lg-1">
-                                <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                                <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                     <span> <i class="fas fa-search"></i></span>
                                 </a>
                             </li>
                             <li class="nav-item me-3 me-lg-1">
-                                <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                                <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                     <img src="./img/bells.png" class="rounded-circle" height="23px" alt="" loading="lazy" />
-                                    <strong class="d-none d-sm-block ms-1">John</strong>
+                                    <strong class="d-none d-sm-block ms-1"></strong>
                                 </a>
                             </li>
                         </ul>
@@ -56,14 +56,14 @@ export default () => {
                 <div class="col-12 ">
                     <ul class="navbar-nav flex-row">
                         <li class="nav-item me-3 me-lg-1">
-                            <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                            <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                 <img src="./img/Avatar.png" class="rounded-circle" height="32px" ; width="32px" ; alt=""
                                     loading="lazy" />
                                 <strong class="d-none d-sm-block ms-1">Alonso Hoyos</strong>
                             </a>
                         </li>
                         <li class="nav-item me-3 me-lg-1">
-                            <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                            <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                 <span><i class="fas fa-chevron-down mt-2"></i></span>
                             </a>
                         </li>
@@ -81,7 +81,7 @@ export default () => {
         <div class="col-12" style="margin-left:152px;margin-top:20px;">
             <ul class="navbar-nav flex-row">
                 <li class="nav-item me-3 me-lg-1">
-                    <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                    <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                         <img src="./img/double left.png" class="rounded-circle" height="24px" ; width="24px" ; alt=""
                             loading="lazy" />
                         <strong class="d-none d-sm-block ms-1" id="home_inspection">Home</strong>
@@ -100,11 +100,11 @@ export default () => {
         <li  style="list-style: none; width:400px;text-align: center;">
             <a class="nav-link active"  id="sube_archivo" aria-current="page"
                 style="color: #0F3041;font-weight: 600;
-                font-size: 16px;border-bottom:  1px solid #7D7D7D;" href="#">Sube
+                font-size: 16px;border-bottom:  1px solid #7D7D7D;" href="#/home">Sube
                 tus archivos</a>
         </li>
         <li  id="sube_manual" style=" width:400px;text-align: center;">
-            <a class="nav-link active" href="#" id="line_manual"  style="color:#0E3141;font-size: 16px; ">Crear de forma manual</a>
+            <a class="nav-link active" href="#/home" id="line_manual"  style="color:#0E3141;font-size: 16px; ">Crear de forma manual</a>
         </li>
     </div>
 
@@ -201,12 +201,12 @@ export default () => {
             box-sizing: border-box;
             box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
-            
-                     
+            height:43px;
+            width:98px;
             flex: none;
             order: 4;
             flex-grow: 0;
-            margin: 30px 671px;" class="pruebahome">Continuar</button>
+            margin: 20px 0 0 630px;" class="pruebahome">Continuar</button>
         </form>
     </div>
 </div>
@@ -216,15 +216,15 @@ export default () => {
         <div id="handbook" class="ocultar">
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <form id="form_handbook" style="width:800px; height:655px;">
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:58px;">
-                        <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;">1. Fecha de
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
+                        <label for="staticEmail" class="col-12 col-lg-5 col-form-label" style=" margin-left:0px;font-size: 14px;">1. Fecha de
                             actuación</label>
                         <input type="date"   
                         style="width:161px; height:39px;" class="form-control" name="trip-start" id="date_actuacion" value="2021-05-03" min="1980-01-01" placeholder="13/04/21" max="2030-12-31"> 
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px;">2. Tipo de actuación</label>
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
+                        <label for="inputPassword" class="col-12 col-lg-5   col-form-label" style=" margin-left:0px; font-size: 14px;">2. Tipo de actuación</label>
                         <select name="mySelectValueTipo" id="mySelectValueTipo"  required="seleciona aquí" class="form-control" style="width:266px; height:36.49px;"> 
                                 <option value="">Selecciona aquí</option>
                                 <option value="Visita inspectiva">Visita inspectiva</option>
@@ -240,18 +240,18 @@ export default () => {
                      
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
-                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">3. Funcionarios</label>
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
+                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 14px;">3. Funcionarios</label>
                         <input type="text" class="form-control" id="funcionario_actuacion"  placeholder="Ejem. Rosa Cubas Linares "
                             style="width:354px; height:39px;">
                         <div class="d-flex column justify-content-end me-5" >
-                            <img src="./img/svg/+.svg" class="logo" alt="logo" /><a class="link-success" href="#"
+                            <img src="./img/svg/+.svg" class="logo" alt="logo" /><a class="link-success" href="#/home"
                                 id="links_new_inspector" style="margin-right:95px;">Funcionarios</a>
                         </div>
                     </div>
     
                     <div class="mb-3 row" style="margin-left:30px;margin-top:40px;">
-                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;">4. Etapa</label>
+                        <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;font-size: 14px;">4. Etapa</label>
                         <select name="mySelectValueEtapa" id="mySelectValueEtapa" required="Selecciona aquí" class="form-control" style="width:231px; height:36.49px;">
                                 <option value="">Selecciona aquí</option>
                                 <option value="Investigación ">Investigación </option>
@@ -261,23 +261,29 @@ export default () => {
                       
                     </div>
     
-                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
+                    <div class="mb-3 row" style="margin-left:20px;margin-top:40px;">
                         <div class="d-flex flex-row bd-highlight ">
-                            <label for="inputPassword" class="form-label" style=" margin-left:0px">5. Descripcion</label>
+                            <label for="inputPassword" class="form-label" style=" margin-left:0px; font-size: 14px;">5. Descripcion</label>
                             <input type="text" class="form-control" placeholder="Escribir aquí" style=" margin-left:240px;margin-bottom:38px; width:414px; height:105px;" name="CheckAll" id="descripcion_actuacion" />                          
                         </div>
                     </div>
 
 
-                    <label for="file-upload" id="subir" style="margin-left:0px;">
-                                  <img  src="./img/svg/carga.svg" alt="" />
-                                    </label>
-                                    <input id="file-upload"  type="file" style='display: none;'/>
-                                    <div id="info"></div>
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:20px;">
+                        <div class="d-flex flex-row bd-highlight ">
+                        <label for="inputPassword" class="form-label" style=" margin-left:0px;font-size: 14px;">6. Documentos</label>
+                        <label for="file-upload" id="subir" style="margin-left:240px;">
+                                    <img  src="./img/svg/carga.svg" alt="" />Añada tus documentos
+                                        </label>
+                                        <input id="file-upload"  type="file" style='display: none;'/>
+                                        <div id="info" style="margin-left:240px;"></div>
+                        </div>   
+                    </div>
+
     
 
-                    <div class="row" id="btn_crearActuacion">
-                       <input type="button" id="enviar" value="Crear actuación" style="height:auto;">
+                    <div class="" id="btn_crearActuacion" style="text-align:center; margin-top:30px;">
+                       <input type="button" class="btnenviar_acti" value="Crear actuación" style="height:40px; width:138px; color:white; border-radius:10px;">
                     </div>
                 </form>
             </div>
@@ -288,9 +294,9 @@ export default () => {
         <footer class="d-flex justify-content-around" >
             <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
                 <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
-                <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
+                <a href="#/home" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
                 <p>y</p>
-                <a href="" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
+                <a href="#/home" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
             </div>
             <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
         </footer>
@@ -298,16 +304,16 @@ export default () => {
     `;
 
 //subir documento
-// const subir = viewActuacion.querySelector("#subir");
+const subir = viewActuacion.querySelector("#subir");
 
-// const file_upload = viewActuacion.querySelector("#file-upload");
-// file_upload.addEventListener("change", ()=> {
-//   subir.classList.add("ocultar");
+const file_upload = viewActuacion.querySelector("#file-upload");
+file_upload.addEventListener("change", ()=> {
+  subir.classList.add("ocultar");
   
-//   var pdrs = document.getElementById('file-upload').files[0].name;
-//   document.getElementById('info').innerHTML = pdrs;
+  var pdrs = document.getElementById('file-upload').files[0].name;
+  document.getElementById('info').innerHTML = pdrs;
  
-// })
+})
 
 var fichero;
 var storageRef;
