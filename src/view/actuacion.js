@@ -268,16 +268,19 @@ export default () => {
                         </div>
                     </div>
 
-
-                    <label for="file-upload" id="subir" style="margin-left:0px;">
-                                  <img  src="./img/svg/carga.svg" alt="" />
-                                    </label>
-                                    <input id="file-upload"  type="file" style='display: none;'/>
-                                    <div id="info"></div>
-    
+                    <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
+                        <div class="d-flex flex-row bd-highlight ">
+                        <label for="inputPassword" class="form-label" style=" margin-left:0px">6. Documentos</label>
+                        <label for="file-upload" id="subir" style="margin-left:240px;">
+                                    <img  src="./img/svg/carga.svg" alt="" />Añada tus documentos
+                                        </label>
+                                        <input id="file-upload"  type="file" style='display: none;'/>
+                                        <div id="info" style="margin-left:240px;"></div>
+                        </div>   
+                    </div>             
 
                     <div class="row" id="btn_crearActuacion">
-                       <input type="button" id="enviar" value="Crear actuación" style="height:auto;">
+                       <input type="button" id="env" value="Crear actuación" style="height:auto;">
                     </div>
                 </form>
             </div>
@@ -285,29 +288,28 @@ export default () => {
         <!---FILA 3-->
         <div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
         
-        <footer class="d-flex justify-content-around" >
-            <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
-                <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
-                <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
-                <p>y</p>
-                <a href="" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
-            </div>
-            <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
-        </footer>
+        <div class="footer d-flex">
+        <p>
+          Copyright © 2021 <strong>sami.</strong>Todos los derechos
+          reservados.
+          <span>Términos del Servicio y Políticas de Privacidad</span>
+        </p>
+        <img src="./img/svg/group.svg" alt="logo" />
+      </div>
     </div>
     `;
 
-//subir documento
-// const subir = viewActuacion.querySelector("#subir");
+// subir documento
+const subir = viewActuacion.querySelector("#subir");
 
-// const file_upload = viewActuacion.querySelector("#file-upload");
-// file_upload.addEventListener("change", ()=> {
-//   subir.classList.add("ocultar");
+const file_upload = viewActuacion.querySelector("#file-upload");
+file_upload.addEventListener("change", ()=> {
+  subir.classList.add("ocultar");
   
-//   var pdrs = document.getElementById('file-upload').files[0].name;
-//   document.getElementById('info').innerHTML = pdrs;
+  var pdrs = document.getElementById('file-upload').files[0].name;
+  document.getElementById('info').innerHTML = pdrs;
  
-// })
+})
 
 var fichero;
 var storageRef;

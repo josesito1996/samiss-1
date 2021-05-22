@@ -3,7 +3,7 @@ export default () => {
   const viewSignUp = document.createElement("div");
   // const initials_local = localStorage.getItem("iniciales");
  
-  viewSignUp.innerHTML =html `
+  viewSignUp.innerHTML = `
       <div class="container-register d-flex">
         <div class="div-logo-form d-flex">
           <!-- Columna izquierda - Logo -->

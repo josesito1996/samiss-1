@@ -2496,11 +2496,11 @@ function  crearNodoEnBDFirebaseTask(name,url){
       } 
       document.getElementById("file_tarea").innerHTML= results;
 
-      const cambiarFond = viewHome.querySelector('#file_tarea')
-      cambiarFond.addEventListener('click', () => {
-        console.log('aqui')
-        viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-      });
+      // const cambiarFond = viewHome.querySelector('#file_tarea')
+      // cambiarFond.addEventListener('click', () => {
+      //   console.log('aqui')
+      //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+      // });
 
   });
   
