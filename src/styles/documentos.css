@@ -339,3 +339,6 @@ border-radius: 6px 0px 0px 13px;
     padding-right: 10px;
 }
 
+#here_tareas {
+    cursor: pointer;
+}
