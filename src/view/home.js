@@ -377,14 +377,14 @@ export default () => {
                                                       <div class="row">
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
                                                         
-                                                        <div id='rating'>
+                                                        <div class="star-container">
+                                                        <div class="star" data-val="5"></div>
+                                                        <div class="star" data-val="4"></div>
+                                                        <div class="star" data-val="3"></div>
+                                                        <div class="star" data-val="2"></div>
+                                                        <div class="star" data-val="1"></div>
+                                                      </div>
                                                       
-                                                        <i class="bi bi-star" value="1"></i>
-                                                        <i class="bi bi-star" value="2"></i>
-                                                        <i class="bi bi-star" value="3"></i>
-                                                        <i class="bi bi-star" value="4"></i>
-                                                        <i class="bi bi-star" value="5"></i>
-                                                         </div>
                                                        
                                                         </div>
                                                       </div>
@@ -490,7 +490,7 @@ export default () => {
                   </div>
                 </div>     
           <!--COLUMNA DERECHA-->
-                <div class="col-12 col-lg-11" id="container_actuacion_head" style=";">
+                <div class="col-12 col-lg-11" id="container_actuacion_head">
                   <div class="container_actuacion_head">
                     <!--primera-fila-->
                     <div class="row">
@@ -861,7 +861,7 @@ export default () => {
             <div>
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
             <div id="style_generalContainer_principal">
-              <div class="d-flex flex-row justify-content-between" style='border-bottom:2px solid #EFF2F9;' id="container_principal">
+              <div  id="container_principal_tarea">
               
                 <div style="width: 231px;height: 21px;">
                 <p class="styles_principal"><strong>Tarea 1:</strong></p>
@@ -909,6 +909,38 @@ export default () => {
 
             <!--see doc o pdf o img-->
             <div id="see">
+
+            <div>
+            
+            <div class="d-flex flex-row justify-content-center ">
+            <ul class="d-flex flex-row ">
+              <li class="me-4 ">
+                <a id="style_a_docs" href="">
+                <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+                </a>
+              </li >
+
+              <li class="me-4">
+                <a id="style_a_docs" href="" >
+                <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+                </a>
+              </li>
+
+              <li class="me-2">
+                <a  id="style_a_docs" href="">
+                <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+                </a>
+              </li>
+
+              <li class="me-4 mx-2">
+                <a  id="style_a_docs" href="">
+                <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+                </a>
+              </li>
+            </ul>
+          </div>
+
+            </div>
 
             <div id="verFiles">
             </div>
@@ -1508,31 +1540,6 @@ export default () => {
 
   //   // ****  Columna Izquierda (termino)  **** //
 
-  //   //evento list para utenticar
-  //   const autenticar = firebase.auth();
-  //   autenticar.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log("signin");
-  //     } else {
-  //       console.log("signup");
-  //     }
-  //   });
-
-  // // //leer documentos
-  // // firebase.firestore()
-  // // .collection("users").onSnapshot((querySnapshot) => {
-  // //   fecha_orden.innerHTML='';
-  // //   querySnapshot.forEach((doc) => {
-  // //     //   console.log(`${doc.id} => ${doc.data().check1}`);
-  // //       fecha_orden.innerHTML += `
-  // //         <h6 class="title_card">Fecha de creación</h6>
-  // //         <p style="font-size: 14px;">${doc.data().fecha}</p>
-  // //         <h6 class="title_card">Orden de inspección</h6>
-  // //         <p style="font-size: 14px;">${doc.data().orden}</p>
-  // //         <h6 class="title_card">Materias</h6>
-  // //       `
-  // //         });
-  // //       });
 
   //habilitar input
   // const editar = viewHome.querySelector("#edit");
@@ -2026,7 +2033,9 @@ file_upload.addEventListener("change", ()=> {
   //   };
   // }
 
+
   // //subir datoss al storage
+
   // const txt_carga = viewHome.querySelector("#txt_carga");
   // const cli = viewHome.querySelector("#mostrarCli");
 
@@ -2072,14 +2081,14 @@ file_upload.addEventListener("change", ()=> {
         // console.log("subido");
       },
       function (error) {
-        alert("hubo un error");
+        console.log("hubo un error");
         // Handle unsuccessful uploads
       },
       function () {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-          alert("se subió la imagen conURL", downloadURL);
+          // alert("se subió la imagen conURL", downloadURL);
           console.log("Uploaded a blob or file!");
           crearNodoEnBDFirebase(documentoSubir.name, downloadURL);
         });
@@ -2157,17 +2166,20 @@ file_upload.addEventListener("change", ()=> {
   });
 
   //****** Crea template de la tabla con datos del formulario  *******/
+
   const createHomework = () => {
      const expirationDate = viewHome.querySelector("#inputDate2").value;
      localStorage.setItem("dateVencimiento", inputDate2.value);
 
+    const containerTable = viewHome.querySelector("#container_table");
+    const nameTask = viewHome.querySelector("#inputText1").value;
+    localStorage.setItem("denomicacion", nameTask);
 
+    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+    console.log(nameTask)
+    console.log(expirationDate)
 
-
-
-   const containerTable = viewHome.querySelector("#container_table");
-   const nameTask = viewHome.querySelector("#inputText1").value;
-   localStorage.setItem("denomicacion", nameTask);
 
     containerTable.innerHTML = `
     <table class="table table-hover table-createTask">
@@ -2181,6 +2193,7 @@ file_upload.addEventListener("change", ()=> {
           <th scope="col">Estado</th>
         </tr>
       </thead>
+
       <tbody id="tableTask">
 
       </tbody>
@@ -2303,7 +2316,7 @@ file_upload.addEventListener("change", ()=> {
               "state_changed",
               function (snapshot) {},
               function (error) {
-                alert("hubo un error");
+                console.log("hubo un error");
               },
               function () {
                 uploadTasks.snapshot.ref
@@ -2343,53 +2356,56 @@ file_upload.addEventListener("change", ()=> {
       
       
       
+  // };
+
   };
 
-  //*******Validando campos del formulario********//
-  const homeworkValidInputs = () => {
-    const inputDenominacion = viewHome.querySelector("#inputText1");
-    const dateVencimiento = viewHome.querySelector("#inputDate2");
-    const inputDestinatario = viewHome.querySelector("#inputText3");
-    const inputCorreo = viewHome.querySelector("#inputText4");
-    const textareaModal = viewHome.querySelector("#textareaModal");
-
-    if (
-      inputDenominacion.value === "" ||
-      inputDestinatario.value === "" ||
-      inputCorreo.value === "" ||
-      textareaModal.value === ""
-    ) {
-      console.log("campos vacios");
-      btnCreateHomework.classList.add("btnDisabled");
-      btnCreateHomework.disabled = true;
-    } else {
-      console.log("campos llenos");
-      btnCreateHomework.classList.remove("btnDisabled");
-      btnCreateHomework.disabled = false;
-    }
-
-    // else if (
-    //   inputDenominacion.validity.valid &&
-    //   inputDestinatario.validity.valid &&
-    //   inputCorreo.validity.valid &&
-    //   inputMensaje.validity.valid
-    // ) {
-    //   btnCreateHomework.classList.remove("btnDisabled");
+   
+    //*******Validando campos del formulario********//
+    const homeworkValidInputs = () => {
+      const inputDenominacion = viewHome.querySelector("#inputText1");
+      const dateVencimiento = viewHome.querySelector("#inputDate2");
+      const inputDestinatario = viewHome.querySelector("#inputText3");
+      const inputCorreo = viewHome.querySelector("#inputText4");
+      const textareaModal = viewHome.querySelector("#textareaModal");
+   
+      if (
+        inputDenominacion.value === "" ||
+        inputDestinatario.value === "" ||
+        inputCorreo.value === "" ||
+        textareaModal.value === ""
+      ) {
+        console.log("campos vacios");
+        btnCreateHomework.classList.add("btnDisabled");
+        btnCreateHomework.disabled = true;
+      } else {
+        console.log("campos llenos");
+        btnCreateHomework.classList.remove("btnDisabled");
+        btnCreateHomework.disabled = false;
+      }
+   
+      // else if (
+      //   inputDenominacion.validity.valid &&
+      //   inputDestinatario.validity.valid &&
+      //   inputCorreo.validity.valid &&
+      //   inputMensaje.validity.valid
+      // ) {
+ //   btnCreateHomework.classList.remove("btnDisabled");
     //   btnCreateHomework.disabled = false;
     // }
   };
-
+ 
   const inputDenominacion = viewHome.querySelector("#inputText1");
   const dateVencimiento = viewHome.querySelector("#inputDate2");
   const inputDestinatario = viewHome.querySelector("#inputText3");
   const inputCorreo = viewHome.querySelector("#inputText4");
   // const textarea5 = viewHome.querySelector("textarea5");
-
+ 
   inputDenominacion.addEventListener("input", homeworkValidInputs);
   inputDestinatario.addEventListener("input", homeworkValidInputs);
   inputCorreo.addEventListener("input", homeworkValidInputs);
   textareaModal.addEventListener("input", homeworkValidInputs);
-
+ 
   //******** Limpia inputs ********/
   const cleanInputs = () => {
     inputDenominacion.value = "";
@@ -2398,9 +2414,9 @@ file_upload.addEventListener("change", ()=> {
     textarea5.value = "";
     textareaModal.value = "";
   };
-
+ 
   const showModalTaskform = viewHome.querySelector("#showModal_taskform");
-
+ 
   //******* botón Crear tarea - abre modal del formulario *******/
   showModalTaskform.addEventListener("click", (e) => {
     e.preventDefault;
@@ -2409,7 +2425,7 @@ file_upload.addEventListener("change", ()=> {
     btnCreateHomework.classList.add("btnDisabled");
     btnCreateHomework.disabled = true;
   });
-
+ 
   //***** botón CREAR TAREA del formulario ******/
   btnCreateHomework.addEventListener("click", (e) => {
     e.preventDefault;
@@ -2463,12 +2479,76 @@ file_upload.addEventListener("change", ()=> {
 
     createHomework();
     cleanInputs();
+
     // });
   });
 
 
 // });
 // };
+
+ 
+
+
+//  //******* subir documentos de Tareas a Storage *******/
+//     //  const subirTask = viewHome.querySelector("#subirTask");
+//     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+ 
+//     file_uploadTask.addEventListener("change", () => {
+//       const nDocs = document.getElementById("file-uploadTask").files[0].name;
+//       document.getElementById("infoTask").innerHTML = nDocs;
+     
+//     });
+ 
+//     const ficheroTask = viewHome.querySelector("#file-uploadTask");
+//     ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+
+//     const storageRefTask = firebase.storage().ref();
+//     const rootRefTask = firebase.database().ref().child("docTask");
+//     function sendDocFirebase() {
+//       //     console.log("subiendo")
+//       const documentoSubirTask = ficheroTask.files[0];
+//       console.log(documentoSubirTask);
+//       const uploadTasks = storageRefTask
+//         .child("docTask/" + documentoSubirTask.name)
+//         .put(documentoSubirTask);
+ 
+//       uploadTasks.on(
+//         "state_changed",
+//         function (snapshot) {},
+//         function (error) {
+//           alert("hubo un error");
+//         },
+//         function () {
+//           uploadTasks.snapshot.ref
+//             .getDownloadURL()
+//             .then(function (downloadURL) {
+//               alert("se subió la imagen conURL", downloadURL);
+//               console.log("Uploaded a blob or file!");
+//               crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
+//             });
+//         }
+//       );
+//     };
+
+ 
+// function  crearNodoEnBDFirebaseTask(name,url){
+//   rootRefTask.push({
+//   nombre:name,
+//   url:url,
+// })
+// }
+// });
+// //cambiar logo Sunafil una ver sincronizado
+// // const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
+// // const sunafilS = viewHome.querySelector('#sunafil');
+// // const sunafilBlue = viewHome.querySelector('#sunafilBlue');
+// //     cambiarLogo.addEventListener('click', ()=>{
+// // sunafilS.classList.add('ocultar');
+// // sunafilBlue.classList.remove('ocultar');
+// //     })
+
 
     //mostar tareas en documentos
 
@@ -2522,11 +2602,6 @@ file_upload.addEventListener("change", ()=> {
        });
      });
    });
-
-  
-
-
-
 
     here_tareas.addEventListener('click' , () => {
     tareas_ver.classList.add("ocultar");
