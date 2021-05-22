@@ -234,7 +234,7 @@ export default () => {
                       Agrega un Usuario &nbsp
                     </p>
                     <img
-                      src="../src/img/svg/help-circle.svg"
+                      src="./src/img/svg/help-circle.svg"
                       alt="help circle"
                     />
                   </div>
