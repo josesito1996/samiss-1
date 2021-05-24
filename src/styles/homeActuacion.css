@@ -197,7 +197,8 @@
 #container_actuacion_head{
     /* border: 1px solid red; */
     width: 777px;
-    height: 231px;
+    /* height: 231px; */
+    height: auto;
     padding: 30px 37px 40px 22px;
     background: #FFFFFF;
     border-radius: 5px;

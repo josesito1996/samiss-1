@@ -422,6 +422,8 @@ showModalTaskform.addEventListener("click", (e) => {
 
 //***** botón CREAR TAREA del formulario ******/
 btnCreateHomework.addEventListener("click", (e) => {
+
+
   e.preventDefault;
   createHomework();
   cleanInputs();
@@ -429,5 +431,6 @@ btnCreateHomework.addEventListener("click", (e) => {
 
   return viewHomework;
 };
+
 
 

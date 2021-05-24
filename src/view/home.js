@@ -1,3 +1,6 @@
+// import { addTask } from "../view-controller/home-controller.js";
+// import { storage } from '../firebase/firebase.js';
+
 export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
@@ -639,7 +642,7 @@ export default () => {
                   <div class="container_task">
                       <!-- TABLA -->
                       <div class="createTask d-flex">
-                          <div id="container_table" class="container-table"> 
+                          <div id="container_table" class="container-table" style="margin-top:40px;"> 
                           </div>
                           <div class="container-btnCreateTask d-flex">
                               <button
@@ -703,19 +706,19 @@ export default () => {
           <div class="d-flex flex-row ">
             <ul class="d-flex flex-row mb-0">
               <li class="me-3 ">
-                <a id="style_a_doc" href="">
+                <a id="style_a_doc" href="#/home">
                   Por Etapa <img  src="./img/svg/down_doc.svg" alt="" />
                 </a>
               </li >
 
               <li class="me-3">
-                <a id="style_a_doc" href="" >
+                <a id="style_a_doc" href="#/home" >
                   Por mes/año <img  src="./img/svg/down_doc.svg" alt="" />
                 </a>
               </li>
 
               <li class="me-3">
-                <a  id="style_a_doc" href="">
+                <a  id="style_a_doc" href="#/home">
                   Exportar <img  src="./img/svg/download.svg" alt="" />
                 </a>
               </li>
@@ -789,7 +792,9 @@ export default () => {
                 <div  id="usuario_documentos">
                   <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
                       <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
-                      <p class="text_Resolution">${localStorage.getItem("name")}</p>
+                      <p class="text_Resolution">${localStorage.getItem(
+                        "name"
+                      )}</p>
                   </div>
                 </div>
 
@@ -813,12 +818,14 @@ export default () => {
               
                 <div style="width: 231px;height: 21px;">
                 <p class="styles_principal"><strong>Principal:</strong></p>
-                <p class="styles_principal">Constancia de Compadecencia</p>
+                <p class="styles_principal">${localStorage.getItem("tipo")}</p>
                 </div>
 
                 <div style="width: 61px;height: 21px;">
                 <p class="styles_principal"><strong>Vence:</strong></p>
-                <p id="date_documentos">30/05/21</p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
                 </div>
 
               </div>
@@ -856,6 +863,7 @@ export default () => {
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
             <div id="style_generalContainer_principal">
               <div  id="container_principal_tarea">
+
               <div style="width: 231px;height: 21px;">
               <p class="styles_principal"><strong>Tarea 1 </strong></p>
               <p class="styles_principal">${localStorage.getItem("denomicacion")}</p>
@@ -865,8 +873,6 @@ export default () => {
               <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
               <p id="date_documentos" style='color:#D70025'>${localStorage.getItem("dateVencimiento")}</p>
             </div>
-       
-
               </div>
 
               <div id='doc_select'>
@@ -984,7 +990,7 @@ export default () => {
     
                  <!-- Usuario input -->
                  <div class="form-outline">
-                  <input type="txt" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
+                  <input type="text" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
                 </div>
 
                 <!-- Password input -->
@@ -1002,7 +1008,7 @@ export default () => {
                   </div>
                 </div>
 
-                <a id="link_sunafil" href="" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña solicítalos desde SUNAT Virtual</a>
+                <a id="link_sunafil" href="#/home" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña solicítalos desde SUNAT Virtual</a>
 
                 <!-- Submit button -->
                 <button type="submit" disabled id = "btn_entrar_modal_sunafil" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1"  class="btn btn-block ">Entrar</button>
@@ -1534,31 +1540,6 @@ export default () => {
 
   //   // ****  Columna Izquierda (termino)  **** //
 
-  //   //evento list para utenticar
-  //   const autenticar = firebase.auth();
-  //   autenticar.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log("signin");
-  //     } else {
-  //       console.log("signup");
-  //     }
-  //   });
-
-  // // //leer documentos
-  // // firebase.firestore()
-  // // .collection("users").onSnapshot((querySnapshot) => {
-  // //   fecha_orden.innerHTML='';
-  // //   querySnapshot.forEach((doc) => {
-  // //     //   console.log(`${doc.id} => ${doc.data().check1}`);
-  // //       fecha_orden.innerHTML += `
-  // //         <h6 class="title_card">Fecha de creación</h6>
-  // //         <p style="font-size: 14px;">${doc.data().fecha}</p>
-  // //         <h6 class="title_card">Orden de inspección</h6>
-  // //         <p style="font-size: 14px;">${doc.data().orden}</p>
-  // //         <h6 class="title_card">Materias</h6>
-  // //       `
-  // //         });
-  // //       });
 
   //habilitar input
   // const editar = viewHome.querySelector("#edit");
@@ -2061,7 +2042,9 @@ file_upload.addEventListener("change", ()=> {
   //   };
   // }
 
-  //subir datoss al storage
+
+  // //subir datoss al storage
+
   // const txt_carga = viewHome.querySelector("#txt_carga");
   // const cli = viewHome.querySelector("#mostrarCli");
 
@@ -2107,14 +2090,14 @@ file_upload.addEventListener("change", ()=> {
         // console.log("subido");
       },
       function (error) {
-        alert("hubo un error");
+        console.log("hubo un error");
         // Handle unsuccessful uploads
       },
       function () {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-          alert("se subió la imagen conURL", downloadURL);
+          // alert("se subió la imagen conURL", downloadURL);
           console.log("Uploaded a blob or file!");
           crearNodoEnBDFirebase(documentoSubir.name, downloadURL);
         });
@@ -2138,14 +2121,13 @@ file_upload.addEventListener("change", ()=> {
     sunafilBlue.classList.remove("ocultar");
   });
 
-
   //****************** CONTENEDOR DE TAREAS ********************//
   //******* Fecha actual - input date *******/
   const dateNew = new Date();
   const yearNow = dateNew.getFullYear();
   const monthNow = String(date.getMonth() + 1).padStart(2, "0");
   const todayDate = String(date.getDate()).padStart(2, "0");
-  const datePattern = year + "-" + monthNow + "-" + todayDate;
+  const datePattern = year + "/" + monthNow + "/" + todayDate;
   const currentDate = todayDate + "/" + monthNow + "/" + yearNow;
  
   const dateFromHomework = viewHome.querySelector("#date_fromHomework");
@@ -2195,15 +2177,22 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
   });
 
   //****** Crea template de la tabla con datos del formulario  *******/
+
   const createHomework = () => {
-    const expirationDate = viewHome.querySelector("#inputDate2").value;
+     const expirationDate = viewHome.querySelector("#inputDate2").value;
+     localStorage.setItem("dateVencimiento", inputDate2.value);
+
     const containerTable = viewHome.querySelector("#container_table");
-    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
     const nameTask = viewHome.querySelector("#inputText1").value;
     localStorage.setItem("denomicacion", nameTask);
+
+
+    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+
     console.log(nameTask)
     console.log(expirationDate)
-  
+
 
     containerTable.innerHTML = `
     <table class="table table-hover table-createTask">
@@ -2222,162 +2211,215 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
       </tbody>
     </table>
-`;
-const tableTask = viewHome.querySelector("#tableTask");
+ `;
 
-firebase
-  .firestore()
-  .collection("tasks")
-  .orderBy("date", "desc")
-  .onSnapshot((querySnapshot) => {
-    tableTask.innerHTML = "";
-    querySnapshot.forEach((doc) => {
-      const contador = doc.files
-      // console.log(contador);
+    const tableTask = viewHome.querySelector("#tableTask");
 
-      tableTask.innerHTML += `
-        <tr class="tdTable-createTask">
-          <td>
-          <input type="checkbox" id="cbox1-${doc.id}" value="primary_checkbox">
-          <label for="cbox1">${doc.data().taskName}</label>
-          </td>
-          <td>
-            <label for="file-uploadTask" id="subirTask" >
-              <img  src="./img/svg/cli.svg" alt="adjunto" />
-            </label>
-              <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
-            <div id="infoTask">
-           
-            </div>
-          </td>
-          <td>Imagen</td>
-          <td>${doc.data().date}</td>
-          <td>${doc.data().expiration}</td>
-          <td>${doc.data().status}</td>
-        </tr>
-    `;
+    firebase
+      .firestore()
+      .collection("tasks")
+      .orderBy("date", "desc")
+      .onSnapshot((querySnapshot) => {
+        tableTask.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const taskId = doc.id;
+          tableTask.innerHTML += `
+            <tr class="tdTable-createTask">
+              <td>
+              <input type="checkbox" id="cbox1" value="primary_checkbox">
+              <label for="cbox1">${doc.data().taskName}</label>
+              </td>
+              
+              <td>
+              <span class="docCount">${doc.data().files.length}</span>
 
-     //Cargar de archivos
-     let file = "";
-     let urlFile = "";
+                <label for="file-uploadTask" id="subirTask" >
+                  <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
+                </label>
+                <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
+                <div id="infoTask">${doc.data().nameFile}</div>
+              </td>
 
-     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+              <td class="tdCircle-blue">
+                <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
+                <span>${doc.data().initials}</span>
+              </td>
+              <td>${doc.data().date}</td>
+              <td><strong>${doc.data().expiration}</strong></td>
+              <td id="txt-status">${doc.data().status}</td>
+            </tr>
+        `;
 
-     file_uploadTask.addEventListener("change", (e) => {
-       console.log("cliqueaste");
-       const input = e.target;
-       const reader = new FileReader();
-       reader.onload = () => {
-         const dataURL = reader.result;
-         urlFile = dataURL;
-         console.log("🤔 urlFile", urlFile);
-       };
+          // //*****************Cargar de archivos a firebase
+          // let file = "";
+          // let urlFile = "";
 
-       reader.readAsDataURL(input.files[0]);
-       file = e.target.files[0];
-       console.log("🙄file", file);
-       
-     firebase.firestore().collection("tasks").doc(`${doc.id}`).update({
-      nameFile: file.name,
-     });
+          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
 
+          // file_uploadTask.addEventListener("change", (e) => {
+          //   console.log("cliqueaste");
+          //   const input = e.target;
+          //   const reader = new FileReader();
+          //   reader.onload = () => {
+          //     const dataURL = reader.result;
+          //     urlFile = dataURL;
+          //     console.log("🤔 urlFile", urlFile);
 
-    });
-    const ficheroTask = viewHome.querySelector('#file-uploadTask');
-    ficheroTask.addEventListener("change", sendDocFirebase, false);
+          //   };
 
-    const storageRefTask = firebase.storage().ref();
-    const rootRefTask = firebase.database().ref().child("docTask");
+          //   reader.readAsDataURL(input.files[0]);
+          //   file = e.target.files[0];
+          //   console.log("🙄file", file);
 
-    function sendDocFirebase() {
-      console.log("subiendo");
-      const documentoSubirTask = ficheroTask.files[0];
-      console.log(documentoSubirTask);
-      const uploadTasks = storageRefTask
-        .child("docTask/" + documentoSubirTask.name)
-        .put(documentoSubirTask);
+          //   // Array temporal
+          //   let arry=[]
+          //   arry.push(file.name);
+          //   console.log(arry);
 
-      uploadTasks.on(
-        "state_changed",
-        function (snapshot) {},
-        function (error) {
-          alert("hubo un error");
-        },
-        function () {
-          uploadTasks.snapshot.ref
-            .getDownloadURL()
-            .then(function (downloadURL) {
-              // alert("se subió la imagen conURL", downloadURL);
-              console.log("Uploaded a blob or file!");
-              crearNodoEnBDFirebaseTask(
-                documentoSubirTask.name,
-                downloadURL
-              );
+          //   firebase.firestore().collection('tasks').doc(doc.id).update({
+          //     nameFile: file.name,
+          //     files: arry,
+          //   });
+
+          //   console.log("nombre de archivo", file.name);
+          //   console.log("Id de tarea", `${doc.id}`);
+          // });
+
+          // const uploadFileTask = () => {
+          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
+          //   refStorage.put(file);
+          // }
+
+          //******* subir documentos de Tareas a Storage *******/
+          //  const subirTask = viewHome.querySelector("#subirTask");
+          const file_uploadTask = viewHome.querySelector(`#file-uploadTask`);
+
+          file_uploadTask.addEventListener("change", () => {
+            const nDocs =
+              document.getElementById(`file-uploadTask`).files[0].name;
+
+            // document.getElementById(`infoTask`).innerHTML = nDocs;
+            // const mostrarDoc = document.getElementById("info");
+
+            firebase
+              .firestore()
+              .collection("tasks")
+              .doc(doc.id)
+              .update({
+                // nameFile: nDocs,
+                files: [nDocs],
+              });    
+          });
+
+          const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
+          ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+          const storageRefTask = firebase.storage().ref();
+          const rootRefTask = firebase.database().ref().child("docTask");
+
+          function sendDocFirebase() {
+            console.log("subiendo");
+            const documentoSubirTask = ficheroTask.files[0];
+            console.log(documentoSubirTask);
+            const uploadTasks = storageRefTask
+              .child("docTask/" + documentoSubirTask.name)
+              .put(documentoSubirTask);
+
+            uploadTasks.on(
+              "state_changed",
+              function (snapshot) {},
+              function (error) {
+                console.log("hubo un error");
+              },
+              function () {
+                uploadTasks.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    // alert("se subió la imagen conURL", downloadURL);
+                    console.log("Uploaded a blob or file!");
+                    crearNodoEnBDFirebaseTask(
+                      documentoSubirTask.name,
+                      downloadURL
+                    );
+                  });
+              }
+            );
+          }
+
+          function crearNodoEnBDFirebaseTask(name, url) {
+            rootRefTask.push({
+              nombre: name,
+              url: url,
             });
-        }
-      );
-    }
+          }
+        });
 
-    function crearNodoEnBDFirebaseTask(name, url) {
-      rootRefTask.push({
-        nombre: name,
-        url: url,
+        const toggle = viewHome.querySelector("#cbox1");
+        const txtStatus = viewHome.querySelector("#txt-status");
+
+        toggle.addEventListener("change", function () {
+          txtStatus.style.color = this.checked
+            ? "#31CC53"
+            : "#0F3041";
+          console.log("VERDE");
+        });
+
       });
-    }
+      
+      
+      
+      
+  // };
 
-    
-  });
-});
+  };
 
 
-};
-  
-
-  //*******Validando campos del formulario********//
-  const homeworkValidInputs = () => {
-    const inputDenominacion = viewHome.querySelector("#inputText1");
-    const dateVencimiento = viewHome.querySelector("#inputDate2");
-    const inputDestinatario = viewHome.querySelector("#inputText3");
-    const inputCorreo = viewHome.querySelector("#inputText4");
-    const textareaModal = viewHome.querySelector("#textareaModal");
-
-    if (
-      inputDenominacion.value === "" ||
-      inputDestinatario.value === "" ||
-      inputCorreo.value === "" ||
-      textareaModal.value === ""
-    ) {
-      console.log("campos vacios");
-      btnCreateHomework.classList.add("btnDisabled");
-      btnCreateHomework.disabled = true;
-    } else {
-      console.log("campos llenos");
-      btnCreateHomework.classList.remove("btnDisabled");
-      btnCreateHomework.disabled = false;
-    }
-
-    // else if (
-    //   inputDenominacion.validity.valid &&
-    //   inputDestinatario.validity.valid &&
-    //   inputCorreo.validity.valid &&
-    //   inputMensaje.validity.valid
-    // ) {
-    //   btnCreateHomework.classList.remove("btnDisabled");
+   
+    //*******Validando campos del formulario********//
+    const homeworkValidInputs = () => {
+      const inputDenominacion = viewHome.querySelector("#inputText1");
+      const dateVencimiento = viewHome.querySelector("#inputDate2");
+      const inputDestinatario = viewHome.querySelector("#inputText3");
+      const inputCorreo = viewHome.querySelector("#inputText4");
+      const textareaModal = viewHome.querySelector("#textareaModal");
+   
+      if (
+        inputDenominacion.value === "" ||
+        inputDestinatario.value === "" ||
+        inputCorreo.value === "" ||
+        textareaModal.value === ""
+      ) {
+        console.log("campos vacios");
+        btnCreateHomework.classList.add("btnDisabled");
+        btnCreateHomework.disabled = true;
+      } else {
+        console.log("campos llenos");
+        btnCreateHomework.classList.remove("btnDisabled");
+        btnCreateHomework.disabled = false;
+      }
+   
+      // else if (
+      //   inputDenominacion.validity.valid &&
+      //   inputDestinatario.validity.valid &&
+      //   inputCorreo.validity.valid &&
+      //   inputMensaje.validity.valid
+      // ) {
+ //   btnCreateHomework.classList.remove("btnDisabled");
     //   btnCreateHomework.disabled = false;
     // }
   };
-
+ 
   const inputDenominacion = viewHome.querySelector("#inputText1");
   const dateVencimiento = viewHome.querySelector("#inputDate2");
   const inputDestinatario = viewHome.querySelector("#inputText3");
   const inputCorreo = viewHome.querySelector("#inputText4");
   // const textarea5 = viewHome.querySelector("textarea5");
-
+ 
   inputDenominacion.addEventListener("input", homeworkValidInputs);
   inputDestinatario.addEventListener("input", homeworkValidInputs);
   inputCorreo.addEventListener("input", homeworkValidInputs);
   textareaModal.addEventListener("input", homeworkValidInputs);
-
+ 
   //******** Limpia inputs ********/
   const cleanInputs = () => {
     inputDenominacion.value = "";
@@ -2386,84 +2428,141 @@ firebase
     textarea5.value = "";
     textareaModal.value = "";
   };
-
+ 
   const showModalTaskform = viewHome.querySelector("#showModal_taskform");
-
+ 
   //******* botón Crear tarea - abre modal del formulario *******/
   showModalTaskform.addEventListener("click", (e) => {
     e.preventDefault;
-    console.log("limpia?");
+    // console.log("limpia?");
     cleanInputs();
     btnCreateHomework.classList.add("btnDisabled");
     btnCreateHomework.disabled = true;
   });
-
+ 
   //***** botón CREAR TAREA del formulario ******/
   btnCreateHomework.addEventListener("click", (e) => {
     e.preventDefault;
-    createHomework();
-    cleanInputs();
- 
+
+    // subiendo info de formulario a firebase
+    const taskName = inputDenominacion.value;
+    const taskDate = currentDate;
+    const taskExpiration = dateVencimiento.value;
+    const taskReceiver = inputDestinatario.value;
+    const taskMail = inputCorreo.value;
+    const taskMessages = textarea5.value;
+    const count = 0;
+
+    // Invertir fecha de expiración d/m/a
+    let resFecha = taskExpiration.split("-");
+    let reversedFecha = resFecha.reverse();
+    let taskExpi = reversedFecha.join("/");
+
+    // // Iniciales del destinatario
+    let initials = Array.prototype.map.call(taskReceiver.split(" "), function(x){ return x.substring(0,1).toUpperCase();}).join('');
 
 
- //******* subir documentos de Tareas a Storage *******/
-    //  const subirTask = viewHome.querySelector("#subirTask");
-    const file_uploadTask = viewHome.querySelector("#file-uploadTask");
- 
-    file_uploadTask.addEventListener("change", () => {
-      const nDocs = document.getElementById("file-uploadTask").files[0].name;
-      document.getElementById("infoTask").innerHTML = nDocs;
-     
-    });
- 
-    const ficheroTask = viewHome.querySelector("#file-uploadTask");
-    ficheroTask.addEventListener("change", sendDocFirebase, false);
- 
- 
-    const storageRefTask = firebase.storage().ref();
-    const rootRefTask = firebase.database().ref().child("docTask");
-    function sendDocFirebase() {
-      //     console.log("subiendo")
-      const documentoSubirTask = ficheroTask.files[0];
-      console.log(documentoSubirTask);
-      const uploadTasks = storageRefTask
-        .child("docTask/" + documentoSubirTask.name)
-        .put(documentoSubirTask);
- 
-      uploadTasks.on(
-        "state_changed",
-        function (snapshot) {},
-        function (error) {
-          alert("hubo un error");
-        },
-        function () {
-          uploadTasks.snapshot.ref
-            .getDownloadURL()
-            .then(function (downloadURL) {
-              alert("se subió la imagen conURL", downloadURL);
-              console.log("Uploaded a blob or file!");
-              crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
-            });
-        }
-      );
+    const newTask = {
+      taskName: taskName,
+      date: taskDate,
+      expiration: taskExpi,
+      receiver: taskReceiver,
+      initials: initials,
+      mail: taskMail,
+      message: taskMessages,
+      status: "Pendiente",
+      file: "",
+      nameFile: "",
+      files: [],
+      count: count,
     };
 
+    firebase.firestore().collection("tasks").add(newTask);
+    console.log(newTask);
+
+    // addTask(
+    //   taskName,
+    //   taskDate,
+    //   taskExpiration,
+    //   taskReceiver,
+    //   taskMail,
+    //   taskMessages
+    // ).then(() => {
+    //   console.log("enviado a firebase");
+    // });
+
+    createHomework();
+    cleanInputs();
+
+    // });
+  });
+
+
+// });
+// };
+
  
-function  crearNodoEnBDFirebaseTask(name,url){
-  rootRefTask.push({
-  nombre:name,
-  url:url,
-})
-}
-});
-//cambiar logo Sunafil una ver sincronizado
-// const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
-// const sunafilS = viewHome.querySelector('#sunafil');
-// const sunafilBlue = viewHome.querySelector('#sunafilBlue');
-//     cambiarLogo.addEventListener('click', ()=>{
-// sunafilS.classList.add('ocultar');
-// sunafilBlue.classList.remove('ocultar');
-//     })
+
+
+//  //******* subir documentos de Tareas a Storage *******/
+//     //  const subirTask = viewHome.querySelector("#subirTask");
+//     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+ 
+//     file_uploadTask.addEventListener("change", () => {
+//       const nDocs = document.getElementById("file-uploadTask").files[0].name;
+//       document.getElementById("infoTask").innerHTML = nDocs;
+     
+//     });
+ 
+//     const ficheroTask = viewHome.querySelector("#file-uploadTask");
+//     ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+
+//     const storageRefTask = firebase.storage().ref();
+//     const rootRefTask = firebase.database().ref().child("docTask");
+//     function sendDocFirebase() {
+//       //     console.log("subiendo")
+//       const documentoSubirTask = ficheroTask.files[0];
+//       console.log(documentoSubirTask);
+//       const uploadTasks = storageRefTask
+//         .child("docTask/" + documentoSubirTask.name)
+//         .put(documentoSubirTask);
+ 
+//       uploadTasks.on(
+//         "state_changed",
+//         function (snapshot) {},
+//         function (error) {
+//           alert("hubo un error");
+//         },
+//         function () {
+//           uploadTasks.snapshot.ref
+//             .getDownloadURL()
+//             .then(function (downloadURL) {
+//               alert("se subió la imagen conURL", downloadURL);
+//               console.log("Uploaded a blob or file!");
+//               crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
+//             });
+//         }
+//       );
+//     };
+
+ 
+// function  crearNodoEnBDFirebaseTask(name,url){
+//   rootRefTask.push({
+//   nombre:name,
+//   url:url,
+// })
+// }
+// });
+// //cambiar logo Sunafil una ver sincronizado
+// // const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
+// // const sunafilS = viewHome.querySelector('#sunafil');
+// // const sunafilBlue = viewHome.querySelector('#sunafilBlue');
+// //     cambiarLogo.addEventListener('click', ()=>{
+// // sunafilS.classList.add('ocultar');
+// // sunafilBlue.classList.remove('ocultar');
+// //     })
+
 
     //mostar tareas en documentos
 
@@ -2471,7 +2570,7 @@ function  crearNodoEnBDFirebaseTask(name,url){
     const tareas_ver = viewHome.querySelector('#tareas_ver');
     const here_tareas = viewHome.querySelector('#here_tareas');
     const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
-    
+
    
   
     mostrar_tareas.addEventListener('click',() =>{
@@ -2553,6 +2652,7 @@ function  crearNodoEnBDFirebaseTask(name,url){
       star.classList.add('star__checked');
      
     }
+
     return viewHome;
   };
 

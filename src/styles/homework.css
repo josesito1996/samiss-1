@@ -338,8 +338,9 @@
 /*******  Tabla de tareas  *******/
 .createTask {
   /* border: 1px solid red; */
-  width: 777px;
-  padding: 16px 37px 0 22px;
+  width: 100%;
+  /* width: 777px; */
+  /* padding: 16px 37px 0 22px; */
   flex-direction: column;
   font-family: Raleway;
 }
@@ -367,9 +368,13 @@
   margin: 0 5px 0 10px;
 }
 
-.createTask .table-createTask {
-  /* border: 1px solid teal; */
-}
+.table-createTask .tdTable-createTask input[type="checkbox"] {
+    /* display: none; */
+    /* border: 1px solid red; */
+    border-color: none;
+  }
+
+
 
 .table-createTask .thTable-createTask {
   font-size: 12px;
@@ -378,6 +383,12 @@
   color: var(--primary-blue);
   border-bottom: 2px solid var(--line-table);
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-createTask tr{
+  border-style: none;
+  border: var(--white);
 }
 
 .createTask .tdTable-createTask {
@@ -385,7 +396,36 @@
   line-height: 20px;
   color: var(--primary-blue);
   text-align: center;
+
 }
+
+.tdTable-createTask .txt-green {
+  color: var(--txtgreen)
+}
+
+
+
+.tdTable-createTask .docCount {
+  margin-right: -10px;
+}
+
+.tdTable-createTask .img-clip {
+  margin-right: -30;
+}
+
+.tdTable-createTask .tdCircle-blue .img-circle-blue {
+  position: relative;
+  height: 32px;
+  width: 31px;
+}
+
+.tdTable-createTask .tdCircle-blue span {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -24px;
+  color: var(--white);
+}
+
 
 .createTask .tdTable-createTask label {
   margin-left: 24px;
