@@ -18,6 +18,20 @@
    
 }
 
+#file_tarea{
+    cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0F3041;
+    width: 219px;
+}
+
 .name_info_down1{
     cursor: pointer;
     font-family: Raleway;
