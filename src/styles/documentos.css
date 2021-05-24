@@ -48,6 +48,8 @@ padding: 19px 10px 12px 22px;
 
 }
 
+
+
 #date_documentos{
     font-family: Raleway;
     font-style: normal;
@@ -312,6 +314,20 @@ border-radius: 6px 0px 0px 13px;
     visibility:hidden
 }
 
+.name_info_down1{
+    cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0F3041;
+    width: 219px;
+}
+
 #container_principal_tarea{
     display: flex;
     justify-content: space-between;
@@ -322,20 +338,4 @@ border-radius: 6px 0px 0px 13px;
     padding-left: 22px;
     padding-right: 10px;
 }
-
-#style_a_docs{
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-
-    /* Primary Blue */
-
-    color: #0F3041;
-    text-decoration: none;
-}
-
 

@@ -66,7 +66,7 @@ export default () => {
                 <!-- Left elements -->
                 <!-- <div class="d-flex col-12 col-lg-3"> -->
                     <!-- Brand -->
-                    <!-- <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                    <!-- <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#/home">
                         <img src="./img/logo_inspection.png" position: absolute; alt="" loading="lazy"
                             style="margin-top: 19px; width: 77.19px;height: 26px;margin-left: 152px;margin-top: 19px;" />
                     </a>
@@ -82,7 +82,7 @@ export default () => {
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <div class="d-flex align-items-center "style="height: 64px;border-bottom: 1px solid  #D70025;width:106px;">
                               <li class="nav-item">
-                                  <a class="nav-link active" aria-current="page" style="color:#0E3141;font-weight: bold;font-size:12px;" href="#">Mis casos</a>
+                                  <a class="nav-link active" aria-current="page" style="color:#0E3141;font-weight: bold;font-size:12px;" href="#/home">Mis casos</a>
                               </li>
                             </div>   
                            
@@ -91,12 +91,12 @@ export default () => {
                     <div class="d-flex float-end align-items-center justify-content-center" style="margin-top:15px;">
                     <ul class="navbar-nav flex-row">
                         <li class="nav-item me-3 me-lg-1">
-                            <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                            <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                 <span> <i class="fas fa-search"></i></span>
                             </a>
                         </li>
                         <li class="nav-item me-3 me-lg-1">
-                            <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                            <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                                 <img src="./img/bells.png" class="rounded-circle" height="23px" alt="" loading="lazy" />
                                 <strong class="d-none d-sm-block ms-1">John</strong>
                             </a>
@@ -110,14 +110,14 @@ export default () => {
             <!-- <div class="col-12 ">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                        <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                             <img src="./img/Avatar.png" class="rounded-circle" height="32px" ; width="32px" ; alt=""
                                 loading="lazy" />
                             <strong class="d-none d-sm-block ms-1">Alonso Hoyos</strong>
                         </a>
                     </li>
                     <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                        <a class="nav-link d-sm-flex align-items-sm-center" href="#/home">
                             <span><i class="fas fa-chevron-down mt-2"></i></span>
                         </a>
                     </li>
@@ -157,14 +157,14 @@ export default () => {
     <div class=" d-flex  flex-row float-start align-items-center justify-content-center">
         <li class=" " style="list-style: none; width:400px;text-align: center;">
             <a class="nav-link active link-active" id="sube_archivo" aria-current="page"
-                style="color: #0F3041; font-size: 16px;" href="#">Sube
+                style="color: #0F3041; font-size: 16px;" href="#/home">Sube
                 tus archivos</a>
  
                 
  
         </li>
         <li class=" " style="list-style: none; width:400px;text-align: center;">
-            <a class="nav-link active link-inactive" href="#" id="sube_manual" style="color:#0E3141;font-size: 16px;">Crear de forma manual</a>
+            <a class="nav-link active link-inactive" href="#/home" id="sube_manual" style="color:#0E3141;font-size: 16px;">Crear de forma manual</a>
             </li>
             </div>
          
@@ -312,7 +312,7 @@ export default () => {
                                 <div class="d-flex column justify-content-end" >
                                     <!-- <i class="fas fa-plus link-success "></i> -->
                                     <img src="./img/svg/more.svg" class="" alt="mas" />
-                                    <a class="link-success" href="#"
+                                    <a class="link-success" href="#/home"
                                         id="links_new_inspector" style="margin-right:60px; color: #FF3355; font-weight: bold; font-size: 12px; line-height: 14px; ">Nuevo inspector</a>
                                 </div>
                             </div>
@@ -325,7 +325,7 @@ export default () => {
                                 <div class="d-flex column justify-content-end" >
                                    <!-- <i class="fas fa-plus link-success "></i> -->
                                    <img src="./img/svg/more.svg" class="" alt="mas" />
-                                   <a class="link-success" href="#"
+                                   <a class="link-success" href="#/home"
                                        id="links_new_inspector" style="margin-right:60px;">Nuevo inspector</a>
                                </div>
                            </div>
@@ -449,9 +449,9 @@ export default () => {
                 <footer class="d-flex justify-content-around" >
                     <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
                         <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
-                        <a href="" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
+                        <a href="#/home" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
                         <p>y</p>
-                        <a href="" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
+                        <a href="#/home" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
                     </div>
                     <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
                 </footer>

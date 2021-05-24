@@ -75,13 +75,13 @@ uploadTask.on('state_changed', function(snapshot){
   // console.log("subido");
   
 }, function(error) {
-  alert("hubo un error")
+  console.log("hubo un error");
   // Handle unsuccessful uploads
 }, function() {
   // Handle successful uploads on complete
   // For instance, get the download URL: https://firebasestorage.googleapis.com/...
   uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-    alert('se subió la imagen conURL', downloadURL);
+    // alert('se subió la imagen conURL', downloadURL);
     console.log('Uploaded a blob or file!');
     crearNodoEnBDFirebase(documentoSubir.name,downloadURL);
     
