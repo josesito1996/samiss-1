@@ -424,3 +424,7 @@
     border-bottom: 3px solid var(--primary-blue);
 
   }
+
+  #actuacion {
+    cursor: pointer;
+  }

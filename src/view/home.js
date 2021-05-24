@@ -2339,19 +2339,84 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
                     console.log("Uploaded a blob or file!");
                     crearNodoEnBDFirebaseTask(
                       documentoSubirTask.name,
-                      downloadURL
+                      downloadURL,
+                      doc.id,
                     );
                   });
               }
             );
           }
 
-          function crearNodoEnBDFirebaseTask(name, url) {
+          function crearNodoEnBDFirebaseTask(name, url,id) {
             rootRefTask.push({
               nombre: name,
               url: url,
+              id:id
             });
           }
+    
+          mostrar_tareas.addEventListener('click',() =>{
+            tareas_ver.classList.remove("ocultar");
+            mostrar_tareas.classList.add("ocultar");
+            here_tareas.classList.remove("ocultar");
+            informationDoc_ocultar.classList.add("ocultarDoc");
+        
+            
+          
+          const rootRefTask = firebase.database().ref().child("docTask");
+        
+          rootRefTask.on('value', function(snapshot){
+            var datos = snapshot.val();
+            var results = "" 
+            for(var key in datos){
+        
+              console.log(datos[key].nombre)
+            
+              results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
+              
+            } 
+            document.getElementById("file_tarea").innerHTML= results;
+        
+            // const cambiarFond = viewHome.querySelector('#file_tarea')
+            // cambiarFond.addEventListener('click', () => {
+            //   console.log('aqui')
+            //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+            // });
+        
+        });
+        
+        const click_show_doc = document.getElementById("file_tarea");
+        click_show_doc.addEventListener("click", () => {
+        
+        
+            rootRefTask.on("value", function (snapshot) {
+              var datos = snapshot.val();
+              var result = "";
+              for (var key in datos) {
+                console.log(datos[key].url);
+                console.log(datos[key].id);
+        
+                if(datos[key].id === doc.id){
+                  result +=
+                  '<iframe  class="styleIframe"  src="' +
+                  datos[key].url +
+                  '"></iframe>';
+                }else{
+                  console.log('diferente id')
+                }
+                
+              }
+              document.getElementById("verFiles").innerHTML = result;
+              
+            });
+        
+         
+        
+          
+        });
+        
+        
+        });
         });
 
         const toggle = viewHome.querySelector("#cbox1");
@@ -2367,7 +2432,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
       });
       
       
-      
+    
       
   // };
 
@@ -2573,58 +2638,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
    
   
-    mostrar_tareas.addEventListener('click',() =>{
-      tareas_ver.classList.remove("ocultar");
-      mostrar_tareas.classList.add("ocultar");
-      here_tareas.classList.remove("ocultar");
-      informationDoc_ocultar.classList.add("ocultarDoc");
 
-      
-    
-    const rootRefTask = firebase.database().ref().child("docTask");
-
-    rootRefTask.on('value', function(snapshot){
-      var datos = snapshot.val();
-      var results = "" 
-      for(var key in datos){
- 
-        console.log(datos[key].nombre)
-      
-        results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
-        
-      } 
-      document.getElementById("file_tarea").innerHTML= results;
-
-      // const cambiarFond = viewHome.querySelector('#file_tarea')
-      // cambiarFond.addEventListener('click', () => {
-      //   console.log('aqui')
-      //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-      // });
-
-  });
-  
-  const click_show_doc = document.getElementById("file_tarea");
-  click_show_doc.addEventListener("click", () => {
-    rootRefTask.on("value", function (snapshot) {
-      var datos = snapshot.val();
-      var result = "";
-      for (var key in datos) {
-        console.log(datos[key].url);
-
-        result +=
-          '<iframe  class="styleIframe"  src="' +
-          datos[key].url +
-          '"></iframe>';
-      }
-      document.getElementById("verFiles").innerHTML = result;
-      
-    });
-  
-    
-  });
-
- 
-  });
  
  
   here_tareas.addEventListener('click' , () => {
@@ -2635,7 +2649,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
   });
 
 
-
+  
     //subir y traer files para see en documentos
     
   
@@ -2652,6 +2666,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
       star.classList.add('star__checked');
      
     }
+
 
     return viewHome;
   };
