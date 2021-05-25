@@ -4,25 +4,28 @@ export default () => {
 
   viewHomework.innerHTML = `
 
-  <h6>MODELO TABLA</h6>
-  <button id="btnRegister" class="btn btn-success">Nuevo registro</button>
-      <table class="table table-hover table-createTask">
-      <thead>
-        <tr class="thTable-createTask">
-          <th scope="col">Titulo</th>
-          <th scope="col">Datos</th>
-          <th scope="col">Imagen</th>
-          <th scope="col">Registro</th>
-          <th scope="col">Vencimiento</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Emininar</th>
-          <th scope="col">Editar</th>
-        </tr>
-      </thead>
-      <tbody id="tabla">
+      <h6>MODELO TABLA</h6>
+      <button id="btnRegister" class="btn btn-success">Nuevo registro</button>
+      <div id="container-viewTable">
+        <table class="table table-hover table-createTask">
+          <thead id="tabla-head" class="hidde">
+            <tr id="thTable-createTask" class="thTable-createTask">
+              <th scope="col">Titulo</th>
+              <th scope="col">Datos</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Registro</th>
+              <th scope="col">Vencimiento</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Emininar</th>
+              <th scope="col">Editar</th>
+            </tr>
+          </thead>
+          <tbody id="tabla">
+          </tbody>
+        </table>
 
-      </tbody>
-    </table>
+      </div>
+
 
         <form class="mt-5 border border-primary">
 
@@ -357,20 +360,42 @@ export default () => {
   </div>
 `;
 
-  //*****INGRESO DE REGISTRO TEMPORAL ******/
-  // firestore - borrar
-  const deleteTask = (id) => firebase.firestore().collection('homeWorks').doc(id).delete();
-  
-  // firestore - actualizar
-  const completedTask = (id) => firebase.firestore().collection('homeWorks').doc(id).update({
-    status: 'Finalizado',
+//****** Verificando si hay documentos *****/
+const tablaHead = viewHomework.querySelector("#tabla-head");
+
+const homeWorksRef = firebase.firestore().collection('homeWorks');
+
+homeWorksRef
+  .onSnapshot( snap => {
+    let countDoc = snap.docs.length;
+    console.log("Este es el span", snap.docs.length);
+
+        if (countDoc === 1) {
+          tablaHead.classList.remove("hidde");
+        } else {
+          tablaHead.classList.add("hidde");
+        }
   });
 
-  const pendingTask = (id) => firebase.firestore().collection('homeWorks').doc(id).update({
-    status: 'Pendiente',
-  });
 
-  //****** ingresando datos temporal *****/
+
+  // firebase
+  //   .firestore()
+  //   .collection("homeWorks")
+  //   .get()
+  //   .then((res) => {
+  //     let countDoc = res.size;
+  //     console.log(countDoc);
+
+  //     if (countDoc === 1) {
+  //       tablaHead.classList.remove("hidde");
+  //     } else {
+  //       console.log("encabezado oculto");
+  //     }
+  //   });
+
+
+
   const addDocument = () => {
     const denominacion = viewHomework.querySelector("#Text1").value;
 
@@ -402,122 +427,106 @@ export default () => {
   const btnRegister = viewHomework.querySelector("#btnRegister");
   btnRegister.addEventListener("click", () => {
     addDocument();
+    tablaHead.classList.remove("hidde");
   });
-  // Leer docs
-  const tabla = viewHomework.querySelector("#tabla");
-  firebase
-    .firestore()
-    .collection("homeWorks")
-    //  .orderBy("date", "desc")
-    .onSnapshot((querySnapshot) => {
-      tabla.innerHTML = "";
-      querySnapshot.forEach((doc) => {
-        //  console.log(`${doc.id} => ${doc.data()}`);
-        tabla.innerHTML += `
-          <tr class="tdTable-createTask">
-            <td>
-            <input type="checkbox" id="cboxStatus${doc.id}" class="check-status" value="primary_checkbox" data-id="${doc.id}">
-            <label for="cboxStatus${doc.id}">${doc.data().taskName}</label>
-            </td>
-            <td></td>
-            <td>📸</td>
-            <td id="fRegister">04/05/2021</td>
-            <td id="fVenci">30/05/2021</td>
-            <td id="tStatus" class="" data-id="${doc.id}">${doc.data().status}</td>
-            <td><button id="" class="btn btn-danger btn-delete" data-id="${doc.id}">Eliminar</button></td>
-            <td><button id="btn_editar" class="btn btn-warning">Editar</button></td>
-          </tr>
-          `;
-        // Borrar docs
-
-        const btnDelete = tabla.querySelectorAll(".btn-delete");
-        btnDelete.forEach((btn) => {
-          btn.addEventListener("click", async (e) => {
-            // console.log(e.target.dataset);
-            console.log(e.target.dataset.id);
-            await deleteTask(e.target.dataset.id)
-          });
-        });
-
-        const checkStatus = tabla.querySelectorAll(".check-status");
-        const fRegister = tabla.querySelector("#fRegister");
-        const fVenci = tabla.querySelector("#fVenci");
-        const tStatus = tabla.querySelector("#tStatus");
-
-        checkStatus.forEach((check) => {
-          check.addEventListener("change", (e) => {
-            e.preventDefault;
-            console.log(e.target.dataset.id);
-            if (check.checked) {
-              console.log("CON check??");
-              completedTask(e.target.dataset.id);
-              fRegister.classList.add("txt-tach");
-              fVenci.classList.add("txt-tach")
-              tStatus.classList.add("txt-green");
-            } else {
-              console.log("SIN check??");
-              pendingTask(e.target.dataset.id);
-              fRegister.classList.remove("txt-tach");
-              fVenci.classList.remove("txt-tach");
-              tStatus.classList.remove("txt-green");
-            }
 
 
-          // const checkStatus = tabla.querySelectorAll(".check-status");
-          // checkStatus.forEach((check) => {
-          // check.addEventListener("change", (e) => {
-          //   e.preventDefault;
-          //   if (check.checked) {
-          //     status.classList.add("txt-green");
-          //   } else {
-          //     status.classList.remove("txt-green");
-          //   }
-
-
-            // let checked = check.checked;
-            // if (checked) {
-            //   console.log('CON check', checked);
-            //   completedTask(e.target.dataset.id);
-            //   // status.classList.add("txt-green");
-            // } else {
-            //   console.log('SIN check',checked);
-            //   pendingTask(e.target.dataset.id);
-            // }
-          });
-        });
-
-        // function handlerCheck6() {
-        //   let checked = checkSeis.checked;
-        //   if (checked) {
-        //     localStorage.setItem("materia6", checkSeis.value);
-        //   } else {
-        //     localStorage.removeItem("materia6");
-        //   }
-        // }
-
-
-
-
-
-        // btn_eliminar.addEventListener('click', () => {
-        // console.log("CLICKKKKK!!!", btn_eliminar);
-        //  deleteDoc('homeWorks', doc.id);
-
-        //  firebase
-        //    .firestore()
-        //    .collection("homeWorks")
-        //    .doc(doc.id)
-        //    .delete()
-        //    .then(() => {
-        //      console.log("Documento eliminado");
-        //    })
-        //    .catch((error) => {
-        //      console.error("Error al eliminar documento: ", error);
-        //    });
-
-        // });
-      });
+  // firestore - actualizar
+  const completedTask = (id) =>
+    firebase.firestore().collection("homeWorks").doc(id).update({
+      status: "Finalizado",
     });
+
+  const pendingTask = (id) =>
+    firebase.firestore().collection("homeWorks").doc(id).update({
+      status: "Pendiente",
+    });
+
+
+
+
+
+
+        // firestore - borrar
+        const deleteTask = (id) =>
+          firebase.firestore().collection("homeWorks").doc(id).delete();
+
+        // Leer docs
+
+        const tabla = viewHomework.querySelector("#tabla");
+
+
+        firebase
+          .firestore()
+          .collection("homeWorks")
+          //  .orderBy("date", "desc")
+          .onSnapshot((querySnapshot) => {
+            // tabla.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+              //  console.log(`${doc.id} => ${doc.data()}`);
+              tabla.innerHTML += `
+            <tr class="tdTable-createTask">
+              <td>
+              <input type="checkbox" id="cboxStatus${
+                doc.id
+              }" class="check-status" value="primary_checkbox" data-id="${
+                  doc.id
+                }">
+              <label for="cboxStatus${doc.id}">${doc.data().taskName}</label>
+              </td>
+              <td></td>
+              <td>📸</td>
+              <td id="fRegister">04/05/2021</td>
+              <td id="fVenci">30/05/2021</td>
+              <td id="tStatus" class="" data-id="${doc.id}">${doc.data().status
+                }</td>
+              <td><button id="" class="btn btn-danger btn-delete" data-id="${
+                doc.id
+              }">Eliminar</button></td>
+              <td><button id="btn_editar" class="btn btn-warning">Editar</button></td>
+            </tr>
+            `;
+              // Borrar docs
+
+              const btnDelete = tabla.querySelectorAll(".btn-delete");
+              btnDelete.forEach((btn) => {
+                btn.addEventListener("click", async (e) => {
+                  // console.log(e.target.dataset);
+                  console.log(e.target.dataset.id);
+                  await deleteTask(e.target.dataset.id);
+                });
+              });
+
+              const checkStatus = tabla.querySelectorAll(".check-status");
+              const fRegister = tabla.querySelector("#fRegister");
+              const fVenci = tabla.querySelector("#fVenci");
+              const tStatus = tabla.querySelector("#tStatus");
+
+              checkStatus.forEach((check) => {
+                check.addEventListener("change", (e) => {
+                  e.preventDefault;
+                  console.log(e.target.dataset.id);
+                  if (check.checked) {
+                    console.log("CON check??");
+                    completedTask(e.target.dataset.id);
+                    fRegister.classList.add("txt-tach");
+                    fVenci.classList.add("txt-tach");
+                    tStatus.classList.add("txt-green");
+                  } else {
+                    console.log("SIN check??");
+                    pendingTask(e.target.dataset.id);
+                    fRegister.classList.remove("txt-tach");
+                    fVenci.classList.remove("txt-tach");
+                    tStatus.classList.remove("txt-green");
+                  }
+                });
+              });
+            });
+          });
+
+        //del size
+    //   }
+    // });
 
   //***** FIN INGRESO DE REGISTRO TEMPORAL ******/
 

@@ -34,7 +34,7 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML =  `
+  viewHome.innerHTML = `
 
     <div class="wrapper">
 
@@ -645,6 +645,24 @@ export default () => {
                       <!-- TABLA -->
                       <div class="createTask d-flex">
                           <div id="container_table" class="container-table" style="margin-top:40px;"> 
+                          <table class="table table-hover table-createTask">
+                            <thead id="table-head" class="hidde">
+                              <tr class="thTable-createTask">
+                                <th scope="col">Tareas</th>
+                                <th scope="col">Documentos</th>
+                                <th scope="col">Equipo</th>
+                                <th scope="col">Registrado</th>
+                                <th scope="col">Vencimiento</th>
+                                <th scope="col">Estado</th>
+                              </tr>
+                            </thead>
+
+                            <tbody id="tableTask">
+
+                            </tbody>
+                          </table>
+
+
                           </div>
                           <div class="container-btnCreateTask d-flex">
                               <button
@@ -2139,43 +2157,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
   });
 
   //****** Crea template de la tabla con datos del formulario  *******/
-
-  const createHomework = () => {
-     const expirationDate = viewHome.querySelector("#inputDate2").value;
-     localStorage.setItem("dateVencimiento", inputDate2.value);
-
-    const containerTable = viewHome.querySelector("#container_table");
-    const nameTask = viewHome.querySelector("#inputText1").value;
-    localStorage.setItem("denomicacion", nameTask);
-
-
-    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
-    // const nameTask = viewHome.querySelector("#inputText1").value;
-
-    console.log(nameTask)
-    console.log(expirationDate)
-
-
-    containerTable.innerHTML = `
-    <table class="table table-hover table-createTask">
-      <thead>
-        <tr class="thTable-createTask">
-          <th scope="col">Tareas</th>
-          <th scope="col">Documentos</th>
-          <th scope="col">Equipo</th>
-          <th scope="col">Registrado</th>
-          <th scope="col">Vencimiento</th>
-          <th scope="col">Estado</th>
-        </tr>
-      </thead>
-
-      <tbody id="tableTask">
-
-      </tbody>
-    </table>
- `;
-
-
+  
   // firestore - actualizar
   const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
     status: 'Finalizado',
@@ -2185,8 +2167,42 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     status: 'Pendiente',
   });
 
-    const tableTask = viewHome.querySelector("#tableTask");
 
+  //****** Muestra encabezado al encontrar Docs ******/
+  const tableHead = viewHome.querySelector("#table-head")
+
+  const tasksRef = firebase.firestore().collection("tasks");
+
+  tasksRef.onSnapshot((snap) => {
+    let countDoc = snap.docs.length;
+    // console.log("Este es el span", snap.docs.length);
+
+    if (countDoc >= 1) {
+      tableHead.classList.remove("hidde");
+    } else {
+      tableHead.classList.add("hidde");
+    }
+  });
+
+
+    // firebase
+    //   .firestore()
+    //   .collection("homeWorks")
+    //   .get()
+    //   .then((res) => {
+    //     let countDoc = res.size;
+    //     console.log(countDoc);
+
+    //     if (countDoc === 1) {
+    //       tableHead.classList.remove("hidde");
+    //     } else {
+    //       console.log("encabezado oculto");
+    //     }
+    //   });
+
+  //******* Mostrar registros de firebase ********/
+  const tableTask = viewHome.querySelector("#tableTask");
+  
     firebase
       .firestore()
       .collection("tasks")
@@ -2218,7 +2234,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
               </td>
               <td id="fRegister">${doc.data().date}</td>
               <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
-              <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
+              <!--<td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>-->
+              <td id="tStatus" class="tStatusPendiente" data-id="${doc.id}"></td>
             </tr>
         `;
 
@@ -2228,73 +2245,35 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
         const tStatus = tableTask.querySelector("#tStatus");
 
         checkStatus.forEach((check) => {
+          check.checked = eval(window.localStorage.getItem(check.id))
+
           check.addEventListener("change", (e) => {
             e.preventDefault;
+            window.localStorage.setItem(check.id, check.checked)
             console.log(e.target.dataset.id);
             if (check.checked) {
               console.log("CON check??");
-              completedTask(e.target.dataset.id);
+              // console.log("ID del check???", check.id);
+
+              // completedTask(e.target.dataset.id);
               fRegister.classList.add("txt-tach");
               fVenci.classList.add("txt-tach");
               tStatus.classList.add("txt-green");
+              // tStatus.classList.add("tStatus");
+              tStatus.classList.remove("tStatusPendiente");
+              tStatus.classList.add("tStatusFinalizado");
             } else {
               console.log("SIN check??");
-              pendingTask(e.target.dataset.id);
+              // pendingTask(e.target.dataset.id);
               fRegister.classList.remove("txt-tach");
               fVenci.classList.remove("txt-tach");
               tStatus.classList.remove("txt-green");
+              // tStatus.classList.remove("tStatus");
+              tStatus.classList.add("tStatusPendiente");
+              tStatus.classList.remove("tStatusFinalizado");
             }
           });
         });
-
-
-
-
-
-
-
-
-
-
-          // //*****************Cargar de archivos a firebase
-          // let file = "";
-          // let urlFile = "";
-
-          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
-
-          // file_uploadTask.addEventListener("change", (e) => {
-          //   console.log("cliqueaste");
-          //   const input = e.target;
-          //   const reader = new FileReader();
-          //   reader.onload = () => {
-          //     const dataURL = reader.result;
-          //     urlFile = dataURL;
-          //     console.log("🤔 urlFile", urlFile);
-
-          //   };
-
-          //   reader.readAsDataURL(input.files[0]);
-          //   file = e.target.files[0];
-          //   console.log("🙄file", file);
-
-          //   // Array temporal
-          //   let arry=[]
-          //   arry.push(file.name);
-          //   console.log(arry);
-
-          //   firebase.firestore().collection('tasks').doc(doc.id).update({
-          //     nameFile: file.name,
-          //     files: arry,
-          //   });
-
-          //   console.log("nombre de archivo", file.name);
-          //   console.log("Id de tarea", `${doc.id}`);
-          // });
-
-          // const uploadFileTask = () => {
-          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
-          //   refStorage.put(file);
-          // }
 
           //******* subir documentos de Tareas a Storage *******/
           //  const subirTask = viewHome.querySelector("#subirTask");
@@ -2363,6 +2342,241 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
             });
           }
+
+
+
+
+
+
+      });
+    });
+
+  
+    const createHomework = () => {
+    tableHead.classList.remove("hidde")
+
+    //  const expirationDate = viewHome.querySelector("#inputDate2").value;
+    //  localStorage.setItem("dateVencimiento", inputDate2.value);
+
+    // const containerTable = viewHome.querySelector("#container_table");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+    // localStorage.setItem("denomicacion", nameTask);
+
+
+    // const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+
+    // console.log(nameTask)
+    // console.log(expirationDate)
+
+
+//     containerTable.innerHTML = `
+//     <table class="table table-hover table-createTask">
+//       <thead>
+//         <tr class="thTable-createTask">
+//           <th scope="col">Tareas</th>
+//           <th scope="col">Documentos</th>
+//           <th scope="col">Equipo</th>
+//           <th scope="col">Registrado</th>
+//           <th scope="col">Vencimiento</th>
+//           <th scope="col">Estado</th>
+//         </tr>
+//       </thead>
+
+//       <tbody id="tableTask">
+
+//       </tbody>
+//     </table>
+//  `;
+
+
+  // // firestore - actualizar
+  // const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+  //   status: 'Finalizado',
+  // });
+
+  // const pendingTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+  //   status: 'Pendiente',
+  // });
+
+    // const tableTask = viewHome.querySelector("#tableTask");
+
+    // firebase
+    //   .firestore()
+    //   .collection("tasks")
+    //   .orderBy("date", "desc")
+    //   .onSnapshot((querySnapshot) => {
+    //     tableTask.innerHTML = "";
+    //     querySnapshot.forEach((doc) => {
+    //       const taskId = doc.id;
+    //       tableTask.innerHTML += `
+    //         <tr class="tdTable-createTask">
+    //           <td class="chek-label td-name-task">
+    //           <input type="checkbox" id="cboxStatus${doc.id}" value="primary_checkbox" class="check-status" data-id="${doc.id}">
+    //           <label for="cboxStatus${doc.id}" class="">${doc.data().taskName}</label>
+    //           </td>
+              
+    //           <td>
+    //           <span class="docCount">${doc.data().files.length}</span>
+
+    //             <label for="file-uploadTask" id="subirTask" >
+    //               <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
+    //             </label>
+    //             <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
+    //             <div id="infoTask">${doc.data().nameFile}</div>
+    //           </td>
+
+    //           <td class="tdCircle-blue">
+    //             <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
+    //             <span>${doc.data().initials}</span>
+    //           </td>
+    //           <td id="fRegister">${doc.data().date}</td>
+    //           <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
+    //           <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
+    //         </tr>
+    //     `;
+
+    //     const checkStatus = tableTask.querySelectorAll(".check-status");
+    //     const fRegister = tableTask.querySelector("#fRegister");
+    //     const fVenci = tableTask.querySelector("#fVenci");
+    //     const tStatus = tableTask.querySelector("#tStatus");
+
+    //     checkStatus.forEach((check) => {
+    //       check.addEventListener("change", (e) => {
+    //         e.preventDefault;
+    //         console.log(e.target.dataset.id);
+    //         if (check.checked) {
+    //           console.log("CON check??");
+    //           completedTask(e.target.dataset.id);
+    //           fRegister.classList.add("txt-tach");
+    //           fVenci.classList.add("txt-tach");
+    //           tStatus.classList.add("txt-green");
+    //         } else {
+    //           console.log("SIN check??");
+    //           pendingTask(e.target.dataset.id);
+    //           fRegister.classList.remove("txt-tach");
+    //           fVenci.classList.remove("txt-tach");
+    //           tStatus.classList.remove("txt-green");
+    //         }
+    //       });
+    //     });
+
+
+
+
+
+
+
+
+
+
+          // //*****************Cargar de archivos a firebase
+          // let file = "";
+          // let urlFile = "";
+
+          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+
+          // file_uploadTask.addEventListener("change", (e) => {
+          //   console.log("cliqueaste");
+          //   const input = e.target;
+          //   const reader = new FileReader();
+          //   reader.onload = () => {
+          //     const dataURL = reader.result;
+          //     urlFile = dataURL;
+          //     console.log("🤔 urlFile", urlFile);
+
+          //   };
+
+          //   reader.readAsDataURL(input.files[0]);
+          //   file = e.target.files[0];
+          //   console.log("🙄file", file);
+
+          //   // Array temporal
+          //   let arry=[]
+          //   arry.push(file.name);
+          //   console.log(arry);
+
+          //   firebase.firestore().collection('tasks').doc(doc.id).update({
+          //     nameFile: file.name,
+          //     files: arry,
+          //   });
+
+          //   console.log("nombre de archivo", file.name);
+          //   console.log("Id de tarea", `${doc.id}`);
+          // });
+
+          // const uploadFileTask = () => {
+          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
+          //   refStorage.put(file);
+          // }
+
+          // //******* subir documentos de Tareas a Storage *******/
+          // //  const subirTask = viewHome.querySelector("#subirTask");
+          // const file_uploadTask = viewHome.querySelector('#file-uploadTask');
+
+          // file_uploadTask.addEventListener("change", () => {
+          //   const nDocs =
+          //     document.getElementById(`file-uploadTask`).files[0].name;
+
+          //   // document.getElementById(`infoTask`).innerHTML = nDocs;
+          //   // const mostrarDoc = document.getElementById("info");
+
+          //   firebase
+          //     .firestore()
+          //     .collection("tasks")
+          //     .doc(doc.id)
+          //     .update({
+          //       // nameFile: nDocs,
+          //       files: [nDocs],
+          //     });    
+          // });
+
+          // const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
+          // ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+          // const storageRefTask = firebase.storage().ref();
+          // const rootRefTask = firebase.database().ref().child("docTask");
+
+          // function sendDocFirebase() {
+          //   console.log("subiendo");
+          //   const documentoSubirTask = ficheroTask.files[0];
+          //   console.log(documentoSubirTask);
+          //   const uploadTasks = storageRefTask
+          //     .child("docTask/" + documentoSubirTask.name)
+          //     .put(documentoSubirTask);
+
+          //   uploadTasks.on(
+          //     "state_changed",
+          //     function (snapshot) {},
+          //     function (error) {
+          //       console.log("hubo un error");
+          //     },
+          //     function () {
+          //       uploadTasks.snapshot.ref
+          //         .getDownloadURL()
+          //         .then(function (downloadURL) {
+          //           // alert("se subió la imagen conURL", downloadURL);
+          //           console.log("Uploaded a blob or file!");
+          //           crearNodoEnBDFirebaseTask(
+          //             documentoSubirTask.name,
+          //             downloadURL,
+          //             doc.id
+
+          //           );
+          //         });
+          //     }
+          //   );
+          // }
+
+
+          // function crearNodoEnBDFirebaseTask(name, url, id) {
+          //   rootRefTask.push({
+          //     nombre: name,
+          //     url: url,
+          //     id: id,
+
+          //   });
+          // }
     //EMPIEZA MOSTRARA TAREA
           // mostrar_tareas.addEventListener('click',() =>{
           //   tareas_ver.classList.remove("ocultar");
@@ -2552,7 +2766,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
       });
 
         //TERMINA OTRA MOSTRAS TAREA
-        });
+        // });
 
         // const toggle = viewHome.querySelector("#cbox1");
         // const txtStatus = viewHome.querySelector("#txt-status");
@@ -2565,8 +2779,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
         //   console.log("VERDE");
         // });
 
-      });
-  };
+      // });
+};
 
 
    
@@ -2599,7 +2813,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
       //   inputCorreo.validity.valid &&
       //   inputMensaje.validity.valid
       // ) {
- //   btnCreateHomework.classList.remove("btnDisabled");
+    //   btnCreateHomework.classList.remove("btnDisabled");
     //   btnCreateHomework.disabled = false;
     // }
   };
@@ -2675,21 +2889,9 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     firebase.firestore().collection("tasks").add(newTask);
     console.log(newTask);
 
-    // addTask(
-    //   taskName,
-    //   taskDate,
-    //   taskExpiration,
-    //   taskReceiver,
-    //   taskMail,
-    //   taskMessages
-    // ).then(() => {
-    //   console.log("enviado a firebase");
-    // });
-
     createHomework();
     cleanInputs();
 
-    // });
   });
 
 
