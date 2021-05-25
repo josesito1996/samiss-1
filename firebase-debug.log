@@ -1,0 +1,158 @@
+[debug] [2021-05-19T13:00:44.477Z] ----------------------------------------------------------------------
+[debug] [2021-05-19T13:00:44.481Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-05-19T13:00:44.485Z] CLI Version:   9.11.0
+[debug] [2021-05-19T13:00:44.485Z] Platform:      win32
+[debug] [2021-05-19T13:00:44.485Z] Node Version:  v12.16.1
+[debug] [2021-05-19T13:00:44.489Z] Time:          Wed May 19 2021 08:00:44 GMT-0500 (GMT-05:00)
+[debug] [2021-05-19T13:00:44.489Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-19T13:00:44.493Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-05-19T13:00:44.541Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-19T13:00:44.926Z] Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.
+    at GoogleAuth.getApplicationDefaultAsync (C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:157:19)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async GoogleAuth.getClient (C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:504:17)
+    at async GoogleAuth.getAccessToken (C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:526:24)
+    at async autoAuth (C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\lib\requireAuth.js:24:19)
+    at async Object.requireAuth [as fn] (C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\lib\requireAuth.js:45:20)
+    at async C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\lib\command.js:169:17
+[error] 
+[error] Error: Failed to authenticate, have you run firebase login?
+[debug] [2021-05-19T13:01:11.375Z] Error: EPERM: operation not permitted, unlink 'C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\9080\node_modules\firebase-tools\node_modules\re2\build\Release\re2.node'
+    at Object.unlinkSync (fs.js:1052:3)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:211:13)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-05-19T13:04:43.696Z] ----------------------------------------------------------------------
+[debug] [2021-05-19T13:04:43.700Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\18872\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2021-05-19T13:04:43.700Z] CLI Version:   9.11.0
+[debug] [2021-05-19T13:04:43.700Z] Platform:      win32
+[debug] [2021-05-19T13:04:43.700Z] Node Version:  v12.16.1
+[debug] [2021-05-19T13:04:43.708Z] Time:          Wed May 19 2021 08:04:43 GMT-0500 (GMT-05:00)
+[debug] [2021-05-19T13:04:43.708Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-19T13:04:43.712Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2021-05-19T13:04:44.926Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-05-19T13:04:44.926Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=107199908&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-05-19T13:08:50.462Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+ {"code":"4/0AY0e-g5Z3Lc0m6cODmRfrGiUPEJHuTr3cJHrFgv4Q_e5ru-7z8xXc22BR5kMUc812zTjeA","client_id":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com","client_secret":"j9iVZfS8kkCEFUPaAeJV0sAi","redirect_uri":"http://localhost:9005","grant_type":"authorization_code"}
+[debug] [2021-05-19T13:08:51.195Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 19 May 2021 13:08:50 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] +  Success! Logged in as shfiestas@gmail.com 
+[debug] [2021-05-19T13:09:20.266Z] Error: EPERM: operation not permitted, unlink 'C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\18872\node_modules\firebase-tools\node_modules\re2\build\Release\re2.node'
+    at Object.unlinkSync (fs.js:1052:3)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:211:13)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+[debug] [2021-05-19T13:14:11.023Z] ----------------------------------------------------------------------
+[debug] [2021-05-19T13:14:11.027Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\8532\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-05-19T13:14:11.027Z] CLI Version:   9.11.0
+[debug] [2021-05-19T13:14:11.031Z] Platform:      win32
+[debug] [2021-05-19T13:14:11.031Z] Node Version:  v12.16.1
+[debug] [2021-05-19T13:14:11.035Z] Time:          Wed May 19 2021 08:14:11 GMT-0500 (GMT-05:00)
+[debug] [2021-05-19T13:14:11.035Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-19T13:14:11.051Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-19T13:14:11.051Z] > authorizing via signed-in user (shfiestas@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Companies\SAMI\samiss
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-05-19T13:16:38.981Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-05-19T13:16:39.794Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-05-19T13:16:39.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project sami-b0ee9 (sami) 
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2021-05-19T13:16:54.839Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-19T13:16:54.843Z] > authorizing via signed-in user (shfiestas@gmail.com)
+[debug] [2021-05-19T13:16:54.843Z] [iam] checking project sami-b0ee9 for permissions ["firebase.projects.get"]
+[debug] [2021-05-19T13:16:54.851Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-19T13:16:54.851Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-19T13:16:55.442Z] <<< HTTP RESPONSE 200 {"date":"Wed, 19 May 2021 13:16:55 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-19T13:16:55.568Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sami-b0ee9:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-05-19T13:16:56.462Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 19 May 2021 13:16:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=93","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-19T13:16:56.466Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/sami-b0ee9/services/cloudfunctions.googleapis.com:enable  
+ 
+[debug] [2021-05-19T13:16:56.466Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/sami-b0ee9/services/runtimeconfig.googleapis.com:enable  
+ 
+[debug] [2021-05-19T13:16:57.384Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 19 May 2021 13:16:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-19T13:16:57.996Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 19 May 2021 13:16:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  Wrote functions/package.json 
+[info] +  Wrote functions/index.js 
+[info] +  Wrote functions/.gitignore 
+[info] 
+[info] i  Writing configuration info to firebase.json... 
+[info] i  Writing project information to .firebaserc... 
+[info] 
+[info] +  Firebase initialization complete! 
+[debug] [2021-05-19T13:20:07.334Z] Error: EPERM: operation not permitted, unlink 'C:\Users\Lenovo\AppData\Roaming\npm-cache\_npx\8532\node_modules\firebase-tools\node_modules\re2\build\Release\re2.node'
+    at Object.unlinkSync (fs.js:1052:3)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:211:13)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5
+    at Array.forEach (<anonymous>)
+    at rmkidsSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:341:26)
+    at rmdirSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:334:7)
+    at fixWinEPERMSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:209:5)
+    at rimrafSync (C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:311:28)
+    at C:\Users\Lenovo\AppData\Roaming\nvm\v12.16.1\node_modules\npm\node_modules\rimraf\rimraf.js:342:5

@@ -1,0 +1,95 @@
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div>
+                <button type="button"><img src="./img/svg/x.svg" alt="" loading="lazy" id="close_modal_sunafil"
+                        data-bs-dismiss="modal" aria-label="Close" /></button>
+            </div>
+
+            <div clas="d-flex flex-row">
+                <p id="message_thank" style="margin-bottom:0px;"> <strong>${localStorage.getItem('name')} </strong>
+                    gracias por confiar en nosotros, en esta ventana podrás registrar tu usuario y contraseña de forma
+                    segura. &nbsp;<img src="./img/svg/!sunafil.svg" class="checkIcon" id="sunafil" alt="Icono check" />
+                </p>
+
+            </div>
+
+            <form id="container_date_sunafil">
+
+                <div class="d-flex flex-row">
+                    <button class="ruc">RUC</button>
+                    <button class="dni">DNI</button>
+                </div>
+
+                <!-- RUC input -->
+                <div class="form-outline">
+                    <input type="text" required id="input_modalSunafil" class="form-control" placeholder="RUC" />
+                </div>
+
+
+                <!-- Usuario input -->
+                <div class="form-outline">
+                    <input type="txt" required id="input_modalSunafil" class="form-control" placeholder="Usuario" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline">
+                    <input type="password" required id="input_modalSunafil1" class="form-control"
+                        placeholder="Contraseña" />
+                </div>
+
+                <div class="d-flex flex-row align-items-center" style="margin-top:9px;margin-bottom:29px;">
+                    <p id="recordatorio_modal_sunafil" style="margin-bottom:0px;">Recuérdame, para entrar más fácil</p>
+
+                    <!-- Default switch -->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox"
+                            style="width:42px; height:18px;  background-size: contain; background-repeat: no-repeat;"
+                            id="flexSwitchCheckDefault" />
+
+                    </div>
+                </div>
+
+                <a id="link_sunafil" href="" style="margin-bottom:24px;">Si olvidaste tu usuario y/o contraseña
+                    solicítalos desde SUNAT Virtual</a>
+
+                <!-- Submit button -->
+                <button type="submit" id="btn_entrar_modal_sunafil" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal1" class="btn btn-block ">Entrar</button>
+
+            </form>
+
+            <div>
+                <img src="./img/svg/imageSunafil.svg" class="checkIcon" style="margin-bottom:44px;" id="sunafil"
+                    alt="Icono check" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
+            </div>
+
+
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                data-bs-dismiss="modal">Open second modal</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                    data-bs-dismiss="modal">Back to first</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+

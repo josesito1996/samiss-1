@@ -1,1 +1,126 @@
- 
+
+  button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    }
+
+    /* @media (min-width: 992px){
+      .alto-100{
+        height: 100vh;
+      }
+    } */
+
+    /*label*/
+    .textOnInput {
+      position: relative;
+      margin-bottom: 36px;
+  }
+  .textOnInput label {
+      position: absolute;
+      top: -10px;
+      padding: 2px;
+      right: 220px;
+      z-index: 1;
+  }
+  .textOnInput label:after {
+      content: " ";
+      background-color: #fff;
+      width: 100%;
+      height: 13px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+  }
+  label {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    
+    
+    /* Secondary/140 */
+    
+    color: #7D7577;
+      display: inline-block;
+      margin-bottom: .5rem;
+  }
+  
+     /*Input Nombre registar*/
+  .textOnInput2{
+    position: relative;
+    margin-bottom: 7px;
+    margin-top: 57px;
+  }
+
+  .textOnInput2 label {
+    position: absolute;
+    top: -10px;
+    padding: 2px;
+    z-index: 1;
+  }
+  .textOnInput2 label:after {
+    content: " ";
+    background-color: #fff;
+    width: 100%;
+    height: 13px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;}
+
+    /*input nombre modal*/
+    #textOnInput3{
+      position: relative;
+      margin-bottom: 18px;
+      margin-top: 24px;
+    }
+  
+    #textOnInput3 label {
+      position: absolute;
+      top: -10px;
+      padding: 2px;
+      z-index: 1;
+     right: 390px;
+    }
+    #textOnInput3 label:after {
+      content: " ";
+      background-color: #fff;
+      width: 100%;
+      height: 13px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;}
+
+      /*footer*/
+      
+#footer_términos{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #838795;
+  /* margin-bottom: 36px;
+  margin-left: 137px;
+  margin-right: 694px;
+  margin-top: 18px; */
+  height: 24px;
+}
+
+.img_groups{
+  /* margin: 15px 0px 35.6px 186px; */
+  width: 18px;
+  height: 27.2px;
+  }
+
+    /* .form-control {
+      box-shadow: none !important;
+
+  } */
+
