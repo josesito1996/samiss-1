@@ -1,3 +1,4 @@
+
 // ----------------------------------Función para registrar nuevo usuario------------------------//
 
 // se asigna valor firebase.auth(); para evitar error en funcion
@@ -22,3 +23,4 @@ export const createUser = (email, password) => {
     const currentUser = firebase.auth();
     return currentUser.currentUser;
   }
+

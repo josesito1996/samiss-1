@@ -1,3 +1,4 @@
+
 import { components } from '../view/index.js';
 
 // -------------------Función que asocia el valor de container para cada ruta---------------------
@@ -35,3 +36,4 @@ export const changeTmp = (hash) => {
 
   return changeTmp;
 };
+

@@ -1,3 +1,4 @@
+
 import signIn from './signIn.js';
 import signUp from './signUp.js';
 import inspection from './inspection.js';
@@ -18,3 +19,4 @@ export const components = {
   homework,
   Different,
 };
+

@@ -1,3 +1,4 @@
+
 // var admin = require('firebase-admin');
 // import { user } from "../firebase/firebase-Auth";
 // import { getProfileInfo } from "../firebase/firestore-controller";
@@ -790,5 +791,4 @@ function drop(event) {
         });
       return viewInspection
   };
- 
-                                                                                    
+
