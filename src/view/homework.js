@@ -1,7 +1,105 @@
+// import { addDocument } from '../view-controller/home-controller.js';
 export default () => {
   const viewHomework = document.createElement("div");
 
   viewHomework.innerHTML = `
+
+  <h6>MODELO TABLA</h6>
+  <button id="btnRegister" class="btn btn-success">Nuevo registro</button>
+      <table class="table table-hover table-createTask">
+      <thead>
+        <tr class="thTable-createTask">
+          <th scope="col">Titulo</th>
+          <th scope="col">Datos</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Registro</th>
+          <th scope="col">Vencimiento</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Emininar</th>
+          <th scope="col">Editar</th>
+        </tr>
+      </thead>
+      <tbody id="tabla">
+
+      </tbody>
+    </table>
+
+        <form class="mt-5 border border-primary">
+
+            <div class="row-fromHomework">
+              <label
+                for="Text1"
+                class="label-fromHomework"
+                >1. Denominación</label
+              >
+                <input
+                  type="text"
+                  class="input-fromHomework "
+                  id="Text1"
+                  placeholder="Ejem: Solicitud de documentos a RRHH"
+                />
+            </div>
+
+            <div class="row-fromHomework">
+              <label
+                for="Date2"
+                class=" label-fromHomework"
+                >2. Vencimiento</label
+              >
+              <input 
+                  type="date" 
+                  id="Date2" 
+                  value="" 
+                  class=" input-fromHomework date-fromHomework" 
+                >
+            </div>
+
+            <div class="row-fromHomework">
+              <label
+                for="Text3"
+                class=" label-fromHomework"
+                >3. Destinatario</label
+              >
+                <input
+                  type="text"
+                  class="input-fromHomework "
+                  id="Text3"
+                  placeholder="Escribir nombre del destinatario"
+                />
+            </div>
+
+            <div class="row-fromHomework">
+              <label
+                for="Text4"
+                class="label-fromHomework"
+                >4. Correo</label
+              >
+                    <input
+                    type="text"
+                    class="input-fromHomework"
+                    id="Text4"
+                    placeholder="Escribir email del destinatario"
+                    />
+            </div>
+
+            <div class="row-fromHomework">
+              <label
+                for="tarea5"
+                class=" label-fromHomework labelTextarea-fromHomework"
+                >5. Mensaje</label
+              >
+                    <textarea
+                    class="textarea-fromHomework"
+                    id="tarea5"
+                    rows="5"
+                    col="5"
+                    maxlength="135"
+                    placeholder="Mensaje"
+                    ></textarea>
+            </div>
+          </form>
+<!-- Fin modelo tabla con form-->
+
   <!-- TABLA -->
   <div class="createTask d-flex">
       <div id="container_table" class="container-table"> 
@@ -257,10 +355,171 @@ export default () => {
       </div>
     </div>
   </div>
-
-  
-
 `;
+
+  //*****INGRESO DE REGISTRO TEMPORAL ******/
+  // firestore - borrar
+  const deleteTask = (id) => firebase.firestore().collection('homeWorks').doc(id).delete();
+  
+  // firestore - actualizar
+  const completedTask = (id) => firebase.firestore().collection('homeWorks').doc(id).update({
+    status: 'Finalizado',
+  });
+
+  const pendingTask = (id) => firebase.firestore().collection('homeWorks').doc(id).update({
+    status: 'Pendiente',
+  });
+
+  //****** ingresando datos temporal *****/
+  const addDocument = () => {
+    const denominacion = viewHomework.querySelector("#Text1").value;
+
+    firebase
+      .firestore()
+      .collection("homeWorks")
+      .add({
+        taskName: denominacion,
+        date: "22/05/2021",
+        expiration: "25/05/2021",
+        receiver: "Mauricio Figueroa",
+        file: "",
+        files: [],
+        initials: "MF",
+        mail: "figueroa@gmail.com",
+        message: "Mensaje de tarea 3",
+        status: "Pendiente",
+        count: 0,
+      })
+      .then((docRef) => {
+        console.log(("Documento escrito con ID:", docRef.id));
+        viewHomework.querySelector("#Text1").value = "";
+      })
+      .catch((error) => {
+        console.log("Error al agregar documento:", error);
+      });
+  };
+
+  const btnRegister = viewHomework.querySelector("#btnRegister");
+  btnRegister.addEventListener("click", () => {
+    addDocument();
+  });
+  // Leer docs
+  const tabla = viewHomework.querySelector("#tabla");
+  firebase
+    .firestore()
+    .collection("homeWorks")
+    //  .orderBy("date", "desc")
+    .onSnapshot((querySnapshot) => {
+      tabla.innerHTML = "";
+      querySnapshot.forEach((doc) => {
+        //  console.log(`${doc.id} => ${doc.data()}`);
+        tabla.innerHTML += `
+          <tr class="tdTable-createTask">
+            <td>
+            <input type="checkbox" id="cboxStatus${doc.id}" class="check-status" value="primary_checkbox" data-id="${doc.id}">
+            <label for="cboxStatus${doc.id}">${doc.data().taskName}</label>
+            </td>
+            <td></td>
+            <td>📸</td>
+            <td id="fRegister">04/05/2021</td>
+            <td id="fVenci">30/05/2021</td>
+            <td id="tStatus" class="" data-id="${doc.id}">${doc.data().status}</td>
+            <td><button id="" class="btn btn-danger btn-delete" data-id="${doc.id}">Eliminar</button></td>
+            <td><button id="btn_editar" class="btn btn-warning">Editar</button></td>
+          </tr>
+          `;
+        // Borrar docs
+
+        const btnDelete = tabla.querySelectorAll(".btn-delete");
+        btnDelete.forEach((btn) => {
+          btn.addEventListener("click", async (e) => {
+            // console.log(e.target.dataset);
+            console.log(e.target.dataset.id);
+            await deleteTask(e.target.dataset.id)
+          });
+        });
+
+        const checkStatus = tabla.querySelectorAll(".check-status");
+        const fRegister = tabla.querySelector("#fRegister");
+        const fVenci = tabla.querySelector("#fVenci");
+        const tStatus = tabla.querySelector("#tStatus");
+
+        checkStatus.forEach((check) => {
+          check.addEventListener("change", (e) => {
+            e.preventDefault;
+            console.log(e.target.dataset.id);
+            if (check.checked) {
+              console.log("CON check??");
+              completedTask(e.target.dataset.id);
+              fRegister.classList.add("txt-tach");
+              fVenci.classList.add("txt-tach")
+              tStatus.classList.add("txt-green");
+            } else {
+              console.log("SIN check??");
+              pendingTask(e.target.dataset.id);
+              fRegister.classList.remove("txt-tach");
+              fVenci.classList.remove("txt-tach");
+              tStatus.classList.remove("txt-green");
+            }
+
+
+          // const checkStatus = tabla.querySelectorAll(".check-status");
+          // checkStatus.forEach((check) => {
+          // check.addEventListener("change", (e) => {
+          //   e.preventDefault;
+          //   if (check.checked) {
+          //     status.classList.add("txt-green");
+          //   } else {
+          //     status.classList.remove("txt-green");
+          //   }
+
+
+            // let checked = check.checked;
+            // if (checked) {
+            //   console.log('CON check', checked);
+            //   completedTask(e.target.dataset.id);
+            //   // status.classList.add("txt-green");
+            // } else {
+            //   console.log('SIN check',checked);
+            //   pendingTask(e.target.dataset.id);
+            // }
+          });
+        });
+
+        // function handlerCheck6() {
+        //   let checked = checkSeis.checked;
+        //   if (checked) {
+        //     localStorage.setItem("materia6", checkSeis.value);
+        //   } else {
+        //     localStorage.removeItem("materia6");
+        //   }
+        // }
+
+
+
+
+
+        // btn_eliminar.addEventListener('click', () => {
+        // console.log("CLICKKKKK!!!", btn_eliminar);
+        //  deleteDoc('homeWorks', doc.id);
+
+        //  firebase
+        //    .firestore()
+        //    .collection("homeWorks")
+        //    .doc(doc.id)
+        //    .delete()
+        //    .then(() => {
+        //      console.log("Documento eliminado");
+        //    })
+        //    .catch((error) => {
+        //      console.error("Error al eliminar documento: ", error);
+        //    });
+
+        // });
+      });
+    });
+
+  //***** FIN INGRESO DE REGISTRO TEMPORAL ******/
 
   //******* Fecha actual - input date *******/
   const date = new Date();
@@ -313,8 +572,6 @@ export default () => {
     modalForm.classList.remove("zIndexDown-modal");
   });
 
-
-
   //****** Crea template de la tabla con datos del formulario  *******/
   const createHomework = () => {
     const expirationDate = viewHomework.querySelector("#inputDate2").value;
@@ -349,8 +606,6 @@ export default () => {
 `;
   };
 
-
-
   //*******Validando campos del formulario********//
   const homeworkValidInputs = () => {
     const inputDenominacion = viewHomework.querySelector("#inputText1");
@@ -373,7 +628,7 @@ export default () => {
       btnCreateHomework.classList.remove("btnDisabled");
       btnCreateHomework.disabled = false;
     }
-    
+
     // else if (
     //   inputDenominacion.validity.valid &&
     //   inputDestinatario.validity.valid &&
@@ -385,49 +640,43 @@ export default () => {
     // }
   };
 
-
   const inputDenominacion = viewHomework.querySelector("#inputText1");
   const dateVencimiento = viewHomework.querySelector("#inputDate2");
   const inputDestinatario = viewHomework.querySelector("#inputText3");
   const inputCorreo = viewHomework.querySelector("#inputText4");
   // const textarea5 = viewHomework.querySelector("textarea5");
 
-
   inputDenominacion.addEventListener("input", homeworkValidInputs);
   inputDestinatario.addEventListener("input", homeworkValidInputs);
   inputCorreo.addEventListener("input", homeworkValidInputs);
   textareaModal.addEventListener("input", homeworkValidInputs);
 
-
-
- //******** Limpia inputs ********/
+  //******** Limpia inputs ********/
   const cleanInputs = () => {
-    inputDenominacion.value =""
+    inputDenominacion.value = "";
     inputDestinatario.value = "";
     inputCorreo.value = "";
     textarea5.value = "";
     textareaModal.value = "";
-  }
- 
-const showModalTaskform = viewHomework.querySelector("#showModal_taskform");
+  };
 
-//******* botón Crear tarea - abre modal del formulario *******/
-showModalTaskform.addEventListener("click", (e) => {
-  e.preventDefault;
-  console.log("limpia?");
-  cleanInputs();
-  btnCreateHomework.classList.add("btnDisabled");
-  btnCreateHomework.disabled = true;
-});
+  const showModalTaskform = viewHomework.querySelector("#showModal_taskform");
 
-//***** botón CREAR TAREA del formulario ******/
-btnCreateHomework.addEventListener("click", (e) => {
+  //******* botón Crear tarea - abre modal del formulario *******/
+  showModalTaskform.addEventListener("click", (e) => {
+    e.preventDefault;
+    console.log("limpia?");
+    cleanInputs();
+    btnCreateHomework.classList.add("btnDisabled");
+    btnCreateHomework.disabled = true;
+  });
 
-
-  e.preventDefault;
-  createHomework();
-  cleanInputs();
-});
+  //***** botón CREAR TAREA del formulario ******/
+  btnCreateHomework.addEventListener("click", (e) => {
+    e.preventDefault;
+    createHomework();
+    cleanInputs();
+  });
 
   return viewHomework;
 };
