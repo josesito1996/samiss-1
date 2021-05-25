@@ -1,13 +1,9 @@
-// import { addTask } from "../view-controller/home-controller.js";
-// import { storage } from '../firebase/firebase.js';
-
 export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
   const inspectionOrder = localStorage.getItem("order");
   const etapa_actuacion = localStorage.getItem("etapa");
   const tipo_actuacion = localStorage.getItem("tipo");
-  // const date_actuacion = localStorage.getItem("date_actuacion");
 
   // fecha actual
   let date = new Date();
@@ -34,7 +30,7 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML =  `
+  viewHome.innerHTML = `
 
     <div class="wrapper">
 
@@ -804,7 +800,7 @@ export default () => {
 
           </div>
 
-          <div class="ocultar" id="tareas_ver">
+          <div id="tareas_ver" class="ocultar" >
           <div class="d-flex flex-row">
 
           <div class="d-flex flex-column">
@@ -860,14 +856,21 @@ export default () => {
             </div>
 
               <!--principal tareas-->
+           
               <div id="column_izquierda_documentos">
             <div>
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
-            <div id="prueba_tareas">
+
+         
+            <div id="prueba_tareas" >
          
               </div>
+
+            
               </div>
             </div>
+
+           
           </div>
             
 
@@ -1502,22 +1505,6 @@ export default () => {
     </div>
     `;
 
-  //   // ****  Columna Izquierda (termino)  **** //
-
-
-  //habilitar input
-  // const editar = viewHome.querySelector("#edit");
-  // editar.addEventListener("click", ()=>{
-  //   const description = viewHome.querySelector("#description");
-  //   if(description .disabled == true)	{
-  //     description.disabled=false;
-  //      }
-  //         else
-  //   {
-  //     description.disabled=true;
-  //   }
-  //       });
-
   //número aleatorio
   function aleatorio(inferior, superior) {
     var numPosibilidades = superior - inferior;
@@ -1644,19 +1631,6 @@ export default () => {
     }
   }
 
-  //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
-  //     if (e.target.nodeName === 'IMG') {
-  //         var currentSibling = e.target;
-  //         var nextSibling = e.target;
-  //         currentSibling.classList.add('active');
-  //         while ((currentSibling = currentSibling.previousElementSibling)) {
-  //             currentSibling.classList.add('active');
-  //         }
-  //         while ((nextSibling = nextSibling.nextElementSibling)) {
-  //             nextSibling.classList.remove('active');
-  //         }
-  //     }
-  // });
   //HOME ACTUACIONES
   //ir a crear actuación actuacion
 
@@ -1886,8 +1860,6 @@ export default () => {
 
      })
    })
-
-   
  })
 
 
@@ -1912,8 +1884,6 @@ export default () => {
             };
           }              
 
-      
-  
 //subir datoss al storage
 const txt_carga = viewHome.querySelector("#txt_carga");
 const conDocumentos = viewHome.querySelector("#conDocumentos");
@@ -1939,9 +1909,6 @@ file_upload.addEventListener("change", ()=> {
   var pdrs = document.getElementById('file-upload').files[0].name;
   document.getElementById('info').innerHTML = pdrs;
   const mostrarDoc = document.getElementById('info')
-  
-      
- 
 });
 
 
@@ -1958,11 +1925,8 @@ file_upload.addEventListener("change", ()=> {
 
         results +=
           '<div  class="name_info_down">' + datos[key].nombre + "</div>";
-
       }
      
-
-      
       document.getElementById("name_info").innerHTML = results;
       const click_show_doc = document.getElementById("name_info");
       click_show_doc.addEventListener("click", () => {
@@ -1985,42 +1949,6 @@ file_upload.addEventListener("change", ()=> {
     });
   
   });
-
-  // link_datos.classList.add("links_change");
-  // const links = viewHome.getElementsByClassName("links");
-  // for (let i = 0; i < links.length; i++) {
-  //   links[i].onclick = function () {
-  //     let el = links[0];
-  //     while (el) {
-  //       if (el.tagName === "DIV") {
-  //         // remueve class
-  //         el.classList.remove("links_change");
-  //       }
-
-  //       //pasa al hermano
-  //       el = el.nextSibling;
-  //     }
-  //     this.classList.add("links_change");
-  //   };
-  // }
-
-
-  // //subir datoss al storage
-
-  // const txt_carga = viewHome.querySelector("#txt_carga");
-  // const cli = viewHome.querySelector("#mostrarCli");
-
-  // const subir = viewHome.querySelector("#subir");
-
-  // const file_upload = viewHome.querySelector("#file-upload");
-  // file_upload.addEventListener("change", () => {
-  //   subir.classList.add("ocultar");
-  //   txt_carga.classList.add("ocultar");
-  //   cli.classList.remove("ocultar");
-  //   var pdrs = document.getElementById("file-upload").files[0].name;
-  //   document.getElementById("info").innerHTML = pdrs;
-  //   const mostrarDoc = document.getElementById("info");
-  // });
 
   // window.onload = inicializar;
   var fichero;
@@ -2187,6 +2115,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
     const tableTask = viewHome.querySelector("#tableTask");
 
+  
+
     firebase
       .firestore()
       .collection("tasks")
@@ -2208,7 +2138,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
                 <label for="file-uploadTask" id="subirTask" >
                   <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
                 </label>
-                <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
+                <input id="file-uploadTask" type="file" style='display: none;'/>
                 <div id="infoTask">${doc.data().nameFile}</div>
               </td>
 
@@ -2221,6 +2151,112 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
               <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
             </tr>
         `;
+
+                    //TERMINA MOSTRAR TAREA
+
+   const mostrar_cards_tareas = () =>{
+   
+    //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+
+// const expirationDate = viewHome.querySelector("#inputDate2").value;
+const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
+firebase.firestore()
+.collection("tasks") 
+.onSnapshot((querySnapshot) => {
+container_principal_tarea.innerHTML='';
+
+
+querySnapshot.forEach((doc) => {
+container_principal_tarea.innerHTML += `
+
+<div id="style_generalContainer_principal" class="style_generalContainer_principal">
+<div  id="container_principal_tarea">
+<div style="width: 231px;height: 21px;">
+<p class="styles_principal"><strong>Tarea 1 </strong></p>
+<p class="styles_principal">${doc.data().taskName}</p>
+</div>
+
+<div style="width: 61px;height: 21px;">
+<p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
+<p id="date_documentos" style='color:#D70025'>${doc.data().expiration}</p>
+</div>
+</div>
+
+<div class="d-flex flex-row align-items-center " id="container_doc_princial">
+<p style="margin-left:24px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+ margin-right:12px;
+  color: #0F3041;" >01.</p>
+  <label for="file-upload"  style="margin-left:0px;">
+  <img  src="./img/svg/clicdoc.svg" alt="" />
+    </label>
+    <div class="d-flex flex-column ">
+    <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
+    <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+    </div>
+</div>
+
+</div>
+  ` ; 
+
+  });
+
+  
+  const click_show_doc = viewHome.querySelector("#file_tarea");
+  click_show_doc.addEventListener("click", () => {
+  
+      rootRefTask.on("value", function (snapshot) {
+
+        console.log('muestra imagennn')
+        var datos = snapshot.val();
+        var result = "";
+        for (var key in datos) {
+          console.log(datos[key].url);
+          console.log(datos[key].id);
+  
+          if(datos[key].id === doc.id){
+
+            console.log('si  es el ID')
+            result +=
+            '<iframe  class="styleIframe"  src="' +
+            datos[key].url +
+            '"></iframe>';
+          }else{
+            console.log('diferente id')
+        
+          }
+        }
+        document.getElementById("verFiles").innerHTML = result;
+      });
+  });
+});
+};
+  //******* subir documentos de Tareas a Storage *******/
+          //  const subirTask = viewHome.querySelector("#subirTask");
+          const file_uploadTask = viewHome.querySelector('#file-uploadTask');
+
+          file_uploadTask.addEventListener("change", (e) => {
+            e.preventDefault;
+            const nDocs =
+            document.getElementById('file-uploadTask').files[0].name;
+
+            // document.getElementById(`infoTask`).innerHTML = nDocs;
+            // const mostrarDoc = document.getElementById("info");
+
+            firebase
+              .firestore()
+              .collection("tasks")
+              .doc(doc.id)
+              .update({
+                // nameFile: nDocs,
+                files: [nDocs],
+              });    
+          });
+
 
         const checkStatus = tableTask.querySelectorAll(".check-status");
         const fRegister = tableTask.querySelector("#fRegister");
@@ -2247,77 +2283,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
           });
         });
 
-
-
-
-
-
-
-
-
-
-          // //*****************Cargar de archivos a firebase
-          // let file = "";
-          // let urlFile = "";
-
-          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
-
-          // file_uploadTask.addEventListener("change", (e) => {
-          //   console.log("cliqueaste");
-          //   const input = e.target;
-          //   const reader = new FileReader();
-          //   reader.onload = () => {
-          //     const dataURL = reader.result;
-          //     urlFile = dataURL;
-          //     console.log("🤔 urlFile", urlFile);
-
-          //   };
-
-          //   reader.readAsDataURL(input.files[0]);
-          //   file = e.target.files[0];
-          //   console.log("🙄file", file);
-
-          //   // Array temporal
-          //   let arry=[]
-          //   arry.push(file.name);
-          //   console.log(arry);
-
-          //   firebase.firestore().collection('tasks').doc(doc.id).update({
-          //     nameFile: file.name,
-          //     files: arry,
-          //   });
-
-          //   console.log("nombre de archivo", file.name);
-          //   console.log("Id de tarea", `${doc.id}`);
-          // });
-
-          // const uploadFileTask = () => {
-          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
-          //   refStorage.put(file);
-          // }
-
-          //******* subir documentos de Tareas a Storage *******/
-          //  const subirTask = viewHome.querySelector("#subirTask");
-          const file_uploadTask = viewHome.querySelector('#file-uploadTask');
-
-          file_uploadTask.addEventListener("change", () => {
-            const nDocs =
-              document.getElementById(`file-uploadTask`).files[0].name;
-
-            // document.getElementById(`infoTask`).innerHTML = nDocs;
-            // const mostrarDoc = document.getElementById("info");
-
-            firebase
-              .firestore()
-              .collection("tasks")
-              .doc(doc.id)
-              .update({
-                // nameFile: nDocs,
-                files: [nDocs],
-              });    
-          });
-
-          const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
+          
+          const ficheroTask = viewHome.querySelector('#file-uploadTask');
           ficheroTask.addEventListener("change", sendDocFirebase, false);
 
           const storageRefTask = firebase.storage().ref();
@@ -2363,207 +2330,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
             });
           }
-    //EMPIEZA MOSTRARA TAREA
-          // mostrar_tareas.addEventListener('click',() =>{
-          //   tareas_ver.classList.remove("ocultar");
-          //   mostrar_tareas.classList.add("ocultar");
-          //   here_tareas.classList.remove("ocultar");
-          //   informationDoc_ocultar.classList.add("ocultarDoc");
-        
-            
-          
-        //   const rootRefTask = firebase.database().ref().child("docTask");
-        
-        //   rootRefTask.on('value', function(snapshot){
-        //     var datos = snapshot.val();
-        //     var results = "" 
-        //     for(var key in datos){
-        
-        //       console.log(datos[key].nombre)
-            
-        //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
-              
-        //     } 
-        //     document.getElementById("file_tarea").innerHTML= results;
-        
-        //     // const cambiarFond = viewHome.querySelector('#file_tarea')
-        //     // cambiarFond.addEventListener('click', () => {
-        //     //   console.log('aqui')
-        //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-        //     // });
-        
-        // });
-        
-        // const click_show_doc = document.getElementById("file_tarea");
-        // click_show_doc.addEventListener("click", () => {
-        
-        
-        //     rootRefTask.on("value", function (snapshot) {
-        //       var datos = snapshot.val();
-        //       var result = "";
-        //       for (var key in datos) {
-        //         console.log(datos[key].url);
-        //         console.log(datos[key].id);
-        
-        //         if(datos[key].id === doc.id){
-        //           result +=
-        //           '<iframe  class="styleIframe"  src="' +
-        //           datos[key].url +
-        //           '"></iframe>';
-        //         }else{
-        //           console.log('diferente id')
-        //         }
-        //       }
-        //       document.getElementById("verFiles").innerHTML = result;
-        //     });
-        // });
-        // });
-
-        //TERMINA MOSTRAR TAREA
-
-        mostrar_tareas.addEventListener('click',() =>{
-   
-            //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
-    
-        // const expirationDate = viewHome.querySelector("#inputDate2").value;
-        const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
-        firebase.firestore()
-        .collection("tasks").onSnapshot((querySnapshot) => {
-        container_principal_tarea.innerHTML='';
-    
-      
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.data())
-    
-       
-        // console.log(doc.data())
-        //  console.log(`${doc.id} => ${doc.data().name}`);
-        container_principal_tarea.innerHTML += `
-    
-        <div id="style_generalContainer_principal" class="style_generalContainer_principal">
-                 
-      
-    
-        <div  id="container_principal_tarea">
-        <div style="width: 231px;height: 21px;">
-        <p class="styles_principal"><strong>Tarea 1 </strong></p>
-        <p class="styles_principal">${doc.data().taskName}</p>
-      </div>
-    
-      <div style="width: 61px;height: 21px;">
-        <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
-        <p id="date_documentos" style='color:#D70025'>${doc.data().expiration}</p>
-      </div>
-        </div>
-    
-        <div class="d-flex flex-row align-items-center " id="container_doc_princial">
-        <p style="margin-left:24px;
-          font-family: Raleway;
-          font-style: normal;
-          font-weight: 600;
-          font-size: 12px;
-          line-height: 14px;
-         margin-right:12px;
-          color: #0F3041;" >01.</p>
-          <label for="file-upload"  style="margin-left:0px;">
-          <img  src="./img/svg/clicdoc.svg" alt="" />
-            </label>
-            <div class="d-flex flex-column ">
-            <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
-            <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
-            </div>
-        </div>
-    
-        </div>
-          ` ; 
-    
-              
-        //   const nameClick = viewHome.querySelector('#file_tarea');
-        //   nameClick.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     console.log('funciona please')
-        //     firebase.firestore()
-        // .collection("tasks").onSnapshot((querySnapshot) => {
-        //   document.getElementById("verFiles").innerHTML='';
-        // querySnapshot.forEach((doc) => {
-        //     console.log(`${doc.data().file}`)
-        //     document.getElementById("verFiles").innerHTML +=`
-        //      <iframe  class="styleIframe"  src="${doc.data().files}"></iframe>
-        //             `;
-        //           })
-        //         })     
-        //       }) 
-
-              //******************* */
-            //   const rootRefTask = firebase.database().ref().child("docTask");
-        
-            //   rootRefTask.on('value', function(snapshot){
-            //     var datos = snapshot.val();
-            //     var results = "" 
-            //     for(var key in datos){
-            
-            //       console.log(datos[key].nombre)
-                
-            //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
-                  
-            //     } 
-            //     document.getElementById("file_tarea").innerHTML= results;
-            
-            //     // const cambiarFond = viewHome.querySelector('#file_tarea')
-            //     // cambiarFond.addEventListener('click', () => {
-            //     //   console.log('aqui')
-            //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-            //     // });
-            
-            // });
-            
-    
-          });
-
-          
-          const click_show_doc = document.getElementById("file_tarea");
-          click_show_doc.addEventListener("click", () => {
-          
-          
-              rootRefTask.on("value", function (snapshot) {
-                var datos = snapshot.val();
-                var result = "";
-                for (var key in datos) {
-                  console.log(datos[key].url);
-                  console.log(datos[key].id);
-          
-                  if(datos[key].id === doc.id){
-
-                    console.log('si  es el ID')
-                    result +=
-                    '<iframe  class="styleIframe"  src="' +
-                    datos[key].url +
-                    '"></iframe>';
-                  }else{
-                    console.log('diferente id')
-                    result +=
-                    '<iframe  class="styleIframe"  src=""></iframe>';
-                  }
-                }
-                document.getElementById("verFiles").innerHTML = result;
-              });
-          });
-          });
-      });
-
-        //TERMINA OTRA MOSTRAS TAREA
+      mostrar_cards_tareas();
         });
-
-        // const toggle = viewHome.querySelector("#cbox1");
-        // const txtStatus = viewHome.querySelector("#txt-status");
-
-
-        // toggle.addEventListener("change", function () {
-        //   txtStatus.style.color = this.checked
-        //     ? "#31CC53"
-        //     : "#0F3041";
-        //   console.log("VERDE");
-        // });
 
       });
   };
@@ -2592,16 +2360,6 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
         btnCreateHomework.classList.remove("btnDisabled");
         btnCreateHomework.disabled = false;
       }
-   
-      // else if (
-      //   inputDenominacion.validity.valid &&
-      //   inputDestinatario.validity.valid &&
-      //   inputCorreo.validity.valid &&
-      //   inputMensaje.validity.valid
-      // ) {
- //   btnCreateHomework.classList.remove("btnDisabled");
-    //   btnCreateHomework.disabled = false;
-    // }
   };
  
   const inputDenominacion = viewHome.querySelector("#inputText1");
@@ -2674,90 +2432,9 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
 
     firebase.firestore().collection("tasks").add(newTask);
     console.log(newTask);
-
-    // addTask(
-    //   taskName,
-    //   taskDate,
-    //   taskExpiration,
-    //   taskReceiver,
-    //   taskMail,
-    //   taskMessages
-    // ).then(() => {
-    //   console.log("enviado a firebase");
-    // });
-
     createHomework();
     cleanInputs();
-
-    // });
   });
-
-
-// });
-// };
-
- 
-
-
-//  //******* subir documentos de Tareas a Storage *******/
-//     //  const subirTask = viewHome.querySelector("#subirTask");
-//     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
- 
-//     file_uploadTask.addEventListener("change", () => {
-//       const nDocs = document.getElementById("file-uploadTask").files[0].name;
-//       document.getElementById("infoTask").innerHTML = nDocs;
-     
-//     });
- 
-//     const ficheroTask = viewHome.querySelector("#file-uploadTask");
-//     ficheroTask.addEventListener("change", sendDocFirebase, false);
-
-
-//     const storageRefTask = firebase.storage().ref();
-//     const rootRefTask = firebase.database().ref().child("docTask");
-//     function sendDocFirebase() {
-//       //     console.log("subiendo")
-//       const documentoSubirTask = ficheroTask.files[0];
-//       console.log(documentoSubirTask);
-//       const uploadTasks = storageRefTask
-//         .child("docTask/" + documentoSubirTask.name)
-//         .put(documentoSubirTask);
- 
-//       uploadTasks.on(
-//         "state_changed",
-//         function (snapshot) {},
-//         function (error) {
-//           alert("hubo un error");
-//         },
-//         function () {
-//           uploadTasks.snapshot.ref
-//             .getDownloadURL()
-//             .then(function (downloadURL) {
-//               alert("se subió la imagen conURL", downloadURL);
-//               console.log("Uploaded a blob or file!");
-//               crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
-//             });
-//         }
-//       );
-//     };
-
- 
-// function  crearNodoEnBDFirebaseTask(name,url){
-//   rootRefTask.push({
-//   nombre:name,
-//   url:url,
-// })
-// }
-// });
-// //cambiar logo Sunafil una ver sincronizado
-// // const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
-// // const sunafilS = viewHome.querySelector('#sunafil');
-// // const sunafilBlue = viewHome.querySelector('#sunafilBlue');
-// //     cambiarLogo.addEventListener('click', ()=>{
-// // sunafilS.classList.add('ocultar');
-// // sunafilBlue.classList.remove('ocultar');
-// //     })
-
 
     //mostar tareas en documentos
 
@@ -2765,46 +2442,40 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     const tareas_ver = viewHome.querySelector('#tareas_ver');
     const here_tareas = viewHome.querySelector('#here_tareas');
     const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
-
    
-  
+    mostrar_tareas.addEventListener('click',() =>{
+      tareas_ver.classList.remove("ocultar");
+      mostrar_tareas.classList.add("ocultar");
+      here_tareas.classList.remove("ocultar");
+      informationDoc_ocultar.classList.add("ocultarDoc");
+      
+   
+    });
 
- 
- 
-  here_tareas.addEventListener('click' , () => {
+    here_tareas.addEventListener('click' , () => {
     tareas_ver.classList.add("ocultar");
     mostrar_tareas.classList.remove("ocultar");
     here_tareas.classList.add("ocultar");
     informationDoc_ocultar.classList.remove("ocultarDoc");
   });
 
-
-
-
   
     //subir y traer files para see en documentos
     
-  
     let stars = viewHome.querySelectorAll('.star');
     viewHome.querySelector('.star-container').addEventListener('click', starRating);
    
-    
     function starRating(e) {
       const star = e.target;
       const val = star.getAttribute('data-val');
-    
+
       stars.forEach((star) => star.classList.remove('star__checked'));
     
       star.classList.add('star__checked');
      
     }
 
-    mostrar_tareas.addEventListener('click',() =>{
-      tareas_ver.classList.remove("ocultar");
-      mostrar_tareas.classList.add("ocultar");
-      here_tareas.classList.remove("ocultar");
-      informationDoc_ocultar.classList.add("ocultarDoc");
-    });
+   
 
     return viewHome;
   };
