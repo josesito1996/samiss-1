@@ -272,38 +272,39 @@ export default () => {
                     <div class="mb-3 row" style="margin-left:30px;margin-top:20px;">
                         <div class="d-flex flex-row bd-highlight ">
                         <label for="inputPassword" class="form-label" style=" margin-left:0px;font-size: 14px;">6. Documentos</label>
+
                         <label for="file-upload" id="subir" style="margin-left:240px;">
                                     <img  src="./img/svg/carga.svg" alt="" />Añada tus documentos
                                         </label>
                                         <input id="file-upload"  type="file" style='display: none;'/>
                                         <div id="info" style="margin-left:240px;"></div>
                         </div>   
-                    </div>
 
-    
+                    </div>
 
                     <div class="" id="btn_crearActuacion" style="text-align:center; margin-top:30px;">
                        <input type="button" class="btnenviar_acti" value="Crear actuación" style="height:40px; width:138px; color:white; border-radius:10px;">
+
                     </div>
                 </form>
             </div>
         </div>
         <!---FILA 3-->
         <div class="row" style="height:81px;border-top:1px solid  #E1E6F0;">
-        
-        <footer class="d-flex justify-content-around" >
-            <div id="footer_términos" class="d-flex flex-row " style="margin-top:19px;">
-                <p>Copyright © 2021 <strong>sami</strong>. Todos los derechos reservados.</p>
-                <a href="#/home" class="text-danger" style="text-decoration:none">Términos del Servicio</a>
-                <p>y</p>
-                <a href="#/home" class="text-danger" style="text-decoration:none">Políticas de Privacidad</a>
-            </div>
-            <img src="./img/logo_footer.png" class="img_groups" style="margin-top:19px;" alt="logo">
-        </footer>
+
+        <div class="footer d-flex">
+        <p>
+          Copyright © 2021 <strong>sami.</strong>Todos los derechos
+          reservados.
+          <span>Términos del Servicio y Políticas de Privacidad</span>
+        </p>
+        <img src="./img/svg/group.svg" alt="logo" />
+      </div>
     </div>
     `;
 
-//subir documento
+// subir documento
+
 const subir = viewActuacion.querySelector("#subir");
 
 const file_upload = viewActuacion.querySelector("#file-upload");

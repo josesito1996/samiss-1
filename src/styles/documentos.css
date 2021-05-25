@@ -18,6 +18,34 @@
    
 }
 
+#file_tarea{
+    cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0F3041;
+    width: 219px;
+}
+
+.name_info_down1{
+    cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0F3041;
+    width: 219px;
+}
+
 #verFiles{
     position: relative;
     padding-bottom: 56.25%;
@@ -70,6 +98,7 @@ padding: 19px 10px 12px 22px;
 #container_doc_princial{
 
     border-radius: 5px;
+    height: 59px;
 }
 
 #see{
@@ -337,6 +366,27 @@ border-radius: 6px 0px 0px 13px;
     width: 100%;
     padding-left: 22px;
     padding-right: 10px;
+}
+
+
+
+#style_a_docs{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+
+    /* Primary Blue */
+
+    color: #0F3041;
+    text-decoration: none;
+}
+
+#doc_select{
+    height: 59px;
 }
 
 #here_tareas {

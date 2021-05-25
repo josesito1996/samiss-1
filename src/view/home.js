@@ -34,7 +34,7 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML = `
+  viewHome.innerHTML =  `
 
     <div class="wrapper">
 
@@ -815,7 +815,7 @@ export default () => {
             <div id="column_izquierda_documentos" >
             <div>
             <p id="title_principal">PRINCIPAL</p>
-            <div id="style_generalContainer_principal">
+            <div id="style_generalContainer_principal" >
               <div class="d-flex flex-row justify-content-between" id="container_principal">
               
                 <div style="width: 231px;height: 21px;">
@@ -831,7 +831,7 @@ export default () => {
                 </div>
 
               </div>
-
+              <div class='doc_select'>
               <div class="d-flex flex-row align-items-center " id="container_doc_princial">
               <p style="margin-left:24px;
                 font-family: Raleway;
@@ -856,53 +856,15 @@ export default () => {
               </div>
               </div>
               </div>
+              </div>
             </div>
 
               <!--principal tareas-->
               <div id="column_izquierda_documentos">
             <div>
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
-            <div id="style_generalContainer_principal">
-              <div  id="container_principal_tarea">
-              
-                <div style="width: 231px;height: 21px;">
-                <p class="styles_principal"><strong>Tarea 1:</strong></p>
-                <p class="styles_principal">${localStorage.getItem(
-                  "denomicacion"
-                )}</p>
-                </div>
-
-                <div style="width: 61px;height: 21px;">
-                <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
-                <p id="date_documentos" style='color:#D70025'>${localStorage.getItem(
-                  "dateVencimiento"
-                )}</p>
-                </div>
-
-              </div>
-
-              <div class="d-flex flex-row align-items-center " id="container_doc_princial">
-              <p style="margin-left:24px;
-                font-family: Raleway;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 12px;
-                line-height: 14px;
-               margin-right:12px;
-
-                
-                /* Primary Blue */
-                
-                color: #0F3041;" >01.</p>
-                <label for="file-upload" id="subir" style="margin-left:0px;">
-                <img  src="./img/svg/clicdoc.svg" alt="" />
-                  </label>
-                  <div class="d-flex flex-column ">
-                  <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
-                  <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
-                  </div>
-              
-              </div>
+            <div id="prueba_tareas">
+         
               </div>
               </div>
             </div>
@@ -1996,7 +1958,11 @@ file_upload.addEventListener("change", ()=> {
 
         results +=
           '<div  class="name_info_down">' + datos[key].nombre + "</div>";
+
       }
+     
+
+      
       document.getElementById("name_info").innerHTML = results;
       const click_show_doc = document.getElementById("name_info");
       click_show_doc.addEventListener("click", () => {
@@ -2014,7 +1980,10 @@ file_upload.addEventListener("change", ()=> {
           document.getElementById("verFiles").innerHTML = result;
         });
       });
+        const cambiarFond = viewHome.querySelector('.name_info_down')
+  
     });
+  
   });
 
   // link_datos.classList.add("links_change");
@@ -2122,8 +2091,9 @@ file_upload.addEventListener("change", ()=> {
   const todayDate = String(date.getDate()).padStart(2, "0");
   const datePattern = year + "/" + monthNow + "/" + todayDate;
   const currentDate = todayDate + "/" + monthNow + "/" + yearNow;
-
+ 
   const dateFromHomework = viewHome.querySelector("#date_fromHomework");
+  
   const btnCreateHomework = viewHome.querySelector("#btnCreate_homework");
 
   dateFromHomework.innerHTML = `
@@ -2135,7 +2105,8 @@ file_upload.addEventListener("change", ()=> {
   >
   <!-- <img src="./img/svg/calendar-red.svg" class="" alt="icono calendario" /> -->
 `;
-
+const inputDate2 = viewHome.querySelector("#inputDate2");
+localStorage.setItem("dateVencimiento", inputDate2.value);
   /******* Modal ingresar mensaje *******/
   const modalForm = viewHome.querySelector("#exampleModal");
   const btnShow_modal_message = viewHome.querySelector(
@@ -2177,8 +2148,10 @@ file_upload.addEventListener("change", ()=> {
     const nameTask = viewHome.querySelector("#inputText1").value;
     localStorage.setItem("denomicacion", nameTask);
 
+
     const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
     // const nameTask = viewHome.querySelector("#inputText1").value;
+
     console.log(nameTask)
     console.log(expirationDate)
 
@@ -2325,7 +2298,7 @@ file_upload.addEventListener("change", ()=> {
 
           //******* subir documentos de Tareas a Storage *******/
           //  const subirTask = viewHome.querySelector("#subirTask");
-          const file_uploadTask = viewHome.querySelector(`#file-uploadTask`);
+          const file_uploadTask = viewHome.querySelector('#file-uploadTask');
 
           file_uploadTask.addEventListener("change", () => {
             const nDocs =
@@ -2374,23 +2347,216 @@ file_upload.addEventListener("change", ()=> {
                       documentoSubirTask.name,
                       downloadURL,
                       doc.id
+
                     );
                   });
               }
             );
           }
 
+
           function crearNodoEnBDFirebaseTask(name, url, id) {
             rootRefTask.push({
               nombre: name,
               url: url,
               id: id,
+
             });
           }
+    //EMPIEZA MOSTRARA TAREA
+          // mostrar_tareas.addEventListener('click',() =>{
+          //   tareas_ver.classList.remove("ocultar");
+          //   mostrar_tareas.classList.add("ocultar");
+          //   here_tareas.classList.remove("ocultar");
+          //   informationDoc_ocultar.classList.add("ocultarDoc");
+        
+            
+          
+        //   const rootRefTask = firebase.database().ref().child("docTask");
+        
+        //   rootRefTask.on('value', function(snapshot){
+        //     var datos = snapshot.val();
+        //     var results = "" 
+        //     for(var key in datos){
+        
+        //       console.log(datos[key].nombre)
+            
+        //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
+              
+        //     } 
+        //     document.getElementById("file_tarea").innerHTML= results;
+        
+        //     // const cambiarFond = viewHome.querySelector('#file_tarea')
+        //     // cambiarFond.addEventListener('click', () => {
+        //     //   console.log('aqui')
+        //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+        //     // });
+        
+        // });
+        
+        // const click_show_doc = document.getElementById("file_tarea");
+        // click_show_doc.addEventListener("click", () => {
+        
+        
+        //     rootRefTask.on("value", function (snapshot) {
+        //       var datos = snapshot.val();
+        //       var result = "";
+        //       for (var key in datos) {
+        //         console.log(datos[key].url);
+        //         console.log(datos[key].id);
+        
+        //         if(datos[key].id === doc.id){
+        //           result +=
+        //           '<iframe  class="styleIframe"  src="' +
+        //           datos[key].url +
+        //           '"></iframe>';
+        //         }else{
+        //           console.log('diferente id')
+        //         }
+        //       }
+        //       document.getElementById("verFiles").innerHTML = result;
+        //     });
+        // });
+        // });
+
+        //TERMINA MOSTRAR TAREA
+
+        mostrar_tareas.addEventListener('click',() =>{
+   
+            //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+    
+        // const expirationDate = viewHome.querySelector("#inputDate2").value;
+        const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
+        firebase.firestore()
+        .collection("tasks").onSnapshot((querySnapshot) => {
+        container_principal_tarea.innerHTML='';
+    
+      
+        querySnapshot.forEach((doc) => {
+          // console.log(doc.data())
+    
+       
+        // console.log(doc.data())
+        //  console.log(`${doc.id} => ${doc.data().name}`);
+        container_principal_tarea.innerHTML += `
+    
+        <div id="style_generalContainer_principal" class="style_generalContainer_principal">
+                 
+      
+    
+        <div  id="container_principal_tarea">
+        <div style="width: 231px;height: 21px;">
+        <p class="styles_principal"><strong>Tarea 1 </strong></p>
+        <p class="styles_principal">${doc.data().taskName}</p>
+      </div>
+    
+      <div style="width: 61px;height: 21px;">
+        <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
+        <p id="date_documentos" style='color:#D70025'>${doc.data().expiration}</p>
+      </div>
+        </div>
+    
+        <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+        <p style="margin-left:24px;
+          font-family: Raleway;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 14px;
+         margin-right:12px;
+          color: #0F3041;" >01.</p>
+          <label for="file-upload"  style="margin-left:0px;">
+          <img  src="./img/svg/clicdoc.svg" alt="" />
+            </label>
+            <div class="d-flex flex-column ">
+            <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
+            <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+            </div>
+        </div>
+    
+        </div>
+          ` ; 
+    
+              
+        //   const nameClick = viewHome.querySelector('#file_tarea');
+        //   nameClick.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     console.log('funciona please')
+        //     firebase.firestore()
+        // .collection("tasks").onSnapshot((querySnapshot) => {
+        //   document.getElementById("verFiles").innerHTML='';
+        // querySnapshot.forEach((doc) => {
+        //     console.log(`${doc.data().file}`)
+        //     document.getElementById("verFiles").innerHTML +=`
+        //      <iframe  class="styleIframe"  src="${doc.data().files}"></iframe>
+        //             `;
+        //           })
+        //         })     
+        //       }) 
+
+              //******************* */
+            //   const rootRefTask = firebase.database().ref().child("docTask");
+        
+            //   rootRefTask.on('value', function(snapshot){
+            //     var datos = snapshot.val();
+            //     var results = "" 
+            //     for(var key in datos){
+            
+            //       console.log(datos[key].nombre)
+                
+            //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
+                  
+            //     } 
+            //     document.getElementById("file_tarea").innerHTML= results;
+            
+            //     // const cambiarFond = viewHome.querySelector('#file_tarea')
+            //     // cambiarFond.addEventListener('click', () => {
+            //     //   console.log('aqui')
+            //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+            //     // });
+            
+            // });
+            
+    
+          });
+
+          
+          const click_show_doc = document.getElementById("file_tarea");
+          click_show_doc.addEventListener("click", () => {
+          
+          
+              rootRefTask.on("value", function (snapshot) {
+                var datos = snapshot.val();
+                var result = "";
+                for (var key in datos) {
+                  console.log(datos[key].url);
+                  console.log(datos[key].id);
+          
+                  if(datos[key].id === doc.id){
+
+                    console.log('si  es el ID')
+                    result +=
+                    '<iframe  class="styleIframe"  src="' +
+                    datos[key].url +
+                    '"></iframe>';
+                  }else{
+                    console.log('diferente id')
+                    result +=
+                    '<iframe  class="styleIframe"  src=""></iframe>';
+                  }
+                }
+                document.getElementById("verFiles").innerHTML = result;
+              });
+          });
+          });
+      });
+
+        //TERMINA OTRA MOSTRAS TAREA
         });
 
         // const toggle = viewHome.querySelector("#cbox1");
         // const txtStatus = viewHome.querySelector("#txt-status");
+
 
         // toggle.addEventListener("change", function () {
         //   txtStatus.style.color = this.checked
@@ -2400,13 +2566,8 @@ file_upload.addEventListener("change", ()=> {
         // });
 
       });
-      
-      
-      
-      
-  // };
-
   };
+
 
    
     //*******Validando campos del formulario********//
@@ -2604,54 +2765,13 @@ file_upload.addEventListener("change", ()=> {
     const tareas_ver = viewHome.querySelector('#tareas_ver');
     const here_tareas = viewHome.querySelector('#here_tareas');
     const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
-    
 
-   mostrar_tareas.addEventListener("click", () => {
-     tareas_ver.classList.remove("ocultar");
-     mostrar_tareas.classList.add("ocultar");
-     here_tareas.classList.remove("ocultar");
-     informationDoc_ocultar.classList.add("ocultarDoc");
+   
+  
 
-     const rootRefTask = firebase.database().ref().child("docTask");
-
-     rootRefTask.on("value", function (snapshot) {
-       var datos = snapshot.val();
-       var results = "";
-       for (var key in datos) {
-         console.log(datos[key].nombre);
-
-         results +=
-           '<div  class="name_info_down1">' + datos[key].nombre + "</div>";
-       }
-       document.getElementById("file_tarea").innerHTML = results;
-
-       // const cambiarFond = viewHome.querySelector('#file_tarea')
-       // cambiarFond.addEventListener('click', () => {
-       //   console.log('aqui')
-       //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-       // });
-     });
-
-     const click_show_doc = document.getElementById("file_tarea");
-     click_show_doc.addEventListener("click", () => {
-       rootRefTask.on("value", function (snapshot) {
-         var datos = snapshot.val();
-         var result = "";
-         for (var key in datos) {
-           console.log(datos[key].url);
-
-           result +=
-             '<iframe  class="styleIframe"  src="' +
-             datos[key].url +
-             '"></iframe>';
-         }
-
-         document.getElementById("verFiles").innerHTML = result;
-       });
-     });
-   });
-
-    here_tareas.addEventListener('click' , () => {
+ 
+ 
+  here_tareas.addEventListener('click' , () => {
     tareas_ver.classList.add("ocultar");
     mostrar_tareas.classList.remove("ocultar");
     here_tareas.classList.add("ocultar");
@@ -2659,6 +2779,32 @@ file_upload.addEventListener("change", ()=> {
   });
 
 
+
+
+  
+    //subir y traer files para see en documentos
+    
+  
+    let stars = viewHome.querySelectorAll('.star');
+    viewHome.querySelector('.star-container').addEventListener('click', starRating);
+   
+    
+    function starRating(e) {
+      const star = e.target;
+      const val = star.getAttribute('data-val');
+    
+      stars.forEach((star) => star.classList.remove('star__checked'));
+    
+      star.classList.add('star__checked');
+     
+    }
+
+    mostrar_tareas.addEventListener('click',() =>{
+      tareas_ver.classList.remove("ocultar");
+      mostrar_tareas.classList.add("ocultar");
+      here_tareas.classList.remove("ocultar");
+      informationDoc_ocultar.classList.add("ocultarDoc");
+    });
 
     return viewHome;
   };
