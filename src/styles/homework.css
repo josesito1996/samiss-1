@@ -364,16 +364,62 @@
 }
 
 .createTask .container-btnCreateTask img {
-  /* border: 1px solid yellowgreen; */
+  /* border: 1px solid yellowgreen; */   
   margin: 0 5px 0 10px;
 }
 
-.table-createTask .tdTable-createTask input[type="checkbox"] {
-    /* display: none; */
-    /* border: 1px solid red; */
-    border-color: none;
-  }
 
+.table-createTask .tdTable-createTask .chek-label .td-name-task {
+  width: 250px;
+  display: flex;
+  /* text-align: initial; */
+  justify-content: left;
+  align-items: flex-start;
+  justify-items: flex-start;
+
+}
+
+.table-createTask .tdTable-createTask .chek-label .label-task {
+  /* margin-left: 30px; */
+  margin-left:0px;
+  /* color: red; */
+}
+
+.table-createTask .tdTable-createTask .chek-label input[type="checkbox"] {
+  display: none;
+}
+
+.table-createTask .tdTable-createTask .chek-label label {
+  padding-left: 2em;
+  position: relative;
+}
+
+.table-createTask .tdTable-createTask .chek-label label::before {
+  content: '';
+  border: 1px solid red;
+  height: 0.9em;
+  width: 0.9em;
+  position: absolute;
+  left: 0px;
+}
+
+.table-createTask .tdTable-createTask .chek-label input[type="checkbox"]:checked + label::before {
+  border-color: var(--txtgreen);
+  background: var(--txtgreen);
+  border-radius: 50%;
+}
+
+.table-createTask .tdTable-createTask .chek-label input[type="checkbox"]:checked + label{
+  text-decoration: line-through;
+}
+
+.txt-tach {
+  text-decoration: line-through;
+}
+
+.txt-green {
+  color: var(--txtgreen);
+}
 
 
 .table-createTask .thTable-createTask {
@@ -401,6 +447,10 @@
 
 .tdTable-createTask .txt-green {
   color: var(--txtgreen)
+}
+
+.tdTable-createTask .txt-normal {
+  color: var(--primary-blue)
 }
 
 

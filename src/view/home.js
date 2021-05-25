@@ -41,7 +41,9 @@ export default () => {
       <div class="header">
 
         <div class="header-left d-flex">
+        <a href="#/home">
           <img src="./img/svg/logo.svg" class="logo" alt="logo" />
+        </a>
           <span class="vertical-line"></span>
         </div>
 
@@ -2200,6 +2202,16 @@ file_upload.addEventListener("change", ()=> {
     </table>
  `;
 
+
+  // firestore - actualizar
+  const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+    status: 'Finalizado',
+  });
+
+  const pendingTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+    status: 'Pendiente',
+  });
+
     const tableTask = viewHome.querySelector("#tableTask");
 
     firebase
@@ -2212,9 +2224,9 @@ file_upload.addEventListener("change", ()=> {
           const taskId = doc.id;
           tableTask.innerHTML += `
             <tr class="tdTable-createTask">
-              <td>
-              <input type="checkbox" id="cbox1" value="primary_checkbox">
-              <label for="cbox1">${doc.data().taskName}</label>
+              <td class="chek-label td-name-task">
+              <input type="checkbox" id="cboxStatus${doc.id}" value="primary_checkbox" class="check-status" data-id="${doc.id}">
+              <label for="cboxStatus${doc.id}" class="">${doc.data().taskName}</label>
               </td>
               
               <td>
@@ -2231,11 +2243,45 @@ file_upload.addEventListener("change", ()=> {
                 <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
                 <span>${doc.data().initials}</span>
               </td>
-              <td>${doc.data().date}</td>
-              <td><strong>${doc.data().expiration}</strong></td>
-              <td id="txt-status">${doc.data().status}</td>
+              <td id="fRegister">${doc.data().date}</td>
+              <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
+              <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
             </tr>
         `;
+
+        const checkStatus = tableTask.querySelectorAll(".check-status");
+        const fRegister = tableTask.querySelector("#fRegister");
+        const fVenci = tableTask.querySelector("#fVenci");
+        const tStatus = tableTask.querySelector("#tStatus");
+
+        checkStatus.forEach((check) => {
+          check.addEventListener("change", (e) => {
+            e.preventDefault;
+            console.log(e.target.dataset.id);
+            if (check.checked) {
+              console.log("CON check??");
+              completedTask(e.target.dataset.id);
+              fRegister.classList.add("txt-tach");
+              fVenci.classList.add("txt-tach");
+              tStatus.classList.add("txt-green");
+            } else {
+              console.log("SIN check??");
+              pendingTask(e.target.dataset.id);
+              fRegister.classList.remove("txt-tach");
+              fVenci.classList.remove("txt-tach");
+              tStatus.classList.remove("txt-green");
+            }
+          });
+        });
+
+
+
+
+
+
+
+
+
 
           // //*****************Cargar de archivos a firebase
           // let file = "";
@@ -2326,30 +2372,32 @@ file_upload.addEventListener("change", ()=> {
                     console.log("Uploaded a blob or file!");
                     crearNodoEnBDFirebaseTask(
                       documentoSubirTask.name,
-                      downloadURL
+                      downloadURL,
+                      doc.id
                     );
                   });
               }
             );
           }
 
-          function crearNodoEnBDFirebaseTask(name, url) {
+          function crearNodoEnBDFirebaseTask(name, url, id) {
             rootRefTask.push({
               nombre: name,
               url: url,
+              id: id,
             });
           }
         });
 
-        const toggle = viewHome.querySelector("#cbox1");
-        const txtStatus = viewHome.querySelector("#txt-status");
+        // const toggle = viewHome.querySelector("#cbox1");
+        // const txtStatus = viewHome.querySelector("#txt-status");
 
-        toggle.addEventListener("change", function () {
-          txtStatus.style.color = this.checked
-            ? "#31CC53"
-            : "#0F3041";
-          console.log("VERDE");
-        });
+        // toggle.addEventListener("change", function () {
+        //   txtStatus.style.color = this.checked
+        //     ? "#31CC53"
+        //     : "#0F3041";
+        //   console.log("VERDE");
+        // });
 
       });
       

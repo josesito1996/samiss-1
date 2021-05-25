@@ -29,7 +29,9 @@ export default () => {
     viewInspection.innerHTML = `
         <div class="header" style="height:64px; background:#F9FBFC;">
           <div class="header-left d-flex">
+          <a href="#/home">
             <img src="./img/svg/logo.svg" class="logo" alt="logo" />
+          </a>
             <span class="vertical-line"></span>
           </div>
           <div class="header-center d-flex">
