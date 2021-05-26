@@ -417,10 +417,17 @@
   text-decoration: line-through;
 }
 
+.createTask .tdTable-createTask .tStatusPendiente::before {
+  content: "Pendiente";
+}
+
+.createTask .tdTable-createTask .tStatusFinalizado::after {
+  content: "Finalizado";
+}
+
 .txt-green {
   color: var(--txtgreen);
 }
-
 
 .table-createTask .thTable-createTask {
   font-size: 12px;
@@ -430,6 +437,10 @@
   border-bottom: 2px solid var(--line-table);
   text-align: center;
   margin-bottom: 20px;
+}
+
+.table-createTask .selected {
+  background: red;
 }
 
 .table-createTask tr{
@@ -442,7 +453,10 @@
   line-height: 20px;
   color: var(--primary-blue);
   text-align: center;
+}
 
+.createTask .tdTable-createTask .td-name-task{
+  text-align: left;
 }
 
 .tdTable-createTask .txt-green {
@@ -464,13 +478,13 @@
 }
 
 .tdTable-createTask .tdCircle-blue .img-circle-blue {
-  position: relative;
+  /* position: relative; */
   height: 32px;
   width: 31px;
 }
 
 .tdTable-createTask .tdCircle-blue span {
-  position: absolute;
+  /* position: absolute; */
   margin-top: 7px;
   margin-left: -24px;
   color: var(--white);
@@ -482,3 +496,5 @@
   font-weight: normal;
   color: var(--primary-blue);
 }
+
+

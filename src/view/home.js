@@ -39,7 +39,9 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
+
   viewHome.innerHTML = `
+
 
     <div class="wrapper">
 
@@ -179,7 +181,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <div class="detail-process-performance d-flex  justify-content-center align-items-center">
+          <div class="detail-process-performance d-flex  justify-content-center">
             <div class="card-process bg-white ">
                 <div class="col-12 " id="inProcess">
                     <div class="row" id="title_inProcess">
@@ -227,10 +229,11 @@ export default () => {
                     </div>
                 </div>
                     <hr>
-                    <div class="col-12 d-flex ">
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <div>
+                    <div class="container-mainCaso d-flex ">
+
+                              <div class="mainCaso-left">
+                                <!-- Multa Potencial -->
+                                <div class="div-multa">
                                     <h6 class="title_card" style="margin-left:36px;">Multa Potencial</h6>
                                     <div class="d-flex flex-row ">
                                         <img src="./img/trending up.png" alt="" loading="lazy"
@@ -243,8 +246,10 @@ export default () => {
                                             color: #0E3141;"></p>
                                     </div>
                                 </div>
+                                <!-- -->
 
-                                <div style="margin-bottom:44px;margin-top:25px;">
+                                <!-- div-Riesgo -->
+                                <div class="div-riesgo">
                                     <h6 class="title_card" style="margin-left:36px;">Riesgo</h6>
                                     <div class="d-flex flex-row align-items-center">
                                         <div id="label_risk" style="margin-left:65px; margin-right:26.7px;">
@@ -297,8 +302,12 @@ export default () => {
                                         </div>
                                     </div>
                                 </div>
+                                <!-- -->
+                              </div>
+
+                              <div class="mainCaso-right">
                               <!--funcionario homeCase-->
-                                <div>
+                                <div class="div-funcionario">
                                     <h6 class="title_card" style="margin-left:36px;font-family: Raleway;
                                 font-style: normal;
                                 font-weight: bold;
@@ -306,17 +315,19 @@ export default () => {
                                 line-height: 20px;
                                 align-items: center;
                                 color: #969CBA;
-                               ">Perfil de funcionarios</h6>
+                                    ">Perfil de funcionarios</h6>
 
-                                <div class="d-flex colum">
-                                    <div class="d-flex flex-row align-items-center justify-content-center" id="container_funcionario_homeCaso" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-                                        <img src="./img/funcionario.png" alt="" loading="lazy"
-                                            style=" width: 38.3px;height: 38px;" />
-                                        <p >${localStorage.getItem(
-                                          "inspectorAuxiliar"
-                                        )}</p>
-                                    </div>
-                                </div>
+                                    <div class="d-flex colum" style="cursor:pointer;">
+                                        <div class="d-flex flex-row align-items-center justify-content-center" id="container_funcionario_homeCaso" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                                            <img src="./img/svg/avatar_home.svg" alt="" loading="lazy"
+                                                style=" width: 38.3px;height: 38px;" />
+                                            <p >${localStorage.getItem(
+                                              "inspectorAuxiliar"
+                                            )}</p>
+                                        </div>
+                                    
+                                    <!-- -->
+
                                       <!-- Modal Infromación Funcionario -->
                                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -411,13 +422,38 @@ export default () => {
                                                   </div>
                                                 </div>
                                               </div>
-                                            </div>
                                     </div>
-                                                                   
                                 </div>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="row d-flex  justify-content-center">
+                              </div>
+
+                              
+                                <!-- div-sunafil -->
+
+                                <div class="div-cardSunafil d-flex"
+                                  <img src="./img/sunafil.jpg" style="height:16px; width:64px;"/>
+                                  <div class="cardSunafil d-flex">
+                                    <div class="cardSunafil-body d-flex">
+                                      <img src="./img/svg/alert-circle-red.svg"/>
+                                      <p id="pSunafil"></p>
+                                    </div>
+                                    <div class="cardSunafil-footer d-flex">
+                                      <p>Ver más</p>
+                                      <img src="./img/svg/vector.svg"/>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                                <!-- -->
+                                </div>
+
+
+
+
+
+                            <!-- -->
+                            <div class="col-12 col-lg-6 hidde">
+                                <div class=" row d-flex  justify-content-center">
                                     <div class="col-12 col-lg-3">
                                         <div class="row d-flex justify-content-center mt-100">
                                             <div class="col-md-6">
@@ -2119,9 +2155,12 @@ file_upload.addEventListener("change", ()=> {
   const cambiarLogo = viewHome.querySelector("#btn_entrar_minimodal_sunafil");
   const sunafilS = viewHome.querySelector("#sunafil");
   const sunafilBlue = viewHome.querySelector("#sunafilBlue");
+  const pSunafil = viewHome.querySelector("#pSunafil");
+
   cambiarLogo.addEventListener("click", () => {
     sunafilS.classList.add("ocultar");
     sunafilBlue.classList.remove("ocultar");
+    pSunafil.classList.add("messageSunafil");
   });
 
   //****************** CONTENEDOR DE TAREAS ********************//
@@ -2272,13 +2311,16 @@ const mostrar_cards_tareas = () => {
     .firestore()
     .collection("tasks")
     .orderBy("taskName")
+
     .onSnapshot((querySnapshot) => {
       container_principal_tarea.innerHTML = "";
 
       querySnapshot.forEach((doc) => {
         container_principal_tarea.innerHTML += `
 
+
 <div id="style_generalContainer_principal" style="margin-bottom:8px;"class="style_generalContainer_principal">
+
 <div  id="container_principal_tarea">
 <div style="width: 231px;height: 21px;">
 <p class="styles_principal"><strong>Tarea 1 </strong></p>
@@ -2291,7 +2333,9 @@ const mostrar_cards_tareas = () => {
 </div>
 </div>
 
+
 <div class="d-flex flex-row align-items-center " id="container_tar_princial">
+
 <p style="margin-left:24px;
   font-family: Raleway;
   font-style: normal;
@@ -2304,6 +2348,7 @@ const mostrar_cards_tareas = () => {
   <img  src="./img/svg/clicdoc.svg" alt="" />
     </label>
     <div class="d-flex flex-column ">
+
     <div class="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;" data-id="${doc.id}">${doc.data().files}</div>
     <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
     </div>
@@ -2342,24 +2387,29 @@ const mostrar_cards_tareas = () => {
               color_fondo_list_tarea.style.background = "rgba(150, 156, 186, 0.2)";
               container_doc_principal.style.background = "white";
               // console.log("si  es el ID");
+
               result +=
                 '<iframe  class="styleIframe"  src="' +
                 datos[key].url +
                 '"></iframe>';
+
             } 
             else {
               // console.log("diferente id");
+
             }
           }
           document.getElementById("verFiles").innerHTML = result;
         });
       });
     });
+
       });  
     
       
   
     });
+
 };
 
 

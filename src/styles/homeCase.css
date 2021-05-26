@@ -270,9 +270,10 @@
 .detailMain .detail-process-performance{
   /* border: 1px solid red; */
   width:120%;
-  height:594px;
+  height: 480px;
   margin-left: 18px;
   background:white;
+  /* border: 1px solid blue; */
 
 }
 
@@ -281,6 +282,131 @@
   width: 686px;
 
 }
+
+.container-mainCaso {
+  /* border: 1px solid red; */
+  height: 295px;
+  padding: 20px 94px 0 0;
+  justify-content: space-between;
+}
+
+.container-mainCaso .mainCaso-left {
+  /* border: 1px solid black; */
+}
+
+.container-mainCaso .div-multa {
+  /* border: 1px solid blue; */
+  margin-bottom: 66px;
+}
+
+.container-mainCaso .div-riesgo {
+  /* border: 1px solid green; */
+}
+
+.container-mainCaso .mainCaso-right {
+  /* border: 1px solid pink; */
+  /* margin-left: 70px; */
+}
+
+.container-mainCaso .div-funcionario {
+  /* border: 1px solid  green; */
+}
+
+/******* Card Sunafil ******/
+  .div-cardSunafil {
+    /* border: 1px solid yellow; */
+    height: 112px;
+    width: 220px;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 6px 8px 18px 10px;
+    width: 220;
+    height: 88px;
+    /* padding: 16px 8px 18px 10px; */
+    /* width: 220; */
+    margin-left: -5px;
+  }
+
+
+
+  .div-cardSunafil .cardSunafil {
+    flex-direction: column;
+    border: 1px solid var(--border-blue);
+    border-radius: 5px;
+    width: 220px;
+    margin-left: -5px;
+    padding: 5px 5px 0 0;
+  }
+
+  .div-cardSunafil .cardSunafil img{
+    margin: 2px 5px 16px 0;
+    height: 16px;
+    width: 64px;
+    margin-bottom: 16px;
+  }
+
+
+  .cardSunafil .cardSunafil-body p {
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--primary-blue);
+    margin: 0;
+  }
+
+  .cardSunafil .cardSunafil-body p::before{
+    content: "Para conocer el estado de tus casos o ver si tienes un proceso de inspección, sincroniza tu casilla sunafil 17 de Mayo.";
+  }
+
+  .cardSunafil .cardSunafil-body .messageSunafil {
+    visibility: hidden;
+  }
+
+  .cardSunafil .cardSunafil-body .messageSunafil::after {
+    position: absolute;
+    margin-top: -42px;
+    content:"El dia 27 de mayo se ha registrado una nueva inspección en SUNAFIL";
+    visibility: visible;
+    margin-left: -95px;
+
+  }
+
+  .cardSunafil .cardSunafil-footer {
+    /* margin-top: 3px; */
+    margin-top: -4px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .cardSunafil .cardSunafil-footer p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 10px;
+    color: #FF3355;
+  }
+
+  .cardSunafil .cardSunafil-footer img{
+    height: 12px;
+    width: 6px;
+    margin-left: 3px;
+  }
+
+
+  /* .invisible {
+    visibility: hidden;
+  }
+
+  .levitate-cardProfile {
+    position: absolute;
+    margin-top: -120px;
+  } */
+
+
+
+
+
+
+
+
 
 #title_inProcess{
   font-style: normal;
@@ -306,7 +432,7 @@
 }
 
 #container_adicional_information{
-  width: 120;
+  width: 130;
   border-left:1px solid #E1E6F0;
   padding:  5px;
   height: auto;
@@ -347,7 +473,13 @@ margin-bottom: 0px;
 }
 
 #container_funcionario_homeCaso{
-  width:261px;
+  height: 74px;
+  width: 220px;
+  padding: 14px 31px 20px 13px;
+  border: 1px solid var(--border-blue);
+  border-radius: 5px;
+
+  /* width:261px;
   height:68px; 
   background: #F9FBFC;                
   border: 1px solid #466EFE;
@@ -355,11 +487,18 @@ margin-bottom: 0px;
   box-sizing: border-box;
   border-radius: 6px;
   margin-bottom:73px;
-  margin-left:32px;
+  margin-left:32px; */
 }
 
 #container_funcionario_homeCaso p{
-  margin-left:18.7px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height : 16px;
+  color: var(--primary-blue);
+  margin: 0 0 0 15px;
+  
+
+  /* margin-left:18.7px;
   margin-top:10px;
   font-family: Raleway;
   font-style: normal;
@@ -368,7 +507,7 @@ margin-bottom: 0px;
   line-height: 16px;
   display: flex;
   align-items: center;
-  color: #0F3041;
+  color: #0F3041; */
 }
 
 /*MODAL FUNCIONARIO*/
@@ -566,10 +705,6 @@ text-align: center;
   margin: 10px;
   }
 
-  #flex-container_datos{
-    /* display: flex;
-    flex-direction: row; */
-  }
 /******** MAIN (termino) ********/
 
 
