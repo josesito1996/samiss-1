@@ -2296,7 +2296,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
               </td>
               <td id="fRegister">${doc.data().date}</td>
               <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
-              <!--<td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>-->
+              <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
               <td id="tStatus" class="tStatusPendiente" data-id="${doc.id}"></td>
             </tr>
         `;
@@ -2429,7 +2429,7 @@ const mostrar_cards_tareas = () => {
               console.log("CON check??");
               // console.log("ID del check???", check.id);
 
-              // completedTask(e.target.dataset.id);
+              completedTask(e.target.dataset.id);
               fRegister.classList.add("txt-tach");
               fVenci.classList.add("txt-tach");
               tStatus.classList.add("txt-green");
@@ -2438,7 +2438,7 @@ const mostrar_cards_tareas = () => {
               tStatus.classList.add("tStatusFinalizado");
             } else {
               console.log("SIN check??");
-              // pendingTask(e.target.dataset.id);
+              pendingTask(e.target.dataset.id);
               fRegister.classList.remove("txt-tach");
               fVenci.classList.remove("txt-tach");
               tStatus.classList.remove("txt-green");
