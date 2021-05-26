@@ -15,10 +15,10 @@
     text-decoration-line: underline;
     color: #0F3041;
     width: 219px;
-   
+    margin-left:8px;
 }
 
-#file_tarea{
+.file_tarea{
     cursor: pointer;
     font-family: Raleway;
     font-style: normal;
@@ -49,7 +49,9 @@
 #verFiles{
     position: relative;
     padding-bottom: 56.25%;
-    height: 0;
+    height: 622;
+    margin-left: 42px;
+width: 447;
    
 }
 .styleIframe{
@@ -84,7 +86,7 @@ padding: 19px 10px 12px 22px;
     font-weight: 600;
     font-size: 12px;
     line-height: 14px;
-  
+    margin-bottom: 0px;
     color: rgba(15, 48, 65, 0.4);
     
 }
@@ -95,10 +97,15 @@ padding: 19px 10px 12px 22px;
     
 }
 
-#container_doc_princial{
 
+#container_doc_princial{
     border-radius: 5px;
-    height: 59px;
+ 
+}
+
+#container_tar_princial{
+    border-radius: 5px;
+ 
 }
 
 #see{
@@ -361,7 +368,7 @@ border-radius: 6px 0px 0px 13px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom:2px solid #EFF2F9;
+    /* border-bottom:2px solid #EFF2F9; */
     height:59px;
     width: 100%;
     padding-left: 22px;
@@ -391,4 +398,14 @@ border-radius: 6px 0px 0px 13px;
 
 #here_tareas {
     cursor: pointer;
+}
+
+#arrows{
+    margin-left: 90px;
+  
+}
+
+#arrows_doc{
+    margin-left: 90px;
+  
 }

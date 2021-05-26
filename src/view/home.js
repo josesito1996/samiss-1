@@ -1,9 +1,13 @@
+// import { addTask } from "../view-controller/home-controller.js";
+// import { storage } from '../firebase/firebase.js';
+
 export default () => {
   const viewHome = document.createElement("div");
   const inspectionDate = localStorage.getItem("date");
   const inspectionOrder = localStorage.getItem("order");
   const etapa_actuacion = localStorage.getItem("etapa");
   const tipo_actuacion = localStorage.getItem("tipo");
+  // const date_actuacion = localStorage.getItem("date_actuacion");
 
   // fecha actual
   let date = new Date();
@@ -641,6 +645,24 @@ export default () => {
                       <!-- TABLA -->
                       <div class="createTask d-flex">
                           <div id="container_table" class="container-table" style="margin-top:40px;"> 
+                          <table class="table table-hover table-createTask">
+                            <thead id="table-head" class="hidde">
+                              <tr class="thTable-createTask">
+                                <th scope="col">Tareas</th>
+                                <th scope="col">Documentos</th>
+                                <th scope="col">Equipo</th>
+                                <th scope="col">Registrado</th>
+                                <th scope="col">Vencimiento</th>
+                                <th scope="col">Estado</th>
+                              </tr>
+                            </thead>
+
+                            <tbody id="tableTask">
+
+                            </tbody>
+                          </table>
+
+
                           </div>
                           <div class="container-btnCreateTask d-flex">
                               <button
@@ -735,7 +757,7 @@ export default () => {
           </div>
         </div>
              <!--DOCTUMENTOS--->
-        <div class="row" id="container_doc" style="background: #F9FBFC;" >
+        <div class="row" id="container_doc" style="background: #F9FBFC;   height: 59px;" >
 
           <div class="d-flex flex-row  align-items-center" style="height:84px;border-bottom: 2px solid #EFF2F9;">
 
@@ -800,7 +822,7 @@ export default () => {
 
           </div>
 
-          <div id="tareas_ver" class="ocultar" >
+          <div class="ocultar" id="tareas_ver">
           <div class="d-flex flex-row">
 
           <div class="d-flex flex-column">
@@ -828,7 +850,7 @@ export default () => {
 
               </div>
               <div class='doc_select'>
-              <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
               <p style="margin-left:24px;
                 font-family: Raleway;
                 font-style: normal;
@@ -848,7 +870,7 @@ export default () => {
                   <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
                   <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
                   </div>
-              
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
               </div>
               </div>
               </div>
@@ -856,21 +878,14 @@ export default () => {
             </div>
 
               <!--principal tareas-->
-           
               <div id="column_izquierda_documentos">
             <div>
             <p id="title_principal">TAREAS Y OTROS DOCS</p>
-
-         
-            <div id="prueba_tareas" >
+            <div id="prueba_tareas">
          
               </div>
-
-            
               </div>
             </div>
-
-           
           </div>
             
 
@@ -1505,6 +1520,22 @@ export default () => {
     </div>
     `;
 
+  //   // ****  Columna Izquierda (termino)  **** //
+
+
+  //habilitar input
+  // const editar = viewHome.querySelector("#edit");
+  // editar.addEventListener("click", ()=>{
+  //   const description = viewHome.querySelector("#description");
+  //   if(description .disabled == true)	{
+  //     description.disabled=false;
+  //      }
+  //         else
+  //   {
+  //     description.disabled=true;
+  //   }
+  //       });
+
   //número aleatorio
   function aleatorio(inferior, superior) {
     var numPosibilidades = superior - inferior;
@@ -1631,6 +1662,19 @@ export default () => {
     }
   }
 
+  //   viewHome.querySelector('#rating').addEventListener('click', function (e) {
+  //     if (e.target.nodeName === 'IMG') {
+  //         var currentSibling = e.target;
+  //         var nextSibling = e.target;
+  //         currentSibling.classList.add('active');
+  //         while ((currentSibling = currentSibling.previousElementSibling)) {
+  //             currentSibling.classList.add('active');
+  //         }
+  //         while ((nextSibling = nextSibling.nextElementSibling)) {
+  //             nextSibling.classList.remove('active');
+  //         }
+  //     }
+  // });
   //HOME ACTUACIONES
   //ir a crear actuación actuacion
 
@@ -1842,9 +1886,16 @@ export default () => {
      } 
      document.getElementById("name_info").innerHTML= results;
      document.getElementById("name_info1").innerHTML= results;
-     const click_show_doc = document.getElementById("name_info1")
+     const click_show_doc = document.getElementById("name_info1");
+     const arrows_doc = viewHome.querySelector("#arrows_doc");
+     const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+     const container_tar_principal = viewHome.querySelector('#container_tar_princial');
+     const arrows_tar = viewHome.querySelector("#arrows");
      click_show_doc.addEventListener("click", ()=> {
-
+       container_doc_principal.style.background =  "rgba(150, 156, 186, 0.2)";
+       container_tar_principal.style.background =  "white";
+      arrows_doc.classList.remove('ocultar');
+      arrows_tar.classList.add('ocultar');
        rootRef.on('value', function(snapshot){
          var datos = snapshot.val();
          var result = "" 
@@ -1860,6 +1911,8 @@ export default () => {
 
      })
    })
+
+   
  })
 
 
@@ -1884,6 +1937,8 @@ export default () => {
             };
           }              
 
+      
+  
 //subir datoss al storage
 const txt_carga = viewHome.querySelector("#txt_carga");
 const conDocumentos = viewHome.querySelector("#conDocumentos");
@@ -1909,6 +1964,9 @@ file_upload.addEventListener("change", ()=> {
   var pdrs = document.getElementById('file-upload').files[0].name;
   document.getElementById('info').innerHTML = pdrs;
   const mostrarDoc = document.getElementById('info')
+  
+      
+ 
 });
 
 
@@ -1925,8 +1983,11 @@ file_upload.addEventListener("change", ()=> {
 
         results +=
           '<div  class="name_info_down">' + datos[key].nombre + "</div>";
+
       }
      
+
+      
       document.getElementById("name_info").innerHTML = results;
       const click_show_doc = document.getElementById("name_info");
       click_show_doc.addEventListener("click", () => {
@@ -1949,6 +2010,42 @@ file_upload.addEventListener("change", ()=> {
     });
   
   });
+
+  // link_datos.classList.add("links_change");
+  // const links = viewHome.getElementsByClassName("links");
+  // for (let i = 0; i < links.length; i++) {
+  //   links[i].onclick = function () {
+  //     let el = links[0];
+  //     while (el) {
+  //       if (el.tagName === "DIV") {
+  //         // remueve class
+  //         el.classList.remove("links_change");
+  //       }
+
+  //       //pasa al hermano
+  //       el = el.nextSibling;
+  //     }
+  //     this.classList.add("links_change");
+  //   };
+  // }
+
+
+  // //subir datoss al storage
+
+  // const txt_carga = viewHome.querySelector("#txt_carga");
+  // const cli = viewHome.querySelector("#mostrarCli");
+
+  // const subir = viewHome.querySelector("#subir");
+
+  // const file_upload = viewHome.querySelector("#file-upload");
+  // file_upload.addEventListener("change", () => {
+  //   subir.classList.add("ocultar");
+  //   txt_carga.classList.add("ocultar");
+  //   cli.classList.remove("ocultar");
+  //   var pdrs = document.getElementById("file-upload").files[0].name;
+  //   document.getElementById("info").innerHTML = pdrs;
+  //   const mostrarDoc = document.getElementById("info");
+  // });
 
   // window.onload = inicializar;
   var fichero;
@@ -2067,43 +2164,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
   });
 
   //****** Crea template de la tabla con datos del formulario  *******/
-
-  const createHomework = () => {
-     const expirationDate = viewHome.querySelector("#inputDate2").value;
-     localStorage.setItem("dateVencimiento", inputDate2.value);
-
-    const containerTable = viewHome.querySelector("#container_table");
-    const nameTask = viewHome.querySelector("#inputText1").value;
-    localStorage.setItem("denomicacion", nameTask);
-
-
-    const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
-    // const nameTask = viewHome.querySelector("#inputText1").value;
-
-    console.log(nameTask)
-    console.log(expirationDate)
-
-
-    containerTable.innerHTML = `
-    <table class="table table-hover table-createTask">
-      <thead>
-        <tr class="thTable-createTask">
-          <th scope="col">Tareas</th>
-          <th scope="col">Documentos</th>
-          <th scope="col">Equipo</th>
-          <th scope="col">Registrado</th>
-          <th scope="col">Vencimiento</th>
-          <th scope="col">Estado</th>
-        </tr>
-      </thead>
-
-      <tbody id="tableTask">
-
-      </tbody>
-    </table>
- `;
-
-
+  
   // firestore - actualizar
   const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
     status: 'Finalizado',
@@ -2113,10 +2174,42 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     status: 'Pendiente',
   });
 
-    const tableTask = viewHome.querySelector("#tableTask");
 
+  //****** Muestra encabezado al encontrar Docs ******/
+  const tableHead = viewHome.querySelector("#table-head")
+
+  const tasksRef = firebase.firestore().collection("tasks");
+
+  tasksRef.onSnapshot((snap) => {
+    let countDoc = snap.docs.length;
+    // console.log("Este es el span", snap.docs.length);
+
+    if (countDoc >= 1) {
+      tableHead.classList.remove("hidde");
+    } else {
+      tableHead.classList.add("hidde");
+    }
+  });
+
+
+    // firebase
+    //   .firestore()
+    //   .collection("homeWorks")
+    //   .get()
+    //   .then((res) => {
+    //     let countDoc = res.size;
+    //     console.log(countDoc);
+
+    //     if (countDoc === 1) {
+    //       tableHead.classList.remove("hidde");
+    //     } else {
+    //       console.log("encabezado oculto");
+    //     }
+    //   });
+
+  //******* Mostrar registros de firebase ********/
+  const tableTask = viewHome.querySelector("#tableTask");
   
-
     firebase
       .firestore()
       .collection("tasks")
@@ -2138,7 +2231,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
                 <label for="file-uploadTask" id="subirTask" >
                   <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
                 </label>
-                <input id="file-uploadTask" type="file" style='display: none;'/>
+                <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
                 <div id="infoTask">${doc.data().nameFile}</div>
               </td>
 
@@ -2148,28 +2241,27 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
               </td>
               <td id="fRegister">${doc.data().date}</td>
               <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
-              <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
+              <!--<td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>-->
+              <td id="tStatus" class="tStatusPendiente" data-id="${doc.id}"></td>
             </tr>
         `;
 
-                    //TERMINA MOSTRAR TAREA
+/////////// Mostrar lista de tareas en documentos  */
+const mostrar_cards_tareas = () => {
+  //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
 
-   const mostrar_cards_tareas = () =>{
-   
-    //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+  // const expirationDate = viewHome.querySelector("#inputDate2").value;
+  const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
+  firebase
+    .firestore()
+    .collection("tasks")
+    .onSnapshot((querySnapshot) => {
+      container_principal_tarea.innerHTML = "";
 
-// const expirationDate = viewHome.querySelector("#inputDate2").value;
-const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
-firebase.firestore()
-.collection("tasks") 
-.onSnapshot((querySnapshot) => {
-container_principal_tarea.innerHTML='';
+      querySnapshot.forEach((doc) => {
+        container_principal_tarea.innerHTML += `
 
-
-querySnapshot.forEach((doc) => {
-container_principal_tarea.innerHTML += `
-
-<div id="style_generalContainer_principal" class="style_generalContainer_principal">
+<div id="style_generalContainer_principal" style="margin-bottom:8px;"class="style_generalContainer_principal">
 <div  id="container_principal_tarea">
 <div style="width: 231px;height: 21px;">
 <p class="styles_principal"><strong>Tarea 1 </strong></p>
@@ -2182,7 +2274,7 @@ container_principal_tarea.innerHTML += `
 </div>
 </div>
 
-<div class="d-flex flex-row align-items-center " id="container_doc_princial">
+<div class="d-flex flex-row align-items-center " id="container_tar_princial">
 <p style="margin-left:24px;
   font-family: Raleway;
   font-style: normal;
@@ -2195,54 +2287,108 @@ container_principal_tarea.innerHTML += `
   <img  src="./img/svg/clicdoc.svg" alt="" />
     </label>
     <div class="d-flex flex-column ">
-    <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
+    <div class="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;" data-id="${doc.id}">${doc.data().files}</div>
     <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
     </div>
+    <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows" class="ocultar" alt="" />  
 </div>
 
 </div>
-  ` ; 
+  `; 
+  const click_show_doc = viewHome.querySelectorAll(".file_tarea");
 
-  });
+ 
+      click_show_doc.forEach((tarea) => {
 
-  
-  const click_show_doc = viewHome.querySelector("#file_tarea");
-  click_show_doc.addEventListener("click", () => {
-  
-      rootRefTask.on("value", function (snapshot) {
+    const color_fondo_list_tarea = viewHome.querySelector("#container_tar_princial"); 
+    const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+    const arrows = viewHome.querySelector("#arrows"); 
+    const arrows_doc = viewHome.querySelector("#arrows_doc");
+      tarea.addEventListener("click", (e) => {
 
-        console.log('muestra imagennn')
-        var datos = snapshot.val();
-        var result = "";
-        for (var key in datos) {
-          console.log(datos[key].url);
-          console.log(datos[key].id);
-  
-          if(datos[key].id === doc.id){
-
-            console.log('si  es el ID')
-            result +=
-            '<iframe  class="styleIframe"  src="' +
-            datos[key].url +
-            '"></iframe>';
-          }else{
-            console.log('diferente id')
-        
+     
+        console.log(e.target.dataset.id);
+        const idDocTareas = e.target.dataset.id;
+        e.preventDefault();
+        rootRefTask.on("value", function (snapshot) {
+      
+          var datos = snapshot.val();
+          console.log(datos)
+          var result = "";
+          for (var key in datos) {
+            // console.log(datos[key].url);
+            // console.log(datos[key].id);
+           
+            if ( idDocTareas ===  datos[key].id) {
+              arrows.classList.remove('ocultar');
+              arrows_doc.classList.add('ocultar');
+              color_fondo_list_tarea.style.background = "rgba(150, 156, 186, 0.2)";
+              container_doc_principal.style.background = "white";
+              // console.log("si  es el ID");
+              result +=
+                '<iframe  class="styleIframe"  src="' +
+                datos[key].url +
+                '"></iframe>';
+            } 
+            else {
+              // console.log("diferente id");
+            }
           }
-        }
-        document.getElementById("verFiles").innerHTML = result;
+          document.getElementById("verFiles").innerHTML = result;
+        });
       });
-  });
-});
+    });
+      });  
+    
+      
+  
+    });
 };
-  //******* subir documentos de Tareas a Storage *******/
+
+
+        const checkStatus = tableTask.querySelectorAll(".check-status");
+        const fRegister = tableTask.querySelector("#fRegister");
+        const fVenci = tableTask.querySelector("#fVenci");
+        const tStatus = tableTask.querySelector("#tStatus");
+
+        checkStatus.forEach((check) => {
+          check.checked = eval(window.localStorage.getItem(check.id))
+
+          check.addEventListener("change", (e) => {
+            e.preventDefault;
+            window.localStorage.setItem(check.id, check.checked)
+            console.log(e.target.dataset.id);
+            if (check.checked) {
+              console.log("CON check??");
+              // console.log("ID del check???", check.id);
+
+              // completedTask(e.target.dataset.id);
+              fRegister.classList.add("txt-tach");
+              fVenci.classList.add("txt-tach");
+              tStatus.classList.add("txt-green");
+              // tStatus.classList.add("tStatus");
+              tStatus.classList.remove("tStatusPendiente");
+              tStatus.classList.add("tStatusFinalizado");
+            } else {
+              console.log("SIN check??");
+              // pendingTask(e.target.dataset.id);
+              fRegister.classList.remove("txt-tach");
+              fVenci.classList.remove("txt-tach");
+              tStatus.classList.remove("txt-green");
+              // tStatus.classList.remove("tStatus");
+              tStatus.classList.add("tStatusPendiente");
+              tStatus.classList.remove("tStatusFinalizado");
+            }
+          });
+        });
+
+          //******* subir documentos de Tareas a Storage *******/
           //  const subirTask = viewHome.querySelector("#subirTask");
           const file_uploadTask = viewHome.querySelector('#file-uploadTask');
 
-          file_uploadTask.addEventListener("change", (e) => {
-            e.preventDefault;
+          file_uploadTask.addEventListener("change", () => {
             const nDocs =
-            document.getElementById('file-uploadTask').files[0].name;
+              document.getElementById(`file-uploadTask`).files[0].name;
 
             // document.getElementById(`infoTask`).innerHTML = nDocs;
             // const mostrarDoc = document.getElementById("info");
@@ -2257,34 +2403,7 @@ container_principal_tarea.innerHTML += `
               });    
           });
 
-
-        const checkStatus = tableTask.querySelectorAll(".check-status");
-        const fRegister = tableTask.querySelector("#fRegister");
-        const fVenci = tableTask.querySelector("#fVenci");
-        const tStatus = tableTask.querySelector("#tStatus");
-
-        checkStatus.forEach((check) => {
-          check.addEventListener("change", (e) => {
-            e.preventDefault;
-            console.log(e.target.dataset.id);
-            if (check.checked) {
-              console.log("CON check??");
-              completedTask(e.target.dataset.id);
-              fRegister.classList.add("txt-tach");
-              fVenci.classList.add("txt-tach");
-              tStatus.classList.add("txt-green");
-            } else {
-              console.log("SIN check??");
-              pendingTask(e.target.dataset.id);
-              fRegister.classList.remove("txt-tach");
-              fVenci.classList.remove("txt-tach");
-              tStatus.classList.remove("txt-green");
-            }
-          });
-        });
-
-          
-          const ficheroTask = viewHome.querySelector('#file-uploadTask');
+          const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
           ficheroTask.addEventListener("change", sendDocFirebase, false);
 
           const storageRefTask = firebase.storage().ref();
@@ -2330,11 +2449,445 @@ container_principal_tarea.innerHTML += `
 
             });
           }
-      mostrar_cards_tareas();
-        });
 
+        // Llamada a funcion mostrar CArds
+          mostrar_cards_tareas();
       });
-  };
+    });
+
+      const createHomework = () => {
+        tableHead.classList.remove("hidde")
+      }
+  
+    // const createHomework = () => {
+    // tableHead.classList.remove("hidde")
+
+    //  const expirationDate = viewHome.querySelector("#inputDate2").value;
+    //  localStorage.setItem("dateVencimiento", inputDate2.value);
+
+    // const containerTable = viewHome.querySelector("#container_table");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+    // localStorage.setItem("denomicacion", nameTask);
+
+
+    // const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
+    // const nameTask = viewHome.querySelector("#inputText1").value;
+
+    // console.log(nameTask)
+    // console.log(expirationDate)
+
+
+//     containerTable.innerHTML = `
+//     <table class="table table-hover table-createTask">
+//       <thead>
+//         <tr class="thTable-createTask">
+//           <th scope="col">Tareas</th>
+//           <th scope="col">Documentos</th>
+//           <th scope="col">Equipo</th>
+//           <th scope="col">Registrado</th>
+//           <th scope="col">Vencimiento</th>
+//           <th scope="col">Estado</th>
+//         </tr>
+//       </thead>
+
+//       <tbody id="tableTask">
+
+//       </tbody>
+//     </table>
+//  `;
+
+
+  // // firestore - actualizar
+  // const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+  //   status: 'Finalizado',
+  // });
+
+  // const pendingTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
+  //   status: 'Pendiente',
+  // });
+
+    // const tableTask = viewHome.querySelector("#tableTask");
+
+    // firebase
+    //   .firestore()
+    //   .collection("tasks")
+    //   .orderBy("date", "desc")
+    //   .onSnapshot((querySnapshot) => {
+    //     tableTask.innerHTML = "";
+    //     querySnapshot.forEach((doc) => {
+    //       const taskId = doc.id;
+    //       tableTask.innerHTML += `
+    //         <tr class="tdTable-createTask">
+    //           <td class="chek-label td-name-task">
+    //           <input type="checkbox" id="cboxStatus${doc.id}" value="primary_checkbox" class="check-status" data-id="${doc.id}">
+    //           <label for="cboxStatus${doc.id}" class="">${doc.data().taskName}</label>
+    //           </td>
+              
+    //           <td>
+    //           <span class="docCount">${doc.data().files.length}</span>
+
+    //             <label for="file-uploadTask" id="subirTask" >
+    //               <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
+    //             </label>
+    //             <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
+    //             <div id="infoTask">${doc.data().nameFile}</div>
+    //           </td>
+
+    //           <td class="tdCircle-blue">
+    //             <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
+    //             <span>${doc.data().initials}</span>
+    //           </td>
+    //           <td id="fRegister">${doc.data().date}</td>
+    //           <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
+    //           <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
+    //         </tr>
+    //     `;
+
+    //     const checkStatus = tableTask.querySelectorAll(".check-status");
+    //     const fRegister = tableTask.querySelector("#fRegister");
+    //     const fVenci = tableTask.querySelector("#fVenci");
+    //     const tStatus = tableTask.querySelector("#tStatus");
+
+    //     checkStatus.forEach((check) => {
+    //       check.addEventListener("change", (e) => {
+    //         e.preventDefault;
+    //         console.log(e.target.dataset.id);
+    //         if (check.checked) {
+    //           console.log("CON check??");
+    //           completedTask(e.target.dataset.id);
+    //           fRegister.classList.add("txt-tach");
+    //           fVenci.classList.add("txt-tach");
+    //           tStatus.classList.add("txt-green");
+    //         } else {
+    //           console.log("SIN check??");
+    //           pendingTask(e.target.dataset.id);
+    //           fRegister.classList.remove("txt-tach");
+    //           fVenci.classList.remove("txt-tach");
+    //           tStatus.classList.remove("txt-green");
+    //         }
+    //       });
+    //     });
+
+
+
+
+
+
+
+
+
+
+          // //*****************Cargar de archivos a firebase
+          // let file = "";
+          // let urlFile = "";
+
+          // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+
+          // file_uploadTask.addEventListener("change", (e) => {
+          //   console.log("cliqueaste");
+          //   const input = e.target;
+          //   const reader = new FileReader();
+          //   reader.onload = () => {
+          //     const dataURL = reader.result;
+          //     urlFile = dataURL;
+          //     console.log("🤔 urlFile", urlFile);
+
+          //   };
+
+          //   reader.readAsDataURL(input.files[0]);
+          //   file = e.target.files[0];
+          //   console.log("🙄file", file);
+
+          //   // Array temporal
+          //   let arry=[]
+          //   arry.push(file.name);
+          //   console.log(arry);
+
+          //   firebase.firestore().collection('tasks').doc(doc.id).update({
+          //     nameFile: file.name,
+          //     files: arry,
+          //   });
+
+          //   console.log("nombre de archivo", file.name);
+          //   console.log("Id de tarea", `${doc.id}`);
+          // });
+
+          // const uploadFileTask = () => {
+          //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
+          //   refStorage.put(file);
+          // }
+
+          // //******* subir documentos de Tareas a Storage *******/
+          // //  const subirTask = viewHome.querySelector("#subirTask");
+          // const file_uploadTask = viewHome.querySelector('#file-uploadTask');
+
+          // file_uploadTask.addEventListener("change", () => {
+          //   const nDocs =
+          //     document.getElementById(`file-uploadTask`).files[0].name;
+
+          //   // document.getElementById(`infoTask`).innerHTML = nDocs;
+          //   // const mostrarDoc = document.getElementById("info");
+
+          //   firebase
+          //     .firestore()
+          //     .collection("tasks")
+          //     .doc(doc.id)
+          //     .update({
+          //       // nameFile: nDocs,
+          //       files: [nDocs],
+          //     });    
+          // });
+
+          // const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
+          // ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+          // const storageRefTask = firebase.storage().ref();
+          // const rootRefTask = firebase.database().ref().child("docTask");
+
+          // function sendDocFirebase() {
+          //   console.log("subiendo");
+          //   const documentoSubirTask = ficheroTask.files[0];
+          //   console.log(documentoSubirTask);
+          //   const uploadTasks = storageRefTask
+          //     .child("docTask/" + documentoSubirTask.name)
+          //     .put(documentoSubirTask);
+
+          //   uploadTasks.on(
+          //     "state_changed",
+          //     function (snapshot) {},
+          //     function (error) {
+          //       console.log("hubo un error");
+          //     },
+          //     function () {
+          //       uploadTasks.snapshot.ref
+          //         .getDownloadURL()
+          //         .then(function (downloadURL) {
+          //           // alert("se subió la imagen conURL", downloadURL);
+          //           console.log("Uploaded a blob or file!");
+          //           crearNodoEnBDFirebaseTask(
+          //             documentoSubirTask.name,
+          //             downloadURL,
+          //             doc.id
+
+          //           );
+          //         });
+          //     }
+          //   );
+          // }
+
+
+          // function crearNodoEnBDFirebaseTask(name, url, id) {
+          //   rootRefTask.push({
+          //     nombre: name,
+          //     url: url,
+          //     id: id,
+
+          //   });
+          // }
+    //EMPIEZA MOSTRARA TAREA
+          // mostrar_tareas.addEventListener('click',() =>{
+          //   tareas_ver.classList.remove("ocultar");
+          //   mostrar_tareas.classList.add("ocultar");
+          //   here_tareas.classList.remove("ocultar");
+          //   informationDoc_ocultar.classList.add("ocultarDoc");
+        
+            
+          
+        //   const rootRefTask = firebase.database().ref().child("docTask");
+        
+        //   rootRefTask.on('value', function(snapshot){
+        //     var datos = snapshot.val();
+        //     var results = "" 
+        //     for(var key in datos){
+        
+        //       console.log(datos[key].nombre)
+            
+        //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
+              
+        //     } 
+        //     document.getElementById("file_tarea").innerHTML= results;
+        
+        //     // const cambiarFond = viewHome.querySelector('#file_tarea')
+        //     // cambiarFond.addEventListener('click', () => {
+        //     //   console.log('aqui')
+        //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+        //     // });
+        
+        // });
+        
+        // const click_show_doc = document.getElementById("file_tarea");
+        // click_show_doc.addEventListener("click", () => {
+        
+        
+        //     rootRefTask.on("value", function (snapshot) {
+        //       var datos = snapshot.val();
+        //       var result = "";
+        //       for (var key in datos) {
+        //         console.log(datos[key].url);
+        //         console.log(datos[key].id);
+        
+        //         if(datos[key].id === doc.id){
+        //           result +=
+        //           '<iframe  class="styleIframe"  src="' +
+        //           datos[key].url +
+        //           '"></iframe>';
+        //         }else{
+        //           console.log('diferente id')
+        //         }
+        //       }
+        //       document.getElementById("verFiles").innerHTML = result;
+        //     });
+        // });
+        // });
+
+        //TERMINA MOSTRAR TAREA
+
+      //   mostrar_tareas.addEventListener('click',() =>{
+   
+      //       //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+    
+      //   // const expirationDate = viewHome.querySelector("#inputDate2").value;
+      //   const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
+      //   firebase.firestore()
+      //   .collection("tasks").onSnapshot((querySnapshot) => {
+      //   container_principal_tarea.innerHTML='';
+    
+      
+      //   querySnapshot.forEach((doc) => {
+      //     // console.log(doc.data())
+    
+       
+      //   // console.log(doc.data())
+      //   //  console.log(`${doc.id} => ${doc.data().name}`);
+      //   container_principal_tarea.innerHTML += `
+    
+      //   <div id="style_generalContainer_principal" class="style_generalContainer_principal">
+                 
+      
+    
+      //   <div  id="container_principal_tarea">
+      //   <div style="width: 231px;height: 21px;">
+      //   <p class="styles_principal"><strong>Tarea 1 </strong></p>
+      //   <p class="styles_principal">${doc.data().taskName}</p>
+      // </div>
+    
+      // <div style="width: 61px;height: 21px;">
+      //   <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
+      //   <p id="date_documentos" style='color:#D70025'>${doc.data().expiration}</p>
+      // </div>
+      //   </div>
+    
+      //   <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+      //   <p style="margin-left:24px;
+      //     font-family: Raleway;
+      //     font-style: normal;
+      //     font-weight: 600;
+      //     font-size: 12px;
+      //     line-height: 14px;
+      //    margin-right:12px;
+      //     color: #0F3041;" >01.</p>
+      //     <label for="file-upload"  style="margin-left:0px;">
+      //     <img  src="./img/svg/clicdoc.svg" alt="" />
+      //       </label>
+      //       <div class="d-flex flex-column ">
+      //       <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
+      //       <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+      //       </div>
+      //   </div>
+    
+      //   </div>
+      //     ` ; 
+    
+              
+      //   //   const nameClick = viewHome.querySelector('#file_tarea');
+      //   //   nameClick.addEventListener('click', (e) => {
+      //   //     e.preventDefault();
+      //   //     console.log('funciona please')
+      //   //     firebase.firestore()
+      //   // .collection("tasks").onSnapshot((querySnapshot) => {
+      //   //   document.getElementById("verFiles").innerHTML='';
+      //   // querySnapshot.forEach((doc) => {
+      //   //     console.log(`${doc.data().file}`)
+      //   //     document.getElementById("verFiles").innerHTML +=`
+      //   //      <iframe  class="styleIframe"  src="${doc.data().files}"></iframe>
+      //   //             `;
+      //   //           })
+      //   //         })     
+      //   //       }) 
+
+      //         //******************* */
+      //       //   const rootRefTask = firebase.database().ref().child("docTask");
+        
+      //       //   rootRefTask.on('value', function(snapshot){
+      //       //     var datos = snapshot.val();
+      //       //     var results = "" 
+      //       //     for(var key in datos){
+            
+      //       //       console.log(datos[key].nombre)
+                
+      //       //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
+                  
+      //       //     } 
+      //       //     document.getElementById("file_tarea").innerHTML= results;
+            
+      //       //     // const cambiarFond = viewHome.querySelector('#file_tarea')
+      //       //     // cambiarFond.addEventListener('click', () => {
+      //       //     //   console.log('aqui')
+      //       //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
+      //       //     // });
+            
+      //       // });
+            
+    
+      //     });
+
+          
+      //     const click_show_doc = document.getElementById("file_tarea");
+      //     click_show_doc.addEventListener("click", () => {
+          
+          
+      //         rootRefTask.on("value", function (snapshot) {
+      //           var datos = snapshot.val();
+      //           var result = "";
+      //           for (var key in datos) {
+      //             console.log(datos[key].url);
+      //             console.log(datos[key].id);
+          
+      //             if(datos[key].id === doc.id){
+
+      //               console.log('si  es el ID')
+      //               result +=
+      //               '<iframe  class="styleIframe"  src="' +
+      //               datos[key].url +
+      //               '"></iframe>';
+      //             }else{
+      //               console.log('diferente id')
+      //               result +=
+      //               '<iframe  class="styleIframe"  src=""></iframe>';
+      //             }
+      //           }
+      //           document.getElementById("verFiles").innerHTML = result;
+      //         });
+      //     });
+      //     });
+      // });
+
+        //TERMINA OTRA MOSTRAS TAREA
+        // });
+
+        // const toggle = viewHome.querySelector("#cbox1");
+        // const txtStatus = viewHome.querySelector("#txt-status");
+
+
+        // toggle.addEventListener("change", function () {
+        //   txtStatus.style.color = this.checked
+        //     ? "#31CC53"
+        //     : "#0F3041";
+        //   console.log("VERDE");
+        // });
+
+      // });
+// };
 
 
    
@@ -2360,6 +2913,16 @@ container_principal_tarea.innerHTML += `
         btnCreateHomework.classList.remove("btnDisabled");
         btnCreateHomework.disabled = false;
       }
+   
+      // else if (
+      //   inputDenominacion.validity.valid &&
+      //   inputDestinatario.validity.valid &&
+      //   inputCorreo.validity.valid &&
+      //   inputMensaje.validity.valid
+      // ) {
+    //   btnCreateHomework.classList.remove("btnDisabled");
+    //   btnCreateHomework.disabled = false;
+    // }
   };
  
   const inputDenominacion = viewHome.querySelector("#inputText1");
@@ -2432,9 +2995,76 @@ container_principal_tarea.innerHTML += `
 
     firebase.firestore().collection("tasks").add(newTask);
     console.log(newTask);
+
     createHomework();
     cleanInputs();
+
   });
+
+
+// });
+// };
+
+ 
+//  //******* subir documentos de Tareas a Storage *******/
+//     //  const subirTask = viewHome.querySelector("#subirTask");
+//     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+ 
+//     file_uploadTask.addEventListener("change", () => {
+//       const nDocs = document.getElementById("file-uploadTask").files[0].name;
+//       document.getElementById("infoTask").innerHTML = nDocs;
+     
+//     });
+ 
+//     const ficheroTask = viewHome.querySelector("#file-uploadTask");
+//     ficheroTask.addEventListener("change", sendDocFirebase, false);
+
+
+//     const storageRefTask = firebase.storage().ref();
+//     const rootRefTask = firebase.database().ref().child("docTask");
+//     function sendDocFirebase() {
+//       //     console.log("subiendo")
+//       const documentoSubirTask = ficheroTask.files[0];
+//       console.log(documentoSubirTask);
+//       const uploadTasks = storageRefTask
+//         .child("docTask/" + documentoSubirTask.name)
+//         .put(documentoSubirTask);
+ 
+//       uploadTasks.on(
+//         "state_changed",
+//         function (snapshot) {},
+//         function (error) {
+//           alert("hubo un error");
+//         },
+//         function () {
+//           uploadTasks.snapshot.ref
+//             .getDownloadURL()
+//             .then(function (downloadURL) {
+//               alert("se subió la imagen conURL", downloadURL);
+//               console.log("Uploaded a blob or file!");
+//               crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
+//             });
+//         }
+//       );
+//     };
+
+ 
+// function  crearNodoEnBDFirebaseTask(name,url){
+//   rootRefTask.push({
+//   nombre:name,
+//   url:url,
+// })
+// }
+// });
+// //cambiar logo Sunafil una ver sincronizado
+// // const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
+// // const sunafilS = viewHome.querySelector('#sunafil');
+// // const sunafilBlue = viewHome.querySelector('#sunafilBlue');
+// //     cambiarLogo.addEventListener('click', ()=>{
+// // sunafilS.classList.add('ocultar');
+// // sunafilBlue.classList.remove('ocultar');
+// //     })
+
 
     //mostar tareas en documentos
 
@@ -2442,41 +3072,43 @@ container_principal_tarea.innerHTML += `
     const tareas_ver = viewHome.querySelector('#tareas_ver');
     const here_tareas = viewHome.querySelector('#here_tareas');
     const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
-   
-    mostrar_tareas.addEventListener('click',() =>{
-      tareas_ver.classList.remove("ocultar");
-      mostrar_tareas.classList.add("ocultar");
-      here_tareas.classList.remove("ocultar");
-      informationDoc_ocultar.classList.add("ocultarDoc");
-      
-   
-    });
 
-    here_tareas.addEventListener('click' , () => {
+   
+  
+
+ 
+ 
+  here_tareas.addEventListener('click' , () => {
     tareas_ver.classList.add("ocultar");
     mostrar_tareas.classList.remove("ocultar");
     here_tareas.classList.add("ocultar");
     informationDoc_ocultar.classList.remove("ocultarDoc");
   });
 
-  
+
     //subir y traer files para see en documentos
     
+  
     let stars = viewHome.querySelectorAll('.star');
     viewHome.querySelector('.star-container').addEventListener('click', starRating);
    
+    
     function starRating(e) {
       const star = e.target;
       const val = star.getAttribute('data-val');
-
+    
       stars.forEach((star) => star.classList.remove('star__checked'));
     
       star.classList.add('star__checked');
      
     }
 
-   
+    mostrar_tareas.addEventListener('click',() =>{
+      tareas_ver.classList.remove("ocultar");
+      mostrar_tareas.classList.add("ocultar");
+      here_tareas.classList.remove("ocultar");
+      informationDoc_ocultar.classList.add("ocultarDoc");
+    });
 
     return viewHome;
   };
-
