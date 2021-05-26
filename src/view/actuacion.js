@@ -1,5 +1,4 @@
-import { signIn } from '../firebase/firebase-Auth.js';
-
+// import {viewHome} from './home'
 export default () => {
     const viewActuacion = document.createElement('div');
     viewActuacion.innerHTML = `
@@ -361,6 +360,7 @@ sube_manual.addEventListener('click', (e) => {
 
 //localstorage Etapas
 const btn_crearActuacion = viewActuacion.querySelector("#btn_crearActuacion");
+// const casoSeleccionado = viewHome.querySelector("#casoSeleccionado"); 
 btn_crearActuacion.addEventListener("click", () => {
 
     
@@ -372,7 +372,7 @@ btn_crearActuacion.addEventListener("click", () => {
         const selectedOptionTipo = viewActuacion.querySelector("#mySelectValueTipo").options[ viewActuacion.querySelector("#mySelectValueTipo").selectedIndex]; // returns selected option element
         console.log(selectedOptionTipo.value); // return selected option value (2nd method)
         localStorage.setItem("tipo", selectedOptionTipo.value )    
-
+       
         const funcionario_actuacion = viewActuacion.querySelector("#funcionario_actuacion").value; // returns selected option element
         
         localStorage.setItem("funcionario_actuacion",  funcionario_actuacion )
@@ -461,7 +461,8 @@ btn_crearActuacion.addEventListener("click", () => {
            const month =  getMonth(date_actuacion);
            localStorage.setItem("month", month )
     
-           
+        //    casoSeleccionado.classList.remove('ocultar');
+
             window.location.hash = "#/home";
     });
 

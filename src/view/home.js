@@ -7,7 +7,12 @@ export default () => {
   const inspectionOrder = localStorage.getItem("order");
   const etapa_actuacion = localStorage.getItem("etapa");
   const tipo_actuacion = localStorage.getItem("tipo");
+
   // const date_actuacion = localStorage.getItem("date_actuacion");
+
+   //condicional si el value del local strogae esta vacio 
+
+  
 
   // fecha actual
   let date = new Date();
@@ -34,7 +39,9 @@ export default () => {
   const funcionario_actuacion = localStorage.getItem("funcionario_actuacion");
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
-  viewHome.innerHTML =`
+
+  viewHome.innerHTML = `
+
 
     <div class="wrapper">
 
@@ -77,7 +84,9 @@ export default () => {
         </div>
         <div class="title-btnActions d-flex">
           <h5>Caso estibadores</h5>
-          <div class="btn-actions d-flex" id="actuacion">
+          <div class="ocultar" id="container_actuacion">
+            <div class="btn-actions d-flex" id="actuacion">
+          </div>
             <p class="moreIcon">+</p>
             <p>Actuación</p>
           </div>
@@ -179,11 +188,19 @@ export default () => {
                     <p >Actuación en proceso</p>
                     </div>
                     <div class="row">
-                        <div class="d-flex flex-row " style="margin-right:50px">
-                        <div>
-                            <p class="title_tipoResolution">Tipo:Resolución de <br> Sub intendencia</p>
+                        <div class="d-flex flex-row "  style="margin-right:50px">
+                        <div id="casoNuevo">
+                            <p class="title_tipoResolution">Tipo de actuacion: Caso Nuevo </p>
                         </div>
-
+                        <div id="casoSeleccionado" class="ocultar">
+                            <p class="title_tipoResolution">Tipo:${tipo_actuacion} </p>
+                        </div>
+                         
+                            <div  id="container_actuacionenproceso">
+                              <div id="actuacion"><img src="./img/svg/+actuacion.svg" style="margin-right:20px;"/> Actuación</div>
+                            </div>
+                         
+                        <div class="ocultar" id="flex-container_datos" >
                         <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information">
                             <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
                             <div class="d-flex flex-column   ">
@@ -195,7 +212,7 @@ export default () => {
                         <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information">
                             <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
                             <div class="d-flex flex-column  align-items-center ">
-                                <p class="text_Resolution">Laura Perez</p>
+                                <p class="text_Resolution">${funcionario_actuacion}</p>
                                 <p class="text_tipoResolution">Funcionario(a)</p>
                             </div>
                         </div>
@@ -207,6 +224,7 @@ export default () => {
                             </div>
                             <img src="./img/svg/Vector.svg"  class="style_icon_right" alt="" />
                         </div>
+                        </div> 
                     </div>
                     </div>
                 </div>
@@ -791,7 +809,7 @@ export default () => {
           </div>
         </div>
              <!--DOCTUMENTOS--->
-        <div class="row" id="container_doc" style="background: #F9FBFC;" >
+        <div class="row" id="container_doc" style="background: #F9FBFC;   height: 59px;" >
 
           <div class="d-flex flex-row  align-items-center" style="height:84px;border-bottom: 2px solid #EFF2F9;">
 
@@ -884,7 +902,7 @@ export default () => {
 
               </div>
               <div class='doc_select'>
-              <div class="d-flex flex-row align-items-center " id="container_doc_princial">
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
               <p style="margin-left:24px;
                 font-family: Raleway;
                 font-style: normal;
@@ -904,7 +922,7 @@ export default () => {
                   <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
                   <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
                   </div>
-              
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
               </div>
               </div>
               </div>
@@ -1712,7 +1730,7 @@ export default () => {
   //HOME ACTUACIONES
   //ir a crear actuación actuacion
 
-  const actuacion = viewHome.querySelector("#actuacion");
+  const actuacion = viewHome.querySelector("#container_actuacionenproceso");
   actuacion.addEventListener("click", () => {
     window.location.hash = "#/actuacion";
   });
@@ -1920,9 +1938,16 @@ export default () => {
      } 
      document.getElementById("name_info").innerHTML= results;
      document.getElementById("name_info1").innerHTML= results;
-     const click_show_doc = document.getElementById("name_info1")
+     const click_show_doc = document.getElementById("name_info1");
+     const arrows_doc = viewHome.querySelector("#arrows_doc");
+     const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+     const container_tar_principal = viewHome.querySelector('#container_tar_princial');
+     const arrows_tar = viewHome.querySelector("#arrows");
      click_show_doc.addEventListener("click", ()=> {
-
+       container_doc_principal.style.background =  "rgba(150, 156, 186, 0.2)";
+       container_tar_principal.style.background =  "white";
+      arrows_doc.classList.remove('ocultar');
+      arrows_tar.classList.add('ocultar');
        rootRef.on('value', function(snapshot){
          var datos = snapshot.val();
          var result = "" 
@@ -2243,7 +2268,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     firebase
       .firestore()
       .collection("tasks")
-      .orderBy("date", "desc")
+      .orderBy("taskName")
       .onSnapshot((querySnapshot) => {
         tableTask.innerHTML = "";
         querySnapshot.forEach((doc) => {
@@ -2285,13 +2310,17 @@ const mostrar_cards_tareas = () => {
   firebase
     .firestore()
     .collection("tasks")
+    .orderBy("taskName")
+
     .onSnapshot((querySnapshot) => {
       container_principal_tarea.innerHTML = "";
 
       querySnapshot.forEach((doc) => {
         container_principal_tarea.innerHTML += `
 
-<div id="style_generalContainer_principal" class="style_generalContainer_principal">
+
+<div id="style_generalContainer_principal" style="margin-bottom:8px;"class="style_generalContainer_principal">
+
 <div  id="container_principal_tarea">
 <div style="width: 231px;height: 21px;">
 <p class="styles_principal"><strong>Tarea 1 </strong></p>
@@ -2304,7 +2333,9 @@ const mostrar_cards_tareas = () => {
 </div>
 </div>
 
-<div class="d-flex flex-row align-items-center " id="container_doc_princial">
+
+<div class="d-flex flex-row align-items-center " id="container_tar_princial">
+
 <p style="margin-left:24px;
   font-family: Raleway;
   font-style: normal;
@@ -2317,41 +2348,68 @@ const mostrar_cards_tareas = () => {
   <img  src="./img/svg/clicdoc.svg" alt="" />
     </label>
     <div class="d-flex flex-column ">
-    <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${
-      doc.data().files
-    }</div>
+
+    <div class="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;" data-id="${doc.id}">${doc.data().files}</div>
     <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
     </div>
+    <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows" class="ocultar" alt="" />  
 </div>
 
 </div>
-  `;
-      });
+  `; 
+  const click_show_doc = viewHome.querySelectorAll(".file_tarea");
 
-      const click_show_doc = viewHome.querySelector("#file_tarea");
-      click_show_doc.addEventListener("click", () => {
+ 
+      click_show_doc.forEach((tarea) => {
+
+    const color_fondo_list_tarea = viewHome.querySelector("#container_tar_princial"); 
+    const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+    const arrows = viewHome.querySelector("#arrows"); 
+    const arrows_doc = viewHome.querySelector("#arrows_doc");
+      tarea.addEventListener("click", (e) => {
+
+     
+        console.log(e.target.dataset.id);
+        const idDocTareas = e.target.dataset.id;
+        e.preventDefault();
         rootRefTask.on("value", function (snapshot) {
-          console.log("muestra imagennn");
+      
           var datos = snapshot.val();
+          console.log(datos)
           var result = "";
           for (var key in datos) {
-            console.log(datos[key].url);
-            console.log(datos[key].id);
+            // console.log(datos[key].url);
+            // console.log(datos[key].id);
+           
+            if ( idDocTareas ===  datos[key].id) {
+              arrows.classList.remove('ocultar');
+              arrows_doc.classList.add('ocultar');
+              color_fondo_list_tarea.style.background = "rgba(150, 156, 186, 0.2)";
+              container_doc_principal.style.background = "white";
+              // console.log("si  es el ID");
 
-            if (datos[key].id === doc.id) {
-              console.log("si  es el ID");
               result +=
                 '<iframe  class="styleIframe"  src="' +
                 datos[key].url +
                 '"></iframe>';
-            } else {
-              console.log("diferente id");
+
+            } 
+            else {
+              // console.log("diferente id");
+
             }
           }
           document.getElementById("verFiles").innerHTML = result;
         });
       });
     });
+
+      });  
+    
+      
+  
+    });
+
 };
 
 
@@ -3119,6 +3177,26 @@ const mostrar_cards_tareas = () => {
       informationDoc_ocultar.classList.add("ocultarDoc");
     });
 
+    const casoSeleccionado = viewHome.querySelector('#casoSeleccionado');
+    const casoNuevo = viewHome.querySelector('#casoNuevo');
+
+    const flex_container_datos = viewHome.querySelector('#flex-container_datos');
+    const container_actuacionenproceso = viewHome.querySelector('#container_actuacionenproceso');
+
+    if(tipo_actuacion != "")
+   {
+    casoSeleccionado.classList.remove('ocultar');
+    casoNuevo.classList.add('ocultar');
+    flex_container_datos.classList.remove('ocultar');
+    flex_container_datos.style.display ="flex";
+    container_actuacionenproceso.classList.add('ocultar');
+    console.log("holis")
+   }else{
+    casoSeleccionado.classList.add('ocultar');
+    casoNuevo.classList.remove('ocultar');
+    flex_container_datos.classList.add('ocultar');
+    container_actuacionenproceso.classList.remove('ocultar');
+   };
+
     return viewHome;
   };
-
