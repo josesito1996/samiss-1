@@ -565,6 +565,11 @@ text-align: center;
   color: #FFFFFF;
   margin: 10px;
   }
+
+  #flex-container_datos{
+    /* display: flex;
+    flex-direction: row; */
+  }
 /******** MAIN (termino) ********/
 
 

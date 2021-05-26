@@ -7,7 +7,12 @@ export default () => {
   const inspectionOrder = localStorage.getItem("order");
   const etapa_actuacion = localStorage.getItem("etapa");
   const tipo_actuacion = localStorage.getItem("tipo");
+
   // const date_actuacion = localStorage.getItem("date_actuacion");
+
+   //condicional si el value del local strogae esta vacio 
+
+  
 
   // fecha actual
   let date = new Date();
@@ -77,7 +82,9 @@ export default () => {
         </div>
         <div class="title-btnActions d-flex">
           <h5>Caso estibadores</h5>
-          <div class="btn-actions d-flex" id="actuacion">
+          <div class="ocultar" id="container_actuacion">
+            <div class="btn-actions d-flex" id="actuacion">
+          </div>
             <p class="moreIcon">+</p>
             <p>Actuación</p>
           </div>
@@ -179,11 +186,19 @@ export default () => {
                     <p >Actuación en proceso</p>
                     </div>
                     <div class="row">
-                        <div class="d-flex flex-row " style="margin-right:50px">
-                        <div>
-                            <p class="title_tipoResolution">Tipo:Resolución de <br> Sub intendencia</p>
+                        <div class="d-flex flex-row "  style="margin-right:50px">
+                        <div id="casoNuevo">
+                            <p class="title_tipoResolution">Tipo de actuacion: Caso Nuevo </p>
                         </div>
-
+                        <div id="casoSeleccionado" class="ocultar">
+                            <p class="title_tipoResolution">Tipo:${tipo_actuacion} </p>
+                        </div>
+                         
+                            <div  id="container_actuacionenproceso">
+                              <div id="actuacion"><img src="./img/svg/+actuacion.svg" style="margin-right:20px;"/> Actuación</div>
+                            </div>
+                         
+                        <div class="ocultar" id="flex-container_datos" >
                         <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information">
                             <img class="img_tipoResolution" src="./img/svg/file text.svg" alt="" />
                             <div class="d-flex flex-column   ">
@@ -195,7 +210,7 @@ export default () => {
                         <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information">
                             <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
                             <div class="d-flex flex-column  align-items-center ">
-                                <p class="text_Resolution">Laura Perez</p>
+                                <p class="text_Resolution">${funcionario_actuacion}</p>
                                 <p class="text_tipoResolution">Funcionario(a)</p>
                             </div>
                         </div>
@@ -207,6 +222,7 @@ export default () => {
                             </div>
                             <img src="./img/svg/Vector.svg"  class="style_icon_right" alt="" />
                         </div>
+                        </div> 
                     </div>
                     </div>
                 </div>
@@ -1678,7 +1694,7 @@ export default () => {
   //HOME ACTUACIONES
   //ir a crear actuación actuacion
 
-  const actuacion = viewHome.querySelector("#actuacion");
+  const actuacion = viewHome.querySelector("#container_actuacionenproceso");
   actuacion.addEventListener("click", () => {
     window.location.hash = "#/actuacion";
   });
@@ -2213,7 +2229,7 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
     firebase
       .firestore()
       .collection("tasks")
-      .orderBy("date", "desc")
+      .orderBy("taskName")
       .onSnapshot((querySnapshot) => {
         tableTask.innerHTML = "";
         querySnapshot.forEach((doc) => {
@@ -2255,6 +2271,7 @@ const mostrar_cards_tareas = () => {
   firebase
     .firestore()
     .collection("tasks")
+    .orderBy("taskName")
     .onSnapshot((querySnapshot) => {
       container_principal_tarea.innerHTML = "";
 
@@ -3109,6 +3126,27 @@ const mostrar_cards_tareas = () => {
       here_tareas.classList.remove("ocultar");
       informationDoc_ocultar.classList.add("ocultarDoc");
     });
+
+    const casoSeleccionado = viewHome.querySelector('#casoSeleccionado');
+    const casoNuevo = viewHome.querySelector('#casoNuevo');
+
+    const flex_container_datos = viewHome.querySelector('#flex-container_datos');
+    const container_actuacionenproceso = viewHome.querySelector('#container_actuacionenproceso');
+
+    if(tipo_actuacion != "")
+   {
+    casoSeleccionado.classList.remove('ocultar');
+    casoNuevo.classList.add('ocultar');
+    flex_container_datos.classList.remove('ocultar');
+    flex_container_datos.style.display ="flex";
+    container_actuacionenproceso.classList.add('ocultar');
+    console.log("holis")
+   }else{
+    casoSeleccionado.classList.add('ocultar');
+    casoNuevo.classList.remove('ocultar');
+    flex_container_datos.classList.add('ocultar');
+    container_actuacionenproceso.classList.remove('ocultar');
+   };
 
     return viewHome;
   };
