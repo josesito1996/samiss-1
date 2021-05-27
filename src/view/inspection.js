@@ -309,7 +309,7 @@ export default () => {
                             <div class="mb-3 row" style="margin-left:30px;margin-top:50px;">
                                 <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">3. Inspector de
                                     trabajo</label>
-                                <input type="text" class="form-control"  placeholder="Alberto Morán"
+                                <input type="text" class="form-control" id="inspectorFuncionario" placeholder="Alberto Morán"
                                     style="width:355.19px; height:39px;box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                                 <div class="d-flex column justify-content-end" >
                                     <!-- <i class="fas fa-plus link-success "></i> -->
@@ -784,7 +784,7 @@ function drop(event) {
         console.log( allIsChecked);
         localStorage.setItem("checked", allIsChecked);
  
-        const auxiliar = viewInspection.querySelector("#auxiliar");
+        const auxiliar = viewInspection.querySelector("#inspectorFuncionario");
         localStorage.setItem("inspectorAuxiliar", auxiliar.value);
         window.location.hash = '#/home' 
         });
