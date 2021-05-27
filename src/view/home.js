@@ -349,7 +349,7 @@ export default () => {
                                               <div class="row">
                                                 <div class="d-flex flex-row">
                                                   <div class="padding_funcionario" style="width:150px;position: relative;"/>
-                                                  <img src="./img/svg/Rectangle 300.svg" class="funcionario" alt="" loading="lazy"/>
+                                                  <img src="./img/svg/hombre.svg" class="funcionario" alt="" loading="lazy"/>
                                                   <div class="fondo_camera">
                                                   </div>
                                                   <img src="./img/svg/camera on.svg" class="camera" alt="" loading="lazy"/>
@@ -420,11 +420,13 @@ export default () => {
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;">Califica a tu funcionario</p>
                                                         
                                                         <div class="star-container">
+                                                        <span style ="width:230px;"> </span>
                                                         <div class="star" data-val="5"></div>
                                                         <div class="star" data-val="4"></div>
                                                         <div class="star" data-val="3"></div>
                                                         <div class="star" data-val="2"></div>
                                                         <div class="star" data-val="1"></div>
+                                                       
                                                       </div>
                                                       
                                                        
@@ -824,7 +826,7 @@ export default () => {
              <!--DOCTUMENTOS--->
         <div class="row" id="" style="background: #F9FBFC;  " >
 
-          <div class="d-flex flex-row  align-items-center" style="height:84px;border-bottom: 2px solid #EFF2F9;">
+          <div class="d-flex flex-row  align-items-center" style="height:84px;">
 
             <div class="d-flex flex-row" style="margin-left:30px;">
               <div>
@@ -2443,18 +2445,11 @@ const mostrar_cards_tareas = () => {
 };
 
 // const tStatuss = tableTask.querySelectorAll(".tStatus");
-
-
 // tStatuss.forEach(() => {
-
-//       if(doc.data().status = "Pendiente"){
-     
-//      console.log('pendiente');          
-  
-   
+//       if(doc.data().status = "Pendiente"){ 
+//      console.log('pendiente');            
 //    } else if (doc.data().status = "Finalizado") {
 //      console.log("finalizado");
-    
 //    }
 //  });
 
@@ -2476,21 +2471,21 @@ const mostrar_cards_tareas = () => {
               // console.log("ID del check???", check.id);
 
               completedTask(e.target.dataset.id);
-              fRegister.classList.add("txt-tach");
-              fVenci.classList.add("txt-tach");
-              tStatus.classList.add("txt-green");
-              // tStatus.classList.add("tStatus");
-              tStatus.classList.remove("tStatusPendiente");
-              tStatus.classList.add("tStatusFinalizado");
+              // fRegister.classList.add("txt-tach");
+              // fVenci.classList.add("txt-tach");
+              // tStatus.classList.add("txt-green");
+              // // tStatus.classList.add("tStatus");
+              // tStatus.classList.remove("tStatusPendiente");
+              // tStatus.classList.add("tStatusFinalizado");
             } else {
               console.log("SIN check??");
               pendingTask(e.target.dataset.id);
-              fRegister.classList.remove("txt-tach");
-              fVenci.classList.remove("txt-tach");
-              tStatus.classList.remove("txt-green");
-              // tStatus.classList.remove("tStatus");
-              tStatus.classList.add("tStatusPendiente");
-              tStatus.classList.remove("tStatusFinalizado");
+              // fRegister.classList.remove("txt-tach");
+              // fVenci.classList.remove("txt-tach");
+              // tStatus.classList.remove("txt-green");
+              // // tStatus.classList.remove("tStatus");
+              // tStatus.classList.add("tStatusPendiente");
+              // tStatus.classList.remove("tStatusFinalizado");
             }
           });
         });
