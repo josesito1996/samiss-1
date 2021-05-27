@@ -765,10 +765,10 @@ export default () => {
 
         </div> 
 
-        <div class="ocultar" id ="main-documentos" style="border:1px solid red;">
+        <div class="ocultar" id ="main-documentos" >
 
         <!---BOTONES CANTIDAD DE ACTUACION, DOCUMENTOS Y TAREAS--->
-        <div class="d-flex flex-row" id="container_total_mainGeneral" style="border:1px solid blue;" >
+        <div class="d-flex flex-row" id="container_total_mainGeneral"  >
 
         <div class="d-flex flex-row align-items-center justify-content-center" id="container_total_general">
         <p id="total_head_documentos">Total de Actuaciones</p>
@@ -822,7 +822,7 @@ export default () => {
           </div>
         </div>
              <!--DOCTUMENTOS--->
-        <div class="row" id="" style="background: #F9FBFC;border:1px solid yellow;  " >
+        <div class="row" id="" style="background: #F9FBFC;  " >
 
           <div class="d-flex flex-row  align-items-center" style="height:84px;border-bottom: 2px solid #EFF2F9;">
 
