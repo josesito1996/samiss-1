@@ -363,9 +363,7 @@ export default () => {
                                                       </div>
                                                       <div class="row" style="border-bottom:1px solid #BDBDBD; width:187px;margin-bottom:13px;" >
                                                         <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
-                                                        <p class="nameFuncionario_modal">${localStorage.getItem(
-                                                          "inspectorAuxiliar"
-                                                        )}</p>
+                                                        <p class="nameFuncionario_modal">${localStorage.getItem("inspectorAuxiliar")}</p>
                                                       </div>
                                                       <div class="row">
                                                         <div class="d-flex flex-row" style="margin-bottom:25px;">
@@ -3225,7 +3223,7 @@ const mostrar_cards_tareas = () => {
     const container_actuacionenproceso = viewHome.querySelector('#container_actuacionenproceso');
     const container_actuacion = viewHome.querySelector('#container_actuacion');
 
-    if(tipo_actuacion != "")
+    if(tipo_actuacion != null)
    {
     casoSeleccionado.classList.remove('ocultar');
     casoNuevo.classList.add('ocultar');
