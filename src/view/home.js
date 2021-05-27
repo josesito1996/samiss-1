@@ -1003,8 +1003,8 @@ export default () => {
       </div>
 
       <div class="sidebarCase">
-      <img src="./img/svg/sunafil.svg" class="" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
-      <img src="./img/svg/sunafilBlue.svg" class="ocultar" id="sunafilBlue" alt="Icono check" />
+      <img src="./img/svg/sunafil.svg" class="ocultar" id="sunafil" alt="Icono check" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+      <img src="./img/svg/sunafilBlue.svg" class="" id="sunafilBlue" alt="Icono check" />
        <!-- Modal SUNAFIL -->
        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false"
                                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
