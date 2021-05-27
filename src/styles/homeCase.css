@@ -336,10 +336,12 @@
     width: 220px;
     margin-left: -5px;
     padding: 5px 5px 0 0;
+    /* height: 85px; */
+    height: 80px;
   }
 
   .div-cardSunafil .cardSunafil img{
-    margin: 2px 5px 16px 0;
+    margin: 5px 4px 16px 0;
     height: 16px;
     width: 64px;
     margin-bottom: 16px;
@@ -350,11 +352,12 @@
     font-weight: 500;
     font-size: 11px;
     color: var(--primary-blue);
-    margin: 0;
+    margin: 8px 8px 0 3px
   }
 
   .cardSunafil .cardSunafil-body p::before{
-    content: "Para conocer el estado de tus casos o ver si tienes un proceso de inspección, sincroniza tu casilla sunafil 17 de Mayo.";
+    /* content: "Para conocer el estado de tus casos o ver si tienes un proceso de inspección, sincroniza tu casilla sunafil 17 de Mayo."; */
+   content:"El dia 27 de mayo se ha registrado una nueva inspección en SUNAFIL.";
   }
 
   .cardSunafil .cardSunafil-body .messageSunafil {
@@ -367,12 +370,14 @@
     content:"El dia 27 de mayo se ha registrado una nueva inspección en SUNAFIL";
     visibility: visible;
     margin-left: -95px;
+    width: 180px;
+    
 
   }
 
   .cardSunafil .cardSunafil-footer {
     /* margin-top: 3px; */
-    margin-top: -4px;
+    /* margin-top: -4px; */
     flex-direction: row;
     justify-content: flex-end;
   }
@@ -388,6 +393,7 @@
     height: 12px;
     width: 6px;
     margin-left: 3px;
+    margin-top: 1px;
   }
 
 
