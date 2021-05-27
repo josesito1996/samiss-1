@@ -378,7 +378,7 @@ export default () => {
                                                           <p class="modal_title_funcionario"  style="margin-bottom:0px;">Cantidad de casos</p>
                                                             <div class="d-flex flex-row align-items-center">
                                                               <img src="./img/svg/list modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 0 casos</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 12 casos</p>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -389,17 +389,13 @@ export default () => {
                                                           <div class="modal_up">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
-                                                                "multa1"
-                                                              )}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >567,000.00</p>
                                                             </div>
                                                           </div>
                                                           <div class="down">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
-                                                                "multa2"
-                                                              )}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" > 1,890.00 </p>
                                                             </div>
                                                           </div>
                                                         
@@ -409,9 +405,7 @@ export default () => {
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
                                                            <div class="d-flex flex-row">
                                                            <img src="./img/svg/user check modal.svg" style="margin-right:16px;" alt="" loading="lazy"/>
-                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem(
-                                                             "aleatorio"
-                                                           )} &nbsp; de 10</p>
+                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto 7 de 10</p>
                                                            </div> 
                                                       </div>
                                                       <div class="row">
