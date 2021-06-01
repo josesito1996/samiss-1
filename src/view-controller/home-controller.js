@@ -18,27 +18,27 @@ import { firestore } from "../firebase/firebase.js";
 //   });
 // };
 
-//****** ingresando datos temporal *****/
-export const addDocument = () => {
-  firestore
-    .collection("homeWorks")
-    .add({
-      taskName: "Tema1",
-      date: "22/05/2021",
-      expiration: "23/05/2021",
-      receiver: "Juanito Perez",
-      file: "",
-      files: [],
-      initials: "SH",
-      mail: "perez@gmail.com",
-      message: "Mensaje de tarea 1",
-      status: "Pendiente",
-      count: 0,
-    })
-    .then((docRef) => {
-      console.log(("Documento escrito con ID:", docRef.id));
-    })
-    .catch((error) => {
-      console.log("Error al agregar documento:", error);
-    });
-};
+// //****** ingresando datos temporal *****/
+// export const addDocument = () => {
+//   firestore
+//     .collection("homeWorks")
+//     .add({
+//       taskName: "Tema1",
+//       date: "22/05/2021",
+//       expiration: "23/05/2021",
+//       receiver: "Juanito Perez",
+//       file: "",
+//       files: [],
+//       initials: "SH",
+//       mail: "perez@gmail.com",
+//       message: "Mensaje de tarea 1",
+//       status: "Pendiente",
+//       count: 0,
+//     })
+//     .then((docRef) => {
+//       console.log(("Documento escrito con ID:", docRef.id));
+//     })
+//     .catch((error) => {
+//       console.log("Error al agregar documento:", error);
+//     });
+// };

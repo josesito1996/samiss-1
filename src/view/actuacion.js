@@ -272,7 +272,7 @@ export default () => {
                         <label for="file-upload" id="subir" style="margin-left:240px;">
                                     <img  src="./img/svg/carga.svg" alt="" />Añada tus documentos
                                         </label>
-                                        <input id="file-upload"  type="file" style='display: none;'/>
+                                        <input id="file-upload"   type="file" style='display: none;'/>
                                         <div id="info" style="margin-left:240px;"></div>
                         </div>   
 
@@ -299,62 +299,7 @@ export default () => {
     </div>
     `;
 
-// subir documento
-
-const subir = viewActuacion.querySelector("#subir");
-
-const file_upload = viewActuacion.querySelector("#file-upload");
-file_upload.addEventListener("change", ()=> {
-  subir.classList.add("ocultar");
-  
-  var pdrs = document.getElementById('file-upload').files[0].name;
-  document.getElementById('info').innerHTML = pdrs;
- 
-})
-
-var fichero;
-var storageRef;
-
-function inicializar() {
-    fichero = viewActuacion.querySelector("#file-upload");
-    fichero.addEventListener("change", subirDocAFirebase, false);
-    storageRef = firebase.storage().ref();
-}
-inicializar()
-
-function subirDocAFirebase(){
-    console.log("subiendo")
-    var documentoSubir = fichero.files[0];
-
-    var subir = storageRef.child("documentos/"+documentoSubir.name).put(documentoSubir)
-   
-    .then(function(snapshot) {
-  console.log('Uploaded a blob or file!');
-});
-   
-}
-// //Evento click Crear de formulario manual
-// const form1 =  viewActuacion.querySelector("#drop");  
-// const form2 =  viewActuacion.querySelector("#handbook");   
-// const line_manual= viewActuacion.querySelector("#line_manual");    
-// const line_drop= viewActuacion.querySelector("#sube_archivo");    
-// const sube_manual =  viewActuacion.querySelector("#sube_manual");   
-
-// const descripcion_actuacion = viewActuacion.querySelector("#descripcion_actuacion").value;
-// localStorage.removeItem("descripcion_actuacion", descripcion_actuacion )
-
-// sube_manual.addEventListener('click', (e) => {
-//   e.preventDefault();
- 
-//   line_manual.style.borderBottomColor = "black";
-//   line_drop.style.borderBottomColor = "white";
-//   form2.classList.remove("ocultar")
-//   form1.classList.add("ocultar")
-
-
-// });
-
- //Evento click link Sube tus archivos
+    //Evento click link Sube tus archivos
         
  const form1 =  viewActuacion.querySelector("#drop"); 
  const form2 =  viewActuacion.querySelector("#handbook");       
@@ -394,10 +339,57 @@ for(let i=0; i < links.length; i ++)
        }    
 
 
-//localstorage Etapas
+// subir documento
+
+ const subir = viewActuacion.querySelector("#subir");
+
+const file_upload = viewActuacion.querySelector("#file-upload");
+
+// cambiar() {
+   
+    file_upload.addEventListener("change", ()=> {
+      var pdrs = document.getElementById('file-upload').files[0].name;
+      document.getElementById('info').innerHTML = pdrs;
+        subir.classList.add("ocultar");
+             const nameFiles = pdrs
+             console.log(nameFiles)  
+// firebase
+// .firestore()
+//       .collection("addActuacion")
+// .set({
+//     fIle: pdrs,
+// }, { merge: pdrs });
+              });
+
+
+var fichero;
+var storageRef;
+
+function inicializar() {
+    fichero = viewActuacion.querySelector("#file-upload");
+    fichero.addEventListener("change", subirDocAFirebase, false);
+    storageRef = firebase.storage().ref();
+}
+inicializar()
+
+function subirDocAFirebase(){
+    console.log("subiendo")
+    var documentoSubir = fichero.files[0];
+
+    var subir = storageRef.child("documentosActuacion/"+documentoSubir.name).put(documentoSubir)
+   
+    .then(function(snapshot) {
+  console.log('Uploaded a blob or file!');
+});
+   
+}
+
+ 
+
 const btn_crearActuacion = viewActuacion.querySelector("#btn_crearActuacion");
 // const casoSeleccionado = viewHome.querySelector("#casoSeleccionado"); 
 btn_crearActuacion.addEventListener("click", () => {
+//localstorage Etapas
 
     
     // returns selected option value  
@@ -420,43 +412,10 @@ btn_crearActuacion.addEventListener("click", () => {
         const date_actuacion = viewActuacion.querySelector("#date_actuacion").value;
         localStorage.setItem("date_actuacion", date_actuacion )
 
-        //USANDO FIREBASE PARA CREAR COLLECTION DEL FORMULARIO CREAR ACTUACION
-        const db = firebase.firestore()
-        db.collection("crearActuación").add({
-            Fecha: date_actuacion,
-            Tipo: selectedOptionTipo.value,
-            Funcionario: funcionario_actuacion,
-            Etapa: selectedOptionEtapa.value,
-            Descripcion: descripcion_actuacion,
-            
-            // Documentos: "USA",
-        })
-        .then(() => {
-            console.log("Document successfully written!", );
-            selectedOptionTipo.value = "";
-            selectedOptionEtapa.value ="";
-            viewActuacion.querySelector("#funcionario_actuacion").value="";
-            viewActuacion.querySelector("#descripcion_actuacion").value="";
-            viewActuacion.querySelector("#date_actuacion").value="";
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
 
-        
-             function handlerDescripcion() {
-                if (descripcion_actuacion) {
-                    localStorage.setItem("descripcion_actuacion", descripcion_actuacion );
-                } else {
-              console.log("soy nulo")
-                }
-              }
-              handlerDescripcion()
-        
+          //sacar año
 
-        //sacar año
-
-        function getYear(curDate){
+          function getYear(curDate){
             var dt = new Date(curDate);`enter code here`
              var year = dt.getFullYear();
             return year.toString() 
@@ -498,6 +457,58 @@ btn_crearActuacion.addEventListener("click", () => {
            localStorage.setItem("month", month )
     
         //    casoSeleccionado.classList.remove('ocultar');
+
+        //USANDO FIREBASE PARA CREAR COLLECTION DEL FORMULARIO CREAR ACTUACION
+        const newActuacion = {
+            Fecha: date_actuacion,
+            Tipo: selectedOptionTipo.value,
+            Funcionario: funcionario_actuacion,
+            Etapa: selectedOptionEtapa.value,
+            Descripcion: descripcion_actuacion,
+            Day:day,
+            Month:month,
+            Year:year,
+            File:"",
+          };
+      
+          firebase.firestore().collection("addActuacion").add(newActuacion);
+          console.log(newActuacion);
+
+        // const db = firebase.firestore()
+        // db.collection("addActuacion").add({
+        //     Fecha: date_actuacion,
+        //     Tipo: selectedOptionTipo.value,
+        //     Funcionario: funcionario_actuacion,
+        //     Etapa: selectedOptionEtapa.value,
+        //     Descripcion: descripcion_actuacion,
+        //     File: "",
+            
+        //     // Documentos: "USA",
+        // })
+        // .then(() => {
+        //     console.log("Document successfully written!", );
+        //     selectedOptionTipo.value = "";
+        //     selectedOptionEtapa.value ="";
+        //     viewActuacion.querySelector("#funcionario_actuacion").value="";
+        //     viewActuacion.querySelector("#descripcion_actuacion").value="";
+        //     viewActuacion.querySelector("#date_actuacion").value="";
+        // })
+        // .catch((error) => {
+        //     console.error("Error writing document: ", error);
+        // });
+
+        
+             function handlerDescripcion() {
+                if (descripcion_actuacion) {
+                    localStorage.setItem("descripcion_actuacion", descripcion_actuacion );
+                } else {
+              console.log("soy nulo")
+                }
+              }
+              handlerDescripcion()
+        
+
+      
 
             window.location.hash = "#/home";
     });
