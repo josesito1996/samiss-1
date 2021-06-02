@@ -106,11 +106,12 @@
     margin-bottom: 4px;
     }
 
-#container_line_time{
+.container_line_time{
     width: auto;
     height: 100%;
     /* border: 1px solid yellow; */
-    margin-right: 15px;     
+    margin-right: 15px;
+ 
     }      
 
 /* The actual timeline (the vertical ruler) */
@@ -149,7 +150,7 @@
     height: 25px;
     left: 35px;
     background-color: white;
-    border: 5px solid #FFB000;;
+    border: 5px solid #31CC53;
     top: 35;
     border-radius: 50%;
     z-index: 1;
@@ -157,6 +158,19 @@
     margin-right: 10px;
   }
   
+.circle-lineTime{
+  width: 25px;
+  height: 25px;
+  
+  background-color: #FFFFFF;
+  border: 5px solid #31CC53;
+  top: 35;
+  border-radius: 50%;
+  /* z-index: 1;
+  margin-left: 15px;
+  margin-right: 10px; */
+}
+
   .timeLineAfter {
     width: 1px;
     background-color:  #BDBDBD;
@@ -206,7 +220,7 @@
     border-radius: 5px;
   }
 
-  #etapas{
+  #stages{
     border: 1.5px solid #31CC53;
     box-sizing: border-box;
     border-radius: 20px;
@@ -232,9 +246,9 @@
     }  
 
 #container_adicional_information_actuacion{
-    padding:  5px;
+    /* padding:  5px; */
     height: auto; 
-    margin-left: 10px; 
+    /* margin-left: 10px;  */
     }
 
 .text_tipoResolution_actuacion_principal{
@@ -330,7 +344,7 @@
     font-size: 11px;
     line-height: 13px;
     color: #FF3355;
-    margin-right:5px;
+    margin-right:2px;
   }  
 
 /*cargar archivos*/
@@ -366,20 +380,20 @@
   }
   
   #conTareas{
-    border-left: 1.02px solid rgba(15, 48, 65, 0.21) ;
+    /* border-left: 1.02px solid rgba(15, 48, 65, 0.21) ; */
     height: 40px;
     margin-top: 5px;
    
   }
   #conDocumentos{
-    border-left: 1.02px solid rgba(15, 48, 65, 0.21) ;
+    /* border-left: 1.02px solid rgba(15, 48, 65, 0.21) ; */
     height: 40px;
     margin-top: 5px;
   }  
 
   .img_tipoResolution_actuacion{
     margin-right: 8px;
-    margin-bottom: 55px;
+    /* margin-bottom: 55px; */
   }
 
   .text_tipoResolution_fila1{
@@ -515,4 +529,258 @@ text-align: center;
   justify-content: center;
   color: #FFFFFF;
   margin: 10px;
+}
+
+/*Pintar etapas en aside según la actución creada*/
+
+/*normal*/
+.numberStage{
+  position: relative;
+  width: 35.09px;
+  height: 35px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #466EFE;
+  box-sizing: border-box;
+  /* width: 10.75px;
+  height: 11.98px; */
+  /* left: 59.61px;
+  top: 438.13px; */
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  /* display: flex;
+  align-items: center; */
+  text-align: center;
+  color: #969CBA;
+  z-index: 2;
+  padding: 5px;
+}
+
+.nameStage{
+  position: absolute;
+  z-index: 1;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  /* identical to box height, or 167% */
+  text-align: center;
+  color: #969CBA;
+  width: 145.37px;
+  /* height: 21px; */
+  background: #FFFFFF;
+  border: 1px solid #466EFE;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+
+/*con cambios por seleccion*/
+
+.numberStageChange{
+  position: relative;
+  width: 35.09px;
+  height: 35px;
+  border-radius: 50%;
+  background: #466EFE;
+  border: 1px solid #466EFE;
+  box-sizing: border-box;
+  /* width: 10.75px;
+  height: 11.98px; */
+  /* left: 59.61px;
+  top: 438.13px; */
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  /* display: flex;
+  align-items: center; */
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 2;
+  padding: 5px;
+ 
+}
+
+.nameStageChange{
+  position: absolute;
+  z-index: 1;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  /* identical to box height, or 167% */
+  text-align: center; 
+  color: #FFFFFF;
+  width: 145.37px;
+  /* height: 21px; */
+  background: #466EFE;
+  border: 1px solid #466EFE;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+
+
+
+
+
+
+
+.line {
+  padding: 10px 40px;
+  position: relative;
+  margin-top: 8px;
+}
+
+.line::before {
+  position: absolute;
+
+  height: 100%;
+  left: 90px;
+  /* border: 1px solid #BDBDBD; */
+  content: "";
+}
+
+.line .contents {
+   position: relative;
+    width: 141.37px;
+    height: 21px;
+   
+    background: #FFFFFF;
+    /* Blue */
+    
+    border: 1px solid #466EFE;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.line .contents + .contents {
+  margin-top: 40px;
+}
+
+
+.line .contents p {
+  
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-left: 35px;
+  margin-top: 11px;
+  color: #969CBA;
+  
+}
+
+.line .contents::before {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: #FFFFFF;
+  border: 1px solid #466EFE;
+  content: "";
+  left: -17px;
+  border-radius: 50%;
+  top: -9px;
+}
+
+.line .contents1::before {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #466EFE;
+    border: 1px solid #466EFE;
+    box-sizing: border-box;
+    content: "";
+    left: -17px;
+    border-radius: 50%;
+    top: -9px;
+  }
+
+
+.lines{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         31px;
+    width:          1px;  
+    margin: 10px;
+    left: -8px;
+    position: relative;
+    opacity: 0.25;     
+}
+
+/* .style_text_status{
+ 
+    color: #969CBA;
+} */
+.numbers{
+  
+    color: #969CBA;
+    position: absolute;
+    font-size: 14px;
+ 
+}
+/*selecionado*/
+
+#bar_basic_actuacion{
+  background-color: #FFFFFF;
+  width: 785px;
+  height: 72px; 
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left:21px ;
+}
+
+.Allcollapse_performance{
+  background-color: #FFFFFF; 
+  height: 72px; 
+}
+
+#collapse_performance{
+ margin-left: 21px;
+}
+
+.Allshow_performance{
+  background-color: #FFFFFF; 
+}
+
+  
+#actuacion_tipo_bar{
+  width: auto;
+  height: 32px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #0F3041;
+  /* margin-right: 32.5px; */
+  padding-top: 35px;
+
+}
+
+.line-bar-actuacion{
+  background: #E1E6F0;
+}
+.vertical-lineTime {
+  background: var(--line-header);
+  height: 30px;
+  width: 1px;
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }

@@ -40,7 +40,7 @@ export default () => {
 
   const descripcion_actuacion = localStorage.getItem("descripcion_actuacion");
 
-  viewHome.innerHTML =  `
+  viewHome.innerHTML = `
 
 
     <div class="wrapper">
@@ -920,17 +920,32 @@ export default () => {
           <div class="status d-flex flex-column">
             <h6 class="title_card">Status</h6>
 
-            <div class="line-content">
+            <div class="d-flex flex-column mx-3">
+
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number1">1</div>
+                  <div class="nameStage" id="stage_name" data-value="Investigación">Investigación</div>
+                </div>
+                <span class="vertical-line-status"></span>
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number2">2</div>
+                  <div class="nameStage" id="stage_name" data-value="Instrucción">Instrucción</div>
+                </div>
+                <span class="vertical-line-status"></span>
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number3">3</div>
+                  <div class="nameStage" id="stage_name" data-value="Sancionadora">Sancionadora</div>
+                </div>
+                <div>
+            <!-- <div class="line-content">
               <div class="line">
                 <div class="d-flex flex-row" style="height:25px;">
                   <div>
-                    <div class="contents" style="background: #466EFE;">
-                      <h1
-                        style=" position: absolute; font-size: 14px;font-weight: bold;"
-                      >
+                    <div class="contents">
+                      <h1 class="numbers">
                         1
                       </h1>
-                      <p style="font-size: 12px;color: #FFFFFF;">
+                      <p class="style_text_status">
                         Investigación
                       </p>
                     </div>
@@ -943,7 +958,7 @@ export default () => {
                   </div>
                 </div>
                 <div class="lines"></div>
-                <!-- -->
+           
                 <div
                   class="d-flex flex-row justify-content-center"
                   style="height:25px;"
@@ -982,7 +997,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- STATUS copy (termino)-->
@@ -1853,14 +1868,15 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
     firebase
       .firestore()
       .collection("addActuacion")
-      .orderBy('Fecha')
+      .orderBy('Fecha', "desc")
       .onSnapshot((querySnapshot) => {
         tableActuacion.innerHTML = "";
         querySnapshot.forEach((doc) => {
           tableActuacion.innerHTML += `
-          <div class="row">
+          <div class="row" style="margin:10px;">
+          <div class="d-flex flex-row align-items-center">
           <!--COLUMNA IZQUIERDA-->
-            <div class="col-12 col-lg-1" id="container_line_time">
+            <!-- <div class="col-12 col-lg-1" id="container_line_time">
               <div class="container_line_time">
                 <div id="year"><span>${doc.data().Year}</span></div>
           
@@ -1876,25 +1892,52 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
               
 
               </div>
+            </div>      -->
+
+            <div class="col-12 col-lg-1" id="container_line_time">
+              <div class="container_line_time">
+                <div id="year"><span>${doc.data().Year}</span></div>
+                        
+                  <div class="d-flex flex-row  align-items-center">
+                  <div class="mx-2">
+                    <div id="day">${doc.data().Day}</div>
+                    <div id="month">${doc.data().Month}</div>
+                  </div>
+
+                  <div class='d-flex flex-column'>
+                  <span class="vertical-lineTime"></span>
+                    <div class="circle-lineTime">
+
+                    </div>
+                    <span class="vertical-lineTime"></span>
+                  </div>  
+                  </div>
+                
+              
+
+              </div>
             </div>     
+
       <!--COLUMNA DERECHA-->
+
+      <div id="bar_main_actuacion">
+        <div class="d-flex flex-row">
 
       <button class='Allcollapse_performance' >
                     <img src="./img/svg/down_doc_list.svg" id="collapse_performance" />
                     </button>
 
-                    <button class='Allshow_performance' >
-                    <img src="./img/svg/up_doc_list.svg" id="show_performance" class="hidde" />
-                    </button>
+                 
 
                     <div id="bar_basic_actuacion">
                       <div class="col-12 col-lg-11" >
                         <div class="d-flex flex-row">
                         
                         <!-- tipo-->
-                        <div id="actuacion_tipo_bar"  style="margin-left:0px;"><span>Tipo:${doc.data().Tipo}</span>
+                        <div id="actuacion_tipo_bar">Tipo:${doc.data().Tipo}
                         </div>
 
+                        <span class="vertical-line"></span>
                         <!--archivo subido-->
                         <div class="d-flex flex-row align-items-center"  id="container_adicional_information_actuacion">
                                 <img class="ocultar" id="mostrarCli" src="./img/svg/cli.svg" alt="" />
@@ -1913,32 +1956,33 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                                     </div>
                                 </div>
                         </div>
-
+                        <span class="vertical-line"></span>
                         <!--funcionario-->
                           <div class="d-flex  align-items-center ">
                                     <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
-                                    <div class="d-flex flex-column  align-items-center" style="margin-right:10px;">
-                                        <p class="text_Resolution" style="margin-right:25px;">${doc.data().Funcionario}</p>
-                                        <p class="text_tipoResolution_fila"  style="margin-bottom:0px;padding-right:35px">Funcionario (a)</p>
+                                    <div class="d-flex flex-column  align-items-center" >
+                                        <p class="text_Resolution" style="margin-top:0px;" >${doc.data().Funcionario}</p>
+                                        <p class="text_tipoResolution_fila"  style="margin-bottom:0px;">Funcionario(a)</p>
                                     </div>
                           </div>
-
+                          <span class="vertical-line"></span>
                       <!--tareas realizadas-->
 
                       <div  id="conTareas" >
                                 <div class="d-flex flex-row"  id="container_adicional_information_actuacion">
                                     <img class="img_tipoResolution_actuacion" src="./img/svg/AllTask.svg" alt="" />
-                                    <div class="d-flex flex-column" style="margin-top:5px;">
+                                    <div class="d-flex flex-column" >
                                         <p class="text_Resolution">0 Tareas</p>
-                                        <p class="text_tipoResolution_fila1">0 completadas</p>
+                                        <p class="text_tipoResolution_fila1">Tareas</p>
                                     </div>
                                 </div>
                               </div>  
+                              <span class="vertical-line"></span>
                       <!--documentos de tareas-->
                       <div  id="conDocumentos">         
                               <div class="d-flex flex-row" style="border-left:none;" id="container_adicional_information_actuacion">
                                   <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
-                                  <div class="d-flex flex-column"  style="margin-top:5px;">
+                                  <div class="d-flex flex-column">
                                       <p class="text_Resolution">1 Documentos</p>
                                       <p class="text_tipoResolution_fila1">De tareas</p>
                                   </div>
@@ -1947,8 +1991,9 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
 
                         </div>
                       </div>
+                      </div>
                     </div>
-
+            </div>
             <div class='hidde' id="bar_full_actuacion">
               <div class="col-12 col-lg-11" id="container_actuacion_head">
             
@@ -1959,7 +2004,11 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                   <!--primera-fila-->
                   <div class="row">
                     <div class="d-flex flex-row align-items-center">
-                    <div id="etapas"><span>${doc.data().Etapa}</span>
+
+                    <button class='Allshow_performance' >
+                    <img src="./img/svg/up_doc_list.svg" id="show_performance" style="margin-right:12px" />
+                    </button>
+                    <div id="stages" class="stages" data-id="${doc.id}">${doc.data().Etapa}
                     </div>
 
                     </div>
@@ -2147,10 +2196,131 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
 
               </div>
             </div>
-
             </div>
+          </div>
         `;
 
+        
+      const  container = document.querySelector('.circle-lineTime')
+      container.style.border = "5px solid #FFB000";
+
+      // const collapse_performance = document.querySelector('#circle-lineTime') 
+
+        // const stages = tableActuacion.querySelectorAll('.stages');
+        // // stages.forEach((stage) => {
+        //   console.log(stages)
+        //   // Sum the count of each shard in the subcollection
+        //   const stageValue = tableActuacion.querySelector('#stages').value
+        //   console.log(stageValue)
+          //  firebase.firestore().collection('addActuacion').where("Etapa","==","Investigación ").get().then((snapshot) => {
+          // snapshot.forEach((doc) => {
+          // console.log(doc.data().Etapa)
+          // console.log('inesvtigacion presente')
+          // // if(doc.data().Etapa == "Investigación "){
+          // // const nameStage = document.querySelectorAll('.nameStage')
+          // // nameStage.forEach((stage) => {
+          // //   const investigacion = stage.getAttribute('data-value')
+          // //   console.log(investigacion)
+          // //   if(investigacion=="Investigación"){
+          // //     const nameStage = document.querySelector('.nameStage')
+          // //     const numberStage = document.querySelector('.numberStage')
+          // //     const nameStageChange = document.querySelector('.nameStageChange')
+          // //     const numberStageChange = document.querySelector('.numberStageChange')
+          // //     nameStage.classList.remove("nameStage");
+          // //     nameStageChange.classList.add("nameStageChange");
+          // //     numberStage.classList.remove("numberStage");
+          // //     numberStageChange.classList.add("numberStageChange");
+          // //   }else{
+          // //     const nameStage = document.querySelector('.nameStage')
+          // //     const numberStage = document.querySelector('.numberStage')
+          // //     const nameStageChange = document.querySelector('.nameStageChange')
+          // //     const numberStageChange = document.querySelector('.numberStageChange')
+          // //     nameStage.classList.add("nameStage");
+          // //     nameStageChange.classList.remove("nameStageChange");
+          // //     numberStage.classList.add("numberStage");
+          // //     numberStageChange.classList.remove("numberStageChange");
+          // //   }
+          // // }) 
+          // // console.log(nameStage)
+          // //   console.log('pintar investigación')
+          // // // } 
+          //  })
+          //  });
+
+          //  firebase.firestore().collection('addActuacion').where("Etapa","==","Instrucción").get().then((snapshot) => {
+          //   snapshot.forEach((doc) => {
+          //   console.log(doc.data().Etapa)
+          //   console.log('inspeccion aqui')
+          //   // else if (doc.data().Etapa == "Instrucción"){
+  
+          //     // const nameStage = document.querySelectorAll('.nameStage')
+          //     // nameStage.forEach((stage) => {
+          //   //     const instruccion = stage.getAttribute('data-value')
+          //   //     console.log(instruccion)
+          //   //     if(instruccion=="Instrucción"){
+          //   //       const nameStage = document.querySelector('.nameStage')
+          //   //       const numberStage = document.querySelector('.numberStage')
+          //   //       const nameStageChange = document.querySelector('.nameStageChange')
+          //   //       const numberStageChange = document.querySelector('.numberStageChange')
+          //   //       nameStage.classList.remove("nameStage");
+          //   //       nameStageChange.classList.add("nameStageChange");
+          //   //       numberStage.classList.remove("numberStage");
+          //   //       numberStageChange.classList.add("numberStageChange");
+          //   //     }else{
+          //   //       const nameStage = document.querySelector('#nameStage')
+          //   //       const numberStage = document.querySelector('.numberStage')
+          //   //       const nameStageChange = document.querySelector('#nameStageChange')
+          //   //       const numberStageChange = document.querySelector('.numberStageChange')
+          //   //       nameStage.classList.add("nameStage");
+          //   //       nameStageChange.classList.remove("nameStageChange");
+          //   //       numberStage.classList.add("numberStage");
+          //   //       numberStageChange.classList.remove("numberStageChange");
+          //   //     }
+          //   //   })
+          //   //   console.log('pintar instrucción')
+          //   // // }
+          //    })
+          //    });
+
+          //    firebase.firestore().collection('addActuacion').where("Etapa","==","Sancionadora").get().then((snapshot) => {
+          //     snapshot.forEach((doc) => {
+          //     console.log(doc.data().Etapa)
+          //     // else if (doc.data().Etapa == "Instrucción"){
+          //       console.log('soncion aqui')
+          //     //   const nameStage = document.querySelectorAll('.nameStage')
+          //     //   nameStage.forEach((stage) => {
+          //     //     const sancionadora = stage.getAttribute('data-value')
+          //     //     console.log(sancionadora)
+          //     //     if(sancionadora=="Sancionadora"){
+          //     //       const nameStage = document.querySelector('#nameStage')
+          //     //       const numberStage = document.querySelector('.numberStage')
+          //     //       const nameStageChange = document.querySelector('#nameStageChange')
+          //     //       const numberStageChange = document.querySelector('.numberStageChange')
+          //     //       nameStage.classList.remove("nameStage");
+          //     //       nameStageChange.classList.add("nameStageChange");
+          //     //       numberStage.classList.remove("numberStage");
+          //     //       numberStageChange.classList.add("numberStageChange");
+          //     //     }else{
+          //     //       const nameStage = document.querySelector('#nameStage')
+          //     //       const numberStage = document.querySelector('.numberStage')
+          //     //       const nameStageChange = document.querySelector('#nameStageChange')
+          //     //       const numberStageChange = document.querySelector('.numberStageChange')
+          //     //       nameStage.classList.add("nameStage");
+          //     //       nameStageChange.classList.remove("nameStageChange");
+          //     //       numberStage.classList.add("numberStage");
+          //     //       numberStageChange.classList.remove("numberStageChange");
+          //     //     }
+          //     //   })
+          //     //   console.log('pintar sancion')
+          //     // // }
+          //      })
+          //      });
+        
+        // //   if(){
+
+        // // }
+        // })
+        
         // checkStatus.forEach((check) => {
         //   check.checked = eval(window.localStorage.getItem(check.id))
 
@@ -2177,34 +2347,36 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
         //   });
         // });
         //Mostrar y ocultar documentos de Actuaciones
+        
 
         const collapse_performance = viewHome.querySelector('#collapse_performance');
         const show_performance = viewHome.querySelector('#show_performance');
-        const bar_basic_actuacion = viewHome.querySelector('#bar_basic_actuacion');
+        const bar_main_actuacion = viewHome.querySelector('#bar_main_actuacion');
        const bar_full_actuacion = viewHome.querySelector('#bar_full_actuacion');
-
-        const Allshow_performance = tableActuacion.querySelectorAll('.Allshow_performance');
-        Allshow_performance.forEach((actuacion) => {
-          console.log('suprime')
-        actuacion.addEventListener('click' , () => {
+       bar_full_actuacion.classList.remove('hidde')
+       bar_main_actuacion.classList.add('hidde')
+        const Allshow_performance = tableActuacion.querySelector('#show_performance');
+        // Allshow_performance.forEach((actuacion) => {
+          // console.log('suprime')
+          Allshow_performance .addEventListener('click' , () => {
           collapse_performance.classList.remove('hidde'),
           show_performance.classList.add('hidde')
-          bar_basic_actuacion.classList.add('hidde'),
-          bar_full_actuacion.classList.remove('hidde')
+          bar_full_actuacion.classList.add('hidde')
+          bar_main_actuacion.classList.remove('hidde')
         });
-      });
+      // });
  
-
-      const Allcollapse_performance = tableActuacion.querySelectorAll('.Allcollapse_performance');
-      Allcollapse_performance.forEach((actuacion) => {
-        console.log('muestra tododoo')
-      actuacion.addEventListener('click' , () => {
+      const Allcollapse_performance = tableActuacion.querySelector('#collapse_performance');
+      // Allshow_performance.forEach((actuacion) => {
+        // console.log('suprime')
+        Allcollapse_performance .addEventListener('click' , () => {
         collapse_performance.classList.add('hidde'),
-        show_performance.classList.remove('hidde'),
-        bar_basic_actuacion.classList.remove('hidde'),
-        bar_full_actuacion.classList.add('hidde')
+        show_performance.classList.remove('hidde')
+        bar_full_actuacion.classList.remove('hidde')
+        bar_main_actuacion.classList.add('hidde')
       });
-    });
+
+    
     // collapse_performance.addEventListener('click' , () => {
      
     // });
@@ -2390,6 +2562,8 @@ localStorage.setItem("dateVencimiento", inputDate2.value);
               <td id="tStatus" class="tStatusPendiente" data-id="${doc.id}"></td>
             </tr>
         `;
+
+
 
 /////////// Mostrar lista de tareas en documentos  */
 const mostrar_cards_tareas = () => {
@@ -2900,7 +3074,7 @@ const mostrar_cards_tareas = () => {
     flex_container_datos.style.display ="flex";
     container_actuacionenproceso.classList.add('ocultar');
     container_actuacion.classList.remove('ocultar');
-    console.log("holis")
+    // console.log("holis")
    }else{
     casoSeleccionado.classList.add('ocultar');
     casoNuevo.classList.remove('ocultar');
@@ -3023,9 +3197,147 @@ const mostrar_cards_tareas = () => {
 
   // });
 
+  firebase.firestore().collection('addActuacion').where("Etapa","!=","").onSnapshot((querySnapshot)  => {
+    querySnapshot.forEach((doc) => {
+    console.log(doc)
+    const nameStage = doc.data().Etapa
 
+    switch (nameStage){
+      case "Investigación":
+        const nameStage = document.querySelectorAll('.nameStage')
+        nameStage.forEach((stage) => {
+          const nameStage = stage.getAttribute('data-value')
+          console.log(nameStage)
+        
+            if(nameStage == "Investigación"){
+              const stage_number1 = document.querySelector('#stage_number1')
+              stage_number1.style.background = "#466EFE";
+              stage_number1.style.color = "#FFFFFF";
+              stage_number1.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              const stage_number1 = document.querySelector('#stage_number1')
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number1.style.background = "#FFFFFF";
+              stage_number1.style.color = "#969CBA";
+              stage_number1.style.fontWeight = "500";
+            }
+          })
+          break;
+      case "Instrucción":
+        const nameStage2 = document.querySelectorAll('.nameStage')
+        nameStage2.forEach((stage) => {
+          const nameInstruccion = stage.getAttribute('data-value')
+          console.log(nameInstruccion)
+          
+            if(nameInstruccion == "Instrucción"){
+              const stage_number2 = document.querySelector('#stage_number2')
+              stage_number2.style.background = "#466EFE";
+              stage_number2.style.color = "#FFFFFF";
+              stage_number2.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              const stage_number2 = document.querySelector('#stage_number2')
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number2.style.background = "#FFFFFF";
+              stage_number2.style.color = "#969CBA";
+              stage_number2.style.fontWeight = "500";
+            }
+          })
+          break;
+      case "Sancionadora":
+        const nameStage3 = document.querySelectorAll('.nameStage')
+        nameStage3.forEach((stage) => {
+          const nameStage = stage.getAttribute('data-value')
+          console.log(nameStage)
+          const stage_number3 = document.querySelector('#stage_number3')
+            if(nameStage == "Sancionadora"){
+            
+              stage_number3.style.background = "#466EFE";
+              stage_number3.style.color = "#FFFFFF";
+              stage_number3.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number3.style.background = "#FFFFFF";
+              stage_number3.style.color = "#969CBA";
+              stage_number3.style.fontWeight = "500";
+            }
+          })
+          break;
+      default:
+         console.log('dfgfdgdfg')
+          break;
+  }
+      
+   
+    // if(nameStage == "Investigación"){
+    // console.log('cambiar estilos')
+    // const nameStage = document.querySelectorAll('.nameStage')
+    //       nameStage.forEach((stage) => {
+    //         const nameStage = stage.getAttribute('data-value')
+    //         console.log(nameStage)
+    //           if(nameStage == "Investigación"){
+    //             stage.style.background = "#466EFE";
+    //             stage.style.color = "#FFFFFF";
+    //             stage.style.fontWeight = "600";
+    //           }else{
+    //             stage.style.background = "#FFFFFF";
+    //             stage.style.color = "#969CBA";
+    //             stage.style.fontWeight = "500";
+    //           }
+    //         })
+             
+    // }else if (nameStage == "Instrucción"){
+    //   const nameStage = document.querySelectorAll('.nameStage')
+    //       nameStage.forEach((stage) => {
+    //         const nameInstruccion = stage.getAttribute('data-value')
+    //         console.log(nameInstruccion)
+    //           if(nameInstruccion == "Instrucción"){
+    //             stage.style.background = "#466EFE";
+    //             stage.style.color = "#FFFFFF";
+    //             stage.style.fontWeight = "600";
+    //           }else{
+    //             stage.style.background = "#FFFFFF";
+    //             stage.style.color = "#969CBA";
+    //             stage.style.fontWeight = "500";
+    //           }
+    //         })
+             
+    //   } else if (nameStage == "Sancionadora"){
+    //     const nameStage = document.querySelectorAll('.nameStage')
+    //     nameStage.forEach((stage) => {
+    //       const nameStage = stage.getAttribute('data-value')
+    //       console.log(nameStage)
+    //         if(nameStage == "Sancionadora"){
+    //           stage.style.background = "#466EFE";
+    //           stage.style.color = "#FFFFFF";
+    //           stage.style.fontWeight = "600";
+    //         }else{
+    //           stage.style.background = "#FFFFFF";
+    //           stage.style.color = "#969CBA";
+    //           stage.style.fontWeight = "500";
+    //         }
+    //       })
+           
+    //   }
+ 
+     })
+     });
 
-
+ 
   
 
     return viewHome;

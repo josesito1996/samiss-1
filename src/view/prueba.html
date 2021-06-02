@@ -1,109 +1,62 @@
-<div class="ocultar" id="tareas_ver">
-    <div class="d-flex flex-row">
+<!-- STATUS copy (inicio)-->
+<div class="status mb-5">
+    <div class="status d-flex flex-column">
+        <h6 class="title_card">Status</h6>
 
-        <div class="d-flex flex-column">
-
-            <!--principal actuacion-->
-
-
-            <div id="column_izquierda_documentos">
-                <div>
-                    <p id="title_principal">PRINCIPAL</p>
-                    <div id="style_generalContainer_principal">
-                        <div class="d-flex flex-row justify-content-between" id="container_principal">
-
-                            <div style="width: 231px;height: 21px;">
-                                <p class="styles_principal"><strong>Principal:</strong></p>
-                                <p class="styles_principal">${localStorage.getItem("tipo")}</p>
-                            </div>
-
-                            <div style="width: 61px;height: 21px;">
-                                <p class="styles_principal"><strong>Vence:</strong></p>
-                                <p id="date_documentos">${localStorage.getItem(
-                                    "fechaActual"
-                                    )}</p>
-                            </div>
-
+        <div class="line-content">
+            <div class="line">
+                <div class="d-flex flex-row" style="height:25px;">
+                    <div>
+                        <div class="contents" style="background: #466EFE;">
+                            <h1 style=" position: absolute; font-size: 14px;font-weight: bold;">
+                                1
+                            </h1>
+                            <p style="font-size: 12px;color: #FFFFFF;">
+                                Investigación
+                            </p>
                         </div>
-                        <div class='doc_select'>
-                            <div class="d-flex flex-row align-items-center " id="container_doc_princial"
-                                style="height: 59px;">
-                                <p style="margin-left:24px;
-            font-family: Raleway;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 14px;
-          margin-right:12px;
-
-            
-            /* Primary Blue */
-            
-            color: #0F3041;">01.</p>
-                                <label for="file-upload" id="subir" style="margin-left:0px;">
-                                    <img src="./img/svg/clicdoc.svg" alt="" />
-                                </label>
-                                <div class="d-flex flex-column ">
-                                    <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
-                                    <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
-                                </div>
-                                <img src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" />
-                            </div>
-                        </div>
+                        <p style="font-size: 11px;color:#31CC53; margin-left:30px;">
+                            0 actuaciones cerradas
+                        </p>
+                    </div>
+                    <div style="margin-left:13px;">
+                        <img src="./img/check.png" alt="" />
                     </div>
                 </div>
-            </div>
+                <div class="lines"></div>
+                <!-- -->
+                <div class="d-flex flex-row justify-content-center" style="height:25px;">
+                    <div>
+                        <div class="contents">
+                            <h1 class="numbers">2</h1>
+                            <p class="style_text_status">Instrucción</p>
+                        </div>
+                        <p style="font-size: 11px;color:#31CC53; margin-left:30px;">
+                            0 actuaciones cerradas
+                        </p>
+                    </div>
 
-            <!--principal tareas-->
-            <div id="column_izquierda_documentos">
-                <div>
-                    <p id="title_principal">TAREAS Y OTROS DOCS</p>
-                    <div id="prueba_tareas">
+                    <div style="margin-left:13px;" class="ocultar_img">
+                        <img src="./img/check.png" alt="" />
+                    </div>
+                </div>
+                <div class="lines"></div>
+                <div class="d-flex flex-row justify-content-center" style="height:25px;">
+                    <div>
+                        <div class="contents">
+                            <h1 class="numbers">3</h1>
+                            <p class="style_text_status">Sancionadora</p>
+                        </div>
+                        <p style="font-size: 11px;color:#31CC53;margin-left:30px;">
+                            0 actuaciones cerradas
+                        </p>
+                    </div>
 
+                    <div style="margin-left:13px;" class="ocultar_img">
+                        <img src="./img/check.png" alt="" />
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <!--see doc o pdf o img-->
-        <div id="see">
-
-            <div>
-
-                <div class="d-flex flex-row justify-content-center ">
-                    <ul class="d-flex flex-row ">
-                        <li class="me-4 ">
-                            <a id="style_a_docs" href="">
-                                <img src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar
-                            </a>
-                        </li>
-
-                        <li class="me-4">
-                            <a id="style_a_docs" href="">
-                                <img src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir
-                            </a>
-                        </li>
-
-                        <li class="me-2">
-                            <a id="style_a_docs" href="">
-                                <img src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo
-                            </a>
-                        </li>
-
-                        <li class="me-4 mx-2">
-                            <a id="style_a_docs" href="">
-                                <img src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div id="verFiles">
-            </div>
-        </div>
-
     </div>
 </div>

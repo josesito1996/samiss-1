@@ -250,8 +250,8 @@ export default () => {
                         <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px;font-size: 14px;">4. Etapa</label>
                         <select name="mySelectValueEtapa" id="mySelectValueEtapa" required="Selecciona aquí" class="form-control" style="width:231px; height:36.49px;">
                                 <option value="">Selecciona aquí</option>
-                                <option value="Investigación ">Investigación </option>
-                                <option value="Inspección">Inspecció</option>
+                                <option value="Investigación">Investigación</option>
+                                <option value="Instrucción">Instrucción</option>
                                 <option value="Sancionadora">Sancionadora</option>
                             </select>
                       
