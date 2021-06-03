@@ -15,7 +15,7 @@ export default () => {
   const tipo_actuacion = localStorage.getItem("tipo");
 
 
-  // const date_actuacion = localStorage.getItem("date_actuacion");
+  const date_actuacion = localStorage.getItem("date_actuacion");
 
   //condicional si el value del local strogae esta vacio
 
@@ -145,8 +145,10 @@ export default () => {
 
             </div>
             <h6 class="text-blue-opacity">Fecha de creación</h6>
+            <!--dateCreacion-->
             <p>${dateCreacion}</p>
             <h6 class="text-blue-opacity">Orden de inspección</h6>
+            <!--inspectionOrder-->
             <p>${inspectionOrder}</p>
             <h6 class="text-blue-opacity">Materias</h6>
             <div id="materias" class="cardsMaterias">
@@ -472,11 +474,21 @@ export default () => {
       <button id="btnReport" 
         style="font-size:11px; 
         border-radius:5px;
-        padding:5px;
+        padding:5px 7px;
         color: white;
-        margin-left:-350px;
+        margin-left:-330px;
         background: #FF3355;">
         Generar Reporte
+      </button>
+
+      <button id="btnShowCreateCase" 
+        style="font-size:11px; 
+        border-radius:5px;
+        padding:5px 10px;
+        color: white;
+        margin-left:-220px;
+        background: #FF3355;">
+        +  Crear Caso
       </button>
     </div>
 
@@ -580,7 +592,8 @@ export default () => {
                   <div class="container_actuacion_head">
                     <!--primera-fila-->
                     <div class="row">
-                    <div id="etapas"><span>${etapa_actuacion}</span></div>
+                    <!--etapa_actuacion-->
+                    <div id="etapas"><span></span></div>
                     </div>
                     
                     <!--segunda-fila-->
@@ -3503,6 +3516,16 @@ export default () => {
         )
         .save();
     })
+
+
+  //**** Redirecciona a vista Crear Caso *****/
+
+  const btnShowCreateCase = viewHome.querySelector("#btnShowCreateCase");
+
+  btnShowCreateCase.addEventListener('click', () => {
+    window.location.hash = "#/inspection";
+    
+  });
 
   return viewHome;
 };
