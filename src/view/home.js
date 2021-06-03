@@ -612,180 +612,9 @@ export default () => {
           </div>
         </div>
              <!--DOCTUMENTOS--->
-        <div class="row" id="" style="background: #F9FBFC;  " >
+        <div class="row" id="list_performance" style="background: #F9FBFC;  " >
 
-          <div class="d-flex flex-row  align-items-center" style="height:84px;">
-
-            <div class="d-flex flex-row" style="margin-left:30px;">
-              <div>
-              <img  src="./img/svg/down_doc_list.svg" id="mostrar_tareas" alt="" />
-              <img  src="./img/svg/up_doc_list.svg" class="ocultar" id="here_tareas" alt="" />
-              </div>
-              <div style="margin-left:19px;">
-                <p class="text_tipoResolution_fila1" style="margin-bottom:10px;">Actuacion</p>
-                <p class="text_Resolution">Tipo:${tipo_actuacion}</span></p>
-              </div>
-            </div>
-
-
-            <div id="informationDoc_ocultar">
-              <div class="d-flex flex-row"  style="margin-left:41px;">
-                <div>
-                <img  src="./img/svg/cli.svg" alt="" />
-                </div>
-
-                <div style="margin-left:10px;">
-                  <p class="text_tipoResolution_fila1" style="margin-bottom:10px;font-size: 9px;">PRINCIPAL</p>
-                    <div class="d-flex flex-column ">
-                      <div id="name_info" style="width: 183.58px;height: 15px;">
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div> 
-
-            <div class="d-flex flex-row justify-content-center align-items-center" style="margin-right:36px;">
-
-            <div>
-              <div class="progressCircle1 red"> <span class="progressCircle1-left">
-                      <span class="progressCircle1-bars"></span> </span> <span
-                      class="progressCircle1-right"> <span
-                      class="progressCircle1-bar"></span>
-                    </span>
-                  <div class="progressCircle1-value">1/3</div>
-              </div>
-            </div>
-
-              <div style="margin-left:12px;">
-                <p class="text_tipoResolution_fila1" style="margin-bottom:0px;font-size: 11px;width:123px;">DOCS PENDIENTES</p>
-                <p class="show_number_tarea" >01 tarea</p>
-              </div>
-
-            </div>
-
-              <div class="d-flex flex-row justify-content-center align-items-center">
-
-                <div  id="usuario_documentos">
-                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
-                      <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
-                      <p class="text_Resolution">${localStorage.getItem(
-                        "name"
-                      )}</p>
-                  </div>
-                </div>
-
-              </div>
-
-          </div>
-
-          <div class="ocultar" id="tareas_ver">
-          <div class="d-flex flex-row">
-
-          <div class="d-flex flex-column">
-
-          <!--principal actuacion-->
-
-        
-            <div id="column_izquierda_documentos" >
-              <div>
-                <p id="title_principal">PRINCIPAL</p>
-                <div id="style_generalContainer_principal" >
-                <div class="d-flex flex-row justify-content-between" id="container_principal">
-                
-                  <div style="width: 231px;height: 21px;">
-                  <p class="styles_principal"><strong>Principal:</strong></p>
-                  <p class="styles_principal">${localStorage.getItem("tipo")}</p>
-                  </div>
-
-                  <div style="width: 61px;height: 21px;">
-                  <p class="styles_principal"><strong>Vence:</strong></p>
-                  <p id="date_documentos">${localStorage.getItem(
-                    "fechaActual"
-                  )}</p>
-                  </div>
-
-                </div>
-                <div class='doc_select'>
-                <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
-                <p style="margin-left:24px;
-                  font-family: Raleway;
-                  font-style: normal;
-                  font-weight: 600;
-                  font-size: 12px;
-                  line-height: 14px;
-                margin-right:12px;
-
-                  
-                  /* Primary Blue */
-                  
-                  color: #0F3041;" >01.</p>
-                  <label for="file-upload" id="subire" style="margin-left:0px;">
-                  <img  src="./img/svg/clicdoc.svg" alt="" />
-                    </label>
-                    <div class="d-flex flex-column ">
-                    <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
-                    <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
-                    </div>
-                    <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
-                </div>
-                </div>
-                </div>
-              </div>
-            </div>
-
-              <!--principal tareas-->
-            <div id="column_izquierda_documentos">
-              <div>
-              <p id="title_principal">TAREAS Y OTROS DOCS</p>
-                <div id="prueba_tareas">
-          
-                </div>
-              </div>
-            </div>
-          </div>
-            
-
-            <!--see doc o pdf o img-->
-            <div id="see">
-
-            <div>
-            
-            <div class="d-flex flex-row justify-content-center ">
-            <ul class="d-flex flex-row ">
-              <li class="me-4 ">
-                <a id="style_a_docs" href="">
-                <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
-                </a>
-              </li >
-
-              <li class="me-4">
-                <a id="style_a_docs" href="" >
-                <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
-                </a>
-              </li>
-
-              <li class="me-2">
-                <a  id="style_a_docs" href="">
-                <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
-                </a>
-              </li>
-
-              <li class="me-4 mx-2">
-                <a  id="style_a_docs" href="">
-                <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
-                </a>
-              </li>
-            </ul>
-          </div>
-
-            </div>
-
-            <div id="verFiles">
-            </div>
-            </div>
-
-          </div>
-        </div>
+         
         </div>
 
         </div>
@@ -1715,6 +1544,357 @@ export default () => {
    mainActuaciones.classList.add("ocultar");
    mainDocumentos.classList.remove("ocultar");
 
+   const list_performance = viewHome.querySelector("#list_performance");
+  
+    firebase
+      .firestore()
+      .collection("addActuacion")
+      .orderBy("Fecha")
+      .onSnapshot((querySnapshot) => {
+        list_performance.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const taskId = doc.id;
+          list_performance.innerHTML +=  `
+          <div id="ver_todaInformacion" class='hidde'>     
+          
+          <div id="tareas_ver">
+        <div class="d-flex flex-row">
+
+        <div class="d-flex flex-column">
+
+        <!--principal actuacion-->
+
+      
+          <div id="column_izquierda_documentos" >
+            <div>
+              <p id="title_principal">PRINCIPAL</p>
+              <div id="style_generalContainer_principal" >
+              <div class="d-flex flex-row justify-content-between" id="container_principal">
+              <img  src="./img/svg/up_doc_list.svg"  id="here_tareas" alt="" />
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Principal:</strong></p>
+                <p class="styles_principal">${doc.data().Funcionario}</p>
+                </div>
+
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal"><strong>Vence:</strong></p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
+                </div>
+
+              </div>
+              <div class='doc_select'>
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+              margin-right:12px;
+
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subire" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
+                  </div>
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+            <!--principal tareas-->
+          <div id="column_izquierda_documentos">
+            <div>
+            <p id="title_principal">TAREAS Y OTROS DOCS</p>
+              <div id="prueba_tareas">
+        
+              </div>
+            </div>
+          </div>
+        </div>
+          
+
+          <!--see doc o pdf o img-->
+          <div id="see">
+
+          <div>
+          
+          <div class="d-flex flex-row justify-content-center ">
+          <ul class="d-flex flex-row ">
+            <li class="me-4 ">
+              <a id="style_a_docs" href="">
+              <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+              </a>
+            </li >
+
+            <li class="me-4">
+              <a id="style_a_docs" href="" >
+              <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+              </a>
+            </li>
+
+            <li class="me-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+              </a>
+            </li>
+
+            <li class="me-4 mx-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+              </a>
+            </li>
+          </ul>
+        </div>
+
+          </div>
+
+          <div id="verFiles">
+          </div>
+          </div>
+
+        </div>
+      </div>
+          </div>
+
+          <div id="documentos_comprimidos" >
+          
+          <div class="d-flex flex-row  align-items-center justify-content-between" style="height:84px;">
+
+          <div class="d-flex flex-row" style="margin-left:30px;">
+            <div>
+            <img  src="./img/svg/down_doc_list.svg" id="mostrar_tareas" alt="" />
+            
+            </div>
+            <div style="margin-left:19px;">
+              <p class="text_tipoResolution_fila1" style="margin-bottom:10px;width: 226px;">Actuacion</p>
+              <p class="text_Resolution" style="margin-top: 0px;">Tipo:${doc.data().Tipo}</span></p>
+            </div>
+          </div>
+
+          <div id="informationDoc_ocultar">
+            <div class="d-flex flex-row"  style="margin-left:41px;">
+              <div>
+              <img  src="./img/svg/cli.svg" alt="" />
+              </div>
+
+              <div style="margin-left:10px;">
+                <p class="text_tipoResolution_fila1" style="margin-bottom:10px;font-size: 9px;">PRINCIPAL</p>
+                  <div class="d-flex flex-column ">
+                    <div id="name_info" style="width: 183.58px;height: 15px;width: 220px;">${doc.data().File}
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div> 
+
+          <div class="d-flex flex-row justify-content-center align-items-center" style="margin-right:36px;">
+
+          <div>
+            <div class="progressCircle1 red"> <span class="progressCircle1-left">
+                    <span class="progressCircle1-bars"></span> </span> <span
+                    class="progressCircle1-right"> <span
+                    class="progressCircle1-bar"></span>
+                  </span>
+                <div class="progressCircle1-value">1/3</div>
+            </div>
+          </div>
+
+            <div style="margin-left:12px;width: 176px;">
+              <p class="text_tipoResolution_fila1" style="margin-bottom:0px;font-size: 11px;width:123px;">DOCS PENDIENTES</p>
+              <p class="show_number_tarea" >01 tarea</p>
+            </div>
+
+          </div>
+
+            <div class="d-flex flex-row justify-content-center align-items-center">
+
+              <div  id="usuario_documentos">
+                <div class="d-flex flex-row align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;width: 136px;">
+                    <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
+                    <p class="text_Resolution" style="margin-top: 0px;">${doc.data().Funcionario}</p>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+        <div></div>
+        <div class="ocultar" id="tareas_ver">
+        <div class="d-flex flex-row">
+
+        <div class="d-flex flex-column">
+
+        <!--principal actuacion-->
+
+      
+          <div id="column_izquierda_documentos" >
+            <div>
+              <p id="title_principal">PRINCIPAL</p>
+              <div id="style_generalContainer_principal" >
+              <div class="d-flex flex-row justify-content-between" id="container_principal">
+              
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Principal:</strong></p>
+                <p class="styles_principal">${doc.data().Funcionario}</p>
+                </div>
+
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal"><strong>Vence:</strong></p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
+                </div>
+
+              </div>
+              <div class='doc_select'>
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+              margin-right:12px;
+
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subire" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
+                  </div>
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+            <!--principal tareas-->
+          <div id="column_izquierda_documentos">
+            <div>
+            <p id="title_principal">TAREAS Y OTROS DOCS</p>
+              <div id="prueba_tareas">
+        
+              </div>
+            </div>
+          </div>
+        </div>
+          
+
+          <!--see doc o pdf o img-->
+          <div id="see">
+
+          <div>
+          
+          <div class="d-flex flex-row justify-content-center ">
+          <ul class="d-flex flex-row ">
+            <li class="me-4 ">
+              <a id="style_a_docs" href="">
+              <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+              </a>
+            </li >
+
+            <li class="me-4">
+              <a id="style_a_docs" href="" >
+              <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+              </a>
+            </li>
+
+            <li class="me-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+              </a>
+            </li>
+
+            <li class="me-4 mx-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+              </a>
+            </li>
+          </ul>
+        </div>
+
+          </div>
+
+          <div id="verFiles">
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+      `;
+
+const collapse_performance1 = viewHome.querySelector('#here_tareas');
+const show_performance1 = viewHome.querySelector('#mostrar_tareas');
+const bar_main_actuacion1 = viewHome.querySelector('#documentos_comprimidos');
+const bar_full_actuacion1 = viewHome.querySelector('#ver_todaInformacion');
+bar_full_actuacion1.classList.remove('hidde')
+bar_main_actuacion1.classList.add('hidde')
+const Allshow_performance1 =  list_performance.querySelector('#mostrar_tareas');
+// Allshow_performance.forEach((actuacion) => {
+  // console.log('suprime')
+  Allshow_performance1 .addEventListener('click' , () => {
+  collapse_performance1.classList.remove('hidde'),
+  show_performance1.classList.add('hidde')
+  bar_full_actuacion1.classList.remove('hidde')
+  bar_main_actuacion1.classList.add('hidde')
+});
+// });
+
+const Allcollapse_performance1 =  list_performance.querySelector('#here_tareas');
+// Allshow_performance.forEach((actuacion) => {
+// console.log('suprime')
+Allcollapse_performance1 .addEventListener('click' , () => {
+collapse_performance1.classList.add('hidde'),
+show_performance1.classList.remove('hidde')
+bar_full_actuacion1.classList.add('hidde')
+bar_main_actuacion1.classList.remove('hidde')
+});
+
+      //mostar tareas en documentos
+
+  //   const mostrar_tareas = viewHome.querySelector('#mostrar_tareas');
+  //   const tareas_ver = viewHome.querySelector('#tareas_ver');
+  //   const here_tareas = viewHome.querySelector('#here_tareas');
+  //   const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
+
+
+ 
+  // here_tareas.addEventListener('click' , () => {
+  //   tareas_ver.classList.add("ocultar");
+  //   mostrar_tareas.classList.remove("ocultar");
+  //   here_tareas.classList.add("ocultar");
+  //   informationDoc_ocultar.classList.remove("ocultarDoc");
+  // });
+
+  //   mostrar_tareas.addEventListener('click',() =>{
+  //     tareas_ver.classList.remove("ocultar");
+  //     mostrar_tareas.classList.add("ocultar");
+  //     here_tareas.classList.remove("ocultar");
+  //     informationDoc_ocultar.classList.add("ocultarDoc");
+  //   });
+
+        })
+
+      })
    rootRef.on('value', function(snapshot){
      var datos = snapshot.val();
      var results = "" 
@@ -1872,7 +2052,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
       .onSnapshot((querySnapshot) => {
         tableActuacion.innerHTML = "";
         querySnapshot.forEach((doc) => {
-          tableActuacion.innerHTML += `
+          tableActuacion.innerHTML +=  `
           <div class="row" style="margin:10px;">
           <div class="d-flex flex-row align-items-center">
           <!--COLUMNA IZQUIERDA-->
@@ -1940,16 +2120,12 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                         <span class="vertical-line"></span>
                         <!--archivo subido-->
                         <div class="d-flex flex-row align-items-center"  id="container_adicional_information_actuacion">
-                                <img class="ocultar" id="mostrarCli" src="./img/svg/cli.svg" alt="" />
+                                <img id="mostrarCli" src="./img/svg/cli.svg" alt="" />
                                 <div class="d-flex flex-column">
                                   <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
                                   <div class="d-flex flex-row align-items-center justify-content-center ">
-                                  <p id="txt_carga">Cargar documento</p>
-                                    <label for="file-uploadActuacion" id="subir" >
-                                    <img  src="./img/svg/carga.svg" alt="" />
-                                      </label> 
-                                      <input id="file-uploadActuacion" class="file-uploadActuacion" type="file" style='display: none;'/> 
-                                      <div id="infoActuacion"></div>
+                               
+                                      <div id="infoActuacion">${doc.data().File}</div>
                                       <div>
                                     
                                       </div>
@@ -2082,16 +2258,16 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                 <!--archivos subidos-->
                           <div class="col-12 col-lg-4">
                             <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
-                                <img class="ocultar" id="mostrarCli" src="./img/svg/cli.svg" alt="" />
+                                <img  id="mostrarCli1" src="./img/svg/cli.svg" alt="" />
                                 <div class="d-flex flex-column">
                                   <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
                                   <div class="d-flex flex-row align-items-center justify-content-center ">
                                   <p id="txt_carga">Cargar documento</p>
-                                    <label for="file-uploadActuacion" id="subir" >
+                                    <label for="file-uploadActuacion" style="margin-left:0px;" id="subir1" >
                                     <img  src="./img/svg/carga.svg" alt="" />
                                       </label> 
                                       <input id="file-uploadActuacion" class="file-uploadActuacion" type="file" style='display: none;'/> 
-                                      <div id="infoActuacion"></div>
+                                      <div id="infoActuacion" data-id="${doc.id}"></div>
                                       <div>
                                     
                                       </div>
@@ -2103,7 +2279,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                             <div class="col-12 col-lg-8 ">
                               <div class="d-flex flex-row ">
                   <!--nombre de usuario-->
-                              <div class="ocultar" id="usuario">
+                              <div class="ocultar" id="usuario1">
                                 <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
                                     <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
                                     <div class="d-flex flex-column">
@@ -2115,7 +2291,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                                 </div>
                               </div>
                   <!--tareas-->
-                              <div class="ocultar" id="conTareas" >
+                              <div class="ocultar" id="conTareas1" >
                                 <div class="d-flex flex-row justify-content-center" style="border-left:none;margin-right:15px;" id="container_adicional_information_actuacion">
                                     <img class="img_tipoResolution_actuacion" src="./img/svg/list.svg" alt="" />
                                     <div class="d-flex flex-column" style="margin-top:5px;">
@@ -2125,7 +2301,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                                 </div>
                               </div>  
                   <!--Sin tareas -->
-                              <div id="Sintareas" >
+                              <div id="Sintareas1" >
                                 <div class="d-flex flex-row justify-content-center  align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
                                     <img class="img_tipoResolution_sinDoc" src="./img/svg/noList.svg" alt="" />
                                       <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin tareas</p>
@@ -2133,7 +2309,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                               </div> 
                             
                   <!--Documentos--> 
-                            <div class="ocultar" id="conDocumentos">         
+                            <div class="ocultar" id="conDocumentos1">         
                               <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
                                   <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
                                   <div class="d-flex flex-column"  style="margin-top:5px;">
@@ -2144,7 +2320,7 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
                             </div>
 
                   <!--Sin Documentos--> 
-                            <div id="Sindocumentos" >
+                            <div id="Sindocumentos1" >
                               <div class="d-flex flex-row  " style="border-left:none;" id="container_adicional_information_actuacion">
                                   <img class="img_tipoResolution_sinDoc" src="./img/svg/noDoc.svg" alt="" />
                                     <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin documentos</p>
@@ -2203,149 +2379,6 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
         
       const  container = document.querySelector('.circle-lineTime')
       container.style.border = "5px solid #FFB000";
-
-      // const collapse_performance = document.querySelector('#circle-lineTime') 
-
-        // const stages = tableActuacion.querySelectorAll('.stages');
-        // // stages.forEach((stage) => {
-        //   console.log(stages)
-        //   // Sum the count of each shard in the subcollection
-        //   const stageValue = tableActuacion.querySelector('#stages').value
-        //   console.log(stageValue)
-          //  firebase.firestore().collection('addActuacion').where("Etapa","==","Investigación ").get().then((snapshot) => {
-          // snapshot.forEach((doc) => {
-          // console.log(doc.data().Etapa)
-          // console.log('inesvtigacion presente')
-          // // if(doc.data().Etapa == "Investigación "){
-          // // const nameStage = document.querySelectorAll('.nameStage')
-          // // nameStage.forEach((stage) => {
-          // //   const investigacion = stage.getAttribute('data-value')
-          // //   console.log(investigacion)
-          // //   if(investigacion=="Investigación"){
-          // //     const nameStage = document.querySelector('.nameStage')
-          // //     const numberStage = document.querySelector('.numberStage')
-          // //     const nameStageChange = document.querySelector('.nameStageChange')
-          // //     const numberStageChange = document.querySelector('.numberStageChange')
-          // //     nameStage.classList.remove("nameStage");
-          // //     nameStageChange.classList.add("nameStageChange");
-          // //     numberStage.classList.remove("numberStage");
-          // //     numberStageChange.classList.add("numberStageChange");
-          // //   }else{
-          // //     const nameStage = document.querySelector('.nameStage')
-          // //     const numberStage = document.querySelector('.numberStage')
-          // //     const nameStageChange = document.querySelector('.nameStageChange')
-          // //     const numberStageChange = document.querySelector('.numberStageChange')
-          // //     nameStage.classList.add("nameStage");
-          // //     nameStageChange.classList.remove("nameStageChange");
-          // //     numberStage.classList.add("numberStage");
-          // //     numberStageChange.classList.remove("numberStageChange");
-          // //   }
-          // // }) 
-          // // console.log(nameStage)
-          // //   console.log('pintar investigación')
-          // // // } 
-          //  })
-          //  });
-
-          //  firebase.firestore().collection('addActuacion').where("Etapa","==","Instrucción").get().then((snapshot) => {
-          //   snapshot.forEach((doc) => {
-          //   console.log(doc.data().Etapa)
-          //   console.log('inspeccion aqui')
-          //   // else if (doc.data().Etapa == "Instrucción"){
-  
-          //     // const nameStage = document.querySelectorAll('.nameStage')
-          //     // nameStage.forEach((stage) => {
-          //   //     const instruccion = stage.getAttribute('data-value')
-          //   //     console.log(instruccion)
-          //   //     if(instruccion=="Instrucción"){
-          //   //       const nameStage = document.querySelector('.nameStage')
-          //   //       const numberStage = document.querySelector('.numberStage')
-          //   //       const nameStageChange = document.querySelector('.nameStageChange')
-          //   //       const numberStageChange = document.querySelector('.numberStageChange')
-          //   //       nameStage.classList.remove("nameStage");
-          //   //       nameStageChange.classList.add("nameStageChange");
-          //   //       numberStage.classList.remove("numberStage");
-          //   //       numberStageChange.classList.add("numberStageChange");
-          //   //     }else{
-          //   //       const nameStage = document.querySelector('#nameStage')
-          //   //       const numberStage = document.querySelector('.numberStage')
-          //   //       const nameStageChange = document.querySelector('#nameStageChange')
-          //   //       const numberStageChange = document.querySelector('.numberStageChange')
-          //   //       nameStage.classList.add("nameStage");
-          //   //       nameStageChange.classList.remove("nameStageChange");
-          //   //       numberStage.classList.add("numberStage");
-          //   //       numberStageChange.classList.remove("numberStageChange");
-          //   //     }
-          //   //   })
-          //   //   console.log('pintar instrucción')
-          //   // // }
-          //    })
-          //    });
-
-          //    firebase.firestore().collection('addActuacion').where("Etapa","==","Sancionadora").get().then((snapshot) => {
-          //     snapshot.forEach((doc) => {
-          //     console.log(doc.data().Etapa)
-          //     // else if (doc.data().Etapa == "Instrucción"){
-          //       console.log('soncion aqui')
-          //     //   const nameStage = document.querySelectorAll('.nameStage')
-          //     //   nameStage.forEach((stage) => {
-          //     //     const sancionadora = stage.getAttribute('data-value')
-          //     //     console.log(sancionadora)
-          //     //     if(sancionadora=="Sancionadora"){
-          //     //       const nameStage = document.querySelector('#nameStage')
-          //     //       const numberStage = document.querySelector('.numberStage')
-          //     //       const nameStageChange = document.querySelector('#nameStageChange')
-          //     //       const numberStageChange = document.querySelector('.numberStageChange')
-          //     //       nameStage.classList.remove("nameStage");
-          //     //       nameStageChange.classList.add("nameStageChange");
-          //     //       numberStage.classList.remove("numberStage");
-          //     //       numberStageChange.classList.add("numberStageChange");
-          //     //     }else{
-          //     //       const nameStage = document.querySelector('#nameStage')
-          //     //       const numberStage = document.querySelector('.numberStage')
-          //     //       const nameStageChange = document.querySelector('#nameStageChange')
-          //     //       const numberStageChange = document.querySelector('.numberStageChange')
-          //     //       nameStage.classList.add("nameStage");
-          //     //       nameStageChange.classList.remove("nameStageChange");
-          //     //       numberStage.classList.add("numberStage");
-          //     //       numberStageChange.classList.remove("numberStageChange");
-          //     //     }
-          //     //   })
-          //     //   console.log('pintar sancion')
-          //     // // }
-          //      })
-          //      });
-        
-        // //   if(){
-
-        // // }
-        // })
-        
-        // checkStatus.forEach((check) => {
-        //   check.checked = eval(window.localStorage.getItem(check.id))
-
-        //   check.addEventListener("change", (e) => {
-        //     e.preventDefault;
-        //     window.localStorage.setItem(check.id, check.checked)
-        //     console.log(e.target.dataset.id);
-        //     if (check.checked) {
-        //       console.log("CON check??");
-        //       // console.log("ID del check???", check.id);
-
-        //       completedTask(e.target.dataset.id);
-            
-        //     } else {
-        //       console.log("SIN check??");
-        //       pendingTask(e.target.dataset.id);
-        //       // fRegister.classList.remove("txt-tach");
-        //       // fVenci.classList.remove("txt-tach");
-        //       // tStatus.classList.remove("txt-green");
-        //       // // tStatus.classList.remove("tStatus");
-        //       // tStatus.classList.add("tStatusPendiente");
-        //       // tStatus.classList.remove("tStatusFinalizado");
-        //     }
-        //   });
-        // });
         //Mostrar y ocultar documentos de Actuaciones
         
 
@@ -2381,50 +2414,91 @@ firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snap
      
     // });
 
+       //subir datoss al storage
+const txt_carga1 =  tableActuacion.querySelector("#txt_carga");
+const conDocumentos1 =   tableActuacion.querySelector("#conDocumentos1");
+const conTareas1 =   tableActuacion.querySelector("#conTareas1");
+const usuario1 =  tableActuacion.querySelector("#usuario1");
+const Sintareas1 =  tableActuacion.querySelector("#Sintareas1");
+const Sindocumentos1 =  tableActuacion.querySelector("#Sindocumentos1");
 
-        //subir datoss al storage
-const txt_carga =  document.querySelector("#txt_carga");
-const conDocumentos =   document.querySelector("#conDocumentos");
-const conTareas =   document.querySelector("#conTareas");
-const usuario =  document.querySelector("#usuario");
-const Sintareas =  document.querySelector("#Sintareas");
-const Sindocumentos =  document.querySelector("#Sindocumentos");
+const cli1 =  tableActuacion.querySelector("#mostrarCli1");
 
-const cli =  document.querySelector("#mostrarCli");
+const subir1 =  tableActuacion.querySelector("#subir1");
 
-const subir =  document.querySelector("#subir");
-
-const file_uploadActuacion =  document.querySelectorAll(".file-uploadActuacion");
-file_uploadActuacion.forEach((actuacion) => {
-actuacion.addEventListener("change", ()=> {
-  subir.classList.add("ocultar");
-  txt_carga.classList.add("ocultar");
-  conDocumentos.classList.remove("ocultar");
-  conTareas.classList.remove("ocultar");
-  usuario.classList.remove("ocultar");
-  Sintareas.classList.add("ocultar");
-  Sindocumentos.classList.add("ocultar");
-  cli.classList.remove("ocultar");
-  var pdrs =  document.getElementById('file-uploadActuacion').files[0].name;
-  document.getElementById('infoActuacion').innerHTML = pdrs;
-  // const mostrarDoc =  tableActuacion.getElementById('infoActuacion')
-    const nameFiles =
-      document.getElementById(`file-uploadTask`).files[0].name;
-
-    // document.getElementById(`infoTask`).innerHTML = nDocs;
-    // const mostrarDoc = document.getElementById("info");
-
-    firebase
-      .firestore()
-      .collection("addActuacion")
-      .doc(doc.id)
-      .update({
-        // nameFile: nDocs,
-        files: [nameFiles],
-      });    
+const file_uploadActuacion =  tableActuacion.querySelector(".file-uploadActuacion");
+// file_uploadActuacion.forEach((actuacion) => {
+  file_uploadActuacion.addEventListener("change", ()=> {
+ console.log('jum')
+  subir1.classList.add("ocultar");
+  txt_carga1.classList.add("ocultar");
+  conDocumentos1.classList.remove("ocultar");
+  conTareas1.classList.remove("ocultar");
+  usuario1.classList.remove("ocultar");
+  Sintareas1.classList.add("ocultar");
+  Sindocumentos1.classList.add("ocultar");
+  cli1.classList.remove("ocultar");
+  const pdrs =  document.getElementById('file-uploadActuacion').files[0].name;
+  document.getElementById('infoActuacion').innerHTML = pdrs
   
-  });
-});
+          firebase
+            .firestore()
+            .collection("addActuacion")
+            .doc(doc.id)
+            .update({
+              // nameFile: nDocs,
+              File:pdrs ,
+            });     
+  
+ });
+// });
+
+const ficheroActuacion = viewHome.querySelector(".file-uploadActuacion");
+          ficheroActuacion.addEventListener("change", sendDocFirebase, false);
+
+          const storageRefActuacion = firebase.storage().ref();
+          const rootRefActuacion = firebase.database().ref().child("docActuacion");
+
+          function sendDocFirebase() {
+            console.log("subiendo");
+            const documentoSubirActuacion = ficheroActuacion.files[0];
+            console.log(documentoSubirActuacion);
+            const uploadActuacion = storageRefActuacion
+              .child("docTask/" + documentoSubirActuacion.name)
+              .put(documentoSubirActuacion);
+
+            uploadActuacion.on(
+              "state_changed",
+              function (snapshot) {},
+              function (error) {
+                console.log("hubo un error");
+              },
+              function () {
+                uploadActuacion.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    // alert("se subió la imagen conURL", downloadURL);
+                    console.log("Uploaded a blob or file!");
+                    crearNodoEnBDFirebaseTask(
+                      documentoSubirActuacion.name,
+                      downloadURL,
+                      doc.id
+
+                    );
+                  });
+              }
+            );
+          }
+
+
+          function crearNodoEnBDFirebaseTask(name, url, id) {
+            rootRefActuacion.push({
+              nombre: name,
+              url: url,
+              id: id,
+
+            });
+          }
  //****************** CONTENEDOR DE TAREAS ********************//
   //******* Fecha actual - input date *******/
   const dateNew = new Date();
@@ -2622,34 +2696,7 @@ const mostrar_cards_tareas = () => {
 </div>
   `; 
     
-// //subir datoss al storage
-// const txt_carga = document.querySelector("#txt_carga");
-// const conDocumentos = document.querySelector("#conDocumentos");
-// const conTareas = document.querySelector("#conTareas");
-// const usuario = document.querySelector("#usuario");
-// const Sintareas = document.querySelector("#Sintareas");
-// const Sindocumentos = viewHome.querySelector("#Sindocumentos");
 
-// const cli = viewHome.querySelector("#mostrarCli");
-
-// const subir = viewHome.querySelector("#subir");
-
-// const file_uploadActuacion = viewHome.querySelectorAll(".file-uploadActuacion");
-// file_uploadActuacion.forEach((actuacion) => {
-// actuacion.addEventListener("change", ()=> {
-//   subir.classList.add("ocultar");
-//   txt_carga.classList.add("ocultar");
-//   conDocumentos.classList.remove("ocultar");
-//   conTareas.classList.remove("ocultar");
-//   usuario.classList.remove("ocultar");
-//   Sintareas.classList.add("ocultar");
-//   Sindocumentos.classList.add("ocultar");
-//   cli.classList.remove("ocultar");
-//   var pdrs = document.getElementById('file-uploadActuacion').files[0].name;
-//   document.getElementById('infoActuacion').innerHTML = pdrs;
-//   const mostrarDoc = document.getElementById('infoActuacion')
-//   });
-// });
 
   link_documentos.addEventListener("click", () => {
     mainDatos.classList.add("ocultar");
@@ -3017,46 +3064,7 @@ const mostrar_cards_tareas = () => {
 
   });
 
-    //mostar tareas en documentos
-
-    const mostrar_tareas = viewHome.querySelector('#mostrar_tareas');
-    const tareas_ver = viewHome.querySelector('#tareas_ver');
-    const here_tareas = viewHome.querySelector('#here_tareas');
-    const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
-
-
- 
-  here_tareas.addEventListener('click' , () => {
-    tareas_ver.classList.add("ocultar");
-    mostrar_tareas.classList.remove("ocultar");
-    here_tareas.classList.add("ocultar");
-    informationDoc_ocultar.classList.remove("ocultarDoc");
-  });
-
-
-    //subir y traer files para see en documentos
     
-  
-    let stars = viewHome.querySelectorAll('.star');
-    viewHome.querySelector('.star-container').addEventListener('click', starRating);
-   
-    
-    function starRating(e) {
-      const star = e.target;
-      const val = star.getAttribute('data-val');
-    
-      stars.forEach((star) => star.classList.remove('star__checked'));
-    
-      star.classList.add('star__checked');
-     
-    }
-
-    mostrar_tareas.addEventListener('click',() =>{
-      tareas_ver.classList.remove("ocultar");
-      mostrar_tareas.classList.add("ocultar");
-      here_tareas.classList.remove("ocultar");
-      informationDoc_ocultar.classList.add("ocultarDoc");
-    });
 
     const casoSeleccionado = viewHome.querySelector('#casoSeleccionado');
     const casoNuevo = viewHome.querySelector('#casoNuevo');
@@ -3337,6 +3345,20 @@ const mostrar_cards_tareas = () => {
      })
      });
 
+     
+    let stars = viewHome.querySelectorAll('.star');
+    viewHome.querySelector('.star-container').addEventListener('click', starRating);
+   
+    
+    function starRating(e) {
+      const star = e.target;
+      const val = star.getAttribute('data-val');
+    
+      stars.forEach((star) => star.classList.remove('star__checked'));
+    
+      star.classList.add('star__checked');
+     
+    }
  
   
 
