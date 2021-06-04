@@ -370,9 +370,7 @@ export default () => {
                                                       </div>
                                                       <div class="row" style="border-bottom:1px solid #BDBDBD; width:187px;margin-bottom:13px;" >
                                                         <p class="modal_title_funcionario" style="line-height: 14px;margin-bottom:0px;" >Funcionario actual</p>
-                                                        <p class="nameFuncionario_modal">${localStorage.getItem(
-                                                          "inspectorAuxiliar"
-                                                        )}</p>
+                                                        <p class="nameFuncionario_modal">${localStorage.getItem("inspectorAuxiliar")}</p>
                                                       </div>
                                                       <div class="row">
                                                         <div class="d-flex flex-row" style="margin-bottom:25px;">
@@ -387,7 +385,7 @@ export default () => {
                                                           <p class="modal_title_funcionario"  style="margin-bottom:0px;">Cantidad de casos</p>
                                                             <div class="d-flex flex-row align-items-center">
                                                               <img src="./img/svg/list modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 0 casos</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;" >&nbsp; &nbsp; 12 casos</p>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -398,17 +396,13 @@ export default () => {
                                                           <div class="modal_up">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending up modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
-                                                                "multa1"
-                                                              )}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >567,000.00</p>
                                                             </div>
                                                           </div>
                                                           <div class="down">
                                                             <div class="d-flex flex-row" style="width:135px;">
                                                               <img src="./img/svg/trending down modal.svg" alt="" loading="lazy"/>
-                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" >${localStorage.getItem(
-                                                                "multa2"
-                                                              )}</p>
+                                                              <p class="modal_txt_funcionario" style="margin-bottom:0px;margin-left:12px;" > 1,890.00 </p>
                                                             </div>
                                                           </div>
                                                         
@@ -418,9 +412,7 @@ export default () => {
                                                         <p class="modal_title_funcionario" style="margin-bottom:0px;" >Ranking por multas</p>
                                                            <div class="d-flex flex-row">
                                                            <img src="./img/svg/user check modal.svg" style="margin-right:16px;" alt="" loading="lazy"/>
-                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto &nbsp; ${localStorage.getItem(
-                                                             "aleatorio"
-                                                           )} &nbsp; de 10</p>
+                                                           <p class="modal_txt_funcionario" style="margin-bottom:0px;" >Puesto 7 de 10</p>
                                                            </div> 
                                                       </div>
                                                       <div class="row">
@@ -568,219 +560,14 @@ export default () => {
            <div id="linea_grey"></div> 
           <div class="row" style="margin-top:19px"  >
             <div   id="container_total">
-               <div class="row">
-              <!--COLUMNA IZQUIERDA-->
-                <div class="col-12 col-lg-1" id="container_line_time">
-                  <div class="container_line_time">
-                    <div id="year"><span>${year}</span></div>
-              
-                    <div class="timeline">
-                      <div class="container left">
-                        <div class="content">
-                        <div id="day">${day}</div>
-                        <div id="month">${month}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class= "timeLineAfter"></div>
-                  
 
-                  </div>
-                </div>     
-          <!--COLUMNA DERECHA-->
-                <div class="col-12 col-lg-11" id="container_actuacion_head">
-                  <div class="container_actuacion_head">
-                    <!--primera-fila-->
-                    <div class="row">
-                    <!--etapa_actuacion-->
-                    <div id="etapas"><span></span></div>
-                    </div>
-                    
-                    <!--segunda-fila-->
-                    <div class=" d-flex  flex-row  justify-content-center" >
-                        
-                        <!--trae datos de crear actuacion-->
-                        <div class="col-12 col-lg-3"   id="container_adicional_information_actuacion" style="margin-left:55px">
-                          <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;">ACTUACIÓN</p>
-                          <div id="actuacion_tipo"  style="margin-left:0px;"><span>Tipo:${tipo_actuacion}</span></div>
-                        </div>
-                          <!--descripcion-->
-                        <div class="col-12 col-lg-5"   >
-                          <div id="descripcion_actuacion_get" style="margin-left:50px">
-                            <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
-                            <p style= "font-size:12px;font-weight: 600;" id="input_setDescripcion_actuacion"  >${descripcion_actuacion}</p>
-                          </div>
-                          <div id="descripcion_actuacion_edit" class="ocultar" style="margin-left:50px">
-                                <div class="title-description d-flex">
-                                    <p class="text-blue-opacity" id="title_descripcion_actuacion" >Descripción</p>
-
-                                    <img
-                                      id="btnEditComment_actuacion"
-                                      src="./img/svg/edit actuacion descripcion.svg"
-                                      class="btnEditComment_actuacion"
-                                      alt="icon edit"
-                                    />
-                                    <img
-                                      id="btnSaveComment_actuacion"
-                                      src="./img/svg/save_actuacion.svg"
-                                      class="btnSaveComment hide"
-                                      alt="icon edit"
-                                    />
-                                  </div>
-                                  <p id="pComment_actuacion" class="ptxt-comment">
-                                  Si deseas escribir algo puntal sobre la actuación puedes hacerlo <strong >aquí</strong>.Recuerda que puedes edicarlo en cualquier momento haciendo click en el lápiz.
-                                  </p>
-                                  <div id="textareaContainer_actuacion" class="textarea-container hide">
-                                    <textarea
-                                      name="txtComment"
-                                      id="txtComment_actuacion"
-                                      placeholder="Escribir aquí..."
-                                      cols=""
-                                      rows=""
-                                  
-                                      class="txt-comment_actuacion hide"
-                                      disabled
-                                    ></textarea>
-                                    <p id="countComment_actuacion"  class="hide">(Máximo 200 caracteres)</p>
-                                </div>
-                          </div>
-                        </div>
-                      
-                          <!--funcionario-->
-                        <div class="col-12 col-lg-4"  id="container_adicional_information_actuacion">
-                            <div class="d-flex justify-content-end align-items-center ">
-                                      <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
-                                      <div class="d-flex flex-column  align-items-center" style="margin-right:10px;">
-                                          <p class="text_Resolution" style="margin-right:25px;">${funcionario_actuacion}</p>
-                                          <p class="text_tipoResolution_fila"  style="margin-bottom:0px;padding-right:35px">Funcionario (a)</p>
-                                      </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-              
-                  <!--tercera-fila-->
-                    <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
-                  <!--archivos subidos-->
-                            <div class="col-12 col-lg-4">
-                              <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
-                                  <img class="ocultar" id="mostrarCli" src="./img/svg/cli.svg" alt="" />
-                                  <div class="d-flex flex-column">
-                                    <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
-                                    <div class="d-flex flex-row align-items-center justify-content-center ">
-                                    <p id="txt_carga">Cargar documento</p>
-                                      <label for="file-upload" id="subir" >
-                                      <img  src="./img/svg/carga.svg" alt="" />
-                                        </label>
-                                        <input id="file-upload" onchange='cambiar()' type="file" style='display: none;'/>
-                                        <div id="info"></div>
-                                        <div>
-                                      
-                                        </div>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-
-                              <div class="col-12 col-lg-8 ">
-                                <div class="d-flex flex-row ">
-                    <!--nombre de usuario-->
-                                <div class="ocultar" id="usuario">
-                                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
-                                      <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
-                                      <div class="d-flex flex-column">
-                                      <p class="text_Resolution">Subido por Alonso</p>
-                                        <p class="text_tipoResolution_fila">${localStorage.getItem(
-                                          "fechaActual"
-                                        )}</p>
-                                      </div>
-                                  </div>
-                                </div>
-                    <!--tareas-->
-                                <div class="ocultar" id="conTareas" >
-                                  <div class="d-flex flex-row justify-content-center" style="border-left:none;margin-right:15px;" id="container_adicional_information_actuacion">
-                                      <img class="img_tipoResolution_actuacion" src="./img/svg/list.svg" alt="" />
-                                      <div class="d-flex flex-column" style="margin-top:5px;">
-                                          <p class="text_Resolution">0 Tareas</p>
-                                          <p class="text_tipoResolution_fila1">0 completadas</p>
-                                      </div>
-                                  </div>
-                                </div>  
-                    <!--Sin tareas -->
-                                <div id="Sintareas" >
-                                  <div class="d-flex flex-row justify-content-center  align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
-                                      <img class="img_tipoResolution_sinDoc" src="./img/svg/noList.svg" alt="" />
-                                        <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin tareas</p>
-                                  </div>
-                                </div> 
-                              
-                    <!--Documentos--> 
-                              <div class="ocultar" id="conDocumentos">         
-                                <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
-                                    <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
-                                    <div class="d-flex flex-column"  style="margin-top:5px;">
-                                        <p class="text_Resolution">1 Documentos</p>
-                                        <p class="text_tipoResolution_fila1">De tareas</p>
-                                    </div>
-                                </div>
-                              </div>
-
-                    <!--Sin Documentos--> 
-                              <div id="Sindocumentos" >
-                                <div class="d-flex flex-row  " style="border-left:none;" id="container_adicional_information_actuacion">
-                                    <img class="img_tipoResolution_sinDoc" src="./img/svg/noDoc.svg" alt="" />
-                                      <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin documentos</p>
-                                </div>
-                              </div> 
-                            </div>
-                          </div>
-                  </div>
-
-                  </div>
-                  <!--Tareas de la actuación --> 
-                  <div class="container_task">
-                      <!-- TABLA -->
-                      <div class="createTask d-flex">
-                          <div id="container_table" class="container-table" style="margin-top:40px;"> 
-                          <table class="table table-hover table-createTask">
-                            <thead id="table-head" class="hidde">
-                              <tr class="thTable-createTask">
-                                <th scope="col">Tareas</th>
-                                <th scope="col">Documentos</th>
-                                <th scope="col">Equipo</th>
-                                <th scope="col">Registrado</th>
-                                <th scope="col">Vencimiento</th>
-                                <th scope="col">Estado</th>
-                              </tr>
-                            </thead>
-
-                            <tbody id="tableTask">
-
-                            </tbody>
-                          </table>
-
-
-                          </div>
-                          <div class="container-btnCreateTask d-flex">
-                              <button
-                                id="showModal_taskform"
-                                type="button"
-                                class="d-flex"
-                                data-bs-toggle="modal"
-                                data-bs-target="#newTaskModal"
-                                data-bs-whatever="@mdo">
-                                    <p>Crear tarea</p>
-                                    <img src="./img/svg/+_red.svg" class="" alt="agregar" />
-                                </button>
-                            </div>
-                      </div>
-                  </div>
-
-                </div>
-
-                </div>
             </div>
 
+            <table>
+            <tbody id="tableActuacion">
+
+            </tbody>
+            </table>
             <div class="ocultar" id="container_etapa1">
               <div style="width:800px; height:600px; background: #FFFFFF;" > </div>
             </div>
@@ -854,182 +641,10 @@ export default () => {
           </div>
         </div>
              <!--DOCTUMENTOS--->
-        <div class="row" id="" style="background: #F9FBFC;  " >
 
-          <div class="d-flex flex-row  align-items-center" style="height:84px;">
+        <div class="row" id="list_performance" style="background: #F9FBFC;  " >
 
-            <div class="d-flex flex-row" style="margin-left:30px;">
-              <div>
-              <img  src="./img/svg/down_doc_list.svg" id="mostrar_tareas" alt="" />
-              <img  src="./img/svg/up_doc_list.svg" class="ocultar" id="here_tareas" alt="" />
-              </div>
-              <div style="margin-left:19px;">
-                <p class="text_tipoResolution_fila1" style="margin-bottom:10px;">Actuacion</p>
-                <p class="text_Resolution">Tipo:${tipo_actuacion}</span></p>
-              </div>
-            </div>
-
-
-            <div id="informationDoc_ocultar">
-              <div class="d-flex flex-row"  style="margin-left:41px;">
-                <div>
-                <img  src="./img/svg/cli.svg" alt="" />
-                </div>
-
-                <div style="margin-left:10px;">
-                  <p class="text_tipoResolution_fila1" style="margin-bottom:10px;font-size: 9px;">PRINCIPAL</p>
-                    <div class="d-flex flex-column ">
-                      <div id="name_info" style="width: 183.58px;height: 15px;">
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div> 
-
-            <div class="d-flex flex-row justify-content-center align-items-center" style="margin-right:36px;">
-
-            <div>
-              <div class="progressCircle1 red"> <span class="progressCircle1-left">
-                      <span class="progressCircle1-bars"></span> </span> <span
-                      class="progressCircle1-right"> <span
-                      class="progressCircle1-bar"></span>
-                    </span>
-                  <div class="progressCircle1-value">1/3</div>
-              </div>
-            </div>
-
-              <div style="margin-left:12px;">
-                <p class="text_tipoResolution_fila1" style="margin-bottom:0px;font-size: 11px;width:123px;">DOCS PENDIENTES</p>
-                <p class="show_number_tarea" >01 tarea</p>
-              </div>
-
-            </div>
-
-              <div class="d-flex flex-row justify-content-center align-items-center">
-
-                <div  id="usuario_documentos">
-                  <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
-                      <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
-                      <p class="text_Resolution">${localStorage.getItem(
-                        "name"
-                      )}</p>
-                  </div>
-                </div>
-
-              </div>
-
-          </div>
-
-          <div class="ocultar" id="tareas_ver">
-          <div class="d-flex flex-row">
-
-          <div class="d-flex flex-column">
-
-          <!--principal actuacion-->
-
-        
-            <div id="column_izquierda_documentos" >
-              <div>
-                <p id="title_principal">PRINCIPAL</p>
-                <div id="style_generalContainer_principal" >
-                <div class="d-flex flex-row justify-content-between" id="container_principal">
-                
-                  <div style="width: 231px;height: 21px;">
-                  <p class="styles_principal"><strong>Principal:</strong></p>
-                  <p class="styles_principal">${localStorage.getItem(
-                    "tipo"
-                  )}</p>
-                  </div>
-
-                  <div style="width: 61px;height: 21px;">
-                  <p class="styles_principal"><strong>Vence:</strong></p>
-                  <p id="date_documentos">${localStorage.getItem(
-                    "fechaActual"
-                  )}</p>
-                  </div>
-
-                </div>
-                <div class='doc_select'>
-                <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
-                <p style="margin-left:24px;
-                  font-family: Raleway;
-                  font-style: normal;
-                  font-weight: 600;
-                  font-size: 12px;
-                  line-height: 14px;
-                margin-right:12px;
-
-                  
-                  /* Primary Blue */
-                  
-                  color: #0F3041;" >01.</p>
-                  <label for="file-upload" id="subir" style="margin-left:0px;">
-                  <img  src="./img/svg/clicdoc.svg" alt="" />
-                    </label>
-                    <div class="d-flex flex-column ">
-                    <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
-                    <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
-                    </div>
-                    <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
-                </div>
-                </div>
-                </div>
-              </div>
-            </div>
-
-              <!--principal tareas-->
-            <div id="column_izquierda_documentos">
-              <div>
-              <p id="title_principal">TAREAS Y OTROS DOCS</p>
-                <div id="prueba_tareas">
-          
-                </div>
-              </div>
-            </div>
-          </div>
-            
-
-            <!--see doc o pdf o img-->
-            <div id="see">
-
-            <div>
-            
-            <div class="d-flex flex-row justify-content-center ">
-            <ul class="d-flex flex-row ">
-              <li class="me-4 ">
-                <a id="style_a_docs" href="">
-                <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
-                </a>
-              </li >
-
-              <li class="me-4">
-                <a id="style_a_docs" href="" >
-                <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
-                </a>
-              </li>
-
-              <li class="me-2">
-                <a  id="style_a_docs" href="">
-                <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
-                </a>
-              </li>
-
-              <li class="me-4 mx-2">
-                <a  id="style_a_docs" href="">
-                <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
-                </a>
-              </li>
-            </ul>
-          </div>
-
-            </div>
-
-            <div id="verFiles">
-            </div>
-            </div>
-
-          </div>
-        </div>
+         
         </div>
 
         </div>
@@ -1150,7 +765,7 @@ export default () => {
               Felicitaciones por crear tu primer caso, no olvides registrar tu
               primera actuación.
               <!-- El 13/12/21 se notificó la inspección. Recuerda que a la fecha de
-              hoy 30/04/21 quedan
+              hoy 27/05/21 quedan
               <span>7 días</span>
               para iniciar la siguiente actuación -->
             </p>
@@ -1164,17 +779,32 @@ export default () => {
           <div class="status d-flex flex-column">
             <h6 class="title_card">Status</h6>
 
-            <div class="line-content">
+            <div class="d-flex flex-column mx-3">
+
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number1">1</div>
+                  <div class="nameStage" id="stage_name" data-value="Investigación">Investigación</div>
+                </div>
+                <span class="vertical-line-status"></span>
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number2">2</div>
+                  <div class="nameStage" id="stage_name" data-value="Instrucción">Instrucción</div>
+                </div>
+                <span class="vertical-line-status"></span>
+                <div class="d-flex flex-row align-items-center">
+                  <div class="numberStage" id="stage_number3">3</div>
+                  <div class="nameStage" id="stage_name" data-value="Sancionadora">Sancionadora</div>
+                </div>
+                <div>
+            <!-- <div class="line-content">
               <div class="line">
                 <div class="d-flex flex-row" style="height:25px;">
                   <div>
-                    <div class="contents" style="background: #466EFE;">
-                      <h1
-                        style=" position: absolute; font-size: 14px;font-weight: bold;"
-                      >
+                    <div class="contents">
+                      <h1 class="numbers">
                         1
                       </h1>
-                      <p style="font-size: 12px;color: #FFFFFF;">
+                      <p class="style_text_status">
                         Investigación
                       </p>
                     </div>
@@ -1187,7 +817,7 @@ export default () => {
                   </div>
                 </div>
                 <div class="lines"></div>
-                <!-- -->
+           
                 <div
                   class="d-flex flex-row justify-content-center"
                   style="height:25px;"
@@ -1226,7 +856,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- STATUS copy (termino)-->
@@ -1819,43 +1449,7 @@ export default () => {
   } else {
   }
 
-  //Ingresar comentarios al textarea vista actuacion
-  const edit_actuacion = viewHome.querySelector("#btnEditComment_actuacion");
-  const save_actuacion = viewHome.querySelector("#btnSaveComment_actuacion");
-  const pComment_actuacion = viewHome.querySelector("#pComment_actuacion");
-  const divComment_actuacion = viewHome.querySelector(
-    "#textareaContainer_actuacion"
-  );
-  const txtComment_actuacion = viewHome.querySelector("#txtComment_actuacion");
-  const countComment_actuacion = viewHome.querySelector(
-    "#countComment_actuacion"
-  );
-
-  pComment_actuacion.addEventListener("click", () => {
-    pComment_actuacion.classList.add("hide");
-    divComment_actuacion.classList.remove("hide");
-    txtComment_actuacion.classList.remove("hide");
-    txtComment_actuacion.disabled = false;
-    countComment_actuacion.classList.remove("hide");
-    save_actuacion.classList.remove("hide");
-    edit_actuacion.classList.add("hide");
-  });
-
-  edit_actuacion.addEventListener("click", () => {
-    pComment_actuacion.classList.add("hide");
-    divComment_actuacion.classList.remove("hide");
-    txtComment_actuacion.classList.remove("hide");
-    txtComment_actuacion.disabled = false;
-    countComment_actuacion.classList.remove("hide");
-    save_actuacion.classList.remove("hide");
-    edit_actuacion.classList.add("hide");
-  });
-
-  save_actuacion.addEventListener("click", () => {
-    txtComment_actuacion.disabled = true;
-    edit_actuacion.classList.remove("hide");
-    save_actuacion.classList.add("hide");
-  });
+ 
   // menú etapas
 
   const buttons_total = viewHome.querySelector("#button_total");
@@ -1939,259 +1533,482 @@ export default () => {
 
   //habilitar y deshabiliat boton entrar modal sunafil
 
-  const sunafil = viewHome.querySelector("#sunafil");
-  sunafil.addEventListener("click", () => {
-    const mensaje = viewHome.querySelector("#input_modalSunafil1");
-    mensaje.addEventListener("keyup", (e) => {
-      console.log("change");
-      const boton = viewHome.querySelector("#btn_entrar_modal_sunafil");
-      console.log(boton);
+            //pasa al hermano
+              el = el.nextSibling;
+            }
+               this.classList.add("button_change_etapas");
+             };
+           }
 
-      if (mensaje.value.trim() !== "") {
-        console.log("Se muestra");
-        boton.removeAttribute("disabled");
-        const miniModal = viewHome.querySelector("#exampleModal1");
-      } else {
-        boton.setAttribute("disabled", "true");
-      }
-    });
-  });
+           //habilitar y deshabiliat boton entrar modal sunafil
 
-  //LINKS
-  const link_datos = viewHome.querySelector("#link_datos");
-  const link_actuaciones = viewHome.querySelector("#link_actuaciones");
-  const link_documentos = viewHome.querySelector("#link_documentos");
-  const mainDatos = viewHome.querySelector("#main-datos");
-  const mainActuaciones = viewHome.querySelector("#main-actuaciones");
-  const mainDocumentos = viewHome.querySelector("#main-documentos");
+           const sunafil = viewHome.querySelector('#sunafil');
+           sunafil.addEventListener("click" , () => {
 
-  link_datos.addEventListener("click", () => {
-    mainDatos.classList.remove("ocultar");
-    mainActuaciones.classList.add("ocultar");
-    mainDocumentos.classList.add("ocultar");
-  });
+            const mensaje = viewHome.querySelector("#input_modalSunafil1");
+             mensaje.addEventListener("keyup", (e) => {
+             console.log("change");
+             const boton = viewHome.querySelector("#btn_entrar_modal_sunafil");
+              console.log(boton)
 
-  link_actuaciones.addEventListener("click", () => {
-    mainDatos.classList.add("ocultar");
-    mainActuaciones.classList.remove("ocultar");
-    mainDocumentos.classList.add("ocultar");
-  });
+                       
+            if (mensaje.value.trim() !== "") {
+              console.log("Se muestra")
+              boton.removeAttribute('disabled')
+              const miniModal = viewHome.querySelector("#exampleModal1");
+           } else {
+              boton.setAttribute('disabled', "true");
+              
+            }
+          });
+              })
 
-  link_documentos.addEventListener("click", () => {
-    mainDatos.classList.add("ocultar");
-    mainActuaciones.classList.add("ocultar");
-    mainDocumentos.classList.remove("ocultar");
+ //LINKS
+ const link_datos = viewHome.querySelector("#link_datos");
+ const link_actuaciones = viewHome.querySelector("#link_actuaciones");
+ const link_documentos = viewHome.querySelector("#link_documentos");
+ const mainDatos = viewHome.querySelector("#main-datos");
+ const mainActuaciones = viewHome.querySelector("#main-actuaciones");
+ const mainDocumentos= viewHome.querySelector("#main-documentos");
 
-    rootRef.on("value", function (snapshot) {
-      var datos = snapshot.val();
-      var results = "";
-      for (var key in datos) {
-        console.log(datos[key].nombre);
+ link_datos.addEventListener("click", ()=> {
+   mainDatos.classList.remove("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.add("ocultar");
+ })
 
-        results +=
-          '<div  class="name_info_down">' + datos[key].nombre + "</div>";
-      }
-      document.getElementById("name_info").innerHTML = results;
-      document.getElementById("name_info1").innerHTML = results;
-      const click_show_doc = document.getElementById("name_info1");
-      const arrows_doc = viewHome.querySelector("#arrows_doc");
-      const container_doc_principal = viewHome.querySelector(
-        "#container_doc_princial"
-      );
-      const container_tar_principal = viewHome.querySelector(
-        "#container_tar_princial"
-      );
-      const arrows_tar = viewHome.querySelector("#arrows");
-      click_show_doc.addEventListener("click", () => {
-        container_doc_principal.style.background = "rgba(150, 156, 186, 0.2)";
-        //  container_tar_principal.style.background =  "white";
-        arrows_doc.classList.remove("ocultar");
-        arrows_tar.classList.add("ocultar");
+ link_actuaciones.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.remove("ocultar");
+   mainDocumentos.classList.add("ocultar");
+   
+ })
 
-        rootRef.on("value", function (snapshot) {
-          var datos = snapshot.val();
-          var result = "";
-          for (var key in datos) {
-            console.log(datos[key].url);
+ link_documentos.addEventListener("click", ()=> {
+   mainDatos.classList.add("ocultar");
+   mainActuaciones.classList.add("ocultar");
+   mainDocumentos.classList.remove("ocultar");
 
-            result +=
-              '<iframe  class="styleIframe"  src="' +
-              datos[key].url +
-              '"></iframe>';
-          }
-          document.getElementById("verFiles").innerHTML = result;
-        });
-      });
-    });
-  });
+   const list_performance = viewHome.querySelector("#list_performance");
+  
+    firebase
+      .firestore()
+      .collection("addActuacion")
+      .orderBy("Fecha")
+      .onSnapshot((querySnapshot) => {
+        list_performance.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const taskId = doc.id;
+          list_performance.innerHTML +=  `
+          <div id="ver_todaInformacion" class='hidde'>     
+          
+          <div id="tareas_ver">
+        <div class="d-flex flex-row">
 
-  link_datos.classList.add("links_change");
-  const links = viewHome.getElementsByClassName("links");
-  for (let i = 0; i < links.length; i++) {
-    links[i].onclick = function () {
-      let el = links[0];
-      while (el) {
-        if (el.tagName === "DIV") {
-          // remueve class
-          el.classList.remove("links_change");
-        }
+        <div class="d-flex flex-column">
 
-        //pasa al hermano
-        el = el.nextSibling;
-      }
-      this.classList.add("links_change");
-    };
-  }
+        <!--principal actuacion-->
 
-  //subir datoss al storage
-  const txt_carga = viewHome.querySelector("#txt_carga");
-  const conDocumentos = viewHome.querySelector("#conDocumentos");
-  const conTareas = viewHome.querySelector("#conTareas");
-  const usuario = viewHome.querySelector("#usuario");
-  const Sintareas = viewHome.querySelector("#Sintareas");
-  const Sindocumentos = viewHome.querySelector("#Sindocumentos");
+      
+          <div id="column_izquierda_documentos" >
+            <div>
+              <p id="title_principal">PRINCIPAL</p>
+              <div id="style_generalContainer_principal" >
+              <div class="d-flex flex-row justify-content-between" id="container_principal">
+              <img  src="./img/svg/up_doc_list.svg"  id="here_tareas" alt="" />
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Principal:</strong></p>
+                <p class="styles_principal">${doc.data().Funcionario}</p>
+                </div>
 
-  const cli = viewHome.querySelector("#mostrarCli");
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal"><strong>Vence:</strong></p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
+                </div>
 
-  const subir = viewHome.querySelector("#subir");
+              </div>
+              <div class='doc_select'>
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+              margin-right:12px;
 
-  const file_upload = viewHome.querySelector("#file-upload");
-  file_upload.addEventListener("change", () => {
-    subir.classList.add("ocultar");
-    txt_carga.classList.add("ocultar");
-    conDocumentos.classList.remove("ocultar");
-    conTareas.classList.remove("ocultar");
-    usuario.classList.remove("ocultar");
-    Sintareas.classList.add("ocultar");
-    Sindocumentos.classList.add("ocultar");
-    cli.classList.remove("ocultar");
-    var pdrs = document.getElementById("file-upload").files[0].name;
-    document.getElementById("info").innerHTML = pdrs;
-    const mostrarDoc = document.getElementById("info");
-  });
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subire" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
+                  </div>
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
 
-  link_documentos.addEventListener("click", () => {
-    mainDatos.classList.add("ocultar");
-    mainActuaciones.classList.add("ocultar");
-    mainDocumentos.classList.remove("ocultar");
+            <!--principal tareas-->
+          <div id="column_izquierda_documentos">
+            <div>
+            <p id="title_principal">TAREAS Y OTROS DOCS</p>
+              <div id="prueba_tareas">
+        
+              </div>
+            </div>
+          </div>
+        </div>
+          
 
-    rootRef.on("value", function (snapshot) {
-      var datos = snapshot.val();
-      var results = "";
-      for (var key in datos) {
-        console.log(datos[key].nombre);
+          <!--see doc o pdf o img-->
+          <div id="see">
 
-        results +=
-          '<div  class="name_info_down">' + datos[key].nombre + "</div>";
-      }
+          <div>
+          
+          <div class="d-flex flex-row justify-content-center ">
+          <ul class="d-flex flex-row ">
+            <li class="me-4 ">
+              <a id="style_a_docs" href="">
+              <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+              </a>
+            </li >
 
-      document.getElementById("name_info").innerHTML = results;
-      const click_show_doc = document.getElementById("name_info");
-      click_show_doc.addEventListener("click", () => {
-        rootRef.on("value", function (snapshot) {
-          var datos = snapshot.val();
-          var result = "";
-          for (var key in datos) {
-            console.log(datos[key].url);
+            <li class="me-4">
+              <a id="style_a_docs" href="" >
+              <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+              </a>
+            </li>
 
-            result +=
-              '<iframe  class="styleIframe"  src="' +
-              datos[key].url +
-              '"></iframe>';
-          }
-          document.getElementById("verFiles").innerHTML = result;
-        });
-      });
-      const cambiarFond = viewHome.querySelector(".name_info_down");
-    });
-  });
+            <li class="me-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+              </a>
+            </li>
 
-  // link_datos.classList.add("links_change");
-  // const links = viewHome.getElementsByClassName("links");
-  // for (let i = 0; i < links.length; i++) {
-  //   links[i].onclick = function () {
-  //     let el = links[0];
-  //     while (el) {
-  //       if (el.tagName === "DIV") {
-  //         // remueve class
-  //         el.classList.remove("links_change");
-  //       }
+            <li class="me-4 mx-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+              </a>
+            </li>
+          </ul>
+        </div>
 
-  //       //pasa al hermano
-  //       el = el.nextSibling;
-  //     }
-  //     this.classList.add("links_change");
-  //   };
-  // }
+          </div>
 
-  // //subir datoss al storage
+          <div id="verFiles">
+          </div>
+          </div>
 
-  // const txt_carga = viewHome.querySelector("#txt_carga");
-  // const cli = viewHome.querySelector("#mostrarCli");
+        </div>
+      </div>
+          </div>
 
-  // const subir = viewHome.querySelector("#subir");
+          <div id="documentos_comprimidos" >
+          
+          <div class="d-flex flex-row  align-items-center justify-content-between" style="height:84px;">
 
-  // const file_upload = viewHome.querySelector("#file-upload");
-  // file_upload.addEventListener("change", () => {
-  //   subir.classList.add("ocultar");
-  //   txt_carga.classList.add("ocultar");
-  //   cli.classList.remove("ocultar");
-  //   var pdrs = document.getElementById("file-upload").files[0].name;
-  //   document.getElementById("info").innerHTML = pdrs;
-  //   const mostrarDoc = document.getElementById("info");
+          <div class="d-flex flex-row" style="margin-left:30px;">
+            <div>
+            <img  src="./img/svg/down_doc_list.svg" id="mostrar_tareas" alt="" />
+            
+            </div>
+            <div style="margin-left:19px;">
+              <p class="text_tipoResolution_fila1" style="margin-bottom:10px;width: 226px;">Actuacion</p>
+              <p class="text_Resolution" style="margin-top: 0px;">Tipo:${doc.data().Tipo}</span></p>
+            </div>
+          </div>
+
+          <div id="informationDoc_ocultar">
+            <div class="d-flex flex-row"  style="margin-left:41px;">
+              <div>
+              <img  src="./img/svg/cli.svg" alt="" />
+              </div>
+
+              <div style="margin-left:10px;">
+                <p class="text_tipoResolution_fila1" style="margin-bottom:10px;font-size: 9px;">PRINCIPAL</p>
+                  <div class="d-flex flex-column ">
+                    <div id="name_info" style="width: 183.58px;height: 15px;width: 220px;">${doc.data().File}
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div> 
+
+          <div class="d-flex flex-row justify-content-center align-items-center" style="margin-right:36px;">
+
+          <div>
+            <div class="progressCircle1 red"> <span class="progressCircle1-left">
+                    <span class="progressCircle1-bars"></span> </span> <span
+                    class="progressCircle1-right"> <span
+                    class="progressCircle1-bar"></span>
+                  </span>
+                <div class="progressCircle1-value">1/3</div>
+            </div>
+          </div>
+
+            <div style="margin-left:12px;width: 176px;">
+              <p class="text_tipoResolution_fila1" style="margin-bottom:0px;font-size: 11px;width:123px;">DOCS PENDIENTES</p>
+              <p class="show_number_tarea" >01 tarea</p>
+            </div>
+
+          </div>
+
+            <div class="d-flex flex-row justify-content-center align-items-center">
+
+              <div  id="usuario_documentos">
+                <div class="d-flex flex-row align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;width: 136px;">
+                    <img  src="./img/svg/avatar.svg" style ="margin-right:5px;" alt="" />
+                    <p class="text_Resolution" style="margin-top: 0px;">${doc.data().Funcionario}</p>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+        <div></div>
+        <div class="ocultar" id="tareas_ver">
+        <div class="d-flex flex-row">
+
+        <div class="d-flex flex-column">
+
+        <!--principal actuacion-->
+
+      
+          <div id="column_izquierda_documentos" >
+            <div>
+              <p id="title_principal">PRINCIPAL</p>
+              <div id="style_generalContainer_principal" >
+              <div class="d-flex flex-row justify-content-between" id="container_principal">
+              
+                <div style="width: 231px;height: 21px;">
+                <p class="styles_principal"><strong>Principal:</strong></p>
+                <p class="styles_principal">${doc.data().Funcionario}</p>
+                </div>
+
+                <div style="width: 61px;height: 21px;">
+                <p class="styles_principal"><strong>Vence:</strong></p>
+                <p id="date_documentos">${localStorage.getItem(
+                  "fechaActual"
+                )}</p>
+                </div>
+
+              </div>
+              <div class='doc_select'>
+              <div class="d-flex flex-row align-items-center " id="container_doc_princial" style="height: 59px;">
+              <p style="margin-left:24px;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+              margin-right:12px;
+
+                
+                /* Primary Blue */
+                
+                color: #0F3041;" >01.</p>
+                <label for="file-upload" id="subire" style="margin-left:0px;">
+                <img  src="./img/svg/clicdoc.svg" alt="" />
+                  </label>
+                  <div class="d-flex flex-column ">
+                  <div id="name_info1" style="width: 183.58px;height: 15px;margin-top:15px;"></div>
+                  <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
+                  </div>
+                  <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows_doc" class='ocultar' alt="" /> 
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+            <!--principal tareas-->
+          <div id="column_izquierda_documentos">
+            <div>
+            <p id="title_principal">TAREAS Y OTROS DOCS</p>
+              <div id="prueba_tareas">
+        
+              </div>
+            </div>
+          </div>
+        </div>
+          
+
+          <!--see doc o pdf o img-->
+          <div id="see">
+
+          <div>
+          
+          <div class="d-flex flex-row justify-content-center ">
+          <ul class="d-flex flex-row ">
+            <li class="me-4 ">
+              <a id="style_a_docs" href="">
+              <img  src="./img/svg/descargar.svg" style="margin-right:5px;" alt="" /> Descargar 
+              </a>
+            </li >
+
+            <li class="me-4">
+              <a id="style_a_docs" href="" >
+              <img  src="./img/svg/compartir.svg" style="margin-right:5px;" alt="" /> Compartir 
+              </a>
+            </li>
+
+            <li class="me-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/ver 1.svg" style="margin-right:5px;" alt="" /> Ver completo 
+              </a>
+            </li>
+
+            <li class="me-4 mx-2">
+              <a  id="style_a_docs" href="">
+              <img  src="./img/svg/impresora 1.svg" style="margin-right:5px;" alt="" /> Imprimir 
+              </a>
+            </li>
+          </ul>
+        </div>
+
+          </div>
+
+          <div id="verFiles">
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+      `;
+
+const collapse_performance1 = viewHome.querySelector('#here_tareas');
+const show_performance1 = viewHome.querySelector('#mostrar_tareas');
+const bar_main_actuacion1 = viewHome.querySelector('#documentos_comprimidos');
+const bar_full_actuacion1 = viewHome.querySelector('#ver_todaInformacion');
+bar_full_actuacion1.classList.remove('hidde')
+bar_main_actuacion1.classList.add('hidde')
+const Allshow_performance1 =  list_performance.querySelector('#mostrar_tareas');
+// Allshow_performance.forEach((actuacion) => {
+  // console.log('suprime')
+  Allshow_performance1 .addEventListener('click' , () => {
+  collapse_performance1.classList.remove('hidde'),
+  show_performance1.classList.add('hidde')
+  bar_full_actuacion1.classList.remove('hidde')
+  bar_main_actuacion1.classList.add('hidde')
+});
+// });
+
+const Allcollapse_performance1 =  list_performance.querySelector('#here_tareas');
+// Allshow_performance.forEach((actuacion) => {
+// console.log('suprime')
+Allcollapse_performance1 .addEventListener('click' , () => {
+collapse_performance1.classList.add('hidde'),
+show_performance1.classList.remove('hidde')
+bar_full_actuacion1.classList.add('hidde')
+bar_main_actuacion1.classList.remove('hidde')
+});
+
+      //mostar tareas en documentos
+
+  //   const mostrar_tareas = viewHome.querySelector('#mostrar_tareas');
+  //   const tareas_ver = viewHome.querySelector('#tareas_ver');
+  //   const here_tareas = viewHome.querySelector('#here_tareas');
+  //   const informationDoc_ocultar = viewHome.querySelector('#informationDoc_ocultar');
+
+
+ 
+  // here_tareas.addEventListener('click' , () => {
+  //   tareas_ver.classList.add("ocultar");
+  //   mostrar_tareas.classList.remove("ocultar");
+  //   here_tareas.classList.add("ocultar");
+  //   informationDoc_ocultar.classList.remove("ocultarDoc");
   // });
 
-  // window.onload = inicializar;
-  var fichero;
-  var storageRef;
+  //   mostrar_tareas.addEventListener('click',() =>{
+  //     tareas_ver.classList.remove("ocultar");
+  //     mostrar_tareas.classList.add("ocultar");
+  //     here_tareas.classList.remove("ocultar");
+  //     informationDoc_ocultar.classList.add("ocultarDoc");
+  //   });
 
-  // function inicializar() {
-  fichero = viewHome.querySelector("#file-upload");
-  fichero.addEventListener("change", subirDocAFirebase, false);
-  storageRef = firebase.storage().ref();
-  var rootRef = firebase.database().ref().child("documentos");
+        })
 
-  function subirDocAFirebase() {
-    //     console.log("subiendo")
+      })
+   rootRef.on('value', function(snapshot){
+     var datos = snapshot.val();
+     var results = "" 
+     for(var key in datos){
 
-    const documentoSubir = fichero.files[0];
-    console.log(documentoSubir);
-    const uploadTask = storageRef
-      .child("documentos/" + documentoSubir.name)
-      .put(documentoSubir);
+       console.log(datos[key].nombre)
+     
+       results +=  '<div  class="name_info_down">'+datos[key].nombre+'</div>';
+       
+     } 
+     document.getElementById("name_info").innerHTML= results;
+     document.getElementById("name_info1").innerHTML= results;
+     const click_show_doc = document.getElementById("name_info1");
+     const arrows_doc = viewHome.querySelector("#arrows_doc");
+     const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+     const container_tar_principal = viewHome.querySelector('#container_tar_princial');
+     const arrows_tar = viewHome.querySelector("#arrows");
+     click_show_doc.addEventListener("click", ()=> {
 
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
-    uploadTask.on(
-      "state_changed",
-      function (snapshot) {
-        //  // Observe state change events such as progress, pause, and resume
-        // console.log("subido");
-      },
-      function (error) {
-        console.log("hubo un error");
-        // Handle unsuccessful uploads
-      },
-      function () {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-          // alert("se subió la imagen conURL", downloadURL);
-          console.log("Uploaded a blob or file!");
-          crearNodoEnBDFirebase(documentoSubir.name, downloadURL);
-        });
-      }
-    );
-  }
 
-  function crearNodoEnBDFirebase(name, url) {
-    rootRef.push({
-      nombre: name,
-      url: url,
-    });
-  }
+       container_doc_principal.style.background =  "rgba(150, 156, 186, 0.2)";
+      //  container_tar_principal.style.background =  "white";
+      arrows_doc.classList.remove('ocultar');
+      arrows_tar.classList.add('ocultar');
+
+
+       rootRef.on('value', function(snapshot){
+         var datos = snapshot.val();
+         var result = "" 
+         for(var key in datos){
+   
+           console.log(datos[key].url)
+         
+           result +=  '<iframe  class="styleIframe"  src="'+ datos[key].url +'"></iframe>';
+           
+         } 
+         document.getElementById("verFiles").innerHTML= result;
+       })
+
+     })
+   })
+
+   
+ })
+
+
+ link_datos.classList.add("links_change");
+ const links = viewHome.getElementsByClassName("links");
+ for(let i=0; i < links.length; i ++)
+          {
+           links[i].onclick = function (){
+
+             let el = links[0];
+             while(el)
+             {
+               if(el.tagName === "DIV"){
+               // remueve class
+               el.classList.remove("links_change");
+             }
+
+             //pasa al hermano
+             el = el.nextSibling;
+           }
+              this.classList.add("links_change");
+            };
+          }              
+
+      
+
 
   //cambiar logo Sunafil una ver sincronizado
   const cambiarLogo = viewHome.querySelector("#btn_entrar_minimodal_sunafil");
@@ -2205,7 +2022,532 @@ export default () => {
     pSunafil.classList.add("messageSunafil");
   });
 
-  //****************** CONTENEDOR DE TAREAS ********************//
+ 
+
+// SUMAR DOCUMENTOS
+
+var sumaDocumentos = 0; 
+// Sum the count of each shard in the subcollection
+firebase.firestore().collection('tasks').where("files","!=",[]).get().then((snapshot) => {
+  let total_count = 1;
+  snapshot.forEach((doc) => {
+      total_count += doc.data().count;
+      console.log(total_count)
+      sumaDocumentos += total_count;
+      console.log(sumaDocumentos)
+      const sumaTotalDocumentos = sumaDocumentos + 1
+
+      console.log(sumaTotalDocumentos)
+
+      const sumaTotalDocumentosContainer = viewHome.querySelector('#sumaTotalDocumentos');
+      const ceroDocumentos = viewHome.querySelector('#ceroDocumentos');
+      sumaTotalDocumentosContainer.classList.remove('ocultar')
+      ceroDocumentos.classList.add('ocultar')
+      sumaTotalDocumentosContainer.innerHTML = `
+      <p class="text_Resolution"  style="font-size: 10px;">${sumaTotalDocumentos}</p>
+      <p class="text_tipoResolution">Documentos</p>`
+      console.log(sumaTotalDocumentos)
+
+  });
+
+});
+//SUMAR PENDIENTES
+
+  var sumaPendiente = 0; 
+      // Sum the count of each shard in the subcollection
+      firebase.firestore().collection('tasks').where("status", "==", "Pendiente").get().then((snapshot) => {
+        let total_count = 1;
+        snapshot.forEach((doc) => {
+            total_count += doc.data().count;
+            console.log(total_count)
+            sumaPendiente += total_count;
+            console.log(sumaPendiente)
+            const sumaTotalPendiente = sumaPendiente
+
+            console.log(sumaTotalPendiente)
+
+            const sumaTotalPendienteContainer = viewHome.querySelector('#sumaTotalPendiente');
+            const ceroPendiente = viewHome.querySelector('#ceroPendiente');
+            sumaTotalPendienteContainer.classList.remove('ocultar')
+            ceroPendiente.classList.add('ocultar')
+            sumaTotalPendienteContainer.innerHTML = `
+            <p class="text_Resolution"  style="font-size: 10px;margin-left:28px;">${sumaTotalPendiente} Pendientes</p>`
+
+            console.log(sumaTotalPendiente)
+ 
+        });
+
+      });
+  
+// Mostrar lista de Actuaciones 
+
+
+  //Crea template de la tabla de Actuaciones  /
+  
+  // firestore - actualizar
+
+ 
+  // Mostrar registros de firebase de actuaciones /
+  const tableActuacion = viewHome.querySelector("#container_total");
+  
+    firebase
+      .firestore()
+      .collection("addActuacion")
+      .orderBy('Fecha', "desc")
+      .onSnapshot((querySnapshot) => {
+        tableActuacion.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          tableActuacion.innerHTML +=  `
+          <div class="row" style="margin:10px;">
+          <div class="d-flex flex-row align-items-center">
+          <!--COLUMNA IZQUIERDA-->
+            <!-- <div class="col-12 col-lg-1" id="container_line_time">
+              <div class="container_line_time">
+                <div id="year"><span>${doc.data().Year}</span></div>
+          
+                <div class="timeline">
+                  <div class="container left">
+                    <div class="content">
+                    <div id="day">${doc.data().Day}</div>
+                    <div id="month">${doc.data().Month}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class= "timeLineAfter"></div>
+              
+
+              </div>
+            </div>      -->
+
+            <div class="col-12 col-lg-1" id="container_line_time">
+              <div class="container_line_time">
+                <div id="year"><span>${doc.data().Year}</span></div>
+                        
+                  <div class="d-flex flex-row  align-items-center">
+                  <div class="mx-2">
+                    <div id="day">${doc.data().Day}</div>
+                    <div id="month">${doc.data().Month}</div>
+                  </div>
+
+                  <div class='d-flex flex-column'>
+                  <span class="vertical-lineTime"></span>
+                    <div class="circle-lineTime">
+
+                    </div>
+                    <span class="vertical-lineTime"></span>
+                  </div>  
+                  </div>
+                
+              
+
+              </div>
+            </div>     
+
+      <!--COLUMNA DERECHA-->
+
+      <div id="bar_main_actuacion">
+        <div class="d-flex flex-row">
+
+      <button class='Allcollapse_performance' >
+                    <img src="./img/svg/down_doc_list.svg" id="collapse_performance" />
+                    </button>
+
+                 
+
+                    <div id="bar_basic_actuacion">
+                      <div class="col-12 col-lg-11" >
+                        <div class="d-flex flex-row">
+                        
+                        <!-- tipo-->
+                        <div id="actuacion_tipo_bar">Tipo:${doc.data().Tipo}
+                        </div>
+
+                        <span class="vertical-line"></span>
+                        <!--archivo subido-->
+                        <div class="d-flex flex-row align-items-center"  id="container_adicional_information_actuacion">
+                                <img id="mostrarCli" src="./img/svg/cli.svg" alt="" />
+                                <div class="d-flex flex-column">
+                                  <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
+                                  <div class="d-flex flex-row align-items-center justify-content-center ">
+                               
+                                      <div id="infoActuacion">${doc.data().File}</div>
+                                      <div>
+                                    
+                                      </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <span class="vertical-line"></span>
+                        <!--funcionario-->
+                          <div class="d-flex  align-items-center ">
+                                    <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
+                                    <div class="d-flex flex-column  align-items-center" >
+                                        <p class="text_Resolution" style="margin-top:0px;" >${doc.data().Funcionario}</p>
+                                        <p class="text_tipoResolution_fila"  style="margin-bottom:0px;">Funcionario(a)</p>
+                                    </div>
+                          </div>
+                          <span class="vertical-line"></span>
+                      <!--tareas realizadas-->
+
+                      <div  id="conTareas" >
+                                <div class="d-flex flex-row"  id="container_adicional_information_actuacion">
+                                    <img class="img_tipoResolution_actuacion" src="./img/svg/AllTask.svg" alt="" />
+                                    <div class="d-flex flex-column" >
+                                        <p class="text_Resolution">0 Tareas</p>
+                                        <p class="text_tipoResolution_fila1">Tareas</p>
+                                    </div>
+                                </div>
+                              </div>  
+                              <span class="vertical-line"></span>
+                      <!--documentos de tareas-->
+                      <div  id="conDocumentos">         
+                              <div class="d-flex flex-row" style="border-left:none;" id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
+                                  <div class="d-flex flex-column">
+                                      <p class="text_Resolution">1 Documentos</p>
+                                      <p class="text_tipoResolution_fila1">De tareas</p>
+                                  </div>
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+            </div>
+            <div class='hidde' id="bar_full_actuacion">
+              <div class="col-12 col-lg-11" id="container_actuacion_head">
+            
+
+
+                <div class="container_actuacion_head">
+                  
+                
+                  <!--primera-fila-->
+                  <div class="row">
+                    <div class="d-flex flex-row align-items-center">
+
+                    <button class='Allshow_performance' >
+                    <img src="./img/svg/up_doc_list.svg" id="show_performance" style="margin-right:12px" />
+                    </button>
+                    <div id="stages" class="stages" data-id="${doc.id}">${doc.data().Etapa}
+                    </div>
+
+                    </div>
+                  </div>
+                  
+                  <!--segunda-fila-->
+                  <div class=" d-flex  flex-row  justify-content-center" >
+                      
+                      <!--trae datos de crear actuacion-->
+                      <div class="col-12 col-lg-3"   id="container_adicional_information_actuacion" style="margin-left:55px">
+                        <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;">ACTUACIÓN</p>
+                        <div id="actuacion_tipo"  style="margin-left:0px;"><span>Tipo:${doc.data().Tipo}</span></div>
+                      </div>
+                        <!--descripcion-->
+                      <div class="col-12 col-lg-5"   >
+                        <div id="descripcion_actuacion_get" style="margin-left:50px">
+                          <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:11px;">Descripción</p>
+                          <p style= "font-size:12px;font-weight: 600;" id="input_setDescripcion_actuacion"  >${doc.data().Descripcion}</p>
+                        </div>
+                        <div id="descripcion_actuacion_edit" class="ocultar" style="margin-left:50px">
+                              <div class="title-description d-flex">
+                                  <p class="text-blue-opacity" id="title_descripcion_actuacion" >Descripción</p>
+
+                                  <img
+                                    id="btnEditComment_actuacion"
+                                    src="./img/svg/edit actuacion descripcion.svg"
+                                    class="btnEditComment_actuacion"
+                                    alt="icon edit"
+                                  />
+                                  <img
+                                    id="btnSaveComment_actuacion"
+                                    src="./img/svg/save_actuacion.svg"
+                                    class="btnSaveComment hide"
+                                    alt="icon edit"
+                                  />
+                                </div>
+                                <p id="pComment_actuacion" class="ptxt-comment">
+                                Si deseas escribir algo puntal sobre la actuación puedes hacerlo <strong >aquí</strong>.Recuerda que puedes edicarlo en cualquier momento haciendo click en el lápiz.
+                                </p>
+                                <div id="textareaContainer_actuacion" class="textarea-container hide">
+                                  <textarea
+                                    name="txtComment"
+                                    id="txtComment_actuacion"
+                                    placeholder="Escribir aquí..."
+                                    cols=""
+                                    rows=""
+                                
+                                    class="txt-comment_actuacion hide"
+                                    disabled
+                                  ></textarea>
+                                  <p id="countComment_actuacion"  class="hide">(Máximo 200 caracteres)</p>
+                              </div>
+                        </div>
+                      </div>
+                    
+                        <!--funcionario-->
+                      <div class="col-12 col-lg-4"  id="container_adicional_information_actuacion">
+                          <div class="d-flex justify-content-end align-items-center ">
+                                    <img class="img_tipoResolution" src="./img/svg/user check.svg" alt="" />
+                                    <div class="d-flex flex-column  align-items-center" style="margin-right:10px;">
+                                        <p class="text_Resolution" style="margin-right:25px;">${doc.data().Funcionario}</p>
+                                        <p class="text_tipoResolution_fila"  style="margin-bottom:0px;padding-right:35px">Funcionario (a)</p>
+                                    </div>
+                          </div>
+                      </div>
+                      
+                  </div>
+            
+                <!--tercera-fila-->
+                  <div class="d-flex  flex-row align-items-center justify-content-center" id="container_3Line_actuacion" >
+                <!--archivos subidos-->
+                          <div class="col-12 col-lg-4">
+                            <div class="d-flex flex-row align-items-center" style="border-left:none;margin-left:5px;" id="container_adicional_information_actuacion">
+                                <img  id="mostrarCli1" src="./img/svg/cli.svg" alt="" />
+                                <div class="d-flex flex-column">
+                                  <p class="text_tipoResolution_actuacion_principal" style="margin-bottom:0px;margin-top:5px;font-size: 9px;">PRINCIPAL</p>
+                                  <div class="d-flex flex-row align-items-center justify-content-center ">
+                                  <p id="txt_carga">Cargar documento</p>
+                                    <label for="file-uploadActuacion" style="margin-left:0px;" id="subir1" >
+                                    <img  src="./img/svg/carga.svg" alt="" />
+                                      </label> 
+                                      <input id="file-uploadActuacion" class="file-uploadActuacion" type="file" style='display: none;'/> 
+                                      <div id="infoActuacion" data-id="${doc.id}"></div>
+                                      <div>
+                                    
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+
+                            <div class="col-12 col-lg-8 ">
+                              <div class="d-flex flex-row ">
+                  <!--nombre de usuario-->
+                              <div class="ocultar" id="usuario1">
+                                <div class="d-flex flex-row justify-content-center   align-items-center " id="container_adicional_information_actuacion" style="margin-top:4px;margin-right:18px;">
+                                    <img class="img_tipoResolution" src="./img/svg/avatar.svg" alt="" />
+                                    <div class="d-flex flex-column">
+                                    <p class="text_Resolution">Subido por Alonso</p>
+                                      <p class="text_tipoResolution_fila">${localStorage.getItem(
+                                        "fechaActual"
+                                      )}</p>
+                                    </div>
+                                </div>
+                              </div>
+                  <!--tareas-->
+                              <div class="ocultar" id="conTareas1" >
+                                <div class="d-flex flex-row justify-content-center" style="border-left:none;margin-right:15px;" id="container_adicional_information_actuacion">
+                                    <img class="img_tipoResolution_actuacion" src="./img/svg/list.svg" alt="" />
+                                    <div class="d-flex flex-column" style="margin-top:5px;">
+                                        <p class="text_Resolution">0 Tareas</p>
+                                        <p class="text_tipoResolution_fila1">0 completadas</p>
+                                    </div>
+                                </div>
+                              </div>  
+                  <!--Sin tareas -->
+                              <div id="Sintareas1" >
+                                <div class="d-flex flex-row justify-content-center  align-items-center " style="border-left:none;" id="container_adicional_information_actuacion">
+                                    <img class="img_tipoResolution_sinDoc" src="./img/svg/noList.svg" alt="" />
+                                      <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin tareas</p>
+                                </div>
+                              </div> 
+                            
+                  <!--Documentos--> 
+                            <div class="ocultar" id="conDocumentos1">         
+                              <div class="d-flex flex-row justify-content-center  " style="border-left:none;" id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution_actuacion" src="./img/svg/file text.svg" alt="" />
+                                  <div class="d-flex flex-column"  style="margin-top:5px;">
+                                      <p class="text_Resolution">1 Documentos</p>
+                                      <p class="text_tipoResolution_fila1">De tareas</p>
+                                  </div>
+                              </div>
+                            </div>
+
+                  <!--Sin Documentos--> 
+                            <div id="Sindocumentos1" >
+                              <div class="d-flex flex-row  " style="border-left:none;" id="container_adicional_information_actuacion">
+                                  <img class="img_tipoResolution_sinDoc" src="./img/svg/noDoc.svg" alt="" />
+                                    <p class="text_tipoResolution_fila2"  style="margin-bottom:0px;">Aún sin documentos</p>
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                </div>
+
+                </div>
+                <!--Tareas de la actuación --> 
+                <div class="container_task">
+                    <!-- TABLA -->
+                    <div class="createTask d-flex">
+                        <div id="container_table" class="container-table" style="margin-top:40px;"> 
+                        <table class="table table-hover table-createTask">
+                          <thead id="table-head" class="hidde">
+                            <tr class="thTable-createTask">
+                              <th scope="col">Tareas</th>
+                              <th scope="col">Documentos</th>
+                              <th scope="col">Equipo</th>
+                              <th scope="col">Registrado</th>
+                              <th scope="col">Vencimiento</th>
+                              <th scope="col">Estado</th>
+                            </tr>
+                          </thead>
+
+                          <tbody id="tableTask">
+
+                          </tbody>
+                        </table>
+
+
+
+                        </div>
+                        <div class="container-btnCreateTask d-flex">
+                            <button
+                              id="showModal_taskform"
+                              type="button"
+                              class="d-flex"
+                              data-bs-toggle="modal"
+                              data-bs-target="#newTaskModal"
+                              data-bs-whatever="@mdo">
+                                  <p>Crear tarea</p>
+                                  <img src="./img/svg/+_red.svg" class="" alt="agregar" />
+                              </button>
+                          </div>
+                    </div>
+                </div>
+
+
+              </div>
+            </div>
+            </div>
+          </div>
+        `;
+
+        
+      const  container = document.querySelector('.circle-lineTime')
+      container.style.border = "5px solid #FFB000";
+        //Mostrar y ocultar documentos de Actuaciones
+        
+
+        const collapse_performance = viewHome.querySelector('#collapse_performance');
+        const show_performance = viewHome.querySelector('#show_performance');
+        const bar_main_actuacion = viewHome.querySelector('#bar_main_actuacion');
+       const bar_full_actuacion = viewHome.querySelector('#bar_full_actuacion');
+       bar_full_actuacion.classList.remove('hidde')
+       bar_main_actuacion.classList.add('hidde')
+        const Allshow_performance = tableActuacion.querySelector('#show_performance');
+        // Allshow_performance.forEach((actuacion) => {
+          // console.log('suprime')
+          Allshow_performance .addEventListener('click' , () => {
+          collapse_performance.classList.remove('hidde'),
+          show_performance.classList.add('hidde')
+          bar_full_actuacion.classList.add('hidde')
+          bar_main_actuacion.classList.remove('hidde')
+        });
+      // });
+ 
+      const Allcollapse_performance = tableActuacion.querySelector('#collapse_performance');
+      // Allshow_performance.forEach((actuacion) => {
+        // console.log('suprime')
+        Allcollapse_performance .addEventListener('click' , () => {
+        collapse_performance.classList.add('hidde'),
+        show_performance.classList.remove('hidde')
+        bar_full_actuacion.classList.remove('hidde')
+        bar_main_actuacion.classList.add('hidde')
+      });
+
+    
+    // collapse_performance.addEventListener('click' , () => {
+     
+    // });
+
+       //subir datoss al storage
+const txt_carga1 =  tableActuacion.querySelector("#txt_carga");
+const conDocumentos1 =   tableActuacion.querySelector("#conDocumentos1");
+const conTareas1 =   tableActuacion.querySelector("#conTareas1");
+const usuario1 =  tableActuacion.querySelector("#usuario1");
+const Sintareas1 =  tableActuacion.querySelector("#Sintareas1");
+const Sindocumentos1 =  tableActuacion.querySelector("#Sindocumentos1");
+
+const cli1 =  tableActuacion.querySelector("#mostrarCli1");
+
+const subir1 =  tableActuacion.querySelector("#subir1");
+
+const file_uploadActuacion =  tableActuacion.querySelector(".file-uploadActuacion");
+// file_uploadActuacion.forEach((actuacion) => {
+  file_uploadActuacion.addEventListener("change", ()=> {
+ console.log('jum')
+  subir1.classList.add("ocultar");
+  txt_carga1.classList.add("ocultar");
+  conDocumentos1.classList.remove("ocultar");
+  conTareas1.classList.remove("ocultar");
+  usuario1.classList.remove("ocultar");
+  Sintareas1.classList.add("ocultar");
+  Sindocumentos1.classList.add("ocultar");
+  cli1.classList.remove("ocultar");
+  const pdrs =  document.getElementById('file-uploadActuacion').files[0].name;
+  document.getElementById('infoActuacion').innerHTML = pdrs
+  
+          firebase
+            .firestore()
+            .collection("addActuacion")
+            .doc(doc.id)
+            .update({
+              // nameFile: nDocs,
+              File:pdrs ,
+            });     
+  
+ });
+// });
+
+const ficheroActuacion = viewHome.querySelector(".file-uploadActuacion");
+          ficheroActuacion.addEventListener("change", sendDocFirebase, false);
+
+          const storageRefActuacion = firebase.storage().ref();
+          const rootRefActuacion = firebase.database().ref().child("docActuacion");
+
+          function sendDocFirebase() {
+            console.log("subiendo");
+            const documentoSubirActuacion = ficheroActuacion.files[0];
+            console.log(documentoSubirActuacion);
+            const uploadActuacion = storageRefActuacion
+              .child("docTask/" + documentoSubirActuacion.name)
+              .put(documentoSubirActuacion);
+
+            uploadActuacion.on(
+              "state_changed",
+              function (snapshot) {},
+              function (error) {
+                console.log("hubo un error");
+              },
+              function () {
+                uploadActuacion.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    // alert("se subió la imagen conURL", downloadURL);
+                    console.log("Uploaded a blob or file!");
+                    crearNodoEnBDFirebaseTask(
+                      documentoSubirActuacion.name,
+                      downloadURL,
+                      doc.id
+
+                    );
+                  });
+              }
+            );
+          }
+
+
+          function crearNodoEnBDFirebaseTask(name, url, id) {
+            rootRefActuacion.push({
+              nombre: name,
+              url: url,
+              id: id,
+
+            });
+          }
+ //****************** CONTENEDOR DE TAREAS ********************//
   //******* Fecha actual - input date *******/
   const dateNew = new Date();
   const yearNow = dateNew.getFullYear();
@@ -2352,9 +2694,13 @@ export default () => {
             </tr>
         `;
 
-        /////////// Mostrar lista de tareas en documentos  */
-        const mostrar_cards_tareas = () => {
-          //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+
+
+
+/////////// Mostrar lista de tareas en documentos  */
+const mostrar_cards_tareas = () => {
+  //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
+
 
           // const expirationDate = viewHome.querySelector("#inputDate2").value;
           const container_principal_tarea =
@@ -2401,63 +2747,173 @@ export default () => {
     </label>
     <div class="d-flex flex-column ">
 
-    <div class="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;" data-id="${
-      doc.id
-    }">${doc.data().files}</div>
-    <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
+
+    <div class="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;" data-id="${doc.id}">${doc.data().files}</div>
+    <p id="date_documentos" style="width: 73px;height: 21px;">27/05/21</p>
     </div>
     <img  src="./img/svg/up_mostrar_doc_tareas.svg" id="arrows" class="ocultar" alt="" />  
 </div>
 
 </div>
-  `;
-                const click_show_doc = viewHome.querySelectorAll(".file_tarea");
+  `; 
+    
 
-                click_show_doc.forEach((tarea) => {
-                  const color_fondo_list_tarea = viewHome.querySelector(
-                    "#container_tar_princial"
-                  );
-                  const container_doc_principal = viewHome.querySelector(
-                    "#container_doc_princial"
-                  );
-                  const arrows = viewHome.querySelector("#arrows");
-                  const arrows_doc = viewHome.querySelector("#arrows_doc");
-                  tarea.addEventListener("click", (e) => {
-                    // arrows.classList.remove('ocultar');
-                    arrows_doc.classList.add("ocultar");
 
-                    // color_fondo_list_tarea.style.background = "rgba(150, 156, 186, 0.2)";
-                    container_doc_principal.style.background = "white";
+  link_documentos.addEventListener("click", () => {
+    mainDatos.classList.add("ocultar");
+    mainActuaciones.classList.add("ocultar");
+    mainDocumentos.classList.remove("ocultar");
 
-                    console.log(e.target.dataset.id);
-                    const idDocTareas = e.target.dataset.id;
-                    e.preventDefault();
-                    rootRefTask.on("value", function (snapshot) {
-                      var datos = snapshot.val();
-                      console.log(datos);
-                      var result = "";
-                      for (var key in datos) {
-                        // console.log(datos[key].url);
-                        // console.log(datos[key].id);
+    rootRef.on("value", function (snapshot) {
+      var datos = snapshot.val();
+      var results = "";
+      for (var key in datos) {
+        console.log(datos[key].nombre);
 
-                        if (idDocTareas === datos[key].id) {
-                          // console.log("si  es el ID");
+        results +=
+          '<div  class="name_info_down">' + datos[key].nombre + "</div>";
 
-                          result +=
-                            '<iframe  class="styleIframe"  src="' +
-                            datos[key].url +
-                            '"></iframe>';
-                        } else {
-                          // console.log("diferente id");
-                        }
-                      }
-                      document.getElementById("verFiles").innerHTML = result;
-                    });
-                  });
-                });
-              });
-            });
-        };
+      }
+     
+
+      
+      document.getElementById("name_info").innerHTML = results;
+      const click_show_doc = document.getElementById("name_info");
+      click_show_doc.addEventListener("click", () => {
+        rootRef.on("value", function (snapshot) {
+          var datos = snapshot.val();
+          var result = "";
+          for (var key in datos) {
+            console.log(datos[key].url);
+
+            result +=
+              '<iframe  class="styleIframe"  src="' +
+              datos[key].url +
+              '"></iframe>';
+          }
+          document.getElementById("verFiles").innerHTML = result;
+        });
+      });
+        const cambiarFond = viewHome.querySelector('.name_info_down')
+  
+    });
+  
+  });
+
+  
+  // window.onload = inicializar;
+  var fichero;
+  var storageRef;
+
+  // function inicializar() {
+  fichero = viewHome.querySelector("#file-upload");
+  fichero.addEventListener("change", subirDocAFirebase, false);
+  storageRef = firebase.storage().ref();
+  var rootRef = firebase.database().ref().child("documentos");
+
+  function subirDocAFirebase() {
+    //     console.log("subiendo")
+
+    const documentoSubir = fichero.files[0];
+    console.log(documentoSubir);
+    const uploadTask = storageRef
+      .child("documentos/" + documentoSubir.name)
+      .put(documentoSubir);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      "state_changed",
+      function (snapshot) {
+        //  // Observe state change events such as progress, pause, and resume
+        // console.log("subido");
+      },
+      function (error) {
+        console.log("hubo un error");
+        // Handle unsuccessful uploads
+      },
+      function () {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          // alert("se subió la imagen conURL", downloadURL);
+          console.log("Uploaded a blob or file!");
+          crearNodoEnBDFirebase(documentoSubir.name, downloadURL);
+        });
+      }
+    );
+  }
+
+  function crearNodoEnBDFirebase(name, url) {
+    rootRef.push({
+      nombre: name,
+      url: url,
+    });
+  }
+  const click_show_doc = viewHome.querySelectorAll(".file_tarea");
+
+ 
+      click_show_doc.forEach((tarea) => {
+
+    const color_fondo_list_tarea = viewHome.querySelector("#container_tar_princial"); 
+    const container_doc_principal = viewHome.querySelector('#container_doc_princial');
+    const arrows = viewHome.querySelector("#arrows"); 
+    const arrows_doc = viewHome.querySelector("#arrows_doc");
+      tarea.addEventListener("click", (e) => {
+
+        
+             
+        // arrows.classList.remove('ocultar');
+        arrows_doc.classList.add('ocultar'); 
+      
+
+        // color_fondo_list_tarea.style.background = "rgba(150, 156, 186, 0.2)";
+           container_doc_principal.style.background = "white";
+         
+       
+        console.log(e.target.dataset.id);
+        const idDocTareas = e.target.dataset.id;
+        e.preventDefault();
+        rootRefTask.on("value", function (snapshot) {
+      
+          var datos = snapshot.val();
+          console.log(datos)
+          var result = "";
+          for (var key in datos) {
+            // console.log(datos[key].url);
+            // console.log(datos[key].id);
+           
+            if ( idDocTareas ===  datos[key].id) {
+
+              // console.log("si  es el ID");
+
+              result +=
+                '<iframe  class="styleIframe"  src="' +
+                datos[key].url +
+                '"></iframe>';
+
+            } 
+            else {
+              // console.log("diferente id");
+
+            }
+          }
+          document.getElementById("verFiles").innerHTML = result;
+        });
+      });
+    });
+
+      });  
+    
+      
+  
+    });
+
+};
+
+
 
         // const tStatuss = tableTask.querySelectorAll(".tStatus");
         // tStatuss.forEach(() => {
@@ -2485,12 +2941,7 @@ export default () => {
               // console.log("ID del check???", check.id);
 
               completedTask(e.target.dataset.id);
-              // fRegister.classList.add("txt-tach");
-              // fVenci.classList.add("txt-tach");
-              // tStatus.classList.add("txt-green");
-              // // tStatus.classList.add("tStatus");
-              // tStatus.classList.remove("tStatusPendiente");
-              // tStatus.classList.add("tStatusFinalizado");
+            
             } else {
               console.log("SIN check??");
               pendingTask(e.target.dataset.id);
@@ -2574,447 +3025,36 @@ export default () => {
       });
     });
 
-  const createHomework = () => {
-    tableHead.classList.remove("hidde");
-  };
 
-  // const createHomework = () => {
-  // tableHead.classList.remove("hidde")
+      const createHomework = () => {
+        tableHead.classList.remove("hidde")
+      }
+  
+   
+    //*******Validando campos del formulario********//
+    const homeworkValidInputs = () => {
+      const inputDenominacion = viewHome.querySelector("#inputText1");
+      const dateVencimiento = viewHome.querySelector("#inputDate2");
+      const inputDestinatario = viewHome.querySelector("#inputText3");
+      const inputCorreo = viewHome.querySelector("#inputText4");
+      const textareaModal = viewHome.querySelector("#textareaModal");
+   
+      if (
+        inputDenominacion.value === "" ||
+        inputDestinatario.value === "" ||
+        inputCorreo.value === "" ||
+        textareaModal.value === ""
+      ) {
+        console.log("campos vacios");
+        btnCreateHomework.classList.add("btnDisabled");
+        btnCreateHomework.disabled = true;
+      } else {
+        console.log("campos llenos");
+        btnCreateHomework.classList.remove("btnDisabled");
+        btnCreateHomework.disabled = false;
+      }
+ 
 
-  //  const expirationDate = viewHome.querySelector("#inputDate2").value;
-  //  localStorage.setItem("dateVencimiento", inputDate2.value);
-
-  // const containerTable = viewHome.querySelector("#container_table");
-  // const nameTask = viewHome.querySelector("#inputText1").value;
-  // localStorage.setItem("denomicacion", nameTask);
-
-  // const container_principal_tarea = viewHome.querySelector("#container_principal_tarea");
-  // const nameTask = viewHome.querySelector("#inputText1").value;
-
-  // console.log(nameTask)
-  // console.log(expirationDate)
-
-  //     containerTable.innerHTML = `
-  //     <table class="table table-hover table-createTask">
-  //       <thead>
-  //         <tr class="thTable-createTask">
-  //           <th scope="col">Tareas</th>
-  //           <th scope="col">Documentos</th>
-  //           <th scope="col">Equipo</th>
-  //           <th scope="col">Registrado</th>
-  //           <th scope="col">Vencimiento</th>
-  //           <th scope="col">Estado</th>
-  //         </tr>
-  //       </thead>
-
-  //       <tbody id="tableTask">
-
-  //       </tbody>
-  //     </table>
-  //  `;
-
-  // // firestore - actualizar
-  // const completedTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
-  //   status: 'Finalizado',
-  // });
-
-  // const pendingTask = (id) => firebase.firestore().collection('tasks').doc(id).update({
-  //   status: 'Pendiente',
-  // });
-
-  // const tableTask = viewHome.querySelector("#tableTask");
-
-  // firebase
-  //   .firestore()
-  //   .collection("tasks")
-  //   .orderBy("date", "desc")
-  //   .onSnapshot((querySnapshot) => {
-  //     tableTask.innerHTML = "";
-  //     querySnapshot.forEach((doc) => {
-  //       const taskId = doc.id;
-  //       tableTask.innerHTML += `
-  //         <tr class="tdTable-createTask">
-  //           <td class="chek-label td-name-task">
-  //           <input type="checkbox" id="cboxStatus${doc.id}" value="primary_checkbox" class="check-status" data-id="${doc.id}">
-  //           <label for="cboxStatus${doc.id}" class="">${doc.data().taskName}</label>
-  //           </td>
-
-  //           <td>
-  //           <span class="docCount">${doc.data().files.length}</span>
-
-  //             <label for="file-uploadTask" id="subirTask" >
-  //               <img  src="./img/svg/clip.svg" class="img-clip" alt="adjunto" />
-  //             </label>
-  //             <input id="file-uploadTask" onchange='' type="file" style='display: none;'/>
-  //             <div id="infoTask">${doc.data().nameFile}</div>
-  //           </td>
-
-  //           <td class="tdCircle-blue">
-  //             <img src="./img/svg/circle_blue.svg" alt="iniciales" class="img-circle-blue" />
-  //             <span>${doc.data().initials}</span>
-  //           </td>
-  //           <td id="fRegister">${doc.data().date}</td>
-  //           <td id="fVenci"><strong>${doc.data().expiration}</strong></td>
-  //           <td id="tStatus" data-id="${doc.id}">${doc.data().status}</td>
-  //         </tr>
-  //     `;
-
-  //     const checkStatus = tableTask.querySelectorAll(".check-status");
-  //     const fRegister = tableTask.querySelector("#fRegister");
-  //     const fVenci = tableTask.querySelector("#fVenci");
-  //     const tStatus = tableTask.querySelector("#tStatus");
-
-  //     checkStatus.forEach((check) => {
-  //       check.addEventListener("change", (e) => {
-  //         e.preventDefault;
-  //         console.log(e.target.dataset.id);
-  //         if (check.checked) {
-  //           console.log("CON check??");
-  //           completedTask(e.target.dataset.id);
-  //           fRegister.classList.add("txt-tach");
-  //           fVenci.classList.add("txt-tach");
-  //           tStatus.classList.add("txt-green");
-  //         } else {
-  //           console.log("SIN check??");
-  //           pendingTask(e.target.dataset.id);
-  //           fRegister.classList.remove("txt-tach");
-  //           fVenci.classList.remove("txt-tach");
-  //           tStatus.classList.remove("txt-green");
-  //         }
-  //       });
-  //     });
-
-  // //*****************Cargar de archivos a firebase
-  // let file = "";
-  // let urlFile = "";
-
-  // const file_uploadTask = viewHome.querySelector("#file-uploadTask");
-
-  // file_uploadTask.addEventListener("change", (e) => {
-  //   console.log("cliqueaste");
-  //   const input = e.target;
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     const dataURL = reader.result;
-  //     urlFile = dataURL;
-  //     console.log("🤔 urlFile", urlFile);
-
-  //   };
-
-  //   reader.readAsDataURL(input.files[0]);
-  //   file = e.target.files[0];
-  //   console.log("🙄file", file);
-
-  //   // Array temporal
-  //   let arry=[]
-  //   arry.push(file.name);
-  //   console.log(arry);
-
-  //   firebase.firestore().collection('tasks').doc(doc.id).update({
-  //     nameFile: file.name,
-  //     files: arry,
-  //   });
-
-  //   console.log("nombre de archivo", file.name);
-  //   console.log("Id de tarea", `${doc.id}`);
-  // });
-
-  // const uploadFileTask = () => {
-  //   const refStorage =  firebase.storage().ref(`filesTask/${doc.id}/${file.name}`);
-  //   refStorage.put(file);
-  // }
-
-  // //******* subir documentos de Tareas a Storage *******/
-  // //  const subirTask = viewHome.querySelector("#subirTask");
-  // const file_uploadTask = viewHome.querySelector('#file-uploadTask');
-
-  // file_uploadTask.addEventListener("change", () => {
-  //   const nDocs =
-  //     document.getElementById(`file-uploadTask`).files[0].name;
-
-  //   // document.getElementById(`infoTask`).innerHTML = nDocs;
-  //   // const mostrarDoc = document.getElementById("info");
-
-  //   firebase
-  //     .firestore()
-  //     .collection("tasks")
-  //     .doc(doc.id)
-  //     .update({
-  //       // nameFile: nDocs,
-  //       files: [nDocs],
-  //     });
-  // });
-
-  // const ficheroTask = viewHome.querySelector(`#file-uploadTask`);
-  // ficheroTask.addEventListener("change", sendDocFirebase, false);
-
-  // const storageRefTask = firebase.storage().ref();
-  // const rootRefTask = firebase.database().ref().child("docTask");
-
-  // function sendDocFirebase() {
-  //   console.log("subiendo");
-  //   const documentoSubirTask = ficheroTask.files[0];
-  //   console.log(documentoSubirTask);
-  //   const uploadTasks = storageRefTask
-  //     .child("docTask/" + documentoSubirTask.name)
-  //     .put(documentoSubirTask);
-
-  //   uploadTasks.on(
-  //     "state_changed",
-  //     function (snapshot) {},
-  //     function (error) {
-  //       console.log("hubo un error");
-  //     },
-  //     function () {
-  //       uploadTasks.snapshot.ref
-  //         .getDownloadURL()
-  //         .then(function (downloadURL) {
-  //           // alert("se subió la imagen conURL", downloadURL);
-  //           console.log("Uploaded a blob or file!");
-  //           crearNodoEnBDFirebaseTask(
-  //             documentoSubirTask.name,
-  //             downloadURL,
-  //             doc.id
-
-  //           );
-  //         });
-  //     }
-  //   );
-  // }
-
-  // function crearNodoEnBDFirebaseTask(name, url, id) {
-  //   rootRefTask.push({
-  //     nombre: name,
-  //     url: url,
-  //     id: id,
-
-  //   });
-  // }
-  //EMPIEZA MOSTRARA TAREA
-  // mostrar_tareas.addEventListener('click',() =>{
-  //   tareas_ver.classList.remove("ocultar");
-  //   mostrar_tareas.classList.add("ocultar");
-  //   here_tareas.classList.remove("ocultar");
-  //   informationDoc_ocultar.classList.add("ocultarDoc");
-
-  //   const rootRefTask = firebase.database().ref().child("docTask");
-
-  //   rootRefTask.on('value', function(snapshot){
-  //     var datos = snapshot.val();
-  //     var results = ""
-  //     for(var key in datos){
-
-  //       console.log(datos[key].nombre)
-
-  //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
-
-  //     }
-  //     document.getElementById("file_tarea").innerHTML= results;
-
-  //     // const cambiarFond = viewHome.querySelector('#file_tarea')
-  //     // cambiarFond.addEventListener('click', () => {
-  //     //   console.log('aqui')
-  //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-  //     // });
-
-  // });
-
-  // const click_show_doc = document.getElementById("file_tarea");
-  // click_show_doc.addEventListener("click", () => {
-
-  //     rootRefTask.on("value", function (snapshot) {
-  //       var datos = snapshot.val();
-  //       var result = "";
-  //       for (var key in datos) {
-  //         console.log(datos[key].url);
-  //         console.log(datos[key].id);
-
-  //         if(datos[key].id === doc.id){
-  //           result +=
-  //           '<iframe  class="styleIframe"  src="' +
-  //           datos[key].url +
-  //           '"></iframe>';
-  //         }else{
-  //           console.log('diferente id')
-  //         }
-  //       }
-  //       document.getElementById("verFiles").innerHTML = result;
-  //     });
-  // });
-  // });
-
-  //TERMINA MOSTRAR TAREA
-
-  //   mostrar_tareas.addEventListener('click',() =>{
-
-  //       //CREAR LISTA DE TAREAS EN VISTA DOCUMENTOS
-
-  //   // const expirationDate = viewHome.querySelector("#inputDate2").value;
-  //   const container_principal_tarea = viewHome.querySelector("#prueba_tareas");
-  //   firebase.firestore()
-  //   .collection("tasks").onSnapshot((querySnapshot) => {
-  //   container_principal_tarea.innerHTML='';
-
-  //   querySnapshot.forEach((doc) => {
-  //     // console.log(doc.data())
-
-  //   // console.log(doc.data())
-  //   //  console.log(`${doc.id} => ${doc.data().name}`);
-  //   container_principal_tarea.innerHTML += `
-
-  //   <div id="style_generalContainer_principal" class="style_generalContainer_principal">
-
-  //   <div  id="container_principal_tarea">
-  //   <div style="width: 231px;height: 21px;">
-  //   <p class="styles_principal"><strong>Tarea 1 </strong></p>
-  //   <p class="styles_principal">${doc.data().taskName}</p>
-  // </div>
-
-  // <div style="width: 61px;height: 21px;">
-  //   <p class="styles_principal" style='color:#D70025'><strong>Vence:</strong></p>
-  //   <p id="date_documentos" style='color:#D70025'>${doc.data().expiration}</p>
-  // </div>
-  //   </div>
-
-  //   <div class="d-flex flex-row align-items-center " id="container_doc_princial">
-  //   <p style="margin-left:24px;
-  //     font-family: Raleway;
-  //     font-style: normal;
-  //     font-weight: 600;
-  //     font-size: 12px;
-  //     line-height: 14px;
-  //    margin-right:12px;
-  //     color: #0F3041;" >01.</p>
-  //     <label for="file-upload"  style="margin-left:0px;">
-  //     <img  src="./img/svg/clicdoc.svg" alt="" />
-  //       </label>
-  //       <div class="d-flex flex-column ">
-  //       <div id="file_tarea" style="width: 183.58px;height: 15px;margin-top:15px;">${doc.data().files}</div>
-  //       <p id="date_documentos" style="width: 73px;height: 21px;">30/04/21</p>
-  //       </div>
-  //   </div>
-
-  //   </div>
-  //     ` ;
-
-  //   //   const nameClick = viewHome.querySelector('#file_tarea');
-  //   //   nameClick.addEventListener('click', (e) => {
-  //   //     e.preventDefault();
-  //   //     console.log('funciona please')
-  //   //     firebase.firestore()
-  //   // .collection("tasks").onSnapshot((querySnapshot) => {
-  //   //   document.getElementById("verFiles").innerHTML='';
-  //   // querySnapshot.forEach((doc) => {
-  //   //     console.log(`${doc.data().file}`)
-  //   //     document.getElementById("verFiles").innerHTML +=`
-  //   //      <iframe  class="styleIframe"  src="${doc.data().files}"></iframe>
-  //   //             `;
-  //   //           })
-  //   //         })
-  //   //       })
-
-  //         //******************* */
-  //       //   const rootRefTask = firebase.database().ref().child("docTask");
-
-  //       //   rootRefTask.on('value', function(snapshot){
-  //       //     var datos = snapshot.val();
-  //       //     var results = ""
-  //       //     for(var key in datos){
-
-  //       //       console.log(datos[key].nombre)
-
-  //       //       results +=  '<div  class="name_info_down1">'+datos[key].nombre+'</div>';
-
-  //       //     }
-  //       //     document.getElementById("file_tarea").innerHTML= results;
-
-  //       //     // const cambiarFond = viewHome.querySelector('#file_tarea')
-  //       //     // cambiarFond.addEventListener('click', () => {
-  //       //     //   console.log('aqui')
-  //       //     //   viewHome.querySelector("#doc_select").style.background = 'rgba(150, 156, 186, 0.2)'
-  //       //     // });
-
-  //       // });
-
-  //     });
-
-  //     const click_show_doc = document.getElementById("file_tarea");
-  //     click_show_doc.addEventListener("click", () => {
-
-  //         rootRefTask.on("value", function (snapshot) {
-  //           var datos = snapshot.val();
-  //           var result = "";
-  //           for (var key in datos) {
-  //             console.log(datos[key].url);
-  //             console.log(datos[key].id);
-
-  //             if(datos[key].id === doc.id){
-
-  //               console.log('si  es el ID')
-  //               result +=
-  //               '<iframe  class="styleIframe"  src="' +
-  //               datos[key].url +
-  //               '"></iframe>';
-  //             }else{
-  //               console.log('diferente id')
-  //               result +=
-  //               '<iframe  class="styleIframe"  src=""></iframe>';
-  //             }
-  //           }
-  //           document.getElementById("verFiles").innerHTML = result;
-  //         });
-  //     });
-  //     });
-  // });
-
-  //TERMINA OTRA MOSTRAS TAREA
-  // });
-
-  // const toggle = viewHome.querySelector("#cbox1");
-  // const txtStatus = viewHome.querySelector("#txt-status");
-
-  // toggle.addEventListener("change", function () {
-  //   txtStatus.style.color = this.checked
-  //     ? "#31CC53"
-  //     : "#0F3041";
-  //   console.log("VERDE");
-  // });
-
-  // });
-  // };
-
-  //*******Validando campos del formulario********//
-  const homeworkValidInputs = () => {
-    const inputDenominacion = viewHome.querySelector("#inputText1");
-    const dateVencimiento = viewHome.querySelector("#inputDate2");
-    const inputDestinatario = viewHome.querySelector("#inputText3");
-    const inputCorreo = viewHome.querySelector("#inputText4");
-    const textareaModal = viewHome.querySelector("#textareaModal");
-
-    if (
-      inputDenominacion.value === "" ||
-      inputDestinatario.value === "" ||
-      inputCorreo.value === "" ||
-      textareaModal.value === ""
-    ) {
-      console.log("campos vacios");
-      btnCreateHomework.classList.add("btnDisabled");
-      btnCreateHomework.disabled = true;
-    } else {
-      console.log("campos llenos");
-      btnCreateHomework.classList.remove("btnDisabled");
-      btnCreateHomework.disabled = false;
-    }
-
-    // else if (
-    //   inputDenominacion.validity.valid &&
-    //   inputDestinatario.validity.valid &&
-    //   inputCorreo.validity.valid &&
-    //   inputMensaje.validity.valid
-    // ) {
-    //   btnCreateHomework.classList.remove("btnDisabled");
-    //   btnCreateHomework.disabled = false;
-    // }
   };
 
   const inputDenominacion = viewHome.querySelector("#inputText1");
@@ -3095,164 +3135,304 @@ export default () => {
     cleanInputs();
   });
 
-  // });
-  // };
 
-  //  //******* subir documentos de Tareas a Storage *******/
-  //     //  const subirTask = viewHome.querySelector("#subirTask");
-  //     const file_uploadTask = viewHome.querySelector("#file-uploadTask");
+    
 
-  //     file_uploadTask.addEventListener("change", () => {
-  //       const nDocs = document.getElementById("file-uploadTask").files[0].name;
-  //       document.getElementById("infoTask").innerHTML = nDocs;
+    const casoSeleccionado = viewHome.querySelector('#casoSeleccionado');
+    const casoNuevo = viewHome.querySelector('#casoNuevo');
 
-  //     });
+    const flex_container_datos = viewHome.querySelector('#flex-container_datos');
+    const container_actuacionenproceso = viewHome.querySelector('#container_actuacionenproceso');
+    const container_actuacion = viewHome.querySelector('#container_actuacion');
 
-  //     const ficheroTask = viewHome.querySelector("#file-uploadTask");
-  //     ficheroTask.addEventListener("change", sendDocFirebase, false);
+    if(tipo_actuacion != null)
+   {
+    casoSeleccionado.classList.remove('ocultar');
+    casoNuevo.classList.add('ocultar');
+    casoNuevo.classList.add('ocultar');
+    flex_container_datos.classList.remove('ocultar');
+    flex_container_datos.style.display ="flex";
+    container_actuacionenproceso.classList.add('ocultar');
+    container_actuacion.classList.remove('ocultar');
+    // console.log("holis")
+   }else{
+    casoSeleccionado.classList.add('ocultar');
+    casoNuevo.classList.remove('ocultar');
+    flex_container_datos.classList.add('ocultar');
+    container_actuacionenproceso.classList.remove('ocultar');
+    container_actuacion.classList.add('ocultar');
+   };
+        
 
-  //     const storageRefTask = firebase.storage().ref();
-  //     const rootRefTask = firebase.database().ref().child("docTask");
-  //     function sendDocFirebase() {
-  //       //     console.log("subiendo")
-  //       const documentoSubirTask = ficheroTask.files[0];
-  //       console.log(documentoSubirTask);
-  //       const uploadTasks = storageRefTask
-  //         .child("docTask/" + documentoSubirTask.name)
-  //         .put(documentoSubirTask);
-
-  //       uploadTasks.on(
-  //         "state_changed",
-  //         function (snapshot) {},
-  //         function (error) {
-  //           alert("hubo un error");
-  //         },
-  //         function () {
-  //           uploadTasks.snapshot.ref
-  //             .getDownloadURL()
-  //             .then(function (downloadURL) {
-  //               alert("se subió la imagen conURL", downloadURL);
-  //               console.log("Uploaded a blob or file!");
-  //               crearNodoEnBDFirebaseTask(documentoSubirTask.name, downloadURL);
-  //             });
-  //         }
-  //       );
-  //     };
-
-  // function  crearNodoEnBDFirebaseTask(name,url){
-  //   rootRefTask.push({
-  //   nombre:name,
-  //   url:url,
-  // })
-  // }
-  // });
-  // //cambiar logo Sunafil una ver sincronizado
-  // // const cambiarLogo = viewHome.querySelector('#btn_entrar_minimodal_sunafil');
-  // // const sunafilS = viewHome.querySelector('#sunafil');
-  // // const sunafilBlue = viewHome.querySelector('#sunafilBlue');
-  // //     cambiarLogo.addEventListener('click', ()=>{
-  // // sunafilS.classList.add('ocultar');
-  // // sunafilBlue.classList.remove('ocultar');
-  // //     })
-
-  //mostar tareas en documentos
-
-  const mostrar_tareas = viewHome.querySelector("#mostrar_tareas");
-  const tareas_ver = viewHome.querySelector("#tareas_ver");
-  const here_tareas = viewHome.querySelector("#here_tareas");
-  const informationDoc_ocultar = viewHome.querySelector(
-    "#informationDoc_ocultar"
-  );
-
-  here_tareas.addEventListener("click", () => {
-    tareas_ver.classList.add("ocultar");
-    mostrar_tareas.classList.remove("ocultar");
-    here_tareas.classList.add("ocultar");
-    informationDoc_ocultar.classList.remove("ocultarDoc");
-  });
-
-  //subir y traer files para see en documentos
-
-  let stars = viewHome.querySelectorAll(".star");
-  viewHome
-    .querySelector(".star-container")
-    .addEventListener("click", starRating);
-
-  function starRating(e) {
-    const star = e.target;
-    const val = star.getAttribute("data-val");
-
-    stars.forEach((star) => star.classList.remove("star__checked"));
-
-    star.classList.add("star__checked");
-  }
-
-  mostrar_tareas.addEventListener("click", () => {
-    tareas_ver.classList.remove("ocultar");
-    mostrar_tareas.classList.add("ocultar");
-    here_tareas.classList.remove("ocultar");
-    informationDoc_ocultar.classList.add("ocultarDoc");
-  });
-
-  const casoSeleccionado = viewHome.querySelector("#casoSeleccionado");
-  const casoNuevo = viewHome.querySelector("#casoNuevo");
-
-  const flex_container_datos = viewHome.querySelector("#flex-container_datos");
-  const container_actuacionenproceso = viewHome.querySelector(
-    "#container_actuacionenproceso"
-  );
-  const container_actuacion = viewHome.querySelector("#container_actuacion");
-
-  if (tipo_actuacion != "") {
-    casoSeleccionado.classList.remove("ocultar");
-    casoNuevo.classList.add("ocultar");
-    casoNuevo.classList.add("ocultar");
-    flex_container_datos.classList.remove("ocultar");
-    flex_container_datos.style.display = "flex";
-    container_actuacionenproceso.classList.add("ocultar");
-    container_actuacion.classList.remove("ocultar");
-    console.log("holis");
-  } else {
-    casoSeleccionado.classList.add("ocultar");
-    casoNuevo.classList.remove("ocultar");
-    flex_container_datos.classList.add("ocultar");
-    container_actuacionenproceso.classList.remove("ocultar");
-    container_actuacion.classList.add("ocultar");
-  }
-
-  // SUMAR DOCUMENTOS
-
-  var sumaDocumentos = 0;
-  // Sum the count of each shard in the subcollection
-  firebase
-    .firestore()
-    .collection("tasks")
-    .where("files", "!=", [])
-    .get()
-    .then((snapshot) => {
-      let total_count = 1;
-      snapshot.forEach((doc) => {
-        total_count += doc.data().count;
-        console.log(total_count);
-        sumaDocumentos += total_count;
-        console.log(sumaDocumentos);
-        const sumaTotalDocumentos = sumaDocumentos + 1;
-
-        console.log(sumaTotalDocumentos);
-
-        const sumaTotalDocumentosContainer = viewHome.querySelector(
-          "#sumaTotalDocumentos"
-        );
-        const ceroDocumentos = viewHome.querySelector("#ceroDocumentos");
-        sumaTotalDocumentosContainer.classList.remove("ocultar");
-        ceroDocumentos.classList.add("ocultar");
-        sumaTotalDocumentosContainer.innerHTML = `
-      <p class="text_Resolution"  style="font-size: 10px;">${sumaTotalDocumentos}</p>
-      <p class="text_tipoResolution">Documentos</p>`;
-        console.log(sumaTotalDocumentos);
       });
     });
-  //SUMAR PENDIENTES
+
+  //     const createHomework = () => {
+  //       tableHead.classList.remove("hidde")
+  //     }
+  
+  
+
+
+   
+  //   //*******Validando campos del formulario********//
+  //   const homeworkValidInputs = () => {
+  //     const inputDenominacion = viewHome.querySelector("#inputText1");
+  //     const dateVencimiento = viewHome.querySelector("#inputDate2");
+  //     const inputDestinatario = viewHome.querySelector("#inputText3");
+  //     const inputCorreo = viewHome.querySelector("#inputText4");
+  //     const textareaModal = viewHome.querySelector("#textareaModal");
+   
+  //     if (
+  //       inputDenominacion.value === "" ||
+  //       inputDestinatario.value === "" ||
+  //       inputCorreo.value === "" ||
+  //       textareaModal.value === ""
+  //     ) {
+  //       console.log("campos vacios");
+  //       btnCreateHomework.classList.add("btnDisabled");
+  //       btnCreateHomework.disabled = true;
+  //     } else {
+  //       console.log("campos llenos");
+  //       btnCreateHomework.classList.remove("btnDisabled");
+  //       btnCreateHomework.disabled = false;
+  //     }
+   
+   
+  // };
+ 
+  // const inputDenominacion = viewHome.querySelector("#inputText1");
+  // const dateVencimiento = viewHome.querySelector("#inputDate2");
+  // const inputDestinatario = viewHome.querySelector("#inputText3");
+  // const inputCorreo = viewHome.querySelector("#inputText4");
+  // // const textarea5 = viewHome.querySelector("textarea5");
+ 
+  // inputDenominacion.addEventListener("input", homeworkValidInputs);
+  // inputDestinatario.addEventListener("input", homeworkValidInputs);
+  // inputCorreo.addEventListener("input", homeworkValidInputs);
+  // textareaModal.addEventListener("input", homeworkValidInputs);
+ 
+  // //******** Limpia inputs ********/
+  // const cleanInputs = () => {
+  //   inputDenominacion.value = "";
+  //   inputDestinatario.value = "";
+  //   inputCorreo.value = "";
+  //   textarea5.value = "";
+  //   textareaModal.value = "";
+  // };
+ 
+  // const showModalTaskform = viewHome.querySelector("#showModal_taskform");
+ 
+  // //******* botón Crear tarea - abre modal del formulario *******/
+  // showModalTaskform.addEventListener("click", (e) => {
+  //   e.preventDefault;
+  //   // console.log("limpia?");
+  //   cleanInputs();
+  //   btnCreateHomework.classList.add("btnDisabled");
+  //   btnCreateHomework.disabled = true;
+  // });
+ 
+  // //***** botón CREAR TAREA del formulario ******/
+  // btnCreateHomework.addEventListener("click", (e) => {
+  //   e.preventDefault;
+
+  //   // subiendo info de formulario a firebase
+  //   const taskName = inputDenominacion.value;
+  //   const taskDate = currentDate;
+  //   const taskExpiration = dateVencimiento.value;
+  //   const taskReceiver = inputDestinatario.value;
+  //   const taskMail = inputCorreo.value;
+  //   const taskMessages = textarea5.value;
+  //   const count = 0;
+
+  //   // Invertir fecha de expiración d/m/a
+  //   let resFecha = taskExpiration.split("-");
+  //   let reversedFecha = resFecha.reverse();
+  //   let taskExpi = reversedFecha.join("/");
+
+  //   // // Iniciales del destinatario
+  //   let initials = Array.prototype.map.call(taskReceiver.split(" "), function(x){ return x.substring(0,1).toUpperCase();}).join('');
+
+
+  //   const newTask = {
+  //     taskName: taskName,
+  //     date: taskDate,
+  //     expiration: taskExpi,
+  //     receiver: taskReceiver,
+  //     initials: initials,
+  //     mail: taskMail,
+  //     message: taskMessages,
+  //     status: "Pendiente",
+  //     file: "",
+  //     nameFile: "",
+  //     files: [],
+  //     count: count,
+  //   };
+
+  //   firebase.firestore().collection("tasks").add(newTask);
+  //   console.log(newTask);
+
+  //   createHomework();
+  //   cleanInputs();
+
+  // });
+
+  firebase.firestore().collection('addActuacion').where("Etapa","!=","").onSnapshot((querySnapshot)  => {
+    querySnapshot.forEach((doc) => {
+    console.log(doc)
+    const nameStage = doc.data().Etapa
+
+    switch (nameStage){
+      case "Investigación":
+        const nameStage = document.querySelectorAll('.nameStage')
+        nameStage.forEach((stage) => {
+          const nameStage = stage.getAttribute('data-value')
+          console.log(nameStage)
+        
+            if(nameStage == "Investigación"){
+              const stage_number1 = document.querySelector('#stage_number1')
+              stage_number1.style.background = "#466EFE";
+              stage_number1.style.color = "#FFFFFF";
+              stage_number1.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              const stage_number1 = document.querySelector('#stage_number1')
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number1.style.background = "#FFFFFF";
+              stage_number1.style.color = "#969CBA";
+              stage_number1.style.fontWeight = "500";
+            }
+          })
+          break;
+      case "Instrucción":
+        const nameStage2 = document.querySelectorAll('.nameStage')
+        nameStage2.forEach((stage) => {
+          const nameInstruccion = stage.getAttribute('data-value')
+          console.log(nameInstruccion)
+          
+            if(nameInstruccion == "Instrucción"){
+              const stage_number2 = document.querySelector('#stage_number2')
+              stage_number2.style.background = "#466EFE";
+              stage_number2.style.color = "#FFFFFF";
+              stage_number2.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              const stage_number2 = document.querySelector('#stage_number2')
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number2.style.background = "#FFFFFF";
+              stage_number2.style.color = "#969CBA";
+              stage_number2.style.fontWeight = "500";
+            }
+          })
+          break;
+      case "Sancionadora":
+        const nameStage3 = document.querySelectorAll('.nameStage')
+        nameStage3.forEach((stage) => {
+          const nameStage = stage.getAttribute('data-value')
+          console.log(nameStage)
+          const stage_number3 = document.querySelector('#stage_number3')
+            if(nameStage == "Sancionadora"){
+            
+              stage_number3.style.background = "#466EFE";
+              stage_number3.style.color = "#FFFFFF";
+              stage_number3.style.fontWeight = "600";
+              stage.style.background = "#466EFE";
+              stage.style.color = "#FFFFFF";
+              stage.style.fontWeight = "600";
+            }else{
+              stage.style.background = "#FFFFFF";
+              stage.style.color = "#969CBA";
+              stage.style.fontWeight = "500";
+              stage_number3.style.background = "#FFFFFF";
+              stage_number3.style.color = "#969CBA";
+              stage_number3.style.fontWeight = "500";
+            }
+          })
+          break;
+      default:
+         console.log('dfgfdgdfg')
+          break;
+  }
+      
+   
+    // if(nameStage == "Investigación"){
+    // console.log('cambiar estilos')
+    // const nameStage = document.querySelectorAll('.nameStage')
+    //       nameStage.forEach((stage) => {
+    //         const nameStage = stage.getAttribute('data-value')
+    //         console.log(nameStage)
+    //           if(nameStage == "Investigación"){
+    //             stage.style.background = "#466EFE";
+    //             stage.style.color = "#FFFFFF";
+    //             stage.style.fontWeight = "600";
+    //           }else{
+    //             stage.style.background = "#FFFFFF";
+    //             stage.style.color = "#969CBA";
+    //             stage.style.fontWeight = "500";
+    //           }
+    //         })
+             
+    // }else if (nameStage == "Instrucción"){
+    //   const nameStage = document.querySelectorAll('.nameStage')
+    //       nameStage.forEach((stage) => {
+    //         const nameInstruccion = stage.getAttribute('data-value')
+    //         console.log(nameInstruccion)
+    //           if(nameInstruccion == "Instrucción"){
+    //             stage.style.background = "#466EFE";
+    //             stage.style.color = "#FFFFFF";
+    //             stage.style.fontWeight = "600";
+    //           }else{
+    //             stage.style.background = "#FFFFFF";
+    //             stage.style.color = "#969CBA";
+    //             stage.style.fontWeight = "500";
+    //           }
+    //         })
+             
+    //   } else if (nameStage == "Sancionadora"){
+    //     const nameStage = document.querySelectorAll('.nameStage')
+    //     nameStage.forEach((stage) => {
+    //       const nameStage = stage.getAttribute('data-value')
+    //       console.log(nameStage)
+    //         if(nameStage == "Sancionadora"){
+    //           stage.style.background = "#466EFE";
+    //           stage.style.color = "#FFFFFF";
+    //           stage.style.fontWeight = "600";
+    //         }else{
+    //           stage.style.background = "#FFFFFF";
+    //           stage.style.color = "#969CBA";
+    //           stage.style.fontWeight = "500";
+    //         }
+    //       })
+           
+    //   }
+ 
+     })
+     });
+
+     
+    let stars = viewHome.querySelectorAll('.star');
+    viewHome.querySelector('.star-container').addEventListener('click', starRating);
+   
+    
+    function starRating(e) {
+      const star = e.target;
+      const val = star.getAttribute('data-val');
+    
+      stars.forEach((star) => star.classList.remove('star__checked'));
+    
+      star.classList.add('star__checked');
+     
+    }
+ 
+  
 
   var sumaPendiente = 0;
   // Sum the count of each shard in the subcollection

@@ -155,12 +155,15 @@ function validarEmail(correo) {
   var errorMessage = error.message;
   console.log(errorMessage)
   if (errorCode === 'auth/user-not-found') {
-    document.getElementById('mensajeEmail').innerHTML = 'Usuario no registrado';
+    // document.getElementById('mensajeEmail').innerHTML = 'Usuario no registrado';
+    console.log('usuario no resgitrado')
   }else if (errorCode === 'auth/wrong-password') {
-    document.getElementById('mensajePass').innerHTML = 'Usuario no registrado';
+    // document.getElementById('mensajePass').innerHTML = 'Usuario no registrado';
+    console.log('usuario no resgitrado')
   }else{
-    document.getElementById('mensajeEmail').innerHTML = 'Usuario no registrado';
-    document.getElementById('mensajePass').innerHTML = 'Usuario no registrado';
+    // document.getElementById('mensajeEmail').innerHTML = 'Usuario no registrado';
+    // document.getElementById('mensajePass').innerHTML = 'Usuario no registrado';
+    console.log('usuario no resgitrado')
   }
 
   });

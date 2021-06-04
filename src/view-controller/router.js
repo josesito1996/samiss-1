@@ -29,12 +29,18 @@ export const changeTmp = (hash) => {
     case "#/homework":
       container.appendChild(components.homework());
       break;
+
     case "#/viewReport":
       container.appendChild(components.viewReport());
       break;
     case "#/homeCases":
       container.appendChild(components.homeCases());
       break;
+
+      case '#/homeCase':
+        container.appendChild(components.homeCase());
+        break;
+
     default:
       return container.appendChild(components.Different());
   }
