@@ -1,6 +1,6 @@
 export default () => {
     const homeCase = document.createElement('div');
-    homeCase.innerHTML = `
+    homeCase.innerHTML =`
 <div class="wrapper">
     <div class="header">
 

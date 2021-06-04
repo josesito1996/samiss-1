@@ -1533,12 +1533,7 @@ export default () => {
 
   //habilitar y deshabiliat boton entrar modal sunafil
 
-            //pasa al hermano
-              el = el.nextSibling;
-            }
-               this.classList.add("button_change_etapas");
-             };
-           }
+            
 
            //habilitar y deshabiliat boton entrar modal sunafil
 
