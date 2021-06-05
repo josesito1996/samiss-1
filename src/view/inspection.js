@@ -311,7 +311,7 @@ export default () => {
                                 <label for="inputPassword" class="col-12 col-lg-5  col-form-label" style=" margin-left:0px; font-size: 15px;">3. Inspector de
                                     trabajo</label>
 
-                                <input id="caseJobInspector" type="text" class="form-control"  placeholder="Alberto Morán"
+                                <input id="inspectorFuncionario" type="text" class="form-control"  placeholder="Alberto Morán"
 
                                     style="width:355.19px; height:39px;box-shadow: 0 0 0px 25px white inset; border-radius:10px;">
                                 <div class="d-flex column justify-content-end" >
@@ -904,17 +904,17 @@ function drop(event) {
 
       firebase.firestore().collection("cases").add(newCase);
 
-      const cardHomeCase = {
-        inspectionDate: caseInspectionDate,
-        inspectionOrder: caseInspectionOrder,
-        denomination: caseDenomination,
-        tipoNivel: tipoNivel,
-        Tipo:"",
-        Fecha:"",
-        Etapa:"",
-      };
+      // const cardHomeCase = {
+      //   inspectionDate: caseInspectionDate,
+      //   inspectionOrder: caseInspectionOrder,
+      //   denomination: caseDenomination,
+      //   tipoNivel: tipoNivel,
+      //   Tipo:"",
+      //   Fecha:"",
+      //   Etapa:"",
+      // };
 
-      firebase.firestore().collection("cardHomeCase").add(cardHomeCase);
+      // firebase.firestore().collection("cardHomeCase").add(cardHomeCase);
 
       window.location.hash = "#/home"; 
     })
